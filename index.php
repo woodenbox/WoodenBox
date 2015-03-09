@@ -114,7 +114,7 @@
 
 <div style="padding-left:290px;padding-right:270px;">
 
-<div id="table-scroll" style="height:50%;overflow:auto;">
+<div id="table-scroll" style="height:60%;overflow:auto;">
 <table>
 	<thead class="blue-text text lighten-2">
 		<tr>
@@ -155,7 +155,7 @@
 <!--================================eto ung listahan ng other cashflows================================!-->
 <a class="waves-effect waves-light btn-large  green lighten-2" id='buttone'onclick="myFunction()"> Print this page </a>
 
- <div style="height: 1px;width: 180px;position: relative;right: -1300px;top: -580px;">
+ <div style="height: 1px;width: 180px;position: relative;right: -1300px;top: -660px;">
           <ul class="section table-of-contents">
         
 
