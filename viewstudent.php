@@ -87,6 +87,30 @@
 		insertAcademicStatus($connect, $_GET['id'], $grade_level, $quarter, $average);
 		header('Location: viewstudent.php?id='.$_GET['id']);
 	}
+	
+		$getAcademicStat = mysqli_fetch_assoc(getAcademicStat($connect, $_GET['id']));
+
+	if(isset($_POST['sa'])){
+		extract($_POST);
+		updateAcademicStatus($connect, $_GET['id'], $grade_level, $quarter, $average);
+		header('Location: viewstudent.php?id='.$_SESSION['studentfee']);
+	}
+
+	if(isset($_POST['da'])){
+		deleteAcademicStatus($connect, $_GET['id']);
+		header('Location: viewstudent.php?id='.$_SESSION['studentfee']);
+	}
+
+	if(isset($_POST['return'])){
+		header('Location: viewstudent.php?id='.$_SESSION['studentfee']);
+	}
+
+	
+	
+	
+	
+	
+	
 $payment_date = date('Y-m-d');
 
 	$mydate=getdate(date("U"));
@@ -386,7 +410,28 @@ $payment_date = date('Y-m-d');
 	$table=getAcademicStatus($connect, $_GET['id']);	
 	while($row=mysqli_fetch_assoc($table)){
 ?>
-		<tr class='editRowAS' href="editacademicstatus.php?id=<?=$row['id']?>">
+		<tr class="modal-trigger" href="#editacad">
+		
+ <div id="editacad" class="modal">
+    <div class="modal-content">
+
+<<form method="POST">
+	<label>Grade Level</label><input type="text" name="grade_level" value="<?=$getAcademicStat['grade_level']?>" pattern="[0-9]+"/></br>
+	<label>Quarter</label><input type="text" name="quarter" value="<?=$getAcademicStat['quarter']?>" pattern="[A-Za-z0-9]+"/></br>
+	<label>Average</label><input type="text" name="average" value="<?=$getAcademicStat['average']?>" pattern="[0-9]+"/></br>
+
+	<input type="submit" name="sa" value="Save"></br>
+	<input type="submit" name="da" value="Delete"></br>
+	<input type="submit" name="return" value="Cancel">
+</form>
+    </div>
+  
+  </div>
+		
+		
+		
+		
+		
 			<td><?=$row['grade_level']?></td>
 			<td> <?=$row['quarter']?></td>
 			<td><?=$row['average']?></td>
