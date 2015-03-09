@@ -132,9 +132,9 @@
 
 	function addBalanceDB($connect, $id, $item, $balance, $due_date){
 		if($due_date==null){
-			$sql="INSERT into fee_balance (student_id, item, balance, due_date) values ($id, '$item', $balance, null)";
+			$sql="INSERT into fee_balance (student_id, item, balance, due_date, original_price) values ($id, '$item', $balance, null, $balance)";
 		} else {
-			$sql="INSERT into fee_balance (student_id, item, balance, due_date) values ($id, '$item', $balance, '$due_date')";
+			$sql="INSERT into fee_balance (student_id, item, balance, due_date, original_price) values ($id, '$item', $balance, '$due_date', $balance)";
 		}
 		$result=mysqli_query($connect, $sql);
 		return $result;
