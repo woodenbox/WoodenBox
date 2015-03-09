@@ -292,12 +292,16 @@ $payment_date = date('Y-m-d');
 
 
 
-
-
-
-<!--================================ table ng mga bayarin ================================!-->	
-</br></br><br>
-<div>
+<div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#test1">Transactions</a></li>
+        <li class="tab col s3"><a class="active" href="#test2">Academic Status</a></li>
+        <li class="tab col s3"><a href="#test3">Other Records</a></li>
+       
+      </ul>
+    </div>
+    <div id="test1" class="col s12"><div>
 
 <table name="first_name" border="1";>
 <thead>
@@ -386,11 +390,9 @@ $payment_date = date('Y-m-d');
 </div>
     </div>
 
-
-		
-
-<!--================================ total receivables ng mga bayarin ================================!-->
-<div class="divider"></div>
+</div>
+    <div id="test2" class="col s12">Test 2</div>
+	<div class="divider"></div>
 <div>
 	<p style="font-weight:bold">	Total Receivables This Month:</p> <?php if($viewTotalBalance['total']==null) echo "None"; else echo $viewTotalBalance['total'];?>
 
@@ -442,6 +444,18 @@ $payment_date = date('Y-m-d');
 <br>
 			<div class="divider"></div>
 			
+    <div id="test3" class="col s12">Test 3</div>
+    
+  </div>
+
+
+<!--================================ table ng mga bayarin ================================!-->	
+
+
+		
+
+<!--================================ total receivables ng mga bayarin ================================!-->
+
 
 <!--================================ additional info table ================================!-->
 
