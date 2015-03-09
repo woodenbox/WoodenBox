@@ -266,7 +266,7 @@ $payment_date = date('Y-m-d');
 <button class="btn waves-effect waves-light green" type="submit" name="edit" value="Edit" style="position: relative;top:170px; left: 700px;"  >Edit Student</button></br>
 		
 
-	<img class="backup_picture" src="uploads/<?=$_GET['id']?>" alt="Student Image" height="150" width="150" style="float:left;">
+	<img class="backup_picture z-depth-2" src="uploads/<?=$_GET['id']?>" alt="Student Image" height="150" width="150" style="float:left;">
 	
 	<div style="padding-top:18px;">
 	<label style="position: static;float:left;padding-left:20px;">First Name:</label>
