@@ -71,7 +71,7 @@
 			</div>
 			</div>
 
-<a class="modal-trigger" href="#kambeng"><img src="kambeng.png" style="position: relative;bottom:-660px;left:600px;"></img></a>
+<p class="modal-trigger" href="#kambeng"><img src="kambeng.png" style="position: relative;bottom:-691px;left:666px;"></img></p>
  <div id="kambeng" class="modal" >
     <div class="modal-content">
       <img src="h4h4.jpg" style="float:left;"/>
