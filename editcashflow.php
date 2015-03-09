@@ -104,7 +104,7 @@
 	
 	<button class="btn waves-effect waves-light green"  name="123" value="Save">Save</button>
 	<button class="btn waves-effect waves-light green"  name="321" value="Delete Payment">Delete</button>
-	<button class="btn waves-effect waves-light green" onclick="location.href='index.php'">Cancel</button>
+	<button class="btn waves-effect waves-light green" name="return" >Cancel</button>
 </form>
 
 <!--================================ crap V ================================!-->
