@@ -90,8 +90,20 @@
 		return $result;
 	}
 
-	function getFeeSchedulePrint($connect, $grade, $fee_type){
+/*	function getFeeSchedulePrint($connect, $grade, $fee_type){
 		$sql="SELECT * FROM fee_schedule WHERE grade = '$grade' AND fee_type = '$fee_type'";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}*/
+
+	function getFeeSchedulePrint($connect, $id){
+		$sql="SELECT * FROM fee_balance WHERE student_id = $id AND waive = 0";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+
+	function getTotalOrig($connect, $id){
+		$sql="SELECT SUM(original_price) as origi FROM fee_balance WHERE student_id = $id AND waive = 0";
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
@@ -132,9 +144,9 @@
 
 	function addBalanceDB($connect, $id, $item, $balance, $due_date){
 		if($due_date==null){
-			$sql="INSERT into fee_balance (student_id, item, balance, due_date) values ($id, '$item', $balance, null)";
+			$sql="INSERT into fee_balance (student_id, item, balance, due_date, original_price) values ($id, '$item', $balance, null, $balance)";
 		} else {
-			$sql="INSERT into fee_balance (student_id, item, balance, due_date) values ($id, '$item', $balance, '$due_date')";
+			$sql="INSERT into fee_balance (student_id, item, balance, due_date, original_price) values ($id, '$item', $balance, '$due_date', $balance)";
 		}
 		$result=mysqli_query($connect, $sql);
 		return $result;

@@ -7,7 +7,8 @@
 	$checkStudent = viewStudentAccount($connect, $_GET['id']);
 	$viewStudent = mysqli_fetch_assoc($checkStudent);
 
-	$getFeeSchedule=getFeeSchedulePrint($connect, $viewStudent['grade'], $viewStudent['paymentmode']);
+	$getFeeSchedule=getFeeSchedulePrint($connect, $_GET['id']);
+	$getOrigi=mysqli_fetch_assoc(getTotalOrig($connect, $_GET['id']));
 	$getAR=getARPrint($connect, $_GET['id']);
 	
 	$getSumTui=getSumTuitionPrint($connect, $_GET['id']);
@@ -40,12 +41,12 @@
 ?>	
 
 <a style="margin-left: 100px; font-family: Vrinda;"><?=$row['item']?>
-<a style="float: right; margin-right: 170px; font-family: Vrinda;"><?=$row['fee']?></a></a><br>
+<a style="float: right; margin-right: 170px; font-family: Vrinda;"><?=$row['original_price']?></a></a><br>
 <?php	}
 ?>
 
 
-<a style="margin-left: 460px; font-family: Vrinda;"><?php echo $viewSumTui['fee'];?></a><br>
+<a style="margin-left: 440px; font-family: Vrinda;"><?php echo $getOrigi['origi'];?></a><br>
 
 <a style="margin-left: 100px; font-family: Vrinda;">LESS: PAYMENT <span style="font-size:8;" >AR</span></a>
 <a  style="font-size:8;"><?php while($row=mysqli_fetch_assoc($getAR)){ echo " ".$row['ar'];}?></a>
