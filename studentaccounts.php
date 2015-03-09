@@ -70,8 +70,8 @@
 
 <!--================================ div ulit para sa scrollbar. students table ================================!-->
 
-<div style="padding-left:290px;padding-right:270px;">
-<div id="table-scroll" style="height:50%;overflow:auto;">
+<div style="padding-left:290px;padding-right:200px;margin-top:-50px;">
+<div id="table-scroll" style="height:70%;overflow:auto;width: 114%;">
 <table >
 	<thead class="blue-text text lighten-2">
 		<tr>
