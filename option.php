@@ -171,7 +171,7 @@ if(isset($_GET['id'])){
 
 <table>
 
-	<tr>
+	<tr> 
 		
 		<th> Academic Status</th>
 		
