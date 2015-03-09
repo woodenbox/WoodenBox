@@ -261,11 +261,11 @@ $payment_date = date('Y-m-d');
 
 <form method="POST">
 <!--================================ some buttons ================================!-->
-
+<form method="POST">
 <button class="btn waves-effect waves-light green" type="submit" name="delete" value="Delete Student" style="position: relative;top:150px;left: 700px;" onclick="return confirm('Are you sure?');" >Delete Student</button></br>
 <button class="btn waves-effect waves-light green" type="submit" name="reenrol" value="Re-enroll Student" style="position: relative;top:160px; left: 700px;"  >Re-enroll Student</button></br>
 <button class="btn waves-effect waves-light green" type="submit" name="edit" value="Edit" style="position: relative;top:170px; left: 700px;"  >Edit Student</button></br>
-		
+		</form>
 
 	<img class="backup_picture z-depth-2" src="uploads/<?=$_GET['id']?>" alt="Student Image" height="150" width="150" style="float:left;">
 	

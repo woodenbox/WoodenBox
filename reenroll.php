@@ -304,8 +304,8 @@
     	<script>
 
 </script>
-<button class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Are you sure?');" style="position:relative;bottom:450px;left:600px;">Enroll</button>
-<button class="btn waves-effect waves-light green" type="submit" name="cancel" value="cancel" onclick="return confirm('Are you sure?');" style="position:relative;bottom:450px;left:610px;">Cancel</button>
+<button class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Are you sure?');" style="position:relative;bottom:450px;left:300px;">Enroll</button>
+<button class="btn waves-effect waves-light green" type="submit" name="cancel" value="cancel" onclick="return confirm('Are you sure?');" style="position:relative;bottom:450px;left:300px;">Cancel</button>
 
 
 </form>

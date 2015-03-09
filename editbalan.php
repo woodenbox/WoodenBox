@@ -95,7 +95,7 @@
 
 <div style="padding-left:290px;margin-right:1287px;">
 <form method="POST">
-	<input name="item" value="<?=$getBalance['item']?>" disabled/></br>
+	<?=$getBalance['item']?></br>
 	Balance<input type="number" name="balance" value="<?=$getBalance['balance']?>" pattern="[0-9]+([.][0-9]+)?" step="0.01" required/></br>
 	Due Date<input type="date" name="due_date" value="<?=$getBalance['due_date']?>"/></br>
 	Balance<input type="number" name="penalty_balance" value="<?=$getBalance['penalty_balance']?>" pattern="[0-9]+([.][0-9]+)?" step="0.01"/></br>
