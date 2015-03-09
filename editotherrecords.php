@@ -76,7 +76,7 @@
 
 
 
-<div style="margin-left:290px;px;margin-right:50px;margin-top:-180px;">
+<div style="margin-left:290px;px;margin-right:1287px;margin-top:-180px;">
 
 <form method="POST">
 	<label>Date</label><input type="date" name="grade_level" value="<?=$getOtherRecord['date']?>"/></br>

@@ -76,11 +76,11 @@
 
 
 
-<div style="margin-left:290px;px;margin-right:50px;margin-top:-180px;">
+<div style="margin-left:290px;margin-right:1287px;margin-top:-180px;">
 
 
 <form method="POST">
-	<label>Grade Level</label><input type="text" name="grade_level" value="<?=$getAcademicStat['grade_level']?>" pattern="[0-9]+"/></br>
+	<label>Grade Level</label><input type="text" class="col s3" name="grade_level" value="<?=$getAcademicStat['grade_level']?>" pattern="[0-9]+"/></br>
 	<label>Quarter</label><input type="text" name="quarter" value="<?=$getAcademicStat['quarter']?>" pattern="[A-Za-z0-9]+"/></br>
 	<label>Average</label><input type="text" name="average" value="<?=$getAcademicStat['average']?>" pattern="[0-9]+"/></br>
 

@@ -93,7 +93,7 @@
 </b>
 
 
-<div style="padding-left:290px;padding-right:270px;">
+<div style="padding-left:290px;margin-right:1287px;">
 <form method="POST">
 	<input name="item" value="<?=$getBalance['item']?>" disabled/></br>
 	Balance<input type="number" name="balance" value="<?=$getBalance['balance']?>" pattern="[0-9]+([.][0-9]+)?" step="0.01" required/></br>

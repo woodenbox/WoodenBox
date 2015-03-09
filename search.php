@@ -73,7 +73,7 @@
 		  <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"></a></div>
       <ul id="nav-mobile" class="side-nav fixed">
 
-	   <li class="logo" style="padding-left:45px;padding-top:15px;"><image src="asdg.png"></li>
+	   <li class="logo" style="padding-left:45px;padding-top:15px;"><image src="asdg.png" onclick="toast('Huehue', 400)"></li>
 	   <div class="section"></div>
 	  <div class="divider"></div><div class="section"></div>
 <li class="bold" style="padding-top:15px;padding-bottom:15px;">	<b><a  class="waves-effect waves-green" style="font-size:14px;" href="index.php">Cash Reports<?echo"\t";?></a></li>

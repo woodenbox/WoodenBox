@@ -89,7 +89,7 @@
 
   </ul>	
 </b>
-<div style="padding-left:290px;padding-right:270px;">
+<div style="padding-left:290px;margin-right:1287px">
 <form method="POST">
 	<!--================================ eto ung name ng student na nagpay ================================!-->
 	<label><?php echo $getUserRow['first_name'] ." ". $getUserRow['last_name']?></label></br>
