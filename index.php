@@ -43,7 +43,7 @@
 	
           <h1 class="header center-on-small-only white-text">Welcome <?php echo $getUserRow['first_name'] ." ". $getUserRow['last_name']?></h1>
           <div class='row '>
-            <h4 class ="header light blue-text text-lighten-4">       Cash Report for the buwan of  <?=$_GET['month']." ".$_GET['year']?>
+            <h4 class ="header light blue-text text-lighten-4">       Cash Report for the month of  <?=$_GET['month']." ".$_GET['year']?>
  </h4>
 
   
