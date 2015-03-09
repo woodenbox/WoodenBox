@@ -217,18 +217,12 @@ if(isset($_GET['id'])){
 	<?php
 	while($row=mysqli_fetch_assoc($result2)){
 		?>
-		<tr class="clickablerow" href="edit/editG.php?id=<?=$row['id']?>">
+		<tr class="clickablerow" href="edit/editG.php?id=<?=$row['grade_levels']?>">
 			<td><?=$row['grade_levels']?></td>
-			<td><a href="option.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure you want to delete this?')";>Delete</a></td>
 		</tr>
 		<?php
 	}
 	?>
-	<tr class="clickablerow" href="add/addG.php"> 
-		<td>Add Grade</td>
-		<td></td>
-		<td></td>
-	</tr>
 </table>
 
 

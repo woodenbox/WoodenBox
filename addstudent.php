@@ -268,13 +268,13 @@ echo $monthName;
     	<input style="margin-left:170px;margin-top:-60px;" class="col s3" type="text" pattern="[0-9]{2}" placeholder="Age" name="age"/></br>
 		
 <br>
-<div class="divider"> </div><div class="divider" style="position:relative;left: 300px;top:-1px;"> </div><div class="divider" style="position:relative;left: 600px;top:-2px;"> </div>
-<div class="divider" style="position:relative;left: 900px;top:-3px;"> </div><div class="divider" style="position:relative;left: 1200px;top:-4px;"> </div>
+</br>
+<div class="divider" style="position:relative;left: 00px;top:-4px; width:1167px"> </div>
 
     	<p class="blue-text text lighten-2" style="font-weight:bold;">Grade:</p>
     	<select class="col s3" name="grades" id="grades">
     		<?php
-    		$checkGradesTable = getGradesDB($connect);
+    		$checkGradesTable = viewGrade($connect);
     		while ($arrayGradesTable = mysqli_fetch_array($checkGradesTable, MYSQLI_ASSOC)) {
     			$grade_level=$arrayGradesTable["grade_levels"];
     			echo "<option value=\"$grade_level\">$grade_level</option>";        
@@ -309,9 +309,7 @@ echo $monthName;
     		?>
 			
     	</select></div></br>
-		<div class="divider" style="position:relative;bottom: 225px;"></div>		<div class="divider" style="position:relative;bottom: 226px;left:300px;"></div>
-			<div class="divider" style="position:relative;bottom: 227px;left:600px;"></div>	<div class="divider" style="position:relative;bottom: 228px;left:900px;"></div>
-				<div class="divider" style="position:relative;bottom: 229px;left:1200px;"></div>
+
 				
 				<div style="position: relative;left: 00px;top: -229px;">
     	<p class="blue-text lighten-2" style="font-weight:bold;">Academic Status:</p>
@@ -347,11 +345,11 @@ echo $monthName;
 			
     	</select></div>
 	
-
+</br>
     	
     				<div style="position:relative;bottom:370px;font-weight:bold;" class="blue-text text lighten-2">Item</div>
-    				<div style="position:relative;bottom:392px;font-weight:bold;left: 300px;" class="blue-text text lighten-2">	Price</div>
-    				<div style="position:relative;bottom:412px;font-weight:bold;left: 600px;" class="blue-text text lighten-2">Quantity  	</div>	
+    				<div style="position:relative;bottom:392px;font-weight:bold;left: 250px;" class="blue-text text lighten-2">	Price</div>
+    				<div style="position:relative;bottom:412px;font-weight:bold;left: 350px;" class="blue-text text lighten-2">Quantity  	</div>	
 
     		<?php	
     		$table=getOthers($connect);
@@ -362,9 +360,9 @@ echo $monthName;
 		
 			</table>
     				<input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
-    				<label for="<?=$row['id']?>"style="position:relative;left:000px;bottom:0px;"><?=$row['item']?></label>
-    				<p style="position:relative;left:300px;bottom:245px;"><?=$row['price']?></p>
-    				<input style="position:relative;left:300px;bottom:300px;left:450px;"type="text" placeholder="Enter Amount"  pattern="[0-9]" name="howmany[]"/>
+    				<label for="<?=$row['id']?>"style="position:relative;left:00px;bottom:400px;"><?=$row['item']?></label>
+    				<p style="position:relative;left:250px;bottom:445px;"><?=$row['price']?></p>
+    				<input style="position:relative;left:300px;bottom:500px;left:350px;"type="text" placeholder="Enter Amount"  pattern="[0-9]" name="howmany[]"/>
     				
     			<?php	
     		}
@@ -379,10 +377,8 @@ echo $monthName;
 
 
 </script>
-<div class="divider" style="position:relative;bottom:470px;"></div><div class="divider" style="position:relative;bottom:471px;left:300px;"></div>
-<div class="divider" style="position:relative;bottom:472px;left:600px;"></div><div class="divider" style="position:relative;bottom:473px;left:900px;"></div>
-<div class="divider" style="position:relative;bottom:474px;left:1200px;"></div>
-<button class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Are you sure?');" style="position:relative;bottom:450px;left:700px;">Enroll</button>
+
+<button class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');" style="position:relative;left:100px;">Enroll</button>
 
 
 

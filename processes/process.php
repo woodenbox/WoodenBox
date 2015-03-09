@@ -197,7 +197,7 @@
 	}
 
 	function getPaymentModeDB($connect){
-		$sql="SELECT mode FROM options_payment_modes";
+		$sql="SELECT DISTINCT `fee_type` as mode FROM `fee_schedule`";
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
@@ -423,7 +423,7 @@ return $result;
 }
 
 function viewGrade($connect){
-	$sql="SELECT * FROM options_grades";
+	$sql="SELECT DISTINCT `grade` as grade_levels FROM `fee_schedule`";
 	$result=mysqli_query($connect, $sql);
 	return $result;
 }

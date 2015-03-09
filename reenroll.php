@@ -199,7 +199,7 @@
     	<p class="blue-text text lighten-2" style="font-weight:bold;">Grade:</p>
     	<select name="grades" id="grades">
     		<?php
-    		$checkGradesTable = getGradesDB($connect);
+    		$checkGradesTable = viewGrade($connect);
     		while ($arrayGradesTable = mysqli_fetch_array($checkGradesTable, MYSQLI_ASSOC)) {
     			$grade_level=$arrayGradesTable["grade_levels"];
     			echo "<option value=\"$grade_level\">$grade_level</option>";        
