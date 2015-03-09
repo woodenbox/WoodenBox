@@ -84,7 +84,6 @@
 			<th>Balance Since Last Updated</th>
 		</tr>
 	</thead>
-
 <?php
 	while($row=mysqli_fetch_assoc($table)){
 ?>
