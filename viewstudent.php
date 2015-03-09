@@ -410,26 +410,7 @@ $payment_date = date('Y-m-d');
 	$table=getAcademicStatus($connect, $_GET['id']);	
 	while($row=mysqli_fetch_assoc($table)){
 ?>
-		<tr class="modal-trigger" href="#editacad">
-		
- <div id="editacad" class="modal">
-    <div class="modal-content">
-
-<<form method="POST">
-	<label>Grade Level</label><input type="text" name="grade_level" value="<?=$getAcademicStat['grade_level']?>" pattern="[0-9]+"/></br>
-	<label>Quarter</label><input type="text" name="quarter" value="<?=$getAcademicStat['quarter']?>" pattern="[A-Za-z0-9]+"/></br>
-	<label>Average</label><input type="text" name="average" value="<?=$getAcademicStat['average']?>" pattern="[0-9]+"/></br>
-
-	<input type="submit" name="sa" value="Save"></br>
-	<input type="submit" name="da" value="Delete"></br>
-	<input type="submit" name="return" value="Cancel">
-</form>
-    </div>
-  
-  </div>
-		
-		
-		
+		<tr class='editRowAS' href="editacademicstatus.php?id=<?=$row['id']?>">
 		
 		
 			<td><?=$row['grade_level']?></td>
