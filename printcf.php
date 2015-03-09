@@ -12,7 +12,7 @@
 <head>
 </head>
 <a style="font-family: Vrinda;">ACKNOWLEDGEMENT RECEIPT<br>
-FOR THE MONTH OF <?php echo $mydate['month']." ".$mydate['year'];?></a></br>
+FOR THE MONTH OF <?php echo $_GET['month']." ".$_GET['year'];?></a></br>
 
 
 <table style="border: 1px; width: 100%;

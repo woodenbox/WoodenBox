@@ -79,6 +79,10 @@
 		header('Location: viewstudent.php?id='.$_GET['id']);
 	}
 
+	if(isset($_POST['cancel'])){
+		header('Location: viewstudent.php?id='.$_GET['id']);
+	}
+
 	if(isset($_POST['return'])){
 		header('Location: viewstudent.php?id='.$_GET['id']);
 	}
