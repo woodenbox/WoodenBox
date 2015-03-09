@@ -41,7 +41,7 @@
  <div class="section no-pad-bot blue lighten-1" id="index-banner">
         <div class="container nav-wrapper">
 	
-          <h1 class="header center-on-small-only white-text">OK EVERYTIME MERUN TAUNG NATAPUS GAGAWIN NATIN UNWelcome<?php echo $getUserRow['first_name'] ." ". $getUserRow['last_name']?></h1>
+          <h1 class="header center-on-small-only white-text">Welcome <?php echo $getUserRow['first_name'] ." ". $getUserRow['last_name']?></h1>
           <div class='row '>
             <h4 class ="header light blue-text text-lighten-4">       Cash Report for the buwan of  <?=$_GET['month']." ".$_GET['year']?>
  </h4>
@@ -136,7 +136,7 @@
 			<td><?=$row['cr']?></td>
 			<td><?=$row['tuition']?></td>
 			<td><?=$row['remark']?></td>
-			<td><a href="editcashflow.php?id=<?=$row['id']?>">i</a></td>
+			<td><a href="editcashflow.php?id=<?=$row['id']?>">edit</a></td>
 		</tr>	
 <?php	
 	}
