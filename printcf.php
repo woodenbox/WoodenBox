@@ -15,7 +15,7 @@
 ACKNOWLEDGEMENT RECEIPT(SY)</br>
 FOR THE MONTH OF <?php echo $mydate['month']." ".$mydate['year'];?></br>
 
-
+<!--!-->
 <table class="spacing">
 	<thead>
 		<tr>

@@ -22,7 +22,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="spacing.css">
 </head>
-
+<!--!-->
 <p><strong>NOAH'S ARK ANGEL LEARNING & TUTORIAL CENTER INC <span id="moving"><?php echo $mydate['month']." ".$mydate['year'];?></span> </strong></p>
 
 <p>2119-A Moreno Compound, Pedro Gil St., Sta. Ana, Manila <span id="moving">Time:<?php echo  $viewStudent['fromTime']."".$viewStudent['toTime'];?></span></p>
