@@ -92,6 +92,32 @@ if(isset($_GET['id'])){
 
 
 <div style="padding-left:290px;padding-right:270px;">
+<h5>Click on a user edit it. Or click "Add User" to add new account</h5>
+	<?php
+$getUsers=getUsers($connect);
+?>
+
+<!--new!-->
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Username</th>
+			<th>Access Control</th>
+		</tr>
+	<thead>
+	<?php while($row=mysqli_fetch_assoc($getUsers)){ ?>
+	<tr class="clickablerow" href="edituser.php?id=<?=$row['user_id']?>">
+		<td><?=$row['first_name']." ".$row['last_name']?></td>
+		<td><?=$row['username']?></td>
+		<td><?=$row['access_control']?></td>
+	</tr>
+	<?php } ?> 
+	<tr class="clickablerow" href="adduser.php"/>
+		<td>Add User</td>
+		<td></td>
+		<td></td>
+</table>
 
 <h5>Click on a time edit it. Or click the delete button to remove the time schedule.</h5>
 

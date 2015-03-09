@@ -540,6 +540,35 @@ function updateGrades($connect, $id, $grade){
 		return $result;
 }
 
+function getUsers($connect){
+	$sql="SELECT `user_id`, `username`, `first_name`, `last_name`, `access_control` FROM `users`";
+	$result=mysqli_query($connect, $sql);
+	return $result;
+}
+
+function editUser($connect, $id){
+	$sql="SELECT `username`, `first_name`, `last_name`, `access_control`, `password` FROM `users` WHERE `user_id` = $id";
+	$result=mysqli_query($connect, $sql);
+	return $result;
+}
+
+function updateUser($connect, $id, $username, $password, $access_control){
+	$sql="UPDATE `users` SET `username` = '$username', `password` = MD5('$password'), `access_control` = $access_control WHERE `user_id` = $id";
+	$result=mysqli_query($connect, $sql);
+	return $result;
+}
+
+function deleteUser($connect, $id){
+	$sql="DELETE FROM users WHERE user_id = $id";
+	$result=mysqli_query($connect, $sql);
+	return $result;
+}
+
+function addUser($connect, $first_name, $last_name, $username, $password, $access_control){
+	$sql="INSERT INTO `users` (`first_name`, `last_name`, `username`, `password`, `access_control`) VALUES ('$first_name', '$last_name', '$username', MD5('$password'), $access_control)";
+	$result=mysqli_query($connect, $sql);
+	return $result;
+}
 
 /*	function backupDB(){
 		exec('backup.bat');
