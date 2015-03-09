@@ -24,33 +24,33 @@ if(isset($_GET['id4'])){
 
 
 
-
-
-
-$getStatus=mysqli_fetch_assoc(getStatus($connect, $_GET['id1']));
+$getTime=mysqli_fetch_assoc(getTime($connect, $_GET['id']));
+		$getMode=mysqli_fetch_assoc(getMode($connect, $_GET['id']));
+$getGrade=mysqli_fetch_assoc(getGrade($connect, $_GET['id']));
+$getStatus=mysqli_fetch_assoc(getStatus($connect, $_GET['id']));
 
 	if(isset($_POST['a'])){
 		extract($_POST);
-			updateStatus($connect,$_GET['id1'], $status);
+			updateStatus($connect,$_GET['id'], $status);
 			}
 			
-				$getGrade=mysqli_fetch_assoc(getGrade($connect, $_GET['id2']));
+				
 
 	if(isset($_POST['b'])){
 		extract($_POST);
-			updateMode($connect,$_GET['id2'], $mode);
+			updateMode($connect,$_GET['id'], $mode);
 			}
-			$getMode=mysqli_fetch_assoc(getMode($connect, $_GET['id3']));
+	
 
 	if(isset($_POST['c'])){
 		extract($_POST);
-			updateMode($connect,$_GET['id3'], $mode);
+			updateMode($connect,$_GET['id'], $mode);
 			}
-				$getTime=mysqli_fetch_assoc(getTime($connect, $_GET['id4']));
+				
 
 	if(isset($_POST['d'])){
 		extract($_POST);
-			updateTime($connect,$_GET['id4'], $time);
+			updateTime($connect,$_GET['id'], $time);
 			}
 ?>
 <head>
@@ -228,33 +228,6 @@ if(isset($_GET['id2'])){
 
 
 
-
-
-
-$getStatus=mysqli_fetch_assoc(getStatus($connect, $_GET['id1']));
-
-	if(isset($_POST['a'])){
-		extract($_POST);
-			updateStatus($connect,$_GET['id1'], $status);
-			}
-				$getGrade=mysqli_fetch_assoc(getGrade($connect, $_GET['id2']));
-
-	if(isset($_POST['b'])){
-		extract($_POST);
-			updateMode($connect,$_GET['id2'], $mode);
-			}
-			
-			$getMode=mysqli_fetch_assoc(getMode($connect, $_GET['id3']));
-
-	if(isset($_POST['c'])){
-		extract($_POST);
-			updateMode($connect,$_GET['id3'], $mode);
-			}
-			
-				if(isset($_POST['d'])){
-		extract($_POST);
-			updateTime($connect,$_GET['id4'], $time);
-			}
 
 
 
