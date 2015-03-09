@@ -7,6 +7,7 @@
 	if(isset($_POST['edit'])){
 		extract($_POST);
 			updateTime($connect,$_GET['id'], $time);
+			header('Location: ..\option.php');
 			}
 	?>
 

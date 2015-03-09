@@ -80,6 +80,12 @@
 		return $result;
 	}
 
+	function getFeeScheduleOptions($connect, $grade){
+		$sql="SELECT * FROM `fee_schedule` WHERE `grade`='$grade'";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+
 	function getMonthlyFeeSchedule($connect, $grade){
 		$sql="SELECT * FROM fee_schedule WHERE grade='$grade' AND item!='Monthly Fee' AND fee_type='Monthly'";
 		$result=mysqli_query($connect, $sql);
@@ -369,6 +375,15 @@ function add($date_str, $months)
 		return $result;
 	}
 
+	function updateTuitioFee($connect,$id, $tuition_fee, $due_date){
+		if($due_date==null)
+			$sql="UPDATE `fee_schedule` SET `fee`=$tuition_fee, `due_date`=null WHERE `fee_id`=$id";
+		else
+			$sql="UPDATE `fee_schedule` SET `fee`=$tuition_fee, `due_date`='$due_date' WHERE `fee_id`=$id";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+	
 	function updateStudentBalance($connect, $id, $item, $balance, $due_date, $penalty_balance, $penalty_count){
 		if($due_date==null)
 			$sql = "UPDATE `fee_balance` SET `item` = '$item', `balance` = $balance, `due_date` = null, `penalty_balance` = $penalty_balance, `penalty_count` = $penalty_count WHERE `id` = $id";
@@ -429,9 +444,15 @@ function viewGrade($connect){
 }
 
 function getGrade($connect, $id){
-$sql="Select * from options_grades where id='$id'";
+$sql="Select * from fee_schedule where grade='$id'";
 $result=mysqli_query($connect, $sql);
 return $result;
+}
+
+function editTuitionFee($connect, $id){
+	$sql="SELECT * FROM `fee_schedule` WHERE `fee_id`=$id";
+	$result=mysqli_query($connect, $sql);
+	return $result;
 }
 
 function viewStatus($connect){

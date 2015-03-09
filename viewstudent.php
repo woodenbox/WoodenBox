@@ -321,7 +321,7 @@ $payment_date = date('Y-m-d');
   
   <li><a href="#modal3" class="modal-trigger" >Pay</a></li>
   
-    <li><a onclick="frames['frame'].print()" class="modal-trigger" ">Print</a></li>
+    <li><a onclick="frames['frame'].print()" class="modal-trigger" >Print</a></li>
 	
    
   </ul>

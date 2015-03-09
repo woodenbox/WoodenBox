@@ -93,7 +93,10 @@ if(isset($_GET['id'])){
 
 <div style="padding-left:290px;padding-right:270px;">
 
-<table>
+<h5>Click on a time edit it. Or click the delete button to remove the time schedule.</h5>
+
+<div style="width:20%;">
+<table >
 
 	<tr>
 		<th>Time</th>
@@ -117,81 +120,8 @@ if(isset($_GET['id'])){
 	</tr>
 	
 </table>
+</div>
 
-<?php
-
-if(isset($_GET['id'])){
-	$delMode=delMode($connect, $_GET['id']);
-	
-	if($delMode){
-		echo "Deleted!";
-	}
-	else{
-		echo "Not working!";
-	}
-}
-?>
-
-<table>
-
-	<tr>
-		<th>Mode</th>
-		
-	</tr>
-	<?php
-	while($row=mysqli_fetch_assoc($result1)){
-		?>
-		<tr class="clickablerow" href="edit/editM.php?id=<?=$row['id']?>">
-			<td><?=$row['mode']?></td>
-			<td><a href="option.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure you want to delete this?')";>Delete</a></td>
-		</tr>
-		<?php
-	}
-	?>
-	<tr class="clickablerow" href="add/addM.php"> 
-		<td>Add Payment Mode</td>
-		<td></td>
-		<td></td>
-	</tr>
-</table>
-
-<?php
-
-if(isset($_GET['id'])){
-	$delStatus=delStatus($connect, $_GET['id']);
-	
-	if($delStatus){
-		echo "Deleted!";
-	}
-	else{
-		echo "Not working!";
-	}
-}
-?>
-
-<table>
-
-	<tr> 
-		
-		<th> Academic Status</th>
-		
-	</tr>
-	<?php
-	while($row=mysqli_fetch_assoc($result3)){
-		?>
-		<tr class="clickablerow" href="edit/editA.php?id=<?=$row['id']?>">
-			<td><?=$row['status']?></td>
-			<td><a href="option.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure you want to delete this?')";>Delete</a></td>
-		</tr>
-		<?php
-	}
-	?>
-	<tr class="clickablerow" href="add/addA.php"> 
-		<td>Add Academic Status</td>
-		<td></td>
-		<td></td>
-	</tr>
-</table>
 
 <?php
 
@@ -209,27 +139,39 @@ if(isset($_GET['id'])){
   <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+</br>
+<script src="jquery-2.1.3.min.js"></script>
 
-<table>
-	<tr>
-		<th>Grade Level</th>
-	</tr>
-	<?php
-	while($row=mysqli_fetch_assoc($result2)){
-		?>
-		<tr class="clickablerow" href="edit/editG.php?id=<?=$row['grade_levels']?>">
-			<td><?=$row['grade_levels']?></td>
-		</tr>
-		<?php
-	}
-	?>
-</table>
+<h5>Click on a grade level to add, edit, or delete tuition fees. </h5>
+<!--<div style="width:20%;">!-->
+<?php while($row=mysqli_fetch_assoc($result2)){?>
 
+<div class="showme" data-panelid="<?=$row['grade_levels']?>"> <?php echo "<h5>".$row['grade_levels']. " Tuition Fees</h5>";?></div>
+		<div style="width:50%;">
+		<table id="<?=$row['grade_levels']?>">
+			<tr>
+				<th>Payment Mode</th>
+				<th>Item</th>
+				<th>Tution Fee</th>
+				<th>Due Date</th>
+			</tr>
+			<?php 
+			$getTuitionFees=getFeeScheduleOptions($connect, $row['grade_levels']);
+			while($row2=mysqli_fetch_assoc($getTuitionFees)){ ?>
+			<tr class="clickablerow" href="edit/editG.php?id=<?=$row2['fee_id']?>">
+				<td><?=$row2['fee_type']?></td>
+				<td><?=$row2['item']?></td>
+				<td><?=$row2['fee']?></td>
+				<td><?=$row2['due_date']?></td>	
+			</tr>
+			<?php } ?>
+		</table>
+	</div>
+</br>
+<?php } ?>
 
-<script src="jquery-2.1.3.min.js">
+<!--</div>!-->
 
-
-</script>
 
 <script>
 
@@ -237,6 +179,12 @@ $(function(){
 	$(".clickablerow").click(function(){
 		window.document.location=$(this).attr("href");
 	});
+
+	/*$(".showme").on('click', function(){
+       var panelId = $(this).attr('data-panelid');
+       alert(panelId);
+       $('#'+panelId).toggle();
+    });*/
 });
 
 

@@ -24,11 +24,6 @@
 				<option value="am">am</option>
 				<option value="pm">pm</option>
 			</select>
-		
-			<select>
-				<option value="am">am</option>
-				<option value="pm">pm</option>
-			</select>
 			<input type="submit" name="add" value="Add Record"/>
 			<input type="reset" name="clear" value="Clear"/></td>
 	
