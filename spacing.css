@@ -1,0 +1,39 @@
+table.spacing{
+border-spacing: 10px 0px;
+text-align: center;
+}
+
+td.spacing2{
+text-align: left;
+}
+p.spacing3{
+text-align: left;
+}
+
+
+
+.spacing4{
+align: right;
+}
+
+#moving{
+float: right;
+width: 150px;
+}
+
+#moving2{
+float: right;
+width: 150px;
+}
+
+#moving3{
+float: right;
+}
+
+th.style{
+	border: 1px
+    border-top-style: dotted;
+    border-right-style: none;
+    border-bottom-style: dotted;
+    border-left-style: none;
+}

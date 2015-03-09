@@ -1,0 +1,201 @@
+<?php
+    session_start();
+   
+    include('processes/process.php');
+    $connect = connectDB();
+
+    $datengayon = date('Y-m-d');
+
+    $checkStudent = viewStudentAccount($connect, $_GET['id']);
+    $viewStudent = mysqli_fetch_assoc($checkStudent);
+
+	if(isset($_POST['submit'])){
+		if($_FILES["imgfile"]["size"]>0){
+			$filename=$_FILES["imgfile"]["name"];
+			$filetype=$_FILES["imgfile"]["type"];	
+			$filesize=$_FILES["imgfile"]["size"];
+            if ((($filetype=="image/jpeg") || ($filetype=="image/png")  || ($filetype=="image/pjpeg")) && ($filesize<200000)){
+				$checker="uploads/$filename";
+                extract($_POST);
+				$imageLocation=$filename;
+				updateStudent($connect, $_GET['id'], $first_name, $last_name, $middle_name, $age);
+				$idd=$_GET['id'];
+
+                if(!empty($_POST['check_list'])) {
+                    $xx=0;
+                    foreach($_POST['check_list'] as $check) {
+			             $balance = addOthers($connect, $check) -> fetch_assoc();
+			             $HowsMany = $balance['price'] * $_POST['howmany'][$xx];
+			             addBalanceDB($connect, $idd, $balance['item'], $HowsMany, null);
+			             $xx++;
+                    }
+                }
+                unlink('uploads/'.$_GET['id']);  
+                move_uploaded_file($_FILES["imgfile"]["tmp_name"], "uploads/" . $idd);
+                header('Location:viewstudent.php?id='.$idd);
+	       } else {
+		              echo '<script type="text/javascript"> alert("Invalid file. Please select a file that is jpg or png.");</script>';
+                    }
+        } else {
+                extract($_POST);
+                updateStudent($connect, $_GET['id'], $first_name, $last_name, $middle_name, $age);
+                $idd=$_GET['id'];
+
+	           if(!empty($_POST['check_list'])) {
+                    $xx=0;
+                    foreach($_POST['check_list'] as $check) {
+                        $balance = addOthers($connect, $check) -> fetch_assoc();
+                        $HowsMany = $balance['price'] * $_POST['howmany'][$xx];
+                        addBalanceDB($connect, $idd, $balance['item'], $HowsMany, null);
+                        $xx++;
+                    }
+                }
+           header('Location:viewstudent.php?id='.$idd);
+        }
+    }
+
+    if(isset($_POST['cancel'])){
+        header('Location: viewstudent.php?id='.$_GET['id']);
+    }
+	if(isset($_POST['submit'])){
+		extract($_POST);
+		insertOtherRecords($connect, $_GET['id'], $grade_level, $quarter, $average);
+		header('Location: viewstudent.php?id='.$_GET['id']);
+	}
+
+	if(isset($_POST['return'])){
+		header('Location: viewstudent.php?id='.$_GET['id']);
+	}
+?>
+<head>
+    <title>Edit Student</title>
+	 <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<div class="section no-pad-bot blue lighten-1" id="index-banner">
+        <div class="container nav-wrapper">
+	
+          <h1 class="header center-on-small-only white-text">Edit Student</h1>
+          <div class='row '>
+            <h4 class ="header light blue-text text-lighten-4">Change a student's information
+ </h4>
+
+  
+  
+ <h4 class="right-align" style="margin-top:-50px;"><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
+ 
+ 
+  <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
+ <ul id='dropdown1' class='dropdown-content'>
+			<li>  <a href="logout.php">Log Out</a></li>
+			<li>  <a href="option.php">Options</a></li>
+  </ul>
+	  
+	 
+	 
+	 
+	 </ul>
+ </div>
+          </div>
+		  </div>
+		   <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"></a></div>
+      <ul id="nav-mobile" class="side-nav fixed">
+
+	   <li class="logo" style="padding-left:45px;padding-top:15px;"><image src="asdg.png"></li>
+	   <div class="section"></div>
+
+<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<b><a  class="waves-effect waves-green" style="font-size:14px;" href="index.php">Cash Reports<?echo"\t";?></a></li>
+<li class="" style="padding-top:15px;padding-bottom:15px;">	<a  style="font-size:14px;" href="studentaccounts.php" class=" waves-effect waves-green">Student Accounts<?echo"\t";?></a></li>
+<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="search.php" class="waves-effect waves-green">Student List<?echo"\t";?></a></li>
+<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="addstudent.php" class="waves-effect waves-green">Add Student<?echo"\t";?></a></li>
+  </ul>	
+</b>
+
+
+
+
+
+<div style="margin-left:290px;margin-right:1300px;margin-top:40px;">
+    <form method="POST" enctype="multipart/form-data">
+    	<div class="image-upload">
+    		<label for="file-input">
+    			<img src="uploads/<?=$_GET['id']?>"  height="150" width="150"/>
+    		</label>
+    		<input style="display: none;" id="file-input"  name="imgfile" type="file"/>
+    	</div>
+    	<input style="margin-left:170px;margin-top:-140px;" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z ]+" required value="<?=$viewStudent['first_name']?>"/></br>
+    	<input style="margin-left:550px;margin-top:-140px;" type="text" placeholder="Last Name" name="last_name"  pattern="[A-Za-z ]+" required value="<?=$viewStudent['last_name']?>"/></br>
+    	<input style="margin-left:950px;margin-top:-140px;" type="text" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z ]+" value="<?=$viewStudent['middle_name']?>"/></br>
+    	<input style="margin-left:170px;margin-top:-60px;" type="text" placeholder="Age" name="age" pattern="[0-9]+"/></br>
+
+    	<div style="position: relative; top: 400px;>
+    	<table name="options_others">
+    			<div style="position:relative;bottom:370px;font-weight:bold;" class="blue-text text lighten-2">Item</div>
+    				<div style="position:relative;bottom:392px;font-weight:bold;left: 300px;" class="blue-text text lighten-2">	Price</div>
+    				<div style="position:relative;bottom:412px;font-weight:bold;left: 600px;" class="blue-text text lighten-2">Quantity  	</div>	
+					<div class="divider" style="position:relative;bottom:402px;"></div><div class="divider" style="position:relative;bottom:403px;left:150px;"></div>.
+					<div class="divider" style="position:relative;bottom:426px;left:450px;"></div>
+    		<?php	
+    		$table=getOthers($connect);
+    		while($row=mysqli_fetch_assoc($table)){
+    			?>
+				
+			
+		
+			</table>
+    				<input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
+    				<label for="<?=$row['id']?>"style="position:relative;left:000px;bottom:401px;"><?=$row['item']?></label>
+    				<p style="position:relative;left:300px;bottom:445px;"><?=$row['price']?></p>
+    				<input style="position:relative;left:300px;bottom:500px;left:450px;"type="text" placeholder="Enter Amount"  pattern="[0-9]+" name="howmany[]"/>
+    				
+    			<?php	
+    		}
+    		?>
+    
+    	</table>
+		</div>
+   
+
+
+
+    	<script src="jquery-2.1.3.min.js"></script>
+    	<script>
+        </script>
+<button class="btn waves-effect waves-light green" type="submit" name="submit" value="Save">Save</button>
+<button class="btn waves-effect waves-light green" type="submit" name="cancel" value="Cancel">Cancel</button>
+</form>
+
+<?php
+include("footer.php");
+?>
+</div>
+<div id="footer" style="margin-bottom:-324px;">
+<footer class="page-footer blue lighten-1">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">WoodenBox</h5>
+                <p class="grey-text text-lighten-4">With the combined efforts of four students from Don Bosco Technical College, here is WoodenBox, a student accounts penalty System with printable statement of accounts and cash flow.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text"></h5>
+                <ul>
+            
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Noah's Ark Institute of Learning, All rights reserved.
+            <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
+          </div>
+        </footer>
+            </div>
+  <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
+  <script src="asd/js/materialize.js"></script>
+  <script src="asd/js/init.js"></script>
+  
+  
