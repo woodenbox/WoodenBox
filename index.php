@@ -155,7 +155,7 @@
 <!--================================eto ung listahan ng other cashflows================================!-->
 <a class="waves-effect waves-light btn-large  green lighten-2" id='buttone'onclick="myFunction()"> Print this page </a>
 
- <div style="height: 1px;width: 180px;position: relative;right: -1425px;top: -707px;">
+ <div style="height: 1px;width: 180px;position: relative;right: -1300px;top: -660px;">
           <ul class="section table-of-contents">
         
 
