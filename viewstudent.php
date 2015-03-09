@@ -147,10 +147,7 @@ $payment_date = date('Y-m-d');
     			echo '<script>alert("we are in");</script>';
     			$remaining = $_POST['amount'];
     			echo '2' . $remaining;
-    			balancePayment($connect, $viewStudent['last_name'], $viewStudent['first_name'], $payment_date, $_POST['amount'], $_SESSION['studentfee'], $mydate['month'], $mydate['year'], $_POST['arnumber'], $_POST['dr'], $_POST['cr'], $_POST['
-				
-				
-				']);
+    			balancePayment($connect, $viewStudent['last_name'], $viewStudent['first_name'], $payment_date, $_POST['amount'], $_SESSION['studentfee'], $mydate['month'], $mydate['year'], $_POST['arnumber'], $_POST['dr'], $_POST['cr'], $remark);
     			foreach($_POST['check_list'] as $check) {
     					$balance = getBalance($connect, $check) -> fetch_assoc();
     					$remaining = ($balance['balance']) - $remaining;
@@ -392,13 +389,13 @@ $payment_date = date('Y-m-d');
 ?>
 	
 <tr>
-	<td><input type="number" min="0" placeholder="Enter Amount" name="amount" pattern="[0-9]+([.][0-9]+)?"/></td>
+	<td><input type="number" min="0" placeholder="Enter Amount" name="amount"  pattern="[0-9]+([.][0-9]+)?" step="0.01" required/></td>
 	<td><input type="number" min="0" placeholder="AR Number" name="arnumber" value="<?=$getARNumber['ar']+1?>" pattern="[0-9]+" required/></td>
 	<td><input type="text" placeholder="D.R." name="dr"/></td>
 	<td><input type="text" placeholder="C.R." name="cr"/></td>
-	<td><input type="text" placeholder="Remarks" name="remark"/></td><br></tr><tr>
+	<td><input type="text" placeholder="Remarks" name="remark" required/></td><br></tr><tr>
 	<td><button class="btn waves-effect waves-light green" type="submit" name="456" value="Make Payment" >Make Payment</button></td>
-<td>	<button class="btn waves-effect waves-light green" type="submit" name="cancel" value="Cancel" onclick="location.href = 'viewstudent.php?id=<?=$_SESSION['studentfee']?>';">Cancel</button></td></tr></table>
+<td>	<button class="btn waves-effect waves-light green" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button></td></tr></table>
 </form>
 </div>
     </div>
@@ -434,12 +431,12 @@ $payment_date = date('Y-m-d');
   <div id="data1" class="modal">
     <div class="modal-content">
      <form method="POST">
-	<label>Grade Level</label><input type="text" name="grade_level" pattern="[0-9]+"/></br>
-	<label>Quarter</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+"/></br>
-	<label>Average</label><input type="text" name="average" pattern="[0-9]+"/></br>
+	<label>Grade Level</label><input type="text" name="grade_level" pattern="[0-9]+" required/></br>
+	<label>Quarter</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+" requried/></br>
+	<label>Average</label><input type="text" name="average" pattern="[0-9]+" required/></br>
 
 	<button class="btn waves-effect waves-light green" type="submit" name="dsa" value="Save">Save</button>
-	<button class="btn waves-effect waves-light green" type="submit" name="return" value="Cancel">Cancel</button>
+	<button class="btn waves-effect waves-light green" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button>
 </form>
     </div>
   </div>
@@ -513,12 +510,12 @@ $payment_date = date('Y-m-d');
 		 <div id="a2" class="modal">
     <div class="modal-content">
       <form method="POST">
-	<label>Date</label><input type="date" name="grade_level"/></br>
-	<label>Sent To</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+"/></br>
-	<label>Reason</label><input type="text" name="average" pattern="[A-Za-z0-9]+"/></br>
+	<label>Date</label><input type="date" name="grade_level" required/></br>
+	<label>Sent To</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+" required/></br>
+	<label>Reason</label><input type="text" name="average" pattern="[A-Za-z0-9]+" required/></br>
 
 	<button class="btn waves-effect waves-light green" type="submit" name="asd" value="Save">Save</button>
-	<button class="btn waves-effect waves-light green" type="submit" name="return" value="Cancel">Cancel</button>
+	<button class="btn waves-effect waves-light green" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button>
 </form>
 
     </div>
