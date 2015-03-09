@@ -19,93 +19,80 @@
 	$getTotalBalance = getTotalBalancePrint($connect, $_GET['id']);
 	$viewTotalBalance = mysqli_fetch_assoc($getTotalBalance);
 ?>
-<head>
-<link rel="stylesheet" type="text/css" href="spacing.css">
-</head>
-<!--!-->
-<p><strong>NOAH'S ARK ANGEL LEARNING & TUTORIAL CENTER INC <span id="moving"><?php echo $mydate['month']." ".$mydate['year'];?></span> </strong></p>
+<div style="transform: scale(.89);
+   transform-origin: 0% 0%;">
+<a style="font-family: Vrinda;"><strong>NOAH'S ARK ANGEL LEARNING & TUTORIAL CENTER INC</strong> 
+<a style="margin-left: 40px; font-family: Vrinda;">589-2645/0935-1207644</a></a><br>
+<a style="font-family: Vrinda; font-size: 13;">2119-A Moreno Compound, Pedro Gil St., Sta. Ana, Manila 
+<a  style="margin-left: 110px; font-family: Vrinda;"><?php echo $mydate['month']." ".$mydate['year'];?></a></a><br>
 
-<p>2119-A Moreno Compound, Pedro Gil St., Sta. Ana, Manila <span id="moving">Time:<?php echo  $viewStudent['fromTime']."".$viewStudent['toTime'];?></span></p>
+<a style="font-family: Vrinda;"><strong>STATEMENT OF ACCOUNT</strong>
+<a style="margin-left: 105px; font-family: Vrinda;"><?php echo $viewStudent['paymentmode'];?>
+<a style="margin-left: 75px; font-family: Vrinda;">Time:<?php echo  $viewStudent['fromTime']."".$viewStudent['toTime'];?></a></a></a><br>
 
-<strong>STATEMENT OF ACCOUNT<span id ="moving2">LEVEL: <?=$viewStudent['grade'];?></span><span style="margin-left: 20px;"><?php echo $viewStudent['paymentmode'];?></span> </br>
-NAME OF STUDENT: <span style="margin-left: 20px;"><?php echo $viewStudent['first_name']." ".$viewStudent['middle_name']." ".$viewStudent['last_name'];?> <span></strong></br>
-
+<a style="font-family: Vrinda;"><strong>NAME OF STUDENT: <a style="margin-left: 30px;"><?php echo $viewStudent['first_name']." ".$viewStudent['middle_name']." ".$viewStudent['last_name'];?>
+<a style="margin-left: 160px; font-family: Vrinda;">LEVEL:  <?=$viewStudent['grade'];?></strong></a></a></a>
 <br>
-<p><strong>TOTAL FEE:</strong></p>
+<br>
 
-
+<a style="font-family: Vrinda;"><strong>TOTAL FEE:</strong></a><br>
 <?php while($row = mysqli_fetch_assoc($getFeeSchedule)){
 ?>	
 
-
-<table style="margin-left: 100px; width: 100%;">
-	<tr>
-		<td style="width: 100px;"><?=$row['item']?></td>
-		<td style="margin-left: 120px; width: 100px;"><?=$row['fee']?></td>
-	</tr>
-</table>
-
+<a style="margin-left: 100px; font-family: Vrinda;"><?=$row['item']?>
+<a style="float: right; margin-right: 170px; font-family: Vrinda;"><?=$row['fee']?></a></a><br>
 <?php	}
 ?>
 
 
-<p style="margin-left: 100px;">LESS: PAYMENT AR<?php while($row=mysqli_fetch_assoc($getAR)){ echo " ".$row['ar'];}?>
-<?php echo $viewSumTui['fee'];?>
-<span style="margin-left: 200px;">
-<?php echo $viewARTotal['total'];?>
-</p>
-</span>
+<a style="margin-left: 460px; font-family: Vrinda;"><?php echo $viewSumTui['fee'];?></a><br>
 
-<p style="margin-left: 100px;">TOTAL BALANCE AS OF THIS MONTH</p>
-<p style="margin-left: 485px;"> <?php echo $viewSumTui['fee']?></p>
+<a style="margin-left: 100px; font-family: Vrinda;">LESS: PAYMENT <span style="font-size:8;" >AR</span></a>
+<a  style="font-size:8;"><?php while($row=mysqli_fetch_assoc($getAR)){ echo " ".$row['ar'];}?></a>
 
-<br>
-<br>
-<p><strong>COMPUTATION</strong></p>
-<table style="margin-left: 100px; width:450px;">
+<a style="margin-left: 209px; font-family: Vrinda;"><?php echo $viewARTotal['total'];?></a><br>
+
+
+<a style="margin-left: 100px; font-family: Vrinda;">TOTAL BALANCE AS OF THIS MONTH</a>
+<a  style="margin-left: 75px; font-family: Vrinda;"> <?php echo $viewSumTui['fee']?></a><br>
+
+
+<a style="font-family: Vrinda;"><strong>COMPUTATION</strong></a>
+
 <?php
 	$counter=1;
 	$table=getStudentBalancePrint($connect, $_GET['id']);	
 	while($row=mysqli_fetch_assoc($table)){
 ?>		
-		<tr>
-			<td><?=$counter?></td>
-			<td><?php echo $row['item'];?></td>
-			<td></td>
-			<td></td>
-			<td><?=$row['balance']?></td>
-		</tr>
+		<br>
+			<a style="margin-left: 100px; font-family: Vrinda;"><?=$counter?></a>
+			<a style="font-family: Vrinda;"><strong><?php echo $row['item'];?></strong></a>
+			<a style="float: right; margin-right: 130px; font-family: Vrinda;"><strong><?=$row['balance']?></strong></a>
+	
 		<?php if($row['penalty_balance'] > 0){?>
-		<tr>
-			<td></td>
-			<td>ADD: 5% Penalty Charges</td>
-			<td><?=$row['penalty_count']?></td>
-			<rd><?php //echo $row['balance']*0.5?></td>
-			<td><?=$row['penalty_balance']?></td>
-		</tr>		
+			<br>
+			<a style="margin-left: 100px; font-family: Vrinda;">ADD: 5% Penalty Charges</a>
+			<a style="float: center; margin-left: 100px; font-family: Vrinda;"><?=$row['penalty_count']?></a>
+			<a style="float: right; margin-right: 125px; font-family: Vrinda;"><?=$row['penalty_balance']?></a>
+		</a>		
 <?php
 }	
 	$counter++;
 	}
-?>
-	</table>
-<p style="margin-left: 450px;">_____________</p>
-<p style="margin-left: 100px;"><strong>Total Collectible for this month ------------ </strong> </p>
-<p style="margin-left: 490;"><strong><?=$viewTotalBalance['total']?><strong></p>
+	?>
+	<br>
+<a style="margin-left: 98px; font-family: Vrinda;"><strong>TOTAL COLLECTIBLE FOR THIS MONTH</strong>
+<a style="float: right; margin-right: 130px; font-family: Vrinda;"><strong><?=$viewTotalBalance['total']?></strong></a><br><br>
 
-<p style="text-align: center;">NOTE: PLEASE UPDATE YOUR UNPAID TUITION FEE ON OR BEFORE 2ND QUARTER EXAMINATION ON </p>
-<p style="text-align: center">OCTOBER 27-39, 2015</p>
 
+<a style="font-family: Vrinda; margin-left: 100px;">DUE DATE: TO BE PAID ON OR BEFORE 30th DAY OF THE MONTH</a><br>
+<a style="text-align: center; font-family: Vrinda;">NOTE: Agreed additional 5% penalty charges added for non settlement of account</a><br>
+<a style="font-family: Vrinda;">Certified true and correct <a style="float:right; width: 150;  font-family: Vrinda;">RECIEVED BY:</a></a><br>
 <br>
-<br>
+<a style="font-family: Vrinda;">GLORIA S. CAUMERON <a style="float:right;">____________________</a></a>
 
-<p>Certified true and correct <span style="float:right; width: 150;">RECIEVED BY:</span></p>
-<br>
-<h3>GLORIA S. CAUMERON <span style="float:right;">____________________</span></h3>
-
-
-
-	<script src="jquery-2.1.3.min.js"></script>
+</div>
+<script src="jquery-2.1.3.min.js"></script>
 <script>
 
 /*	$(function(){
