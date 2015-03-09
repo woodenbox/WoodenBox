@@ -52,11 +52,11 @@
 							
  							<div class="divider"></div>
       						<div class="input-field col s6">
-        						<input id="username" type="text" class="validate" name="username">
+        						<input id="username" type="text" pattern="[A-Za-z0-9]+" class="validate" name="username" required>
         						<label for="username">Username</label>
       						</div>
       						<div class="input-field col s6">
-        						<input id="password" type="password" class="validate" name="password">
+        						<input id="password" type="password" pattern="[A-Za-z0-9]+" class="validate" name="password" required>
         						<label for="password">Password</label>
       						</div>
     				</div>
