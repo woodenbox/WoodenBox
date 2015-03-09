@@ -60,7 +60,7 @@
   </nav>
 	
 	<div class="row">
-	<div class="z-depth-4 col s3 grid-example white lighten-2" style="margin-left:700px;margin-top:270px;padding-top: 20px;padding-left:20px;padding-right:20px"">
+	<div class="z-depth-4 col s3 grid-example white lighten-2"  style="position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);">
 	
 		<form method="POST" accept-charset="UTF-8">
 		 
