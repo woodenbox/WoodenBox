@@ -16,6 +16,11 @@
 	$checkUserTable = getFandLnameDB($connect, $_SESSION['user_id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
 	$table = getCashFlow($connect, $_GET['month'], $_GET['year']);
+	
+	
+	
+	
+	
 ?>
 
 <head>
