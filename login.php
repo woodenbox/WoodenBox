@@ -49,6 +49,7 @@
     						<div class="row">
   								<h5 class=" teal-text text-lighten-2">Please log-in</h5>
 							</div>
+							
  							<div class="divider"></div>
       						<div class="input-field col s6">
         						<input id="username" type="text" class="validate" name="username">
@@ -70,7 +71,20 @@
 			</div>
 			</div>
 
-
+<a class="modal-trigger" href="#kambeng"><img src="kambeng.png" style="position: relative;bottom:-660px;left:600px;"></img></a>
+ <div id="kambeng" class="modal" >
+    <div class="modal-content">
+      <img src="h4h4.jpg" style="float:left;"/>
+<p style="font-size:100px;">E</p>
+<p style="font-size:100px;">Z</p>
+<p style="font-size:100px;">H</p>
+<p style="font-size:100px;">A</p>
+<p style="font-size:100px;">T</p>
+<p style="font-size:100px;">E</p>
+<p style="font-size:100px;">R</p>
+<p style="font-size:100px;">Z</p>
+  </div>
+          
 		
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="asd/js/materialize.js"></script>
