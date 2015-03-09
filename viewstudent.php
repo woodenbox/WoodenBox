@@ -291,13 +291,13 @@ $payment_date = date('Y-m-d');
 	</div>
 
 
-
-<div class="row">
+<br><br>
+<div class="row ">
     <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">Transactions</a></li>
-        <li class="tab col s3"><a class="active" href="#test2">Academic Status</a></li>
-        <li class="tab col s3"><a href="#test3">Other Records</a></li>
+      <ul class="tabs  blue-text z-depth-1">
+        <li class="tab col s3"><a class="  blue-text" href="#test1">Transactions</a></li>
+        <li class="tab col s3 blue-text "><a class="active  blue-text" href="#test2">Academic Status</a></li>
+        <li class="tab col s3 blue-text  "><a class="  blue-text" href="#test3">Other Records</a></li>
        
       </ul>
     </div>
@@ -310,7 +310,21 @@ $payment_date = date('Y-m-d');
 			<td>Balance</td>
 			<td>Due Date</td>
 			<td>Penalty</td>
-			<td>Penalty Count</td></tr>
+			<td>Penalty Count</td>
+			<td>  <!-- Dropdown Trigger -->
+  <a class='dropdown-button red-text' href='#' data-activates='dropdown4'>Actions</a>
+
+  <!-- Dropdown Structure -->
+  </td></tr>
+  <ul id='dropdown4' class='dropdown-content white'>
+  
+  <li><a href="#modal3" class="modal-trigger" >Pay</a></li>
+  
+    <li><a onclick="frames['frame'].print()" class="modal-trigger" ">Print</a></li>
+	
+   
+  </ul>
+  
 		</thead>
 <?php
 	$table=getStudentBalance($connect, $_GET['id']);	
@@ -333,14 +347,11 @@ $payment_date = date('Y-m-d');
 	</table>
 	
 <!--================================ table ng mga bayarin ================================!-->
-<br>
 
 
 
-<a style="float:left;" class="btn waves-effect waves-light green" type="button" onclick="frames['frame'].print()" value="Print Accounts">Print Accounts</a>&nbsp&nbsp&nbsp&nbsp
 
 
-<a class="waves-effect waves-light btn modal-trigger green" href="#modal3" style="float:center;">Make Payment</a>
 
 
   <div id="modal3" class="modal">
@@ -388,23 +399,51 @@ $payment_date = date('Y-m-d');
 </div>
     </div>
 
-</div></div></div>
-    <div id="test2" class="col s12">
-	<div class="divider"></div>
-<div>
-	<p style="font-weight:bold">	Total Receivables This Month:</p> <?php if($viewTotalBalance['total']==null) echo "None"; else echo $viewTotalBalance['total'];?>
+</div></div>
 
-</div><br>
-<div class="divider"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="test2" class="col s12">
+	
+
+
 <!--================================ additional info table ================================!-->
 
 <table>
+<thead>
 <tr>
 <td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">Grade Level</p></td>
 <td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">Quarter</p></td>
-<td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">Average</p></td></tr>
+<td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">Average</p></td>
+<td><p style="font-size:14px;font-weight:bold;" class="red-tex"> <a class='red-text modal-trigger' href='#data1'>Add data</a>
+  <div id="data1" class="modal">
+    <div class="modal-content">
+     <form method="POST">
+	<label>Grade Level</label><input type="text" name="grade_level" pattern="[0-9]+"/></br>
+	<label>Quarter</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+"/></br>
+	<label>Average</label><input type="text" name="average" pattern="[0-9]+"/></br>
+
+	<button class="btn waves-effect waves-light green" type="submit" name="dsa" value="Save">Save</button>
+	<button class="btn waves-effect waves-light green" type="submit" name="return" value="Cancel">Cancel</button>
+</form>
+    </div>
+  </div>
+  <!-- Dropdown Structure -->
+ 
+  </p></td></tr>
 		
-	
+	</thead>
 
 <?php
 	$table=getAcademicStatus($connect, $_GET['id']);	
@@ -421,30 +460,30 @@ $payment_date = date('Y-m-d');
 	}
 ?>	
 				
-</table><br>
-			<div class="divider"></div>
-			<br>
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Data</a>
+</table>
+	
+			
+
 
  
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-     <form method="POST">
-	<label>Grade Level</label><input type="text" name="grade_level" pattern="[0-9]+"/></br>
-	<label>Quarter</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+"/></br>
-	<label>Average</label><input type="text" name="average" pattern="[0-9]+"/></br>
 
-	<button class="btn waves-effect waves-light green" type="submit" name="dsa" value="Save">Save</button>
-	<button class="btn waves-effect waves-light green" type="submit" name="return" value="Cancel">Cancel</button>
-</form>
-    </div>
-  </div>
-<br>
 			<div class="divider"></div>
 			</div>
-    <div id="test3" class="col s12">Test 3
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+    <div id="test3" class="col s12">
     
-  </div>
+ 
 
 
 <!--================================ table ng mga bayarin ================================!-->	
@@ -461,10 +500,25 @@ $payment_date = date('Y-m-d');
 
 <div>
 <table>
+<thead>
 	<tr>
 		<td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">	Date</p></td>
 		<td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">	Sent To</p></td>
 		<td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">	Reason</p></td>
+		<td><p style="font-size: 14px;font-weight:bold;" class="red-text"><a class=" red-text modal-trigger" href="#a2">	Add data</a></tr></thead>
+		 <div id="a2" class="modal">
+    <div class="modal-content">
+      <form method="POST">
+	<label>Date</label><input type="date" name="grade_level"/></br>
+	<label>Sent To</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+"/></br>
+	<label>Reason</label><input type="text" name="average" pattern="[A-Za-z0-9]+"/></br>
+
+	<button class="btn waves-effect waves-light green" type="submit" name="asd" value="Save">Save</button>
+	<button class="btn waves-effect waves-light green" type="submit" name="return" value="Cancel">Cancel</button>
+</form>
+
+    </div>
+  </div></p></td>
 	
 
 <?php
@@ -483,32 +537,20 @@ $payment_date = date('Y-m-d');
 
 
 
-		</table><br>
-			<div class="divider"></div><br>
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add data</a>
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <form method="POST">
-	<label>Date</label><input type="date" name="grade_level"/></br>
-	<label>Sent To</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+"/></br>
-	<label>Reason</label><input type="text" name="average" pattern="[A-Za-z0-9]+"/></br>
+		</table>
+			
 
-	<button class="btn waves-effect waves-light green" type="submit" name="asd" value="Save">Save</button>
-	<button class="btn waves-effect waves-light green" type="submit" name="return" value="Cancel">Cancel</button>
-</form>
-
-    </div>
-  </div>
+ 
   </div>
   
-	<div class="divider"></div>
+	
 <!--================================ more additional infor table ================================!-->
 
 
 
 <!--================================ some buttons ================================!-->
 
-
+ </div>
 </form>
 <!--================================  crap V ================================!-->
 
@@ -517,7 +559,7 @@ $payment_date = date('Y-m-d');
 <script src="jquery-2.1.3.min.js"></script>
 
 </div>
-</div>
+</div></div>
 <script>
 $(function(){
 
