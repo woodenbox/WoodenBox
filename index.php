@@ -127,7 +127,7 @@
 <?php
 	while($row=mysqli_fetch_assoc($table)){
 ?>
-		<tr class='clickableStudent thin' href="viewstudent.php?id=<?=$row['student_id']?>">
+		<tr class='thin' href="viewstudent.php?id=<?=$row['student_id']?>">
 			<td><?=$row['month']." ".date('d', strtotime($row['payment_date']))." ".$row['year']?></td>
 			<td><?=$row['first_name']." ".$row['last_name']?></td>
 			<td><?=$row['ar']?></td>
