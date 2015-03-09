@@ -295,8 +295,8 @@ $payment_date = date('Y-m-d');
 <div class="row ">
     <div class="col s12">
       <ul class="tabs  blue-text z-depth-1">
-        <li class="tab col s3"><a class="  blue-text" href="#test1">Transactions</a></li>
-        <li class="tab col s3 blue-text "><a class="active  blue-text" href="#test2">Academic Status</a></li>
+        <li class="tab col s3"><a class="active  blue-text" href="#test1">Transactions</a></li>
+        <li class="tab col s3 blue-text "><a class="  blue-text" href="#test2">Academic Status</a></li>
         <li class="tab col s3 blue-text  "><a class="  blue-text" href="#test3">Other Records</a></li>
        
       </ul>
