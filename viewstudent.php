@@ -301,8 +301,9 @@ $payment_date = date('Y-m-d');
        
       </ul>
     </div>
-    <div id="test1" class="col s12"><div>
-
+	
+	
+    <div id="test1" class="col s12">
 <table name="first_name" border="1";>
 <thead>
 			<tr style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2"><td>Item</td>
@@ -311,9 +312,6 @@ $payment_date = date('Y-m-d');
 			<td>Penalty</td>
 			<td>Penalty Count</td></tr>
 		</thead>
-		
-	
-
 <?php
 	$table=getStudentBalance($connect, $_GET['id']);	
 	while($row=mysqli_fetch_assoc($table)){
@@ -333,7 +331,7 @@ $payment_date = date('Y-m-d');
 ?>
 
 	</table>
-	</div>
+	
 <!--================================ table ng mga bayarin ================================!-->
 <br>
 
@@ -390,8 +388,8 @@ $payment_date = date('Y-m-d');
 </div>
     </div>
 
-</div>
-    <div id="test2" class="col s12">Test 2</div>
+</div></div></div>
+    <div id="test2" class="col s12">
 	<div class="divider"></div>
 <div>
 	<p style="font-weight:bold">	Total Receivables This Month:</p> <?php if($viewTotalBalance['total']==null) echo "None"; else echo $viewTotalBalance['total'];?>
@@ -443,8 +441,8 @@ $payment_date = date('Y-m-d');
   </div>
 <br>
 			<div class="divider"></div>
-			
-    <div id="test3" class="col s12">Test 3</div>
+			</div>
+    <div id="test3" class="col s12">Test 3
     
   </div>
 
@@ -519,7 +517,7 @@ $payment_date = date('Y-m-d');
 <script src="jquery-2.1.3.min.js"></script>
 
 </div>
-
+</div>
 <script>
 $(function(){
 
