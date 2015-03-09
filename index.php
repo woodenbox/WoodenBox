@@ -53,13 +53,21 @@
 
   
   
- <h4 class="right-align" style="margin-top:-50px;"><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
+ <h4 class="right-align" style="margin-top:-50px;">
  
+ <a class="dropdown-button" href="#!" data-activates="dropdown2"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
  
   <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
  <ul id='dropdown1' class='dropdown-content'>
 			<li>  <a href="logout.php">Log Out</a></li>
 			<li>  <a href="option.php">Options</a></li>
+  </ul>
+  
+   <ul id='dropdown2' class='dropdown-content'>
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
   </ul>
 	  
 	 
@@ -210,6 +218,15 @@ $_GET['id'] =5;
 //echo "<html><head></head><body> <script type='application/javascript'>window.onload=function(){window.print()}</script></body></html>";
 	include('footer.php');
 ?>
+
+
+
+<a href="messages.php">HAHA</a>
+
+
+
+
+
 
 </div>
     <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
