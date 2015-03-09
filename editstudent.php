@@ -129,7 +129,7 @@
     	<input style="margin-left:950px;margin-top:-140px;" type="text" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z ]+" value="<?=$viewStudent['middle_name']?>"/></br>
     	<input style="margin-left:170px;margin-top:-60px;" type="text" placeholder="Age" name="age" pattern="[0-9]+"/></br>
 
-    	<div style="position: relative; top: 400px;>
+    	<div style="position: relative; top: 400px;">
     	<table name="options_others">
     			<div style="position:relative;bottom:370px;font-weight:bold;" class="blue-text text lighten-2">Item</div>
     				<div style="position:relative;bottom:392px;font-weight:bold;left: 300px;" class="blue-text text lighten-2">	Price</div>
@@ -170,30 +170,6 @@
 include("footer.php");
 ?>
 </div>
-<div id="footer" style="margin-bottom:-324px;">
-<footer class="page-footer blue lighten-1">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">WoodenBox</h5>
-                <p class="grey-text text-lighten-4">With the combined efforts of four students from Don Bosco Technical College, here is WoodenBox, a student accounts penalty System with printable statement of accounts and cash flow.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text"></h5>
-                <ul>
-            
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2015 Noah's Ark Institute of Learning, All rights reserved.
-            <a class="grey-text text-lighten-4 right" href="#!"></a>
-            </div>
-          </div>
-        </footer>
-            </div>
   <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
   <script src="asd/js/materialize.js"></script>
   <script src="asd/js/init.js"></script>
