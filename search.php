@@ -124,13 +124,13 @@
 	<button class="waves-effect waves-light btn-large blue lighten-2 mdi-action-search" style="position:relative; bottom:70px;left:860px;font-size:30px;" type="submit" name="submit">
 </form>
 </div>
-<div style="padding-left:290px;padding-right:270px;margin-top:-80px;">
+<div style="padding-left:290px;padding-right:100px;margin-top:-80px;">
 
 						
 	
 
 
-<div id="table-scroll" style="height:60%;overflow:auto;">
+<div id="table-scroll" style="height:68%;overflow:auto;">
 <table>
 	<thead class="blue-text text lighten-2">
 		<tr>

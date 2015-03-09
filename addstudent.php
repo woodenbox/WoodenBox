@@ -262,10 +262,10 @@ echo $monthName;
     		<input style="display: none;" id="file-input"  name="imgfile" type="file"/>
     	</div>
 		
-    	<input style="margin-left:170px;margin-top:-140px;" class="col s12 validate" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z]+" requiblue/></br>
-    	<input style="margin-left:550px;margin-top:-140px;" class="col s3" type="text" placeholder="Last Name" name="last_name"  pattern="[A-Za-z]+" requiblue/></br>
-    	<input style="margin-left:950px;margin-top:-140px;" class="col s3" type="text" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z]+"/></br>
-    	<input style="margin-left:170px;margin-top:-60px;" class="col s3" type="text" placeholder="Age" name="age"/></br>
+    	<input style="margin-left:170px;margin-top:-140px;" class="col s12 validate" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z]+" required/></br>
+    	<input style="margin-left:550px;margin-top:-140px;" class="col s3" type="text" pattern="[A-Za-z]+" placeholder="Last Name" name="last_name"  pattern="[A-Za-z]+" required/></br>
+    	<input style="margin-left:950px;margin-top:-140px;" class="col s3" type="text" pattern="[A-Za-z]+" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z]+"/></br>
+    	<input style="margin-left:170px;margin-top:-60px;" class="col s3" type="text" pattern="[0-9]{2}" placeholder="Age" name="age"/></br>
 		
 <br>
 <div class="divider"> </div><div class="divider" style="position:relative;left: 300px;top:-1px;"> </div><div class="divider" style="position:relative;left: 600px;top:-2px;"> </div>
@@ -352,8 +352,7 @@ echo $monthName;
     				<div style="position:relative;bottom:370px;font-weight:bold;" class="blue-text text lighten-2">Item</div>
     				<div style="position:relative;bottom:392px;font-weight:bold;left: 300px;" class="blue-text text lighten-2">	Price</div>
     				<div style="position:relative;bottom:412px;font-weight:bold;left: 600px;" class="blue-text text lighten-2">Quantity  	</div>	
-					<div class="divider" style="position:relative;bottom:402px;"></div><div class="divider" style="position:relative;bottom:403px;left:150px;"></div>.
-					<div class="divider" style="position:relative;bottom:426px;left:450px;"></div>
+
     		<?php	
     		$table=getOthers($connect);
     		while($row=mysqli_fetch_assoc($table)){
@@ -363,9 +362,9 @@ echo $monthName;
 		
 			</table>
     				<input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
-    				<label for="<?=$row['id']?>"style="position:relative;left:000px;bottom:401px;"><?=$row['item']?></label>
-    				<p style="position:relative;left:300px;bottom:445px;"><?=$row['price']?></p>
-    				<input style="position:relative;left:300px;bottom:500px;left:450px;"type="text" placeholder="Enter Amount"  pattern="[0-9]+" name="howmany[]"/>
+    				<label for="<?=$row['id']?>"style="position:relative;left:000px;bottom:0px;"><?=$row['item']?></label>
+    				<p style="position:relative;left:300px;bottom:245px;"><?=$row['price']?></p>
+    				<input style="position:relative;left:300px;bottom:300px;left:450px;"type="text" placeholder="Enter Amount"  pattern="[0-9]" name="howmany[]"/>
     				
     			<?php	
     		}
