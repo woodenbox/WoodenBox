@@ -11,7 +11,10 @@ $result3=viewStatus($connect);
 
 if(isset($_GET['id4'])){
 	$delTime=delTime($connect, $_GET['id4']);
-	
+		$getGrade=mysqli_fetch_assoc(getGrade($connect, $_GET['id']));
+		$getMode=mysqli_fetch_assoc(getMode($connect, $_GET['id']));
+$getTime=mysqli_fetch_assoc(getTime($connect, $_GET['id']));
+$getStatus=mysqli_fetch_assoc(getStatus($connect, $_GET['id']));
 
 	if($delTime){
 		echo "Deleted!";
@@ -24,34 +27,122 @@ if(isset($_GET['id4'])){
 
 
 
-$getTime=mysqli_fetch_assoc(getTime($connect, $_GET['id']));
-		$getMode=mysqli_fetch_assoc(getMode($connect, $_GET['id']));
-$getGrade=mysqli_fetch_assoc(getGrade($connect, $_GET['id']));
-$getStatus=mysqli_fetch_assoc(getStatus($connect, $_GET['id']));
+			?>
+			<!--===============================EDIT ISSETS ================================!-->
 
-	if(isset($_POST['a'])){
+<?
+
+
+
+	if(isset($_POST['id']{
 		extract($_POST);
 			updateStatus($connect,$_GET['id'], $status);
 			}
 			
-				
+			
 
-	if(isset($_POST['b'])){
+	if(isset($_POST['id'])){
 		extract($_POST);
 			updateMode($connect,$_GET['id'], $mode);
 			}
 	
-
-	if(isset($_POST['c'])){
+	if(isset($_POST['id'])){
 		extract($_POST);
 			updateMode($connect,$_GET['id'], $mode);
 			}
-				
 
-	if(isset($_POST['d'])){
+
+	if(isset($_POST['id'])){
 		extract($_POST);
 			updateTime($connect,$_GET['id'], $time);
 			}
+			
+			
+			?>
+			<!--================================ADD ISSETS ================================!-->
+
+<?
+
+	
+		if(isset($_POST['add'])){
+		$status=$_POST['status'];
+			$add=addStatus($connect,$status);
+			if($add){
+				echo "Added successfully";
+			}
+			else{
+				echo "Failed to add";
+			}
+
+			if(isset($_POST['add'])){
+		$grade=$_POST['grade'];
+			$add=addGrade($connect,$grade);
+			if($add){
+				echo "Added successfully";
+			}
+			else{
+				echo "Failed to add";
+			}
+		
+	}
+
+		if(isset($_POST['add'])){
+		$t1=$_POST['time'];
+		$time=$t1." ".$_POST['tod'];
+			$add=addTime($connect,$time);
+			if($add){
+				echo "Added successfully";
+			}
+			else{
+				echo "Failed to add";
+			}
+	 
+	}
+	
+	
+	
+		if(isset($_POST['add'])){
+		$mode=$_POST['mode'];
+			$add=addMode($connect,$mode);
+			if($add){
+				echo "Added successfully";
+			}
+			else{
+				echo "Failed to add";
+			}
+		
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 ?>
 <head>
 	  <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -104,6 +195,8 @@ $getStatus=mysqli_fetch_assoc(getStatus($connect, $_GET['id']));
 <div style="padding-left:290px;padding-right:270px;">
 <table>
 
+
+<!--================================TIME================================!-->
 	<tr>
 		<th>Time</th>
 		
@@ -114,9 +207,9 @@ $getStatus=mysqli_fetch_assoc(getStatus($connect, $_GET['id']));
 		<tr> 
 			<td class="modal-trigger" href="#modal1"><?=$row['time']?></td>
 			  <div id="modal1" class="modal">
-    <div class="modal-content">
-<form method="POST">
-			Time
+			<div class="modal-content">
+			<form method="POST">
+			Time:
 			<input class="input_field" name="time" value="<?=$getTime['time']?>"/>
 			<input type="submit" name="d" value="Edit Record"/>		
 </form>
@@ -129,7 +222,30 @@ $getStatus=mysqli_fetch_assoc(getStatus($connect, $_GET['id']));
 	}
 	?>
 	
-	<tr class="clickablerow" href="add/addT.php"> 
+	<tr class="modal-trigger" href="#modal5"> 
+	  <div id="modal5" class="modal">
+    <div class="modal-content">
+
+<form method="POST">
+
+			Time
+			<input type="text" name="time" value="hh:mm"/>
+			<select name="tod">
+				<option value="am">am</option>
+				<option value="pm">pm</option>
+			</select>
+		
+			<select>
+				<option value="am">am</option>
+				<option value="pm">pm</option>
+			</select>
+			<input type="submit" name="add" value="Add Record"/>
+			<input type="reset" name="clear" value="Clear"/></td>
+	
+	</form>
+    </div>
+  
+  </div>
 		<td>Add Time</td>
 		<td></td>
 		<td></td>
@@ -139,8 +255,8 @@ $getStatus=mysqli_fetch_assoc(getStatus($connect, $_GET['id']));
 
 <?php
 
-if(isset($_GET['id3'])){
-	$delMode=delMode($connect, $_GET['id3']);
+if(isset($_GET['id'])){
+	$delMode=delMode($connect, $_GET['id']);
 	
 	if($delMode){
 		echo "Deleted!";
@@ -151,23 +267,53 @@ if(isset($_GET['id3'])){
 }
 ?>
 
-<table>
 
+
+
+
+
+
+	<!--================================================================!-->
+	<!--================================PAYMENT MODE ================================!-->
+<table>
 	<tr>
+
 		<th>Mode</th>
 		
 	</tr>
 	<?php
 	while($row=mysqli_fetch_assoc($result1)){
 		?>
-		<tr class="clickablerow" href="edit/editM.php?id=<?=$row['id']?>">
-			<td><?=$row['mode']?></td>
+		<tr>
+			<td class="modal-trigger" href="#modal2"><?=$row['mode']?></td>
+	<div id="modal2" class="modal">
+    <div class="modal-content">
+      <form method="POST">
+			Paymend Mode:
+			<input class="input_field" name="mode">asdasd</input>
+			<input type="submit" name="edit" value="Edit Record"/>		
+</form>
+    </div>
+  
+  </div>
 			<td><a href="option.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure you want to delete this?')";>Delete</a></td>
 		</tr>
 		<?php
 	}
 	?>
-	<tr class="clickablerow" href="add/addM.php"> 
+	<tr class="modal-trigger" href="modal6"> 
+	  <div id="modal6" class="modal">
+    <div class="modal-content">
+
+<form method="POST">
+			Mode
+			<input type="text" name="mode" value=""/>
+			<input type="submit" name="add" value="Add Record"/>
+			<input type="reset" name="clear" value="Clear"/></td>
+			</form>
+    </div>
+  
+  </div>
 		<td>Add Payment Mode</td>
 		<td></td>
 		<td></td>
@@ -187,25 +333,44 @@ if(isset($_GET['id1'])){
 	}
 }
 ?>
-
+<!--================================ACADEMIC STATUS================================!-->
 <table>
-
 	<tr>
-		
 		<th> Academic Status</th>
-		
 	</tr>
 	<?php
 	while($row=mysqli_fetch_assoc($result3)){
 		?>
-		<tr class="clickablerow" href="edit/editA.php?id=<?=$row['id']?>">
+		<tr class="modal-trigger" href="#modal3">
 			<td><?=$row['status']?></td>
+			  <div id="modal3" class="modal">
+				<div class="modal-content">
+				<form method="POST">
+			Academic Status:
+			<input class="input_field" name="mode" value="<?=$getStatus['status']?>"/>
+			<input type="submit" name="edit" value="Edit Record"/>		
+</form>
+    </div>
+  
+  </div>
 			<td><a href="option.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure you want to delete this?')";>Delete</a></td>
 		</tr>
 		<?php
 	}
 	?>
-	<tr class="clickablerow" href="add/addA.php"> 
+	<tr class="modal-trigger" href="#modal7"> 
+	  <div id="modal7" class="modal">
+    <div class="modal-content">
+
+<form method="POST">
+			Academic Status
+			<input type="text" name="status" value=""/>
+			<input type="submit" name="add" value="Add Record"/>
+			<input type="reset" name="clear" value="Clear"/></td>
+			</form>
+    </div>
+  
+  </div>
 		<td>Add Academic Status</td>
 		<td></td>
 		<td></td>
@@ -214,8 +379,8 @@ if(isset($_GET['id1'])){
 
 <?php
 
-if(isset($_GET['id2'])){
-	$delGrade=delGrade($connect, $_GET['id2']);
+if(isset($_GET['id'])){
+	$delGrade=delGrade($connect, $_GET['id']);
 	if($delGrade){
 		echo "Deleted!";
 	}
@@ -235,14 +400,8 @@ if(isset($_GET['id2'])){
 
 
 
-
-
-
-
-
-
 ?>
-
+	<!--================================GRADE LEVEL================================!-->
 <table>
 	<tr>
 		<th>Grade Level</th>
@@ -250,14 +409,37 @@ if(isset($_GET['id2'])){
 	<?php
 	while($row=mysqli_fetch_assoc($result2)){
 		?>
-		<tr class="clickablerow" href="edit/editG.php?id=<?=$row['id']?>">
+		<tr class="modal-trigger" href="#modal4">
 			<td><?=$row['grade_levels']?></td>
+			  <div id="modal4" class="modal">
+    <div class="modal-content">
+<form method="POST">
+			Grade Level:
+			<input class="input_field" name="mode" value="<?=$getGrades['grade']?>"/>
+			<input type="submit" name="b" value="Edit Record"/>		
+</form>
+    </div>
+  
+  </div>
 			<td><a href="option.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure you want to delete this?')";>Delete</a></td>
 		</tr>
 		<?php
 	}
 	?>
-	<tr class="clickablerow" href="add/addG.php"> 
+	<tr class="modal-trigger" href="#modal8"> 
+	 
+  <div id="modal8" class="modal">
+    <div class="modal-content">
+
+<form method="POST">
+			Grade Level
+			<input type="text" name="grade" value=""/>
+			<input type="submit" name="add" value="Add Record"/>
+			<input type="reset" name="clear" value="Clear"/></td>
+			</form>
+    </div>
+  
+  </div>
 		<td>Add Grade</td>
 		<td></td>
 		<td></td>
@@ -280,29 +462,7 @@ $(function(){
 
 
 </script>
-<div id="footer" style="margin-bottom:-824px;">
-<footer class="page-footer blue lighten-1">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">WoodenBox</h5>
-                <p class="grey-text text-lighten-4">With the combined efforts of four students from Don Bosco Technical College, here is WoodenBox, a student accounts penalty System with printable statement of accounts and cash flow.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text"></h5>
-                <ul>
-            
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2015 Noah's Ark Institute of Learning, All rights reserved.
-            <a class="grey-text text-lighten-4 right" href="#!"></a>
-            </div>
-          </div>
-        </footer>
+
     <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
   <script src="asd/js/materialize.js"></script>
   <script src="asd/js/init.js"></script>
