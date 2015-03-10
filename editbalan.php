@@ -102,8 +102,12 @@
 	Penalty Count<input type="number" name="penalty_count" value="<?=$getBalance['penalty_count']?>" pattern="[0-9]+"/></br>
 
 	<button class="btn waves-effect waves-light green" type="submit" name="submit" value="Save">Save</button>
-	<button class="btn waves-effect waves-light green" type="submit" name="delete" value="Waive">Waive</button>
-	<button class="btn waves-effect waves-light green" type="submit" name="undelete" value="Unwaive">Unwaive</button>
+	<?php if($getBalance['waive']==0){ ?>
+		<button class="btn waves-effect waves-light green" type="submit" name="delete" value="Waive">Waive</button>
+	<?php } else { ?>
+
+		<button class="btn waves-effect waves-light green" type="submit" name="undelete" value="Unwaive">Unwaive</button>
+	<?php } ?>
 	<button class="btn waves-effect waves-light green" type="submit" name="return" value="Cancel">Cancel</button>
 </form>
 
