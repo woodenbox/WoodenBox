@@ -101,7 +101,6 @@ if(isset($_GET['id'])){
 $getUsers=getUsers($connect);
 ?>
 
-<!--new!-->
 <table>
 	<thead>
 		<tr>
