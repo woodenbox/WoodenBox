@@ -9,6 +9,10 @@ $result1=viewMode($connect);
 $result2=viewGrade($connect);
 $result3=viewStatus($connect);
 
+if($_SESSION['access_control']<2){
+	header('Location: index.php');
+}
+
 if(isset($_POST['changeyear'])){
 	changeyear($connect);
 }
