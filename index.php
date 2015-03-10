@@ -15,7 +15,7 @@
 
 	$checkUserTable = getFandLnameDB($connect, $_SESSION['user_id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
-	$table = getCashFlow($connect, $_GET['month'], $_GET['year']);
+	$table = getCashFlowIndex($connect, $_GET['month'], $_GET['year']);
 	
 	
 	
@@ -140,7 +140,7 @@
 <?php
 	while($row=mysqli_fetch_assoc($table)){
 ?>
-		<tr class='thin' href="viewstudent.php?id=<?=$row['student_id']?>">
+		<tr class='thin <?php if($row['state']==1){?> grey lighten-3 grey-text text-lighten-1<?php } ?>' href="viewstudent.php?id=<?=$row['student_id']?>">
 			<td><?=$row['month']." ".date('d', strtotime($row['payment_date']))." ".$row['year']?></td>
 			<td><?=$row['first_name']." ".$row['last_name']?></td>
 			<td><?=$row['ar']?></td>
@@ -149,7 +149,7 @@
 			<td><?=$row['cr']?></td>
 			<td><?=$row['tuition']?></td>
 			<td><?=$row['remark']?></td>
-			<td><a href="editcashflow.php?id=<?=$row['id']?>">edit</a></td>
+			<td><?php if ($_SESSION['access_control']==2){ ?> <a href="editcashflow.php?id=<?=$row['id']?>">edit<?php } else { }?></a></td>
 		</tr>	
 <?php	
 	}

@@ -31,8 +31,20 @@
 		return $result;
 	}
 
+	function getCashFlowIndex($connect, $month, $year){
+		$sql = "SELECT * FROM fee_payment WHERE month='$month' AND year=$year";
+		$result = mysqli_query($connect, $sql);
+		return $result;		
+	}
+
 	function editCashFlow($connect, $id){
 		$sql="SELECT * FROM fee_payment WHERE id=$id";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+
+	function restoreCashFlow($connect, $id){
+		$sql="UPDATE `fee_payment` SET `state`=0 WHERE `id`=$id";
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}

@@ -22,6 +22,11 @@
 		header('Location:index.php');
 	}
 
+	if(isset($_POST['restore'])){
+		restoreCashFlow($connect, $_GET['id']);
+		header('Location:index.php');
+	}
+
 ?>
 <!--================================ crap ^ ================================!-->
 
@@ -103,7 +108,11 @@
 	<labe>Remarks</label><input type="text" name="remarks" value="<?=$getUserRow['remark']?>"  pattern="[A-Za-z ]+" title="Only letters and spaces are accepted" required/></br>
 	
 	<button class="btn waves-effect waves-light green"  name="123" value="Save">Save</button>
-	<button class="btn waves-effect waves-light green"  name="321" value="Delete Payment">Delete</button>
+	<?php if($getUserRow['state']==0){ ?>
+		<button class="btn waves-effect waves-light green"  name="321" value="Delete Payment">Delete</button>
+		<?php }else{ ?>
+		<button class="btn waves-effect waves-light green"  name="restore" value="Restore">Restore</button>
+		<?php } ?>
 	<button class="btn waves-effect waves-light green" onclick="location.href='index.php'" name="return" >Cancel</button>
 </form>
 
