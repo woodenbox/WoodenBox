@@ -16,8 +16,8 @@
 ?>
 <head>
 </head>
-<a style="font-family: Vrinda;">ACKNOWLEDGEMENT RECEIPT (SY <?=$getSY['from']."-".$getSY['to']?>)<br>
-FOR THE MONTH OF <?php echo $_GET['month']." ".$_GET['year'];?></a></br>
+<a style="font-family: Vrinda;font-weight: bold; font-size:80%;">ACKNOWLEDGEMENT RECEIPT (SY <?=$getSY['from']."-".$getSY['to']?>)</a><br>
+<a style="font-family: Vrinda;font-size:80%;">For the month of <?php echo $_GET['month']." ".$_GET['year'];?></a></br>
 
 
 <table style="border: 1px; width: 100%;
@@ -41,8 +41,8 @@ text-align: center; font-family: Vrinda;">
 		$x=1;
 	while($row=mysqli_fetch_assoc($getCashFlow)){
 ?>
-		<tr>
-			<td><?=$row['month']." ".date('d', strtotime($row['payment_date']))." ".$row['year']?></td>
+		<tr style="font-size: 80%;">
+			<td><?=$row['month']." ".date('d', strtotime($row['payment_date'])).", ".$row['year']?></td>
 			<td><?=$row['first_name']." ".$row['last_name']?></td>
 			<td><?=$row['ar']?></td>
 			<td><?=$row['cash']?></td>
