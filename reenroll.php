@@ -121,7 +121,7 @@
   <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
  <ul id='dropdown1' class='dropdown-content'>
 			<li>  <a href="logout.php">Log Out</a></li>
-			<li>  <a href="option.php">Options</a></li>
+            <?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
   </ul>
 	  
 	 

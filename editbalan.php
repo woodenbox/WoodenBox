@@ -11,6 +11,10 @@
 		header('Location:viewstudent.php?id='.$_SESSION['studentfee']);
 	}
 
+	if($_SESSION['access_control']<2){
+		header('Location:studentaccounts.php');
+	}
+
 	if(isset($_POST['undelete'])){
 		deleteStudentBalance($connect, $_GET['id'], 0);
 		header('Location: viewstudent.php?id='.$_SESSION['studentfee']);

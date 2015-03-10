@@ -221,7 +221,7 @@ $payment_date = date('Y-m-d');
   <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
  <ul id='dropdown1' class='dropdown-content'>
 			<li>  <a href="logout.php">Log Out</a></li>
-			<li>  <a href="option.php">Options</a></li>
+			<?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
   </ul>
 	  
 	 
@@ -266,6 +266,8 @@ $payment_date = date('Y-m-d');
 
 <form method="POST">
 <!--================================ some buttons ================================!-->
+
+<?php if($_SESSION['access_control']>1){ ?>
 <form method="POST">
 
 <?php if($viewStudent['state']==0){ ?>
@@ -278,7 +280,7 @@ $payment_date = date('Y-m-d');
 <button class="btn waves-effect waves-light green" type="submit" name="reenrol" value="Re-enroll Student" style="position: relative;top:160px; left: 700px;"  >Re-enroll Student</button></br>
 <button class="btn waves-effect waves-light green" type="submit" name="edit" value="Edit" style="position: relative;top:170px; left: 700px;"  >Edit Student</button></br>
 		</form>
-
+<?php } else echo "</br></br></br></br></br></br></br></br>"?>
 	<img class="backup_picture z-depth-2" src="uploads/<?=$_GET['id']?>" alt="Student Image" height="150" width="150" style="float:left;">
 	
 	<div style="padding-top:18px;">
@@ -343,7 +345,7 @@ $payment_date = date('Y-m-d');
 	$table=getStudentBalance($connect, $_GET['id']);	
 	while($row=mysqli_fetch_assoc($table)){
 ?>
-		<tr class="editBalance" href="editbalan.php?id=<?=$row['id']?>">
+		<tr <?php if($_SESSION['access_control']>1){ ?> class="editBalance" <?php } ?> href="editbalan.php?id=<?=$row['id']?>">
 			<td><?=$row['item']?></td>
 			<td><?=$row['balance']?></td>
 			<td><?=$row['due_date']?></td>
