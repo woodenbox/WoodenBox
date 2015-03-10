@@ -36,6 +36,7 @@ text-align: center; font-family: Vrinda;">
 
 <?php
 	$getCashFlow = getCashFlow($connect, $_GET['month'], $_GET['year']);
+		$x=1;
 	while($row=mysqli_fetch_assoc($getCashFlow)){
 ?>
 		<tr>
@@ -48,7 +49,20 @@ text-align: center; font-family: Vrinda;">
 			<td><?=$row['tuition']?></td>
 			<td><?=$row['remark']?></td>
 		</tr>	
-<?php	
+<?php
+	if($x==21){
+		echo "<tr>
+			<td>&nbsp;</td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+		</tr>";	
+	}	
+	$x++;
 	}
 ?>
 </table>
