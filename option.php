@@ -117,7 +117,7 @@ $getUsers=getUsers($connect);
 	<tr class="clickablerow" href="edituser.php?id=<?=$row['user_id']?>">
 		<td><?=$row['first_name']." ".$row['last_name']?></td>
 		<td><?=$row['username']?></td>
-		<td><?=$row['access_control']?></td>
+		<td><?php if($row['access_control']==1) echo "Regular User"; else echo "Administrator"; ?></td>
 	</tr>
 	<?php } ?> 
 	<tr class="clickablerow" href="adduser.php"/>
