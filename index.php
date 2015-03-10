@@ -163,14 +163,14 @@
 <!--================================eto ung listahan ng other cashflows================================!-->
 <a class="waves-effect waves-light btn-large  green lighten-2" id='buttone'onclick="myFunction()"> Print this page </a>
 
- <div style="height: 1px;width: 180px;position: relative;right: -1300px;top: -660px;">
+ <div style="height: 1px;width: 180px;position: relative;right: -1300px;top: -666px;">
           <ul class="section table-of-contents">
         
 
 
 		<li class="blue-text text lighten-2" style="font-size:24px;">	Cash Flow List</li>
 		
-			<div class="divider"></div>
+			<div class="divider" style="width:230px;"></div>
 			
 <?php
 	$table=getPreviousCashFlow($connect);	
@@ -219,9 +219,6 @@ $_GET['id'] =5;
 	include('footer.php');
 ?>
 
-
-
-<a href="messages.php">HAHA</a>
 
 
 

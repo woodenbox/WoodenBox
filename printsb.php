@@ -19,6 +19,10 @@
 
 	$getTotalBalance = getTotalBalancePrint($connect, $_GET['id']);
 	$viewTotalBalance = mysqli_fetch_assoc($getTotalBalance);
+
+/*	header("Content-type: application/doc");
+	header("Content-Disposition: attachment;Filename=FamilyRecord.doc");
+*/
 ?>
 <div style="transform: scale(.89);
    transform-origin: 0% 0%;">

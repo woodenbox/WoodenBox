@@ -9,6 +9,10 @@ $result1=viewMode($connect);
 $result2=viewGrade($connect);
 $result3=viewStatus($connect);
 
+if(isset($_POST['changeyear'])){
+	changeyear($connect);
+}
+
 if(isset($_GET['id'])){
 	$delTime=delTime($connect, $_GET['id']);
 	
@@ -90,8 +94,8 @@ if(isset($_GET['id'])){
 
 
 
-
 <div style="padding-left:290px;padding-right:270px;">
+
 <h5>Click on a user edit it. Or click "Add User" to add new account</h5>
 	<?php
 $getUsers=getUsers($connect);

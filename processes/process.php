@@ -516,6 +516,13 @@ function delGrade($connect,$id){
 	return $result;
 }
 
+function changeyear($connect){
+	for($x=16;$x<=10;$x++){
+		$sql="INSERT INTO `options_school_year`(`year`) VALUES (20.$x)";
+			mysqli_query($connect, $sql);
+	}
+	}
+
 function updateTime($connect, $id, $time){
 		$sql = "UPDATE options_times SET time='$time' WHERE id='$id'";
 		$result = mysqli_query($connect, $sql);

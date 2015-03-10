@@ -351,11 +351,11 @@ jQuery.extend( jQuery.easing,
     var defaults = {
       inDuration: 300,
       outDuration: 225,
-      constrain_width: true, // Constrains width of dropdown to the activator
+      constrain_width: false, // Constrains width of dropdown to the activator
       hover: true,
       alignment: 'left',
       gutter: 0, // Spacing from edge
-      belowOrigin: false
+      belowOrigin: true
     }
 
     options = $.extend(defaults, options);

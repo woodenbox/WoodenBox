@@ -7,7 +7,10 @@
 	if(!isset($_GET['page'])){
 		$_GET['page']=1;
 	}
-
+/*
+	header("Content-type: application/doc");
+	header("Content-Disposition: attachment;Filename=FamilyRecord.doc");
+*/
 ?>
 <head>
 </head>
