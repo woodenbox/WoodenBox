@@ -87,15 +87,15 @@
 <?php
 	while($row=mysqli_fetch_assoc($table)){
 ?>
-		<tr href="viewstudent.php?id=<?=$row['student_id']?>" class="clickableRow <?php if($row['total_balance']==0) echo "green lighten-3"; 
-																					 else echo ""; ?>">
+		<tr href="viewstudent.php?id=<?=$row['student_id']?>" class="clickableRow <?php if($row['total_balance']==0 && $row['state']==0) echo "green lighten-3"; 
+																					 else if($row['state']==1){ echo"grey lighten-3 grey-text text-lighten-1"; } else echo ""; ?>">
 			<td><?=$row['last_name']?></td>
 			<td><?=$row['first_name']?></td>
 			<td><?=$row['age']?></td>
 			<td><?=$row['grade']?></td>
 			<td><?=$row['academicstatus']?></td>
 			<td><?=$row['last_accessed']?></td>
-			<td><?php if($row['total_balance']==0) echo "Clear"; else echo $row['total_balance'];?></td>
+			<td><?php if($row['total_balance']==0 && $row['state']==0) echo "Clear"; else if($row['state']==1) echo "Deleted"; else echo $row['total_balance'];?></td>
 		</tr>	
 <?php	
 	}

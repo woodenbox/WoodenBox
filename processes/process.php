@@ -227,7 +227,7 @@
 	}
 //=============================================================================================================================================//
 	function viewStudents($connect, $srt, $sortby){
-		$sql="SELECT students.last_name AS last_name, students.first_name AS first_name, students.age AS age, students.student_id AS student_id, students.grade AS grade, students.academicstatus AS academicstatus, students.last_accessed AS last_accessed, SUM(case when waive = 0 then fee_balance.balance else 0 end) AS total_balance FROM fee_balance INNER JOIN students ON fee_balance.student_id = students.student_id GROUP BY students.student_id ORDER BY students.$srt $sortby ";
+		$sql="SELECT students.state AS state, students.last_name AS last_name, students.first_name AS first_name, students.age AS age, students.student_id AS student_id, students.grade AS grade, students.academicstatus AS academicstatus, students.last_accessed AS last_accessed, SUM(case when waive = 0 then fee_balance.balance else 0 end) AS total_balance FROM fee_balance INNER JOIN students ON fee_balance.student_id = students.student_id GROUP BY students.student_id ORDER BY students.$srt $sortby ";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}
@@ -243,6 +243,11 @@
 		$result = mysqli_query($connect,$sql);
 		return $result;
 	}
+
+	function restoreStudent($connect, $id){
+		$sql="UPDATE `students` SET `state`=0 WHERE `student_id` = $id";
+		$return = mysqli_query($connect, $sql);
+		return $result;	}
 
 	function getPenalty($connect, $id){
 		$sql = "SELECT penalty_balance, penalty_count, due_date, balance, id, waive FROM fee_balance WHERE student_id='$id' AND balance > 0 OR student_id='$id' AND penalty_balance > 0";
@@ -313,16 +318,10 @@ function add($date_str, $months)
 	}
 
 	function deleteStudent($connect, $id){
-		$sql="DELETE FROM fee_balance WHERE student_id = $id";
+		$sql="UPDATE `fee_balance` SET `waive`=1 WHERE `student_id` = $id";
 		mysqli_query($connect, $sql);
 
-		$sql="DELETE FROM tabs_academicstatus WHERE student_id = $id";
-		mysqli_query($connect, $sql);
-
-		$sql="DELETE FROM tabs_other_records WHERE student_id = $id";
-		mysqli_query($connect, $sql);
-
-		$sql="DELETE FROM students WHERE student_id = $id";
+		$sql="UPDATE `students` SET `state`=1 WHERE `student_id` = $id";
 		$return = mysqli_query($connect, $sql);
 		return $result;
 	}

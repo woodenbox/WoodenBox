@@ -111,6 +111,10 @@
 	<button class="btn waves-effect waves-light green" type="submit" name="return" value="Cancel">Cancel</button>
 </form>
 
+<script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
+<script src="asd/js/materialize.js"></script>
+<script src="asd/js/init.js"></script>
+
 <?php
 	include('footer.php');
 ?>

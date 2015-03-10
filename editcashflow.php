@@ -4,6 +4,10 @@
 	include('processes/process.php');
 	$connect=connectDB();
 
+	if($_SESSION['access_control']<2){
+		header('Location:index.php');
+	}
+
 	$checkUserTable = editCashFlow($connect, $_GET['id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
 

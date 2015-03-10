@@ -273,30 +273,6 @@
     		}
     		?>
     	
-<div id="footer" style="margin-bottom:-700px;">
-<footer class="page-footer blue lighten-1">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">WoodenBox</h5>
-                <p class="grey-text text-lighten-4">With the combined efforts of four students from Don Bosco Technical College, here is WoodenBox, a student accounts penalty System with printable statement of accounts and cash flow.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text"></h5>
-                <ul>
-            
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2015 Noah's Ark Institute of Learning, All rights reserved.
-            <a class="grey-text text-lighten-4 right" href="#!"></a>
-            </div>
-          </div>
-        </footer>
-            </div>
 
 
 
