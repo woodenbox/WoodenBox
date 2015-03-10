@@ -29,6 +29,7 @@
   	<link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   	<link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   	<link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  	<link rel="shortcut icon" href="box.ico">
 	<title>WoodenBox Login</title>
 	</head>
 

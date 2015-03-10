@@ -132,6 +132,12 @@
 		return $result;
 	}
 
+	function getSY($connect){
+		$sql="SELECT * FROM school_year";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+
 	function getStudentBalancePrint($connect, $id){
 		$datengaun = date("Y-m-30")/*date('Y-m-d', strtotime('2015-11-30'))*/;
 		$sql = "SELECT * FROM fee_balance WHERE student_id = $id AND balance > 0 AND due_date <='$datengaun' OR student_id=$id AND penalty_balance > 0 AND due_date <='$datengaun' OR student_id = $id AND balance > 0 AND due_date IS NULL OR student_id =$id AND penalty_balance > 0 AND due_date IS NULL";

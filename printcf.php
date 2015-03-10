@@ -7,6 +7,8 @@
 	if(!isset($_GET['page'])){
 		$_GET['page']=1;
 	}
+
+	$getSY=mysqli_fetch_assoc(getSY($connect));
 /*
 	header("Content-type: application/doc");
 	header("Content-Disposition: attachment;Filename=FamilyRecord.doc");
@@ -14,7 +16,7 @@
 ?>
 <head>
 </head>
-<a style="font-family: Vrinda;">ACKNOWLEDGEMENT RECEIPT<br>
+<a style="font-family: Vrinda;">ACKNOWLEDGEMENT RECEIPT (SY <?=$getSY['from']."-".$getSY['to']?>)<br>
 FOR THE MONTH OF <?php echo $_GET['month']." ".$_GET['year'];?></a></br>
 
 
@@ -52,7 +54,7 @@ text-align: center; font-family: Vrinda;">
 <?php
 	if($x==21){
 		echo "<tr>
-			<td>&nbsp;</td>
+			<td></br></td>
 			<td> </td>
 			<td> </td>
 			<td> </td>
@@ -60,7 +62,8 @@ text-align: center; font-family: Vrinda;">
 			<td> </td>
 			<td> </td>
 			<td> </td>
-		</tr>";	
+		</tr>";
+		$x=1;	
 	}	
 	$x++;
 	}
