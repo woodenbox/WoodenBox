@@ -225,6 +225,16 @@
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
+
+	function insertTuition($connect,$grade, $fee_type, $item, $tuition_fee, $due_date){
+		if($due_date==null)
+			$sql="INSERT INTO `fee_schedule` (`grade`, `fee_type`, `item`, `fee`, `due_date`) VALUES ('$grade', '$fee_type', '$item', $tuition_fee, null)";
+		else
+			$sql="INSERT INTO `fee_schedule` (`grade`, `fee_type`, `item`, `fee`, `due_date`) VALUES ('$grade', '$fee_type', '$item', $tuition_fee, '$due_date')";
+		
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
 //=============================================================================================================================================//
 	function viewStudents($connect, $srt, $sortby){
 		$sql="SELECT students.state AS state, students.last_name AS last_name, students.first_name AS first_name, students.age AS age, students.student_id AS student_id, students.grade AS grade, students.academicstatus AS academicstatus, students.last_accessed AS last_accessed, SUM(case when waive = 0 then fee_balance.balance else 0 end) AS total_balance FROM fee_balance INNER JOIN students ON fee_balance.student_id = students.student_id GROUP BY students.student_id ORDER BY students.$srt $sortby ";
@@ -533,11 +543,22 @@ function delGrade($connect,$id){
 	return $result;
 }
 
-function changeyear($connect){
-	for($x=16;$x<=10;$x++){
-		$sql="INSERT INTO `options_school_year`(`year`) VALUES (20.$x)";
-			mysqli_query($connect, $sql);
+function changeyear($connect, $from, $to){
+		$sql="UPDATE `school_year` SET `from`=$from, `to`=$to";
+		$result = mysqli_query($connect, $sql);
+		return $result;
 	}
+
+	function getSchoolYears($connect){
+		$sql="SELECT * FROM `options_school_year`";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+
+	function getCurrentSY($connect){
+		$sql="SELECT * FROM `school_year`";
+		$result=mysqli_query($connect, $sql);
+		return $result;
 	}
 
 function updateTime($connect, $id, $time){

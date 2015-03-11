@@ -14,7 +14,9 @@ if($_SESSION['access_control']<2){
 }
 
 if(isset($_POST['changeyear'])){
-	changeyear($connect);
+		extract($_POST);
+	changeyear($connect, $from, $to);
+
 }
 
 if(isset($_GET['id'])){
@@ -29,6 +31,7 @@ if(isset($_GET['id'])){
 		echo "Not working!";
 	}
 }
+$getCurrentSY=mysqli_fetch_assoc(getCurrentSY($connect));
 ?>
 <div class="section no-pad-bot blue lighten-1" id="index-banner">
         <div class="container nav-wrapper">
@@ -99,6 +102,36 @@ if(isset($_GET['id'])){
 
 
 <div style="padding-left:290px;padding-right:270px;">
+
+		<h5 style="font-weight:bold;">Current School Year</h5>
+	<form method="POST">
+		<p class="blue-text lighten-2" style="font-weight:bold;">From:</p>
+		<div style="width:150px;">
+	   		<select name="from" value="<?=$getCurrentSY['from']?>">
+	    		<?php $getSchoolYears = getSchoolYears($connect);
+	    			while($row=mysqli_fetch_array($getSchoolYears, MYSQLI_ASSOC)){
+	    				$status=$row["year"]; ?>
+	    				<option value="<?=$status?>" <?php if($status==$getCurrentSY['from']) echo "selected"?>><?=$status?></option>
+	    		<?php	}
+	    		?>
+	    	</select>
+	    </div>
+	    <div style="position:absolute; right:64%; top:22%">
+	    	<p class="blue-text lighten-2" style="font-weight:bold;">To:</p>
+			<div style="width:150px;">
+   				<select name="to" value="<?=$getCurrentSY['from']?>">
+    				<?php $getSchoolYears = getSchoolYears($connect);
+    					while($row=mysqli_fetch_array($getSchoolYears, MYSQLI_ASSOC)){
+    						$status=$row["year"]; ?>
+	    				<option value="<?=$status?>" <?php if($status==$getCurrentSY['to']) echo "selected"?>><?=$status?></option>
+	    		<?php	}
+    				?>
+    			</select>
+    		</div>
+		</div>
+
+		<input type="submit" name="changeyear" value="Save"/>
+	</form>
 
 <h5>Click on a user edit it. Or click "Add User" to add new account</h5>
 	<?php
@@ -172,6 +205,7 @@ if(isset($_GET['id'])){
 <script src="jquery-2.1.3.min.js"></script>
 
 <h5>Click on a grade level to add, edit, or delete tuition fees. </h5>
+<button class="btn waves-effect waves-light green clickablerow" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
 </br>
 <!--<div style="width:20%;">!-->
 <?php while($row=mysqli_fetch_assoc($result2)){?>
