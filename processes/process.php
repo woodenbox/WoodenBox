@@ -235,6 +235,18 @@
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
+
+	function selectPenaltyValue($connect){
+		$sql="SELECT * FROM `penalty`";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+
+	function updatePenaltyValue($connect, $penalty){
+		$sql="UPDATE `penalty` SET `penalty`=$penalty";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
 //=============================================================================================================================================//
 	function viewStudents($connect, $srt, $sortby){
 		$sql="SELECT students.state AS state, students.last_name AS last_name, students.first_name AS first_name, students.age AS age, students.student_id AS student_id, students.grade AS grade, students.academicstatus AS academicstatus, students.last_accessed AS last_accessed, SUM(case when waive = 0 then fee_balance.balance else 0 end) AS total_balance FROM fee_balance INNER JOIN students ON fee_balance.student_id = students.student_id GROUP BY students.student_id ORDER BY students.$srt $sortby ";

@@ -32,6 +32,11 @@ if(isset($_GET['id'])){
 	}
 }
 $getCurrentSY=mysqli_fetch_assoc(getCurrentSY($connect));
+
+if(isset($_POST['setpenalty'])){
+	extract($_POST);
+	updatePenaltyValue($connect, $penalty);
+}
 ?>
 <div class="section no-pad-bot blue lighten-1" id="index-banner">
         <div class="container nav-wrapper">
@@ -104,6 +109,7 @@ $getCurrentSY=mysqli_fetch_assoc(getCurrentSY($connect));
 <div style="padding-left:290px;padding-right:270px;">
 
 		<h5 style="font-weight:bold;">Current School Year</h5>
+		<h6>Change the current school year by selecting from and to. The click save</h6>
 	<form method="POST">
 		<p class="blue-text lighten-2" style="font-weight:bold;">From:</p>
 		<div style="width:150px;">
@@ -116,7 +122,7 @@ $getCurrentSY=mysqli_fetch_assoc(getCurrentSY($connect));
 	    		?>
 	    	</select>
 	    </div>
-	    <div style="position:absolute; right:64%; top:22%">
+	    <div style="position:absolute; right:64%; top:24.5%">
 	    	<p class="blue-text lighten-2" style="font-weight:bold;">To:</p>
 			<div style="width:150px;">
    				<select name="to" value="<?=$getCurrentSY['from']?>">
@@ -129,8 +135,18 @@ $getCurrentSY=mysqli_fetch_assoc(getCurrentSY($connect));
     			</select>
     		</div>
 		</div>
+		<button class="btn waves-effect waves-light green"  name="changeyear" value="Save">Save</button>
 
-		<input type="submit" name="changeyear" value="Save"/>
+	</form>
+</br>
+	<h5 style="font-weight:bold;">Penalty Percentage</h5>
+	<h6>Change the penalty percentage by inputting a value then click the set button</h6>
+	<form method="POST">
+	<div style="width: 10%;">
+		<?php $selectPenaltyValue=mysqli_fetch_assoc(selectPenaltyValue($connect)); ?>
+		<input type="number" name="penalty" value="<?=$selectPenaltyValue['penalty']?>">
+	</div>
+		<button class="btn waves-effect waves-light green" name="setpenalty" value="Set Penalty">Set</button>
 	</form>
 
 <h5>Click on a user edit it. Or click "Add User" to add new account</h5>
