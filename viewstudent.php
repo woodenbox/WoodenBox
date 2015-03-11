@@ -4,7 +4,8 @@
 	include('processes/process.php');
 	$connect = connectDB();
 	$datengayon = date('Y-m-d');
-	$percentage = 0.05;
+	$selectPenaltyValue=mysqli_fetch_assoc(selectPenaltyValue($connect));
+	$percentage = $selectPenaltyValue['penalty']*(0.01);
 
 	$_SESSION['studentfee'] = $_GET['id'];
 

@@ -148,8 +148,9 @@ if(isset($_POST['setpenalty'])){
 	</div>
 		<button class="btn waves-effect waves-light green" name="setpenalty" value="Set Penalty">Set</button>
 	</form>
-
-<h5>Click on a user edit it. Or click "Add User" to add new account</h5>
+</br>
+		<h5 style="font-weight:bold;">User Accounts</h5>
+<h6>Click on a user edit it. Or click "Add User" to add new account</h6>
 	<?php
 $getUsers=getUsers($connect);
 ?>
@@ -174,9 +175,10 @@ $getUsers=getUsers($connect);
 		<td></td>
 		<td></td>
 </table>
+</br>
 
-<h5>Click on a time edit it. Or click the delete button to remove the time schedule.</h5>
-<h5 style="font-weight:bold;">Time</h5>
+	<h5 style="font-weight:bold;">Class Timings</h5>
+<h6>Click on a time edit it. Or click the delete button to remove the time schedule.</h6>
 <div style="width:20%;">
 <table >
 
@@ -220,7 +222,8 @@ if(isset($_GET['id'])){
 </br>
 <script src="jquery-2.1.3.min.js"></script>
 
-<h5>Click on a grade level to add, edit, or delete tuition fees. </h5>
+		<h5 style="font-weight:bold;">Tuition Fees</h5>
+<h6>Click on a grade level to view, edit, or delete tuition fees. Or Click the button to add new tuition fees</h6></br>
 <button class="btn waves-effect waves-light green clickablerow" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
 </br>
 <!--<div style="width:20%;">!-->
