@@ -127,14 +127,10 @@ $getUsers=getUsers($connect);
 </table>
 
 <h5>Click on a time edit it. Or click the delete button to remove the time schedule.</h5>
-
+<h5 style="font-weight:bold;">Time</h5>
 <div style="width:20%;">
 <table >
 
-	<tr>
-		<th>Time</th>
-		
-	</tr>
 	<?php
 	while($row=mysqli_fetch_assoc($result)){
 		?>
@@ -176,12 +172,13 @@ if(isset($_GET['id'])){
 <script src="jquery-2.1.3.min.js"></script>
 
 <h5>Click on a grade level to add, edit, or delete tuition fees. </h5>
+</br>
 <!--<div style="width:20%;">!-->
 <?php while($row=mysqli_fetch_assoc($result2)){?>
 
-<div class="showme" data-panelid="<?=$row['grade_levels']?>"> <?php echo "<h5>".$row['grade_levels']. " Tuition Fees</h5>";?></div>
-		<div style="width:50%;">
-		<table id="<?=$row['grade_levels']?>">
+<div class="showme" data-panelid="<?php echo str_replace(' ', '', $row['grade_levels']);?>"> <?php echo "<h5 style=\"font-weight:bold;\">".$row['grade_levels']. " Tuition Fees </h5>";?></div>
+		<div style="width:50%;display:none;" id="<?php echo str_replace(' ', '', $row['grade_levels']);?>">
+		<table>
 			<tr>
 				<th>Payment Mode</th>
 				<th>Item</th>
@@ -204,7 +201,10 @@ if(isset($_GET['id'])){
 <?php } ?>
 
 <!--</div>!-->
-
+<script src="jquery-2.1.3.min.js"></script>
+<script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
+  <script src="asd/js/materialize.js"></script>
+  <script src="asd/js/init.js"></script>
 
 <script>
 
@@ -213,16 +213,12 @@ $(function(){
 		window.document.location=$(this).attr("href");
 	});
 
-	/*$(".showme").on('click', function(){
+	$(".showme").on('click', function(){
        var panelId = $(this).attr('data-panelid');
-       alert(panelId);
-       $('#'+panelId).toggle();
-    });*/
+       $('#'+panelId).slideToggle();
+    });
 });
 
 
 </script>
-<script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
-  <script src="asd/js/materialize.js"></script>
-  <script src="asd/js/init.js"></script>
   
