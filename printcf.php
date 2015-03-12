@@ -22,14 +22,14 @@
 
 <table style="border: 1px; width: 100%;
 text-align: center; font-family: Vrinda;">
-	<thead style="border-spacing: 10px 0px;">
+	<thead style="border-spacing: 0px 0px;">
 		<tr>
 			<th>Date</th>
 			<th>Student</th>
 			<th>A.R. Number</th>
 			<th>Cash</th>
-			<th>DR.</th>
-			<th>CR.</th>
+<!--			<th>DR.</th>
+			<th>CR.</th>!-->
 			<th>Tuition Fees</th>
 			<th>Remarks</th>
 		</tr>
@@ -46,8 +46,8 @@ text-align: center; font-family: Vrinda;">
 			<td><?=$row['first_name']." ".$row['last_name']?></td>
 			<td><?=$row['ar']?></td>
 			<td><?=$row['cash']?></td>
-			<td><?=$row['dr']?></td>
-			<td><?=$row['cr']?></td>
+<!--			<td><?php//$row['dr']?></td>
+			<td><?php//$row['cr']?></td>!-->
 			<td><?=$row['tuition']?></td>
 			<td><?=$row['remark']?></td>
 		</tr>	

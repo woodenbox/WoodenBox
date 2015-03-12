@@ -130,8 +130,8 @@
 			<th>Student</th>
 			<th>A.R. Number</th>
 			<th>Cash</th>
-			<th>D.R.</th>
-			<th>C.R.</th>
+<!--			<th>D.R.</th>
+			<th>C.R.</th>!-->
 			<th>Tuition Fees</th>
 			<th>Remarks</th>
 		</tr>
@@ -145,8 +145,8 @@
 			<td><?=$row['first_name']." ".$row['last_name']?></td>
 			<td><?=$row['ar']?></td>
 			<td><?=$row['cash']?></td>
-			<td><?=$row['dr']?></td>
-			<td><?=$row['cr']?></td>
+<!--			<td><?php//$row['dr']?></td>
+			<td><?php//$row['cr']?></td>!-->
 			<td><?=$row['tuition']?></td>
 			<td><?=$row['remark']?></td>
 			<td><?php if ($_SESSION['access_control']==2){ ?> <a href="editcashflow.php?id=<?=$row['id']?>">edit<?php } else { }?></a></td>
