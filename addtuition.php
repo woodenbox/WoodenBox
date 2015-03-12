@@ -11,7 +11,7 @@
 	?>
 
 <form method="POST">
-			<input type="text" placeholder="Grade" name="grade" pattern="[A-Za-z0-9 ]+" required/>
+			<input type="text" placeholder="Grade" name="grade" pattern="[A-Za-z0-9 ]+" title="Only letters, numbers and spaces are accepted." required/>
 			<br/>
 			<select name="fee_type">
 			<?php $getPaymentModeDB = getPaymentModeDB($connect);
@@ -21,7 +21,7 @@
 			<?php } ?>
 			</select>
 			<br/>
-			<input type="text" placeholder="Item" name="item" pattern="[A-Za-z0-9]+" required/>
+			<input type="text" placeholder="Item" name="item" pattern="[A-Za-z0-9 ]+" title="Only letters, numbers and spaces are accepted."required/>
 			<br/>
 			<input type="number"  placeholder="Tuition Fee" name="tuition_fee"  pattern="[0-9]+([.][0-9]+)?" step="0.01" required/>
 			<br/>

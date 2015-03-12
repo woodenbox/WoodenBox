@@ -440,7 +440,7 @@ function add($date_str, $months)
 	}
 //=============================================================================================================================================//	
 	function searchStudents($connect, $search){
-		$sql="select * from students WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' ORDER BY student_id DESC";
+		$sql="select * from students WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR grade LIKE '%$search%' ORDER BY student_id DESC";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}

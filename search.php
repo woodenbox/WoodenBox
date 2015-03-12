@@ -120,7 +120,7 @@
 <div style="padding-left:290px;padding-right:770px;margin-top:-45px;">
 <form method="POST">
 	
-	<input class="col s2" type="text" placeholder="Search" pattern="[A-Za-z]+" name="search">
+	<input class="col s2" type="text" placeholder="Search" pattern="[A-Za-z0-9 ]+" name="search">
 	<button class="waves-effect waves-light btn-large blue lighten-2 mdi-action-search" style="position:relative; bottom:70px;left:860px;font-size:30px;" type="submit" name="submit">
 </form>
 </div>
