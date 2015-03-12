@@ -9,6 +9,8 @@
 	}
 
 	$getSY=mysqli_fetch_assoc(getSY($connect));
+
+	$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, $_GET['month'], $_GET['year']));
 /*
 	header("Content-type: application/doc");
 	header("Content-Disposition: attachment;Filename=FamilyRecord.doc");
@@ -68,6 +70,16 @@ text-align: center; font-family: Vrinda;">
 	$x++;
 	}
 ?>
+<tr>
+			<td></td>
+			<td></td>
+			<td>Total Cash Recieved</td>
+			<td><?=$getTotalCashFlow['cash']?></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
 </table>
 
 <script src="jquery-2.1.3.min.js"></script>

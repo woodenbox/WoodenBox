@@ -262,10 +262,10 @@ echo $monthName;
     		<input style="display: none;" id="file-input"  name="imgfile" type="file"/>
     	</div>
 		
-    	<input style="margin-left:170px;margin-top:-140px;" class="col s12 validate" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z]+" required/></br>
-    	<input style="margin-left:550px;margin-top:-140px;" class="col s3" type="text" pattern="[A-Za-z]+" placeholder="Last Name" name="last_name"  pattern="[A-Za-z]+" required/></br>
-    	<input style="margin-left:950px;margin-top:-140px;" class="col s3" type="text" pattern="[A-Za-z]+" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z]+"/></br>
-    	<input style="margin-left:170px;margin-top:-60px;" class="col s3" type="text" pattern="[0-9]{2}" placeholder="Age" name="age"/></br>
+    	<input style="margin-left:170px;margin-top:-140px;" class="col s12 validate" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z ]+" required/></br>
+    	<input style="margin-left:550px;margin-top:-140px;" class="col s3" type="text" pattern="[A-Za-z ]+" placeholder="Last Name" name="last_name"  pattern="[A-Za-z]+" required/></br>
+    	<input style="margin-left:950px;margin-top:-140px;" class="col s3" type="text" pattern="[A-Za-z. ]+" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z]+"/></br>
+    	<input style="margin-left:170px;margin-top:-60px;" class="col s3" type="text" pattern="[0-9]{1,2}" placeholder="Age" name="age"/></br>
 		
 <br>
 </br>

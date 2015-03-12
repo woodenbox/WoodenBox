@@ -32,7 +32,7 @@
 	}
 
 	function getCashFlowIndex($connect, $month, $year){
-		$sql = "SELECT * FROM fee_payment WHERE month='$month' AND year=$year";
+		$sql = "SELECT * FROM fee_payment WHERE month='$month' AND year=$year ORDER BY payment_date";
 		$result = mysqli_query($connect, $sql);
 		return $result;		
 	}
@@ -148,6 +148,12 @@
 		$sql="SELECT * FROM school_year";
 		$result=mysqli_query($connect, $sql);
 		return $result;
+	}
+
+	function getTotalCashFlow($connect, $month, $year){
+		$sql="SELECT SUM(cash) AS cash FROM `fee_payment` WHERE `month`='$month' AND `year`=$year AND `state`=0";
+		$result=mysqli_query($connect, $sql);
+		return $result; 
 	}
 
 	function getStudentBalancePrint($connect, $id){
