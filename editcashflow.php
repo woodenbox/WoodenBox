@@ -33,6 +33,9 @@
 
 ?>
 <!--================================ crap ^ ================================!-->
+<head>
+	<title>Edit Cash Flow</title>
+</head>
 
 <div class="section no-pad-bot blue lighten-1" id="index-banner">
         <div class="container nav-wrapper">
