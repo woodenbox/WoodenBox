@@ -406,8 +406,8 @@ $payment_date = date('Y-m-d');
 <tr>
 	<td><input type="number" min="0" placeholder="Enter Amount" name="amount"  pattern="[0-9]+([.][0-9]+)?" step="0.01" required/></td>
 	<td><input type="number" min="0" placeholder="AR Number" name="arnumber" value="<?=$getARNumber['ar']+1?>" pattern="[0-9]+" required/></td>
-	<td><input type="text" placeholder="D.R." name="dr"/></td>
-	<td><input type="text" placeholder="C.R." name="cr"/></td>
+	<!--<td><input type="text" placeholder="D.R." name="dr"/></td>!-->
+<!--	<td><input type="text" placeholder="C.R." name="cr"/></td>!-->
 	<td><input type="text" placeholder="Remarks" name="remark" required/></td><br></tr><tr>
 	<td><button class="btn waves-effect waves-light green" type="submit" name="456" value="Make Payment" >Make Payment</button></td>
 <td>	<button class="btn waves-effect waves-light green" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button></td></tr></table>
