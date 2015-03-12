@@ -144,7 +144,7 @@ if(isset($_POST['setpenalty'])){
 	<form method="POST">
 	<div style="width: 10%;">
 		<?php $selectPenaltyValue=mysqli_fetch_assoc(selectPenaltyValue($connect)); ?>
-		<input type="number" name="penalty" value="<?=$selectPenaltyValue['penalty']?>">
+		<input type="number" min="0" pattern="[0-9]+([.][0-9]+)?" step="0.01" name="penalty" value="<?=$selectPenaltyValue['penalty']?>">
 	</div>
 		<button class="btn waves-effect waves-light green" name="setpenalty" value="Set Penalty">Set</button>
 	</form>

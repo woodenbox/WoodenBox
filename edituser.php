@@ -28,11 +28,11 @@
 ?>
 
 <form method="POST">
-	<input type="text" name="first_name" placeholder="First Name" value="<?=$editUser['first_name']?>" disabled/></br>
+	<input type="text" name="first_name" placeholder="First Name"  value="<?=$editUser['first_name']?>" disabled/></br>
 	<input type="text" name="last_name" placeholder="First Name" value="<?=$editUser['last_name']?>" disabled/></br>
-	<input type="text" name="username" placeholder="Username" value="<?=$editUser['username']?>"/></br>
-	<input type="password" name="password1" placeholder="Password" pattern="[A-Za-z0-9]+" value="<?=$editUser['password']?>" onfocus="this.value = '';" required/></br>
-	<input type="password" name="password2" placeholder="Password" pattern="[A-Za-z0-9]+" value="<?=$editUser['password']?>" onfocus="this.value = '';" required/></br>
+	<input type="text" name="username" placeholder="Username" pattern="[A-Za-z0-9 ]+"  title="Only letters, numbers, and spaces are accepted." value="<?=$editUser['username']?>"/></br>
+	<input type="password" name="password1" placeholder="Password" pattern="[A-Za-z0-9 ]+" title="Only letters, numbers, and spaces are accepted." value="<?=$editUser['password']?>" onfocus="this.value = '';" required/></br>
+	<input type="password" name="password2" placeholder="Password" pattern="[A-Za-z0-9 ]+" title="Only letters, numbers, and spaces are accepted." value="<?=$editUser['password']?>" onfocus="this.value = '';" required/></br>
 	<input type="number" name="access_control" placeholder="Access Control" pattern="[1-2]{1}" value="<?=$editUser['access_control']?>" title="1 - Regular user 2 - Administrator" onfocus="this.value = '';" required/>
 	<input type="submit" name="submit" value="Save"></br>
 	<input type="submit" name="removeme" value="Delete"></br>
