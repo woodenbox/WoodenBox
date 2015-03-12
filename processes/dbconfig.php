@@ -1,6 +1,6 @@
 <?php
 	$host="localhost";
-	$user="root";
-	$pass="";
+	$user="gloria";
+	$pass="1234";
 	$db="woodenbox_contents";
 ?>

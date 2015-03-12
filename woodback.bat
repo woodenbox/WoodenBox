@@ -1,0 +1,1 @@
+mysqldump.exe -ugloria -p1234 woodenbox_contents > backup/backup.sql

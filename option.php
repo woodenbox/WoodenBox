@@ -38,6 +38,11 @@ if(isset($_POST['setpenalty'])){
 	updatePenaltyValue($connect, $penalty);
 }
 ?>
+
+<head>
+	<title>Options</title>
+</head>
+
 <div class="section no-pad-bot blue lighten-1" id="index-banner">
         <div class="container nav-wrapper">
 	
@@ -177,9 +182,9 @@ $getUsers=getUsers($connect);
 </table>
 </br>
 
-	<h5 style="font-weight:bold;">Class Timings</h5>
+	<h5 class="showmetime" style="font-weight:bold;">Class Timings</h5>
 <h6>Click on a time edit it. Or click the delete button to remove the time schedule.</h6>
-<div style="width:20%;">
+<div style="width:20%;display:none;" id="timess">
 <table >
 
 	<?php
@@ -249,9 +254,27 @@ if(isset($_GET['id'])){
 			</tr>
 			<?php } ?>
 		</table>
+		<button class="btn waves-effect waves-light green clickablerow" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
 	</div>
 </br>
-<?php } ?>
+<?php }
+
+	if(isset($_POST['dbackup'])){
+  		backupDB();
+  		echo "<script>alert('Backup Completed');</script>";
+	}
+
+	if(isset($_POST['dbrestore'])){
+		database_restore();
+		echo "<script>alert('Restore Completed');</script>";
+	}?>
+
+		<h5 style="font-weight:bold;">Backup & Restore</h5>
+<h6>Here you can backup the system data or restore using a backup file from a previous state.</h6>
+<form method="POST">
+	<button class="btn waves-effect waves-light green" name="dbackup" value="Backup">Backup System</button>
+	<button class="btn waves-effect waves-light green" name="dbrestore" value="Restore">Restore System</button>
+</form>
 
 <!--</div>!-->
 <script src="jquery-2.1.3.min.js"></script>
@@ -269,6 +292,10 @@ $(function(){
 	$(".showme").on('click', function(){
        var panelId = $(this).attr('data-panelid');
        $('#'+panelId).slideToggle();
+    });
+
+    $(".showmetime").on('click', function(){
+       $('#timess').slideToggle();
     });
 });
 

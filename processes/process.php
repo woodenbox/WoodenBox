@@ -627,11 +627,12 @@ function addUser($connect, $first_name, $last_name, $username, $password, $acces
 	return $result;
 }
 
-/*	function backupDB(){
-		exec('backup.bat');
+function backupDB(){
+		exec('woodback.bat');
+	}
 		function database_restore(){
-			$filename = 'BACKUP.sql';
-			$connect = connect();
+			$filename = 'backup.sql';
+			$connect = connectDB();
 			$templine = '';
 			$lines = file($filename);
 			foreach ($lines as $line){
@@ -644,5 +645,4 @@ function addUser($connect, $first_name, $last_name, $username, $password, $acces
 				}
 			}
 		}
-	}*/
 ?>
