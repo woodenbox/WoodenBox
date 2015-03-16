@@ -60,7 +60,24 @@
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
-
+	
+	function viewStudentsPages($connect, $month){
+	$sql="select * from fee_payment WHERE month='$month'";
+	$result=mysqli_query($connect,$sql);
+	return $result;
+}
+function viewStudentsPage($connect,$page,$rows, $month){
+	$start=($page-1)*$rows;
+	$sql="select * from fee_payment WHERE month='$month' LIMIT $start,$rows";
+	$result=mysqli_query($connect,$sql);
+	return $result;
+}
+	
+/*	function viewAllCashFlow($connect){
+		$sql="SELECT * from fee_payment";
+		$result=mysqli_query($connect,$sql)
+	}
+	
 	function viewCashFlowPage($connect, $page, $rows, $month, $year){
 		$start=($page-1)*$rows;
 		$sql="SELECT * FROM fee_payment WHERE month='$month' AND year=$year LIMIT $start,$rows";
@@ -70,7 +87,7 @@
     exit();
 }
 		return $result;
-	}
+	}*/
 //=============================================================================================================================================//
 	function addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imagelocation, $last_accessed){
 		$sql="insert into students  (first_name, last_name, middle_name, age, grade, fromTime, toTime, academicstatus, paymentmode, uniform, peuniform, imagelocation, last_accessed) values('$first_name', '$last_name', '$middle_name', '$age', '$grade', '$fromTime', '$toTime', '$academicstatus', '$paymentmode', '$uniform', '$peuniform', '$imagelocation', '$last_accessed')";
