@@ -58,7 +58,7 @@
       						</div>
       						<div class="input-field col s6">
         						<input id="password" type="password" pattern="[A-Za-z0-9]+" class="validate" name="password" required>
-        						<label for="password">Password</label>
+        						<label for="password">GAGU</label>
       						</div>
     				</div>
 	  						<p>
