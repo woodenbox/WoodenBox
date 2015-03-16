@@ -155,7 +155,7 @@
 			<td><?=$row['tuition']?></td>
 			<td><?=$row['remark']?></td>
 			<td><?php if ($_SESSION['access_control']==2){ ?> <a href="editcashflow.php?id=<?=$row['id']?>">edit<?php } else { }?></a></td>
-		</tr>	
+		</tr>
 <?php	
 	}
 ?>
