@@ -43,21 +43,23 @@
 
 <!--================================crap ^ ================================!-->
 
- <div class="section no-pad-bot blue lighten-1" id="index-banner">
+ <div class="section no-pad-bot blue lighten-1" id="index-banner" style="position: relative;width: 100%;height: 185px; left: 0%;">
         <div class="container nav-wrapper">
 	
-          <h1 class="header center-on-small-only white-text">Welcome <?php echo $getUserRow['first_name'] ." ". $getUserRow['last_name']?></h1>
+          <h2 style="padding-left:2%;" class="header center-on-small-only white-text">Welcome <?php echo $getUserRow['first_name'] ." ". $getUserRow['last_name']?></h1>
           <div class='row '>
-            <h4 class ="header light blue-text text-lighten-4">       Cash Report for the month of  <?=$_GET['month']." ".$_GET['year']?>
- </h4>
+            <h5 style="padding-left:2%;" class ="header light blue-text text-lighten-4">       Cash Report for the month of  <?=$_GET['month']." ".$_GET['year']?>
 
+
+
+
+            	   <div style="float:right;">
   
-  
- <h4 class="right-align" style="margin-top:-50px;">
+ <h4 style="position: relative;width: 100%;top: 0; left: 0%;">
+
+ <a class="dropdown-button" href="#!" data-activates="dropdown2" style="position: relative;width: 100%;top: 0; left: 0%;"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
  
- <a class="dropdown-button" href="#!" data-activates="dropdown2"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
- 
-  <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
+  <a class="dropdown-button" href="#!" data-activates="dropdown1" style="position: relative;width: 100%;top: 0; left: 0%;"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
  <ul id='dropdown1' class='dropdown-content'>
 			<li>  <a href="logout.php">Log Out</a></li>
 			<?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
@@ -73,27 +75,29 @@
 	 
 	 
 	 
-	 </ul>
+	</div>
+ </h4>
+
+
  </div>
           </div>
 		  </div>
 
-      
 <!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
 
-<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"></a></div>
+<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full" style="position: fixed;"></a></div>
       <ul id="nav-mobile" class="side-nav fixed">
 
-	   <li class="logo" style="padding-left:45px;padding-top:15px;"><image src="asdg.png" onclick="toast('Huehue', 400)"></li>
-	   <div class="section"></div>
-	  <div class="divider"></div><div class="section"></div>
-<li class="active blue lighten-1" style="padding-top:15px;padding-bottom:15px;">	<b><a  class="white-text waves-effect waves-green" style="font-size:14px;" href="index.php">Cash Reports<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a  style="font-size:14px;" href="studentaccounts.php" class="waves-effect waves-green">Student Accounts<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="search.php" class="waves-effect waves-green">Student List<?echo"\t";?></a></li>
+	   <li class="logo" style="padding-left:25px;padding-top:40px;"><image src="asdg.png" onclick="toast('Huehue', 400)" style="background-size:100%;"></li>
+	   <div class="section"></div>  
+	
+<li class="active blue lighten-1" style="padding-top:15px;padding-bottom:15px;">	<b><a  class="white-text waves-effect waves-green" style="font-size:80%;" href="index.php">Cash Reports<?echo"\t";?></a></li>
+<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a  style="font-size:80%;" href="studentaccounts.php" class="waves-effect waves-green">Student Accounts<?echo"\t";?></a></li>
+<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:80%;" href="search.php" class="waves-effect waves-green">Student List<?echo"\t";?></a></li>
 
 
 
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="addstudent.php" class="waves-effect waves-green">Add Student<?echo"\t";?></a></li>
+<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:80%;" href="addstudent.php" class="waves-effect waves-green">Add Student<?echo"\t";?></a></li>
 
 
 
@@ -116,19 +120,58 @@
   </ul>	
 </b>
 
-<div style="padding-left:290px;padding-right:270px;">
-<form method="POST">
+<div style="position: relative;width: 100%;top: 2%; left: 16%;">
+
 	
-<input class="col s2" type="text" placeholder="Search" pattern="[A-Za-z0-9 ]+" name="search">
-	<button class="waves-effect waves-light btn-large blue lighten-2 mdi-action-search" style="position:relative; bottom:70px;left:860px;font-size:30px;" type="submit" name="submit">
-</form>
+
+
+
+	<div class="row">
+  <form class="col s12 m7" method="POST">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="first_name" type="text" class="validate" pattern="[A-Za-z0-9 ]+" name="search">
+        <label for="first_name"><i class="mdi-action-search "></i>Search</label>
+      </div>
+   
+	<button class="btn-floating btn-large waves-effect waves-light white blue-text text-lighten 2 mdi-action-search" style="font-size:200%;;" type="submit" name="submit"/>
+  </form>
 </div>
+        
 
-<div style="padding-left:290px;padding-right:270px;">
 
 
-<div id="table-scroll" style="height:60%;overflow:auto;">
-<table>
+</div>
+ <div style="position: relative; width: 70%;left: 71%;bottom:44px;float:both;">
+          <ul class="section table-of-contents">
+        
+
+
+		<li class="blue-text text lighten-2" style="font-size:100%;">	Cash Flow List</li>
+		
+			<div class="divider" style="width:11%;"></div>
+			
+<?php
+	$table2=getPreviousCashFlow($connect);	
+	while($row=mysqli_fetch_assoc($table2)){
+?>
+	
+			<li style="font-size:75%;"><a href="index.php?month=<?=$row['month']?>&year=<?=$row['year']?>" >
+			<?=$row['month']." ".$row['year']?></a></li>
+			
+<?php	
+	}
+$_GET['id'] =5;
+?>
+
+
+ </ul>
+        </div>
+
+
+
+<div id="table-scroll" style="position:relative;top: -225px;height:60%; width: 65%;overflow:auto;clear:left";>
+<table style="font-size:75%;" class="hoverable">
 	<thead class="blue-text text lighten-2">
 		<tr>
 			<th>Date</th>
@@ -165,34 +208,14 @@
 
 </br>
 </br>
+
+
+
+
 <!--================================eto ung listahan ng other cashflows================================!-->
-<a class="waves-effect waves-light btn-large  green lighten-2" id='buttone'onclick="myFunction()"> Print this page </a>
+<!-- <a class="waves-effect waves-light btn-large  green lighten-2" id='buttone'onclick="myFunction()"> Print this page </a> !-->
 
- <div style="height: 1px;width: 180px;position: relative;right: -1300px;top: -666px;">
-          <ul class="section table-of-contents">
-        
-
-
-		<li class="blue-text text lighten-2" style="font-size:24px;">	Cash Flow List</li>
-		
-			<div class="divider" style="width:230px;"></div>
-			
-<?php
-	$table=getPreviousCashFlow($connect);	
-	while($row=mysqli_fetch_assoc($table)){
-?>
-	
-			<li style="font-size:18px;"><a href="index.php?month=<?=$row['month']?>&year=<?=$row['year']?>" >
-			<?=$row['month']." ".$row['year']?></a></li>
-			
-<?php	
-	}
-$_GET['id'] =5;
-?>
-
-
- </ul>
-        </div>
+    </div>
 
 <!--================================eto ung listahan ng other cashflows================================!-->
 
