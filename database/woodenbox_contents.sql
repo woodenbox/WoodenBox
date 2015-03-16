@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2015 at 07:07 PM
+-- Generation Time: Mar 16, 2015 at 11:00 AM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -36,86 +36,58 @@ CREATE TABLE IF NOT EXISTS `fee_balance` (
   `penalty_balance` decimal(18,2) NOT NULL,
   `waive` int(1) NOT NULL,
   `original_price` decimal(18,2) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=141 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=187 ;
 
 --
 -- Dumping data for table `fee_balance`
 --
 
 INSERT INTO `fee_balance` (`id`, `student_id`, `item`, `balance`, `due_date`, `penalty_count`, `penalty_balance`, `waive`, `original_price`) VALUES
-(1, 1, 'Pre-School Uniform', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(2, 1, 'Grade-School Uniform', '900.00', NULL, 0, '0.00', 0, '0.00'),
-(3, 1, 'Downpayment', '19000.00', NULL, 0, '0.00', 0, '0.00'),
-(4, 2, 'Pre-School Uniform', '2400.00', NULL, 0, '0.00', 1, '0.00'),
-(5, 2, 'PE Pre-School Uniform', '800.00', NULL, 0, '0.00', 0, '0.00'),
-(6, 2, 'Downpayment', '11000.00', NULL, 0, '0.00', 0, '0.00'),
-(7, 2, 'Miscellaneous', '3000.00', '2016-03-29', 8, '1200.00', 0, '0.00'),
-(8, 2, 'September Fee', '6000.00', '2016-03-29', 6, '1800.00', 0, '0.00'),
-(9, 3, 'Pre-School Uniform', '1600.00', NULL, 0, '0.00', 0, '0.00'),
-(10, 3, 'PE Pre-School Uniform', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(11, 3, 'Downpayment', '19000.00', NULL, 0, '0.00', 0, '0.00'),
-(12, 4, 'Pre-School Uniform', '1600.00', NULL, 0, '0.00', 0, '0.00'),
-(13, 4, 'PE Pre-School Uniform', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(14, 4, 'Downpayment', '19000.00', NULL, 0, '0.00', 0, '0.00'),
-(45, 16, 'Pre-School Uniform', '1600.00', NULL, 0, '0.00', 0, '0.00'),
-(46, 16, 'Grade-School Uniform', '1800.00', NULL, 0, '0.00', 0, '0.00'),
-(47, 16, 'PE Pre-School Uniform', '1400.00', NULL, 0, '0.00', 0, '0.00'),
-(48, 16, 'PE Grade School Uniform', '1600.00', NULL, 0, '0.00', 0, '0.00'),
-(49, 16, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(66, 18, 'Pre-School Uniform', '1600.00', NULL, 0, '0.00', 0, '0.00'),
-(67, 19, 'Pre-School Uniform', '800.00', NULL, 0, '0.00', 0, '0.00'),
-(68, 20, 'Pre-School Uniform', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(69, 20, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(70, 21, 'Pre-School Uniform', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(71, 21, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(72, 21, 'Miscellaneous', '0.00', '2015-07-30', 0, '0.00', 0, '0.00'),
-(73, 21, 'September Fee', '0.00', '2015-09-30', 0, '0.00', 0, '0.00'),
-(79, 1, 'Pre-School Uniform', '800000.00', NULL, 0, '0.00', 0, '0.00'),
-(95, 30, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(96, 30, 'Miscellaneous', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(97, 30, 'October Fee', '2500.00', '2016-05-01', 7, '875.00', 0, '0.00'),
-(98, 30, 'January Fee', '5000.00', '2016-05-01', 4, '1000.00', 0, '0.00'),
-(100, 30, 'Downpayment', '11000.00', NULL, 0, '0.00', 0, '0.00'),
-(101, 30, 'Miscellaneous', '6500.00', NULL, 0, '0.00', 0, '0.00'),
-(102, 30, 'October Fee', '5000.00', '2016-05-01', 7, '1750.00', 0, '0.00'),
-(103, 30, 'January Fee', '5000.00', '2016-05-01', 4, '1000.00', 0, '0.00'),
-(104, 30, 'Downpayment', '19000.00', NULL, 0, '0.00', 1, '0.00'),
-(105, 31, 'Downpayment', '8490.00', NULL, 0, '0.00', 1, '0.00'),
-(106, 31, 'Miscellaneous', '4000.00', '2017-03-30', 20, '4000.00', 1, '0.00'),
-(107, 31, 'October Fee', '4000.00', '2018-04-30', 30, '6000.00', 0, '0.00'),
-(108, 31, 'January Fee', '4000.00', '2018-04-30', 27, '5400.00', 0, '0.00'),
-(109, 33, 'Downpayment', '9000.00', NULL, 0, '0.00', 0, '0.00'),
-(110, 33, 'Miscellaneous', '4000.00', '2018-05-30', 34, '6800.00', 0, '0.00'),
-(111, 33, 'October Fee', '4000.00', '2018-05-30', 31, '6200.00', 0, '0.00'),
-(112, 33, 'January Fee', '4000.00', '2018-05-30', 28, '5600.00', 0, '0.00'),
-(113, 34, '', '11000.00', NULL, 0, '0.00', 1, '0.00'),
-(114, 34, '', '3000.00', NULL, 1, '150.00', 1, '0.00'),
-(115, 34, 'September Fee', '6000.00', '2015-05-30', 1, '300.00', 0, '0.00'),
-(116, 35, '', '18873.45', NULL, 0, '0.00', 1, '0.00'),
-(117, 40, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '9000.00'),
-(118, 40, 'Miscellaneous', '4000.00', '2015-08-30', 1, '200.00', 1, '4000.00'),
-(119, 40, 'October Fee', '0.00', '2015-10-01', 0, '0.00', 0, '4000.00'),
-(120, 40, 'January Fee', '0.10', '2016-01-01', 0, '0.00', 1, '4000.00'),
-(121, 40, 'Pre-School Uniform', '800.00', NULL, 0, '0.00', 1, '800.00'),
-(122, 42, 'Pre-School Uniform', '0.00', NULL, 0, '0.00', 1, '0.00'),
-(123, 43, 'Pre-School Uniform', '0.00', NULL, 0, '0.00', 0, '800.00'),
-(124, 43, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '19000.00'),
-(125, 44, 'Pre-School Uniform', '7200.00', NULL, 0, '0.00', 1, '7200.00'),
-(126, 44, 'PE Pre-School Uniform', '0.00', NULL, 0, '0.00', 0, '0.00'),
-(127, 44, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '19000.00'),
-(128, 45, 'Downpayment', '11000.00', NULL, 0, '0.00', 1, '11000.00'),
-(129, 45, 'Miscellaneous', '2500.00', '2015-09-10', 0, '5.00', 0, '3000.00'),
-(130, 45, 'September Fee', '6000.00', '2015-09-30', 0, '0.00', 0, '6000.00'),
-(131, 46, 'Downpayment', '19000.00', NULL, 0, '0.00', 0, '19000.00'),
-(132, 47, 'Downpayment', '19000.00', NULL, 0, '0.00', 0, '19000.00'),
-(133, 48, 'Downpayment', '19000.00', NULL, 0, '0.00', 0, '19000.00'),
-(134, 49, 'Downpayment', '19000.00', NULL, 0, '0.00', 1, '19000.00'),
-(135, 50, 'Downpayment', '19000.00', NULL, 0, '0.00', 1, '19000.00'),
-(136, 50, 'Downpayment', '14000.00', NULL, 0, '0.00', 0, '14000.00'),
-(137, 50, 'Miscellaneous', '4000.00', '2015-07-30', 0, '0.00', 0, '4000.00'),
-(138, 50, 'September Fee', '7000.00', '2015-09-30', 0, '0.00', 0, '7000.00'),
-(139, 51, 'Downpayment', '10000.00', NULL, 0, '0.00', 1, '10000.00'),
-(140, 51, 'Miscellaneous', '15000.00', NULL, 0, '0.00', 1, '15000.00');
+(142, 53, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '19000.00'),
+(143, 54, 'Downpayment', '11000.00', NULL, 0, '0.00', 0, '11000.00'),
+(144, 54, 'Miscellaneous', '3000.00', '2015-08-30', 1, '150.00', 0, '3000.00'),
+(145, 54, 'September Fee', '6000.00', '2015-09-30', 0, '0.00', 0, '6000.00'),
+(146, 55, 'Downpayment', '9000.00', NULL, 0, '0.00', 0, '9000.00'),
+(147, 55, 'Miscellaneous', '4000.00', '2015-07-30', 0, '0.00', 0, '4000.00'),
+(148, 55, 'October Fee', '4000.00', '2015-10-01', 0, '0.00', 0, '4000.00'),
+(149, 55, 'January Fee', '4000.00', '2016-01-01', 0, '0.00', 0, '4000.00'),
+(150, 56, 'Downpayment', '6000.00', NULL, 0, '0.00', 0, '6000.00'),
+(151, 56, 'Miscellaneous', '6000.00', '2015-07-30', 0, '0.00', 0, '6000.00'),
+(152, 56, 'June fee', '1050.00', '2015-06-30', 0, '0.00', 0, '1050.00'),
+(153, 56, 'July fee', '1050.00', '2015-07-30', 0, '0.00', 0, '1050.00'),
+(154, 56, 'August fee', '1050.00', '2015-08-30', 0, '0.00', 0, '1050.00'),
+(155, 56, 'September fee', '1050.00', '2015-09-30', 0, '0.00', 0, '1050.00'),
+(156, 56, 'October fee', '1050.00', '2015-10-30', 0, '0.00', 0, '1050.00'),
+(157, 56, 'November fee', '1050.00', '2015-11-30', 0, '0.00', 0, '1050.00'),
+(158, 56, 'December fee', '1050.00', '2015-12-30', 0, '0.00', 0, '1050.00'),
+(159, 56, 'January fee', '1050.00', '2016-01-30', 0, '0.00', 0, '1050.00'),
+(160, 56, 'February fee', '1050.00', '2016-02-29', 0, '0.00', 0, '1050.00'),
+(161, 56, 'March fee', '1050.00', '2016-03-30', 0, '0.00', 0, '1050.00'),
+(162, 57, 'Downpayment', '19000.00', NULL, 0, '0.00', 0, '19000.00'),
+(163, 58, 'Downpayment', '19000.00', NULL, 0, '0.00', 0, '19000.00'),
+(164, 59, 'Downpayment', '11000.00', NULL, 0, '0.00', 0, '11000.00'),
+(165, 59, 'Miscellaneous', '3000.00', '2015-08-30', 1, '150.00', 0, '3000.00'),
+(166, 59, 'September Fee', '6000.00', '2015-09-30', 0, '0.00', 0, '6000.00'),
+(167, 60, 'Downpayment', '8000.00', NULL, 0, '0.00', 0, '8000.00'),
+(168, 60, 'Miscellaneous', '7000.00', '2015-08-30', 1, '350.00', 0, '7000.00'),
+(169, 60, 'June fee', '1300.00', '2015-08-30', 2, '130.00', 0, '1300.00'),
+(170, 60, 'July fee', '1300.00', '2015-08-30', 1, '65.00', 0, '1300.00'),
+(171, 60, 'August fee', '1300.00', '2015-08-30', 0, '0.00', 0, '1300.00'),
+(172, 60, 'September fee', '1300.00', '2015-09-30', 0, '0.00', 0, '1300.00'),
+(173, 60, 'October fee', '1300.00', '2015-10-30', 0, '0.00', 0, '1300.00'),
+(174, 60, 'November fee', '1300.00', '2015-11-30', 0, '0.00', 0, '1300.00'),
+(175, 60, 'December fee', '1300.00', '2015-12-30', 0, '0.00', 0, '1300.00'),
+(176, 60, 'January fee', '1300.00', '2016-01-30', 0, '0.00', 0, '1300.00'),
+(177, 60, 'February fee', '1300.00', '2016-02-29', 0, '0.00', 0, '1300.00'),
+(178, 60, 'March fee', '1300.00', '2016-03-30', 0, '0.00', 0, '1300.00'),
+(179, 61, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '11000.00'),
+(180, 61, 'Miscellaneous', '2000.00', '2015-08-30', 1, '150.00', 0, '3000.00'),
+(181, 61, 'September Fee', '0.00', '2015-09-30', 0, '0.00', 0, '6000.00'),
+(182, 62, 'Downpayment', '0.00', NULL, 0, '0.00', 0, '9000.00'),
+(183, 62, 'Miscellaneous', '4000.00', '2015-08-30', 1, '200.00', 0, '4000.00'),
+(184, 62, 'October Fee', '4000.00', '2015-10-01', 0, '0.00', 0, '4000.00'),
+(185, 62, 'January Fee', '4000.00', '2016-01-01', 0, '0.00', 0, '4000.00'),
+(186, 54, 'Downpayment', '19000.00', NULL, 0, '0.00', 0, '19000.00');
 
 -- --------------------------------------------------------
 
@@ -137,40 +109,40 @@ CREATE TABLE IF NOT EXISTS `fee_payment` (
   `year` int(4) NOT NULL,
   `month` varchar(10) NOT NULL,
   `ar` int(11) NOT NULL,
-  `state` int(1) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+  `state` int(1) NOT NULL,
+  `grade` varchar(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
 
 --
 -- Dumping data for table `fee_payment`
 --
 
-INSERT INTO `fee_payment` (`id`, `last_name`, `first_name`, `payment_date`, `cash`, `dr`, `cr`, `tuition`, `remark`, `student_id`, `year`, `month`, `ar`, `state`) VALUES
-(2, '2', '1', '2015-03-01', '1600.00', 'rw48heh8e5', '', '1600.00', 'Uniform', 15, 2015, 'March', 2, 0),
-(3, '', '', '2015-03-01', '200.50', '', '', '201.00', 'Uniform', 8, 2015, 'March', 3, 0),
-(4, '', '', '2015-03-01', '199.50', '', '', '199.50', 'Uniform', 8, 2015, 'March', 4, 0),
-(5, 'ifef', 'Freidn', '2015-03-02', '1800.00', '', '', '1800.00', 'Uniforms', 24, 2015, 'March', 5, 0),
-(6, 'ifef', 'Freidn', '2015-03-02', '8500.00', '', '', '8500.00', 'Uniform and Downpayment', 24, 2015, 'March', 6, 0),
-(7, 'Joslyn', 'Michael', '2016-03-02', '19000.00', '', '', '19000.00', 'Uniform', 23, 2016, 'March', 7, 0),
-(9, '', '', '2015-03-02', '100.00', '', '', '100.00', 'Uniform', 22, 2015, 'March', 9, 0),
-(10, '', '', '2015-03-02', '800.00', '', '', '800.00', 'Uniform', 22, 2015, 'March', 10, 0),
-(11, 'Nudd', 'Vin', '2015-03-02', '800.00', '', '', '800.00', 'Pre-School Uniform', 1, 2015, 'March', 11, 0),
-(12, '', '', '2015-03-02', '11800.00', '', '', '11800.00', 'Downpayment & Uniform', 21, 2015, 'March', 12, 0),
-(13, '', '', '2015-03-02', '9000.00', '', '', '9000.00', 'Clicakb', 21, 2015, 'March', 13, 0),
-(14, '', '', '2015-03-02', '800.00', '', '', '800.00', 'Uniform', 20, 2015, 'March', 14, 1),
-(15, '', '', '2015-03-02', '19000.00', '', '', '19000.00', 'Downpayment', 20, 2015, 'March', 15, 0),
-(16, 'Lol', 'Lol', '2015-03-02', '20000.00', '', '', '20000.00', 'lol', 30, 2015, 'March', 16, 0),
-(17, 'Guy', 'New', '2015-03-03', '10.00', '', '', '10.00', 'REm', 31, 2015, 'March', 17, 1),
-(18, 'Guy', 'New', '2015-03-03', '500.00', '', '', '500.00', 'ege', 31, 2015, 'March', 18, 1),
-(19, 'Rots', 'Job', '2015-03-03', '63.00', '', '', '63.00', 'femf', 35, 2015, 'March', 17, 0),
-(20, 'Rots', 'Job', '2015-03-03', '63.00', '', '', '63.00', 'femf', 35, 2015, 'March', 17, 0),
-(21, 'Something', 'Radical', '2015-03-09', '9000.00', '', '', '9000.00', '', 40, 2015, 'March', 19, 0),
-(22, 'Something', 'Radical', '2015-03-09', '500.00', '', '', '500.00', '', 40, 2015, 'March', 20, 0),
-(23, 'Something', 'Radical', '2015-03-09', '99.90', '', '', '99.90', '', 40, 2015, 'March', 21, 0),
-(24, 'Something', 'Radical', '2015-03-09', '5000.00', '', '', '5000.00', '', 40, 2015, 'March', 22, 0),
-(25, 'Something', 'Radical', '2015-03-09', '2400.00', '', '', '2400.00', 'January Feees', 40, 2015, 'March', 23, 0),
-(26, 'joslynq', 'micahe', '2015-03-09', '19800.00', '', '', '19800.00', 'Downpayment', 43, 2015, 'March', 24, 0),
-(27, 'Sulit', 'Job', '2015-03-10', '2000.00', '', '', '2000.00', 'Mahalaga magbayad ha', 44, 2015, 'March', 25, 1),
-(28, 'Sulit', 'Job', '2015-03-11', '17000.00', '', '', '17000.00', 'Downpayment', 44, 2015, 'March', 26, 0);
+INSERT INTO `fee_payment` (`id`, `last_name`, `first_name`, `payment_date`, `cash`, `dr`, `cr`, `tuition`, `remark`, `student_id`, `year`, `month`, `ar`, `state`, `grade`) VALUES
+(30, 'Neria', 'Carlo', '2015-05-12', '5000.00', '', '', '5000.00', 'Tuition Fee', 1, 2015, 'May', 265, 0, ''),
+(32, 'Basco', 'Kevin', '2015-05-02', '3200.00', '', '', '3200.00', 'June Fee', 1, 2015, 'May', 264, 0, ''),
+(33, 'Grajera', 'Aaron', '2015-05-12', '8000.00', '', '', '8000.00', 'June Fee', 1, 2015, 'May', 266, 0, ''),
+(34, 'Rios', 'Gabriel', '2015-05-12', '5200.00', '', '', '5200.00', 'June Fee', 1, 2015, 'May', 267, 0, ''),
+(35, 'Walid', 'Mohd', '2015-05-13', '4100.00', '', '', '4100.00', 'June Fee', 1, 2015, 'May', 268, 0, ''),
+(36, 'Bugnot', 'Mark', '2015-05-13', '2300.00', '', '', '2300.00', 'Downpayment', 1, 2015, 'May', 269, 0, ''),
+(37, 'Aguirre', 'Nehemiah', '2015-05-14', '6500.00', '', '', '6500.00', 'June Fee', 1, 2015, 'May', 270, 0, ''),
+(38, 'Tonga', 'Patrick', '2015-05-14', '7400.00', '', '', '7400.00', 'June Fee', 1, 2015, 'May', 271, 0, ''),
+(39, 'Mabini', 'Frits', '2015-05-14', '5200.00', '', '', '5200.00', 'Downpayment', 1, 2015, 'May', 272, 0, ''),
+(40, 'Corpuz', 'Patric', '2015-05-14', '2300.00', '', '', '2300.00', 'Downpayment', 1, 2015, 'May', 273, 0, ''),
+(41, 'Constantino', 'Carl', '2015-05-14', '6300.00', '', '', '6300.00', 'Downpayment', 1, 2015, 'May', 274, 0, ''),
+(42, 'Rasalan', 'Joseph', '2015-05-16', '2500.00', '', '', '2500.00', 'June Fee', 1, 2015, 'May', 275, 0, ''),
+(43, 'Santiago', 'KC', '2015-05-16', '7700.00', '', '', '7700.00', 'June Fee', 1, 2015, 'May', 276, 0, ''),
+(44, 'Felix', 'Nap', '2015-05-17', '8000.00', '', '', '8000.00', 'June Fee', 1, 2015, 'May', 278, 0, ''),
+(45, 'Mendoza', 'Kurt', '2015-05-18', '10000.00', '', '', '10000.00', 'June Fee', 1, 2015, 'May', 279, 0, ''),
+(46, 'Dizor', 'Marvin', '2015-05-19', '1500.00', '', '', '1500.00', 'June Fee', 1, 2015, 'May', 280, 0, ''),
+(47, 'Onate', 'Sophia', '2015-05-22', '1050.00', '', '', '1050.00', 'June Fee', 1, 2015, 'May', 281, 0, ''),
+(50, 'Guzon', 'Justin', '2015-05-23', '3150.00', '', '', '3150.00', 'June Fee', 1, 2015, 'May', 282, 0, ''),
+(51, 'Balmes', 'Kenneth', '2015-05-24', '2100.00', '', '', '2100.00', 'February Fee', 1, 2015, 'May', 283, 0, ''),
+(52, 'Jovi', 'Bon', '2015-06-02', '9000.00', '', '', '9000.00', 'Downpayment', 62, 2015, 'June', 284, 0, ''),
+(53, 'Gomez', 'Richard', '2015-08-02', '500.00', '', '', '500.00', 'Downpayment', 53, 2015, 'August', 285, 0, ''),
+(54, 'Gomez', 'Richard', '2015-08-02', '18500.00', '', '', '18500.00', 'Downpayment', 53, 2015, 'August', 286, 0, ''),
+(55, 'Tyson', 'Mike', '2015-08-02', '5000.00', '', '', '5000.00', 'Downpayment', 61, 2015, 'August', 287, 0, ''),
+(56, 'Tyson', 'Mike', '2015-08-02', '6000.00', '', '', '6000.00', 'September Fee', 61, 2015, 'August', 288, 0, ''),
+(57, 'Tyson', 'Mike', '2015-08-02', '7000.00', '', '', '7000.00', 'Downpayment & Misc', 61, 2015, 'August', 289, 0, '');
 
 -- --------------------------------------------------------
 
@@ -185,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `fee_schedule` (
   `item` varchar(30) NOT NULL,
   `fee` decimal(18,2) DEFAULT NULL,
   `due_date` date DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=102 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100 ;
 
 --
 -- Dumping data for table `fee_schedule`
@@ -290,9 +262,7 @@ INSERT INTO `fee_schedule` (`fee_id`, `grade`, `fee_type`, `item`, `fee`, `due_d
 (00096, 'Grade 6', 'Tri-Term', 'January Fee', '5000.00', '2016-01-01'),
 (00097, 'Grade 6', 'Monthly', 'Downpayment', '8000.00', NULL),
 (00098, 'Grade 6', 'Monthly', 'Miscellaneous', '7500.00', '2015-07-30'),
-(00099, 'Grade 6', 'Monthly', 'Monthly Fee', '1350.00', NULL),
-(00100, 'Grade 7', 'Cash', 'Downpayment', '10000.00', NULL),
-(00101, 'Grade 7', 'Cash', 'Miscellaneous', '15000.00', NULL);
+(00099, 'Grade 6', 'Monthly', 'Monthly Fee', '1350.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -459,6 +429,31 @@ INSERT INTO `penalty` (`penalty`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `private_messages`
+--
+
+CREATE TABLE IF NOT EXISTS `private_messages` (
+  `id` int(11) NOT NULL,
+  `from_user` varchar(20) NOT NULL,
+  `to_user` varchar(20) NOT NULL,
+  `subject` varchar(400) NOT NULL,
+  `message` text NOT NULL,
+  `date` date NOT NULL,
+  `read` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `private_messages`
+--
+
+INSERT INTO `private_messages` (`id`, `from_user`, `to_user`, `subject`, `message`, `date`, `read`) VALUES
+(0, 'admin', 'juan', 'asd', 'asdasdadsa\r\n', '2015-05-02', 0),
+(0, 'juan', 'admin', 'asd', 'hahahahaha', '2015-05-02', 0),
+(0, 'juan', 'admin', 'asd', 'hahahahaha', '2015-05-02', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `school_year`
 --
 
@@ -496,47 +491,23 @@ CREATE TABLE IF NOT EXISTS `students` (
   `imagelocation` varchar(50) NOT NULL,
   `last_accessed` date NOT NULL,
   `state` int(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=63 ;
 
 --
 -- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`student_id`, `first_name`, `last_name`, `middle_name`, `age`, `grade`, `fromTime`, `toTime`, `academicstatus`, `paymentmode`, `uniform`, `peuniform`, `imagelocation`, `last_accessed`, `state`) VALUES
-(1, 'Vin', 'Nudd', 'A', 10, 'Nursery', '8:00 am', '11:00 am', 'Regular', 'Cash', '', '', 'ss_101558346.jpg', '2015-03-09', 0),
-(2, 'Blake', 'Sheldon', 'Q', 4, 'Nursery', '8:00 am', '12:00 pm', 'Regular', 'Semi-Annual', '', '', 'wavebreak-media_smart-kid-blackboard-300x300.jpg', '2015-03-09', 0),
-(3, '', '', '', 0, 'Nursery', '', '', '', 'Cash', '', '', '', '2015-03-03', 0),
-(4, '', '', '', 0, 'Nursery', '', '', '', 'Cash', '', '', '', '2015-03-09', 0),
-(18, 'Bigay', 'Gege', '', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-02', 0),
-(19, '', '', '', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2018-04-01', 0),
-(20, '', '', '', 0, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-02', 0),
-(21, '', '', '', 0, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Semi-Annual', '', '', '', '2015-03-09', 0),
-(25, '', '', '', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-02', 0),
-(26, '152', '.', '', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-02', 0),
-(27, 'OFSM', 'ASGN', '', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-09', 0),
-(29, 'Michael', 'Joslyn', 'F', 10, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Monthly', '', '', '', '2015-03-02', 0),
-(30, 'Lol', 'Lol', 'Lol', 20, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-03', 0),
-(31, 'New', 'Guy', '', 0, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Tri-Term', '', '', '', '2015-03-03', 0),
-(32, 'fewf', 'ewfh', '', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Monthly', '', '', '', '2016-01-19', 0),
-(33, 'eogj', 'ijg', 'ge', 51, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Tri-Term', '', '', '', '2015-03-03', 0),
-(34, 'Tensen', 'Kris', 'F', 20, 'Nursery', '9:00 am', '11:00 am', 'Irregular', 'Semi-Annual', '', '', '', '2015-05-01', 0),
-(35, 'Job', 'Rots', 'f', 0, 'Nursery', '8:00 am', '10:00 am', 'Irregular', 'Cash', '', '', '', '2015-03-09', 0),
-(36, 'gej', 'gijrij', 'gij', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-03', 0),
-(37, 'gpoje', 'RKGNN', 'RGN', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-10', 0),
-(38, 'APKF', 'KIGNJ', 'GOJ', 20, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-03', 0),
-(39, 'Michael', 'JEFO', 'MEW', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-03', 0),
-(40, 'Radical', 'Something', 'F', 20, 'Kindergarten 1', '8:00 am', '8:00 am', 'Regular', 'Tri-Term', '', '', '', '2015-03-09', 0),
-(41, '', '', '', 0, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-09', 0),
-(42, 'Michael', 'ASf', '', 99, 'Pre-Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-10', 1),
-(43, 'micahe', 'joslynq', '', 99, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-10', 0),
-(44, 'Job', 'Sulit', 'Santos', 45, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '19.jpg', '2015-03-11', 0),
-(45, 'Job', 'Sulit', '', 0, 'Kindergarten 1 ', '8:00 am', '8:00 am', 'Regular', 'Semi-Annual', '', '', '19.jpg', '2015-03-10', 0),
-(46, 'micaeh', 'joslyn', '', 0, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '19.jpg', '2015-03-10', 0),
-(47, 'any', 'asd', '', 0, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-10', 0),
-(48, 'ije', 'gnrk', '', 0, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '19.jpg', '2015-03-10', 0),
-(49, 'Job', 'SUlit', 'asd', 0, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '19.jpg', '2015-03-11', 0),
-(50, 'Job', 'Sulit', '', 0, 'Grade 1', '8:00 am', '8:00 am', 'Regular', 'Semi-Annual', '', '', '19.jpg', '2015-03-11', 0),
-(51, 'Michael', 'Joslyn', 'F', 20, 'Grade 7', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', '', '2015-03-11', 0);
+(53, 'Richard', 'Gomez', 'B', 6, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', 'Child.jpg', '2015-03-13', 0),
+(54, 'Isabel', 'Frial', 'K.', 6, 'Kindergarten 1 ', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', 'child-8-sm.jpg', '2015-03-13', 0),
+(55, 'Geoff', 'Eigenmann', 'Y.', 8, 'Nursery', '8:00 am', '12:00 pm', 'Regular', 'Tri-Term', '', '', 'child-happy-face.jpg', '2015-04-30', 0),
+(56, 'Robin', 'Padilla', 'H.', 9, 'Nursery', '8:00 am', '11:00 am', 'Regular', 'Monthly', '', '', 'kid1.jpg', '2015-05-01', 0),
+(57, 'Ogie', 'Alcasid', 'J.', 4, 'Kindergarten 1 ', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', 'kids_hoodie_red_front_4.jpg', '2015-06-12', 0),
+(58, 'Kim', 'Chui', 'Q.', 6, 'Nursery', '8:00 am', '8:00 am', 'Regular', 'Cash', '', '', 'Smiling_girl_outside.jpg', '2015-03-12', 0),
+(59, 'Manny', 'Pacquiao', 'W.', 5, 'Kindergarten 1 ', '8:00 am', '11:00 am', 'Regular', 'Semi-Annual', '', '', 'smiling-child.jpg', '2015-03-13', 0),
+(60, 'Floyd', 'Mayweather', 'E.', 8, 'Grade 1', '8:00 am', '2:00 pm', 'Regular', 'Monthly', '', '', 'smiling-kid.jpg', '2015-08-02', 0),
+(61, 'Mike', 'Tyson', 'F.', 5, 'Kindergarten 1 ', '8:00 am', '8:00 am', 'Regular', 'Semi-Annual', '', '', 'sos-child-bulgaria.jpg', '2015-08-02', 0),
+(62, 'Bon', 'Jovi', 'L.', 6, 'Kindergarten 1 ', '8:00 am', '8:00 am', 'Regular', 'Tri-Term', '', '', 'Whiz Kid 23.png', '2015-08-02', 0);
 
 -- --------------------------------------------------------
 
@@ -609,8 +580,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `access_control`, `first_name`, `last_name`) VALUES
-(1, 'user', '81dc9bdb52d04dc20036dbd8313ed055', 2, 'Michael', 'Joslyn'),
-(2, 'jc', '81dc9bdb52d04dc20036dbd8313ed055', 1, 'Juan', 'Cruz');
+(1, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', 2, 'Michael', 'Joslyn'),
+(2, 'juan', '81dc9bdb52d04dc20036dbd8313ed055', 1, 'Juan', 'Cruz');
 
 --
 -- Indexes for dumped tables
@@ -696,17 +667,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `fee_balance`
 --
 ALTER TABLE `fee_balance`
-MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=141;
+MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=187;
 --
 -- AUTO_INCREMENT for table `fee_payment`
 --
 ALTER TABLE `fee_payment`
-MODIFY `id` int(50) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+MODIFY `id` int(50) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `fee_schedule`
 --
 ALTER TABLE `fee_schedule`
-MODIFY `fee_id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=102;
+MODIFY `fee_id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
 --
 -- AUTO_INCREMENT for table `options_academic_status`
 --
@@ -736,7 +707,7 @@ MODIFY `id` int(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-MODIFY `student_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=52;
+MODIFY `student_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `tabs_academicstatus`
 --
