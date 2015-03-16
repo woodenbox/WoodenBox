@@ -253,12 +253,19 @@
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
-//=============================================================================================================================================//
+//viewstudent.php=============================================================================================================================================//
 	function viewStudents($connect, $srt, $sortby){
 		$sql="SELECT students.state AS state, students.last_name AS last_name, students.first_name AS first_name, students.age AS age, students.student_id AS student_id, students.grade AS grade, students.academicstatus AS academicstatus, students.last_accessed AS last_accessed, SUM(case when waive = 0 then fee_balance.balance else 0 end) AS total_balance FROM fee_balance INNER JOIN students ON fee_balance.student_id = students.student_id GROUP BY students.student_id ORDER BY students.$srt $sortby ";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}
+
+	function selectSY($connect){
+		$sql="SELECT * FROM `school_year`";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+
 /*	function viewStudentsPage($connect, $page, $rows){
 		$start=($page-1)*$rows;
 		$sql="SELECT * FROM students ORDER BY student_id DESC LIMIT $start,$rows";
@@ -335,8 +342,8 @@ function add($date_str, $months)
 		return $result;
 	}
 
-	function balancePayment($connect, $last_name, $first_name, $payment_date, $cash, $id, $month, $year, $arnumber, $dr, $cr, $remark){
-		$sql = "INSERT INTO fee_payment (last_name, first_name, payment_date, cash, tuition, student_id, month, year, ar, dr, cr, remark) VALUES ('$last_name', '$first_name', '$payment_date', $cash, $cash, $id, '$month', $year, $arnumber, '$dr', '$cr', '$remark')";
+	function balancePayment($connect, $last_name, $first_name, $payment_date, $cash, $id, $month, $year, $arnumber, $dr, $cr, $remark, $grade, $sy){
+		$sql = "INSERT INTO fee_payment (last_name, first_name, payment_date, cash, tuition, student_id, month, year, ar, dr, cr, remark, grade, sy) VALUES ('$last_name', '$first_name', '$payment_date', $cash, $cash, $id, '$month', $year, $arnumber, '$dr', '$cr', '$remark', '$grade', '$sy')";
 		$result = mysqli_query($connect, $sql);
 		return $result;
 	}

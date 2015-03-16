@@ -3,6 +3,8 @@
 
 	include('processes/process.php');
 	$connect = connectDB();
+
+	$selectSY=mysqli_fetch_assoc(selectSY($connect));
 	$datengayon = date('Y-m-d');
 	$selectPenaltyValue=mysqli_fetch_assoc(selectPenaltyValue($connect));
 	$percentage = $selectPenaltyValue['penalty']*(0.01);
@@ -153,7 +155,7 @@ $payment_date = date('Y-m-d');
     			echo '<script>alert("we are in");</script>';
     			$remaining = $_POST['amount'];
     			echo '2' . $remaining;
-    			balancePayment($connect, $viewStudent['last_name'], $viewStudent['first_name'], $payment_date, $_POST['amount'], $_SESSION['studentfee'], $mydate['month'], $mydate['year'], $_POST['arnumber'], $_POST['dr'], $_POST['cr'], $remark);
+    			balancePayment($connect, $viewStudent['last_name'], $viewStudent['first_name'], $payment_date, $_POST['amount'], $_SESSION['studentfee'], $mydate['month'], $mydate['year'], $_POST['arnumber'], $_POST['dr'], $_POST['cr'], $remark, $viewStudent['grade'], $selectSY['from']." - ".$selectSY['to']);
     			foreach($_POST['check_list'] as $check) {
     					$balance = getBalance($connect, $check) -> fetch_assoc();
     					$remaining = ($balance['balance']) - $remaining;
