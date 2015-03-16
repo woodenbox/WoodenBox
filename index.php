@@ -12,11 +12,24 @@
 	if(!isset($_GET['year'])){
 		$_GET['year'] = $mydate['year'];
 	}
-
+if(!isset($_GET['page'])){
+		$_GET['page']=1;
+	}
+	/*$month=$_GET['month'];
+	$year=$_GET['year'];
+	$table=getCashFlowIndex($connect, $month, $year);
+	$total=mysqli_num_rows($table);
+	$rows=5;
+	$pages=ceil($total/$rows);
+	$table=viewCashFlowPage($connect,$_GET['page'],$rows, $month, $year); 
+	*/
 	$checkUserTable = getFandLnameDB($connect, $_SESSION['user_id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
 	$table = getCashFlowIndex($connect, $_GET['month'], $_GET['year']);
-	
+	$total=mysqli_num_rows($table);
+	$rows=5;
+	$pages=ceil($total/$rows);
+	$table=viewCashFlowPage($connect, $_GET['page'], $rows, $_GET['month'], $_GET['year']);
 	
 	
 	
@@ -164,6 +177,7 @@
 $_GET['id'] =5;
 ?>
 
+<<<<<<< HEAD
 
  </ul>
 
@@ -173,6 +187,20 @@ $_GET['id'] =5;
 
 <div id="table-scroll" style="position:relative;height:60%; width: 90%;bottom:30px;overflow:auto;";>
 <table style="font-size:75%;" class="hoverable">
+=======
+<div style="padding-left:290px;padding-right:270px;">
+<?php
+	if($total>1){
+		for($count=1;$count<=$pages;$count++){
+
+if($count==$_GET['page'])?><a href="index.php?page=<?=$count?>"><?=$count?></a>
+<?php
+		}
+	}
+?>
+<div id="table-scroll" style="height:60%;overflow:auto;">
+<table>
+>>>>>>> no message
 	<thead class="blue-text text lighten-2">
 		<tr>
 			<th>Date</th>
@@ -204,6 +232,15 @@ $_GET['id'] =5;
 	}
 ?>
 </table>
+<?php
+	if($total>1){
+		for($count=1;$count<=$pages;$count++){
+?>
+<?php if($count==$_GET['page'])?><a href="index.php?page=<?=$count?>"><?=$count?></a>
+<?php
+		}
+	}
+?>
 </div>
 
 

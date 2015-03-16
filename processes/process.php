@@ -30,7 +30,7 @@
 		$result = mysqli_query($connect, $sql);
 		return $result;
 	}
-
+	
 	function getCashFlowIndex($connect, $month, $year){
 		$sql = "SELECT * FROM fee_payment WHERE month='$month' AND year=$year ORDER BY payment_date";
 		$result = mysqli_query($connect, $sql);
@@ -61,12 +61,16 @@
 		return $result;
 	}
 
-/*	function viewCashFlowPage($connect, $page, $rows, $month, $year){
+	function viewCashFlowPage($connect, $page, $rows, $month, $year){
 		$start=($page-1)*$rows;
 		$sql="SELECT * FROM fee_payment WHERE month='$month' AND year=$year LIMIT $start,$rows";
 		$result=mysqli_query($connect,$sql);
+		if (!$result) {
+    printf("Error: %s\n", mysqli_error($connect));
+    exit();
+}
 		return $result;
-	}*/
+	}
 //=============================================================================================================================================//
 	function addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imagelocation, $last_accessed){
 		$sql="insert into students  (first_name, last_name, middle_name, age, grade, fromTime, toTime, academicstatus, paymentmode, uniform, peuniform, imagelocation, last_accessed) values('$first_name', '$last_name', '$middle_name', '$age', '$grade', '$fromTime', '$toTime', '$academicstatus', '$paymentmode', '$uniform', '$peuniform', '$imagelocation', '$last_accessed')";
