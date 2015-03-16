@@ -43,7 +43,7 @@
 
 <!--================================crap ^ ================================!-->
 
- <div class="section no-pad-bot blue lighten-1" id="index-banner" style="position: relative;width: 100%;height: 185px; left: 0%;">
+ <div class="section no-pad-bot blue lighten-1" id="index-banner" style="position: relative;width: 100%;height: 186px; left: 0%;">
         <div class="container nav-wrapper">
 	
           <h2 style="padding-left:2%;" class="header center-on-small-only white-text">Welcome <?php echo $getUserRow['first_name'] ." ". $getUserRow['last_name']?></h1>
@@ -120,7 +120,7 @@
   </ul>	
 </b>
 
-<div style="position: relative;width: 100%;top: 2%; left: 16%;">
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 
 	
 
@@ -141,15 +141,15 @@
 
 
 
-</div>
- <div style="position: relative; width: 70%;left: 71%;bottom:44px;float:both;">
-          <ul class="section table-of-contents">
+
+
+ <ul class="section table-of-contents" style="position:relative;top:0%;float:right;left:2%;">
         
 
 
 		<li class="blue-text text lighten-2" style="font-size:100%;">	Cash Flow List</li>
 		
-			<div class="divider" style="width:11%;"></div>
+			<div class="divider" style="width:100%;"></div>
 			
 <?php
 	$table2=getPreviousCashFlow($connect);	
@@ -166,11 +166,12 @@ $_GET['id'] =5;
 
 
  </ul>
-        </div>
 
 
 
-<div id="table-scroll" style="position:relative;top: -225px;height:60%; width: 65%;overflow:auto;clear:left";>
+
+
+<div id="table-scroll" style="position:relative;height:60%; width: 90%;bottom:30px;overflow:auto;";>
 <table style="font-size:75%;" class="hoverable">
 	<thead class="blue-text text lighten-2">
 		<tr>
@@ -204,6 +205,12 @@ $_GET['id'] =5;
 ?>
 </table>
 </div>
+
+
+
+
+ 
+         
 <!--================================eto ung cashflows table================================!-->
 
 </br>
