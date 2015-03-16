@@ -71,7 +71,7 @@
 						</form>
 			</div>
 			</div>
-
+<!-- 
 <p class="modal-trigger" href="#kambeng"><img src="kambeng.png" style="position: relative;bottom:-691px;left:666px;"></img></p>
  <div id="kambeng" class="modal" >
     <div class="modal-content">
@@ -84,8 +84,7 @@
 <p style="font-size:100px;">E</p>
 <p style="font-size:100px;">R</p>
 <p style="font-size:100px;">Z</p>
-  </div>
-          
+  </div> !-->          
 		
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="asd/js/materialize.js"></script>

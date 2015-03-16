@@ -116,7 +116,7 @@
 	
 	<button class="btn waves-effect waves-light green"  name="123" value="Save">Save</button>
 	<?php if($getUserRow['state']==0){ ?>
-		<button class="btn waves-effect waves-light green"  name="321" value="Delete Payment">Delete</button>
+		
 		<?php }else{ ?>
 		<button class="btn waves-effect waves-light green"  name="restore" value="Restore">Restore</button>
 		<?php } ?>

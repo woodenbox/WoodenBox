@@ -37,6 +37,14 @@ if(isset($_POST['setpenalty'])){
 	extract($_POST);
 	updatePenaltyValue($connect, $penalty);
 }
+
+
+if(isset($_POST['zxcz'])){
+		extract($_POST);
+			insertTuition($connect,$grade, $fee_type, $item, $tuition_fee, $due_date);
+			header('Location: option.php');
+			}
+
 ?>
 
 <head>
@@ -229,7 +237,39 @@ if(isset($_GET['id'])){
 
 		<h5 style="font-weight:bold;">Tuition Fees</h5>
 <h6>Click on a grade level to view, edit, or delete tuition fees. Or Click the button to add new tuition fees</h6></br>
-<button class="btn waves-effect waves-light green clickablerow" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
+<button class="btn waves-effect waves-light green clickablerow modal-trigger" href="#modal7" name="addtuition" value="Add New Tuition">Add New Tuition</button>
+
+
+
+<div class="modal" id="modal7">
+	<div class="modal-content">
+
+<form method="POST">
+			<input type="text" placeholder="Grade" name="grade" pattern="[A-Za-z0-9 ]+" required/>
+			<br/>
+			<select name="fee_type">
+			<?php $getPaymentModeDB = getPaymentModeDB($connect);
+				while($row=mysqli_fetch_array($getPaymentModeDB, MYSQLI_ASSOC)){
+					$status=$row["mode"]; ?>
+				<option value="<?=$status?>"><?=$status?></option>
+			<?php } ?>
+			</select>
+			<br/>
+			<input type="text" placeholder="Item" name="item" pattern="[A-Za-z0-9]+" required/>
+			<br/>
+			<input type="number"  placeholder="Tuition Fee" name="tuition_fee"  pattern="[0-9]+([.][0-9]+)?" step="0.01" required/>
+			<br/>
+			<input type="date" name="due_date"/>
+			</br>
+			<input type="submit" name="zxc" value="Save"/>
+			<br/>
+			<input  type="submit" onclick="location.href='option.php'" value="Back"/>
+</form>
+	</div>
+</div>
+
+
+
 </br>
 <!--<div style="width:20%;">!-->
 <?php while($row=mysqli_fetch_assoc($result2)){?>

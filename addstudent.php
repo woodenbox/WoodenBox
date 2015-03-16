@@ -197,7 +197,7 @@ echo $monthName;
 
   
   
- <h4 class="right-align" style="margin-top:-50px;"><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
+ <h4 class="right-align" style="margin-top:-50px;"><a class="dropdown-button" href="#!" data-activates="dropdown2"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
  
  
   <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
@@ -205,6 +205,51 @@ echo $monthName;
 			<li>  <a href="logout.php">Log Out</a></li>
 			<?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
   </ul>
+    <ul id='dropdown2' class='dropdown-content'>
+    <li><a  class="" href="" >
+	
+	
+	Messages
+	
+	 </li></a>
+	    <li><a  class="modal-trigger" href="#messages" >
+	
+	
+	Compose
+	
+	 </li></a>
+				
+<div style="padding-right: 15px;padding-left: 15px;padding-top: 15px;padding-bottom: 15px;">
+
+
+	<?php include('/msg/read.inc.php');?>
+	
+	
+	
+	</div>
+	
+	
+	
+	
+	
+
+
+  </ul>
+	  
+	 
+	 
+ 
+  <div id="messages" class="modal">
+    <div class="modal-content">
+
+	
+	<?php include('msg/compose.inc.php');?>
+	
+	
+	
+    </div>
+   
+  </div>
 	  
 	 
 	 

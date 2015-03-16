@@ -95,7 +95,13 @@
 			<td><?=$row['grade']?></td>
 			<td><?=$row['academicstatus']?></td>
 			<td><?=$row['last_accessed']?></td>
-			<td><?php if($row['total_balance']==0 && $row['state']==0) echo "Clear"; else if($row['state']==1) echo "Deleted"; else echo $row['total_balance'];?></td>
+			<td><?php 
+
+			if($row['total_balance']==0 && $row['state']==0)
+
+			 echo "Clear";
+			 else if($row['state']==1) echo "Deleted"; 
+			 else echo $row['total_balance'];?></td>
 		</tr>	
 <?php	
 	}
