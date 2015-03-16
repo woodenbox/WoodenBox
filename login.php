@@ -63,7 +63,7 @@
     				</div>
 	  						<p>
 	    						<input type="checkbox" id="test5" />
-	    						<label for="test5" style="margin-left:135px;">Remember me</label>
+	    						<label for="test5" style="margin-left:135px;"> me</label>
 	  						</p>
 		 					<button class="btn waves-effect waves-light green" style="margin-left:135px;" type="submit" name="loginBTN" value="Login">Log In
     							<i class="mdi-content-send right"></i>
