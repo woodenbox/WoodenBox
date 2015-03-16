@@ -157,7 +157,7 @@
 	}
 
 	function getStudentBalancePrint($connect, $id){
-		$datengaun = date("Y-m-30")/*date('Y-m-d', strtotime('2015-11-30'))*/;
+		$datengaun = date("Y-m-31")/*date('Y-m-d', strtotime('2015-11-30'))*/;
 		$sql = "SELECT * FROM fee_balance WHERE student_id = $id AND balance > 0 AND due_date <='$datengaun' AND `waive`=0 OR student_id=$id AND penalty_balance > 0 AND due_date <='$datengaun' AND `waive`=0 OR student_id = $id AND balance > 0 AND due_date IS NULL AND `waive`=0 OR student_id =$id AND penalty_balance > 0 AND due_date IS NULL AND `waive`=0 ";
 		$result = mysqli_query($connect, $sql);
 		return $result;
@@ -166,7 +166,7 @@
 	}
 
 	function getTotalBalancePrint($connect, $id){
-		$datengaun = date("Y-m-30")/*date('Y-m-d', strtotime('2015-11-30'))*/;
+		$datengaun = date("Y-m-31")/*date('Y-m-d', strtotime('2015-11-30'))*/;
 		$sql = "SELECT SUM(balance + penalty_balance) AS total FROM fee_balance WHERE student_id=$id AND due_date <= '$datengaun' AND waive = 0 OR student_id=$id AND due_date IS NULL AND waive = 0";
 		$result = mysqli_query($connect, $sql);
 		return $result;

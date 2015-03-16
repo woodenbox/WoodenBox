@@ -1,12 +1,8 @@
 <?php
 
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING ^ E_DEPRECATED);
-
-
 $connect = mysql_connect("localhost","root","") or die(mysql_error());
-mysql_select_db("private_messages") or die(mysql_error());
-
-
+mysql_select_db("woodenbox_contents") or die(mysql_error());
 
 $subject1 = $_REQUEST['subject'];
 $to_user1 = $_REQUEST['to'];
@@ -66,16 +62,16 @@ echo "
 <td>To:</td>
 <td><input type='text' name='to_user'  value='$to_user1' /></td>
 </tr>
-<tr>
-<td>Subject:</td>
-<td><input type='text' name='subject' value='$subject1' /></td>
-</tr>
+
+
+<input type='text' name='subject' value='asd' class='hide-on-large-only'/>
+
 <tr>
 <td>Message:</td>
 <td><textarea name='message' cols='50' rows='10'></textarea></td>
 </tr>
 <tr>
-<td colspan='2'><input type='submit' name='submit' value='Send Message' /></td>
+<td colspan='2'><input class=waves-effect waves-light btn-large  green lighten-2'  type='submit' name='submit' value='Send Message' /></td>
 </tr>
 </table>
 </form>

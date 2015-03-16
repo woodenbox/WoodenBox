@@ -352,7 +352,7 @@ jQuery.extend( jQuery.easing,
       inDuration: 300,
       outDuration: 225,
       constrain_width: false, // Constrains width of dropdown to the activator
-      hover: true,
+      hover: false,
       alignment: 'left',
       gutter: 0, // Spacing from edge
       belowOrigin: true
