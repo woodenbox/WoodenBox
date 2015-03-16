@@ -1,3 +1,4 @@
+
 <?php
 
 	session_start();
@@ -33,7 +34,7 @@
 	<title>WoodenBox Login</title>
 	</head>
 
-	<body background="qwe.jpg">
+	<body style="position: absolute;width: 100%;top: 0%; left: 0%; background: url(qwe.jpg) no-repeat;background-size: cover;">
  		<nav>
     		<div class="nav-wrapper white  z-depth-4">
    				<div class="valign-wrapper">
@@ -47,8 +48,8 @@
 				<form method="POST" accept-charset="UTF-8">
 		 			<div class="row">
   						<form class="col s12">
-    						<div class="row">
-  								<h5 class=" teal-text text-lighten-2">Please log-in</h5>
+    						<div class="row"><br>
+  								<h5 class=" teal-text text-lighten-2 CENTER">Please log-in</h5>
 							</div>
 							
  							<div class="divider"></div>
@@ -58,18 +59,30 @@
       						</div>
       						<div class="input-field col s6">
         						<input id="password" type="password" pattern="[A-Za-z0-9]+" class="validate" name="password" required>
-        						<label for="password">GAGU</label>
+        						<label for="password">Password</label>
       						</div>
+<br><br><br>
+<div class="col s7 CENTER"><br>
+<button  class="btn waves-effect waves-light green" style="position: relative;width: 100%;top: 0; left: 40%;" type="submit" name="loginBTN" value="Login">Log In
+    							<i class="mdi-content-send right"></i>
+  							</button></div>
+
     				</div>
 	  						<p>
 
 	  						</p>
-		 					<button class="btn waves-effect waves-light green" style="margin-left:135px;" type="submit" name="loginBTN" value="Login">Log In
-    							<i class="mdi-content-send right"></i>
-  							</button>
+		 					
 						</form>
+
+
+
 			</div>
+
+
+
 			</div>
+
+
 <!-- 
 <p class="modal-trigger" href="#kambeng"><img src="kambeng.png" style="position: relative;bottom:-691px;left:666px;"></img></p>
  <div id="kambeng" class="modal" >
