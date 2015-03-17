@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	include('header.php');
 	include('processes/process.php');
 	$connect=connectDB();
 
@@ -31,6 +30,7 @@
 		header('Location:index.php');
 	}
 
+	include('header.php');
 ?>
 <!--================================ crap ^ ================================!-->
 <head>
