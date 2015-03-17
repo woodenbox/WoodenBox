@@ -95,8 +95,16 @@
     if(isset($_POST['cancel'])){
         header('Location: viewstudent.php?id='.$_SESSION['studentfee']);
     }
+$active = 0;
+        ?>
 
-    ?>
+
+
+    <?php $header = "Re-enroll"?>
+    <?php $header2 =  "Re-ehroll a student";
+
+    include('header.php');?>
+
     <!--================================ crap ^ ================================!-->
     <head>
     	<title>Student Enrollment</title>
@@ -105,78 +113,12 @@
   <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     </head>
-		 <div class="section no-pad-bot blue lighten-1" id="index-banner">
-        <div class="container nav-wrapper">
-	
-          <h1 class="header center-on-small-only white-text">Re-enroll a Student</h1>
-          <div class='row '>
-            <h4 class ="header light blue-text text-lighten-4">     Fill up the form
- </h4>
 
-  
-  
- <h4 class="right-align" style="margin-top:-50px;"><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
- 
- 
-  <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
- <ul id='dropdown1' class='dropdown-content'>
-			<li>  <a href="logout.php">Log Out</a></li>
-            <?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
-  </ul>
-	  
-	 
-	 
-	 
-	 </ul>
- </div>
-          </div>
-		  </div>
-		  
-		  
-		  <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"></a></div>
-      <ul id="nav-mobile" class="side-nav fixed">
-
-	   <li class="logo" style="padding-left:45px;padding-top:15px;"><image src="asdg.png"></li>
-	   <div class="section"></div>
-	  <div class="divider"></div><div class="section"></div>
-<li class="" style="padding-top:15px;padding-bottom:15px;">	<b><a  class=" waves-effect waves-green" style="font-size:14px;" href="index.php">Cash Reports<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a  style="font-size:14px;" href="studentaccounts.php" class="waves-effect waves-green">Student Accounts<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="search.php" class="waves-effect waves-green">Student List<?echo"\t";?></a></li>
-
-
-
-<li class="" style="padding-top:15px;padding-bottom:15px;">	<a style=" font-size:14px;" href="addstudent.php" class="waves-effect waves-green">Add Student<?echo"\t";?></a></li>
-
-
-
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-
-
-
-
-
-
-  </ul>	
-</b>
-		  
-		  
-		  
 	
 	
 	
 	
-	
-	<div style="margin-left:290px;margin-right:1300px;margin-top:50px;">
-
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 	
 	
 
@@ -188,10 +130,10 @@
     		<input style="display: none;" id="file-input"  name="imgfile" type="file"/>
     	</div>
 		
-    	<input style="margin-left:170px;margin-top:-140px;" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z ]+" value="<?=$viewStudent['first_name']?>"required/></br>
-    	<input style="margin-left:550px;margin-top:-140px;" type="text" placeholder="Last Name" name="last_name"  pattern="[A-Za-z]+" value="<?=$viewStudent['last_name']?>" required/></br>
-    	<input style="margin-left:950px;margin-top:-140px;" type="text" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z. ]+" value="<?=$viewStudent['middle_name']?>"/></br>
-    	<input style="margin-left:170px;margin-top:-60px;" type="text" placeholder="Age" name="age" value="<?=$viewStudent['age']?>"/></br>
+    	<input style="" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z ]+" value="<?=$viewStudent['first_name']?>"required/></br>
+    	<input style="" type="text" placeholder="Last Name" name="last_name"  pattern="[A-Za-z]+" value="<?=$viewStudent['last_name']?>" required/></br>
+    	<input style="" type="text" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z. ]+" value="<?=$viewStudent['middle_name']?>"/></br>
+    	<input style="" type="text" placeholder="Age" name="age" value="<?=$viewStudent['age']?>"/></br>
 		<br>
 <div class="divider"> </div><div class="divider" style="position:relative;left: 300px;top:-1px;"> </div><div class="divider" style="position:relative;left: 600px;top:-2px;"> </div>
 <div class="divider" style="position:relative;left: 900px;top:-3px;"> </div><div class="divider" style="position:relative;left: 1200px;top:-4px;"> </div>

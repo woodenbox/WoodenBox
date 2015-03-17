@@ -253,7 +253,7 @@ $active = 0;
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['grade']?></label></br>
 	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">From:</label>
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['fromTime']?></label>
-	<label style="position: static;float:left;padding-left:5%;font-weight:bold;font-size:100%;">To:</label>
+	<label style="position: static;float:left;padding-left:6%;font-weight:bold;font-size:100%;">To:</label>
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['toTime']?></label><br>
 	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">Academic Status:</label>
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['academicstatus']?></label></br>
@@ -393,7 +393,7 @@ $active = 0;
 
 <!--================================ additional info table ================================!-->
 
-<table>
+<table style="font-size:75%;">
 <thead>
 <tr>
 <td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">Grade Level</p></td>
@@ -472,7 +472,7 @@ $active = 0;
 <!--================================ more additional info table ================================!-->
 
 <div>
-<table>
+<table style="font-size:75%;">
 <thead>
 	<tr>
 		<td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">	Date</p></td>
