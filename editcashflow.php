@@ -10,10 +10,6 @@
 	$checkUserTable = editCashFlow($connect, $_GET['id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
 
-	if(isset($_POST['321'])){
-		deleteCashFlow($connect, $_GET['id']);
-		header('Location:index.php');
-	}
 
 	if(isset($_POST['123'])){
 		extract($_POST);
@@ -25,13 +21,26 @@
 		header('Location:index.php');
 	}
 
-	if(isset($_POST['restore'])){
-		restoreCashFlow($connect, $_GET['id']);
-		header('Location:index.php');
-	}
 
+<<<<<<< HEAD
 	include('header.php');
 ?>
+=======
+
+
+
+
+	?>
+
+
+
+    <?php $header = "Edit Cashflow" ;?>
+	<?php $header2 =  "Edit Cashflow";
+
+	include('header.php');?>
+
+
+>>>>>>> no message
 <!--================================ crap ^ ================================!-->
 <head>
 	<title>Edit Cash Flow</title>

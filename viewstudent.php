@@ -65,12 +65,12 @@
 		$_SESSION['studenttransac'] = 1;
 		header('Location: payment.php');
 	}
-
+/*
 	if(isset($_POST['delete'])){
 		deleteStudent($connect, $_GET['id']);
 		header('Location: studentaccounts.php');
 	}
-
+*/
 	if(isset($_POST['edit'])){
 		header('Location: editstudent.php?id='.$_GET['id']);
 	}
@@ -226,13 +226,13 @@ $active = 0;
 <?php if($_SESSION['access_control']>1){ ?>
 <form method="POST">
 <div style="float:right;">
-<?php if($viewStudent['state']==0){ ?>
+<?php /*if($viewStudent['state']==0){ ?>
 
 <button class="btn waves-effect waves-light green" type="submit" name="delete" value="Delete Student" style="position: relative;left: 0%;width:100%;" onclick="return confirm('Are you sure?');" >Delete Student</button>
 <?php } else { ?>
 <button class="btn waves-effect waves-light green" type="submit" name="restore" value="Restore Student" style="position: relative;left: 0%;width:100%;" onclick="return confirm('Are you sure?');" >Restore Student</button>
 
-<?php } ?>
+<?php } */?>
 </br>
 <button class="btn waves-effect waves-light green" type="submit" name="reenrol" value="Re-enroll Student" style="position: relative;; left: 0\5;width:100%;"  >Re-enroll Student</button></br>
 <button class="btn waves-effect waves-light green" type="submit" name="edit" value="Edit" style="position: relative;; left: 0%;width:100%;"  >Edit Student</button></br>

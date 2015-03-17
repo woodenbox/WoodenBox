@@ -121,112 +121,182 @@ $active = 0;
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 	
 	
-
-    <form method="POST" enctype="multipart/form-data">
+<div class="row">
+    <form method="POST" enctype="multipart/form-data" class="col s12">
+        <div class="row">
     	<div class="image-upload">
-    		<label for="file-input">
+    		<label for="file-input" style="float:left;">
     			<img src="uploads/<?=$_GET['id']?>"  height="150" width="150"/>
     		</label>
     		<input style="display: none;" id="file-input"  name="imgfile" type="file"/>
-    	</div>
-		
-    	<input style="" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z ]+" value="<?=$viewStudent['first_name']?>"required/></br>
-    	<input style="" type="text" placeholder="Last Name" name="last_name"  pattern="[A-Za-z]+" value="<?=$viewStudent['last_name']?>" required/></br>
-    	<input style="" type="text" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z. ]+" value="<?=$viewStudent['middle_name']?>"/></br>
-    	<input style="" type="text" placeholder="Age" name="age" value="<?=$viewStudent['age']?>"/></br>
-		<br>
-<div class="divider"> </div><div class="divider" style="position:relative;left: 300px;top:-1px;"> </div><div class="divider" style="position:relative;left: 600px;top:-2px;"> </div>
-<div class="divider" style="position:relative;left: 900px;top:-3px;"> </div><div class="divider" style="position:relative;left: 1200px;top:-4px;"> </div>
 
-    	<p class="blue-text text lighten-2" style="font-weight:bold;">Grade:</p>
-    	<select name="grades" id="grades">
-    		<?php
-    		$checkGradesTable = viewGrade($connect);
-    		while ($arrayGradesTable = mysqli_fetch_array($checkGradesTable, MYSQLI_ASSOC)) {
-    			$grade_level=$arrayGradesTable["grade_levels"];
-    			echo "<option value=\"$grade_level\">$grade_level</option>";        
-    		}
-    		?>
-    	</select></br>
-		<div style="position: relative;left: 350px;top: -143px;">
-    	<p class="blue-text text lighten-2" style="font-weight:bold;">From:</p>
-    	<select name="fromTime">
-    		<?php
-    		$checkTimeTable = getTimeDB($connect);
-    		while($arrayTimeTable=mysqli_fetch_array($checkTimeTable, MYSQLI_ASSOC)){
-    			$time = $arrayTimeTable["time"];
-    			echo"<option value=\"$time\">$time</option>";
-    		}
-    		?>
-    	</select></div>
-		<div style="position: relative;left: 700px;top: -249px;">
-    	<p class="blue-text text lighten-2" style="font-weight:bold;">To:</p>
-    	<select name="toTime">
-    		<?php
-    		$checkTimeTable2 = getTimeDB($connect);
-    		while($arrayTimeTable=mysqli_fetch_array($checkTimeTable2, MYSQLI_ASSOC)){
-    			$time = $arrayTimeTable["time"];
-    			echo"<option value=\"$time\">$time</option>";
-    		}
-    		?>
-    	</select></div></br>
-			<div class="divider" style="position:relative;bottom: 225px;"></div>		<div class="divider" style="position:relative;bottom: 226px;left:300px;"></div>
-			<div class="divider" style="position:relative;bottom: 227px;left:600px;"></div>	<div class="divider" style="position:relative;bottom: 228px;left:900px;"></div>
-				<div class="divider" style="position:relative;bottom: 229px;left:1200px;"></div>
-				
-				<div style="position: relative;left: 00px;top: -229px;">
-    	<p class="blue-text text lighten-2" style="font-weight:bold;">Academic Status:</p>
-    	<select name="academicstatus">
-    		<?php
-    		$checkAcademicStatusTable = getAcademicStatusDB($connect);
-    		while($arrayAcademicTable=mysqli_fetch_array($checkAcademicStatusTable, MYSQLI_ASSOC)){
-    			$status=$arrayAcademicTable["status"];
-    			echo"<option value=\"$status\">$status</option>";
-    		}
-    		?>
-    	</select></div></br>
-				<div style="position: relative;left: 350px;top: -372px;">
-    	<p class="blue-text text lighten-2" style="font-weight:bold;">Payment Mode:</p>
-    	<select name="paymentmode">
-    		<?php
-    		$checkPaymentModeTable=getPaymentModeDB($connect);
-    		while($arrayPaymentModeTable=mysqli_fetch_array($checkPaymentModeTable, MYSQLI_ASSOC)){
-    			$mode=$arrayPaymentModeTable["mode"];
-    			echo"<option value=\"$mode\">$mode</option>";
-    		}
-    		?>
-    	</select></div>
-    	
-    		
-    	<div style="position:relative;bottom:370px;font-weight:bold;" class="blue-text text lighten-2">Item</div>
-    				<div style="position:relative;bottom:392px;font-weight:bold;left: 300px;" class="blue-text text lighten-2">	Price</div>
-    				<div style="position:relative;bottom:412px;font-weight:bold;left: 600px;" class="blue-text text lighten-2">Quantity  	</div>	
-					<div class="divider" style="position:relative;bottom:402px;"></div><div class="divider" style="position:relative;bottom:403px;left:150px;"></div>.
-					<div class="divider" style="position:relative;bottom:426px;left:450px;"></div>
-    		<?php	
-    		$table=getOthers($connect);
-    		while($row=mysqli_fetch_assoc($table)){
-    			?>
-    	<input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
-    				<label for="<?=$row['id']?>"style="position:relative;left:000px;bottom:401px;"><?=$row['item']?></label>
-    				<p style="position:relative;left:300px;bottom:445px;"><?=$row['price']?></p>
-    				<input style="position:relative;left:300px;bottom:500px;left:450px;"type="text" placeholder="Enter Amount"  pattern="[0-9]+" name="howmany[]"/>
-    			<?php	
-    		}
-    		?>
-    	
+      <div class="input-field col s3" style="">
+        <input id="first_name" type="text" name="first_name" pattern="[A-Za-z ]+" class="validate" value="<?=$viewStudent['first_name']?>"required>
+        <label for="first_name">First Name</label>
+      </div>
+
+
+       <div class="input-field col s3" style="">
+        <input id="middle_name" type="text" name="middle_name" pattern="[A-Za-z ]+" class="validate" value="<?=$viewStudent['middle_name']?>"required>
+        <label for="middle_name">Middle Name</label>
+      </div>
+ 
+
+               <div class="input-field col s3" style="">
+        <input id="last_name" type="text" name="last_name" pattern="[A-Za-z ]+" class="validate" value="<?=$viewStudent['last_name']?>"required>
+        <label for="last_name">Middle Name</label>
+      </div>
+ 
+
+
+  </form>
+</div>
+
+<br><BR>
+</div>
 
 
 
-    	<script src="jquery-2.1.3.min.js"></script>
-    	<script>
+
+<div class="row">
+
+
+        <p class="blue-text text lighten-2" style="font-weight:bold;font-size:85%;">Grade:</p>
+ 
+        <div class="col s2" >
+
+        <select name="grades" id="grades">
+            <?php
+            $checkGradesTable = viewGrade($connect);
+            while ($arrayGradesTable = mysqli_fetch_array($checkGradesTable, MYSQLI_ASSOC)) {
+                $grade_level=$arrayGradesTable["grade_levels"];
+                echo "<option value=\"$grade_level\">$grade_level</option>";        
+            }
+            ?>
+        </select></br>
+
+
+
+
+
+
+        
+        
+        <div style="position: relative;left: 150%;top: -143px;">
+    
+        <p class="blue-text lighten-2" style="font-weight:bold;font-size:85%;">From: </p>
+        <select style="margin-left:-370px;margin-top:-143px;" name="fromTime">
+            <?php
+            $checkTimeTable = getTimeDB($connect);
+            while($arrayTimeTable=mysqli_fetch_array($checkTimeTable, MYSQLI_ASSOC)){
+                $time = $arrayTimeTable["time"];
+                echo"<option value=\"$time\">$time</option>";
+            }
+            ?>
+        </select>
+        </div>
+            <div style="position: relative;left: 300%;top: -249px;">
+    
+        <p class="blue-text lighten-2" style="font-weight:bold;font-size:85%;"> To:</p>
+        <select name="toTime">
+            <?php
+            $checkTimeTable2 = getTimeDB($connect);
+            while($arrayTimeTable=mysqli_fetch_array($checkTimeTable2, MYSQLI_ASSOC)){
+                $time = $arrayTimeTable["time"];
+                echo"<option value=\"$time\">$time</option>";
+            }
+            ?>
+            
+        </select></div></br></div></div>
+
+
+<div class="row">
+                
+                <div style="position: relative;left: 00px;top: -229px;">
+        <p class="blue-text lighten-2" style="font-weight:bold;font-size:85%;">Academic Status:</p>
+        <div class="col s3">
+        <select name="academicstatus">
+            <?php
+            $checkAcademicStatusTable = getAcademicStatusDB($connect);
+            while($arrayAcademicTable=mysqli_fetch_array($checkAcademicStatusTable, MYSQLI_ASSOC)){
+                $status=$arrayAcademicTable["status"];
+                echo"<option value=\"$status\">$status</option>";
+            }
+            ?>
+        </select>
+        <div style="position: relative;left: 350px;top: -116px;">
+        <p class="blue-text lighten-2" style="font-weight:bold;font-size:85%;">
+        Payment Mode:</p><div class="col s12">
+        <select name="paymentmode">
+            <?php
+            $checkPaymentModeTable=getPaymentModeDB($connect);
+            while($arrayPaymentModeTable=mysqli_fetch_array($checkPaymentModeTable, MYSQLI_ASSOC)){
+                $mode=$arrayPaymentModeTable["mode"];
+                echo"<option value=\"$mode\">$mode</option>";
+            }
+            ?>
+            
+            
+            
+            <div class="diver"></div>
+            
+            
+            
+            
+            
+            
+        </select></div></div></div></div></div>
+
+    
+</br>
+        
+                    <div style="position:relative;bottom:370px;font-weight:bold;" class="blue-text text lighten-2">Item</div>
+                    <div style="position:relative;bottom:392px;font-weight:bold;left: 250px;" class="blue-text text lighten-2"> Price</div>
+                    <div style="position:relative;bottom:412px;font-weight:bold;left: 350px;" class="blue-text text lighten-2">Quantity     </div>  
+
+            <?php   
+            $table=getOthers($connect);
+            while($row=mysqli_fetch_assoc($table)){
+                ?>
+                
+            
+        
+            </table>
+                    <input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
+                    <label for="<?=$row['id']?>"style="position:relative;left:00px;bottom:400px;"><?=$row['item']?></label>
+                    <p style="position:relative;left:250px;bottom:445px;"><?=$row['price']?></p>
+                    
+
+                     <div class="input-field col s4 m12"  style="position:relative;left:300px;bottom:510px;left:350px;">
+                                             <input id="enter_amount" type="text" class="validate" name="howmany[]" pattern="[0-9]" style="width:12%;"  >
+                                                    <label for="enter_amount">Enter Amount</label>
+
+
+                     </div>
+            <!--   <input style="position:relative;left:300px;bottom:500px;left:350px;"type="text" placeholder="Enter Amount"  pattern="[0-9]" name="howmany[]"/>       !-->
+
+                    
+                <?php   
+            }
+            ?><br><br><br>
+    <button class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');" style="position:relative;left:0%;bottom: 490px;">Enroll</button>
+
+
+
+
+
+        <script src="jquery-2.1.3.min.js"></script>
+        <script>
+
+
 
 </script>
-<button class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Are you sure?');" style="position:relative;bottom:450px;left:300px;">Enroll</button>
-<button class="btn waves-effect waves-light green" type="submit" name="cancel" value="cancel" onclick="return confirm('Are you sure?');" style="position:relative;bottom:450px;left:300px;">Cancel</button>
+
 
 
 </form>
+
+
 </div>
 <?php
 include("footer.php");

@@ -1,7 +1,27 @@
 <?php
+<<<<<<< HEAD
   if(!isset($_SESSION['username'])){
     header('Location: login.php');
   }
+=======
+
+
+
+if(!isset($_SESSION['username'])){
+	header('Location: login.php');
+
+
+}
+if(!isset($header)){
+  $header="Test";
+  $header2="Test2";
+}
+
+
+
+
+
+>>>>>>> no message
 ?>
 
 <html>
