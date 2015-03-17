@@ -6,7 +6,8 @@
 
 
 <?php
-	
+
+
 	include('processes/process.php');
 	$connect = connectDB();
 	$mydate=getdate(date("U"));

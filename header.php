@@ -14,17 +14,17 @@ if($active == 1){
     $hay1 = "white-text waves-effect waves-green";
 }
 
-elseif($active == 2){
+else if($active == 2){
     $hay2 = "blue lighten-1";
     $hay3 = "white-text waves-effect waves-green";
 }
 
-elseif($active == 3){
+else if($active == 3){
     $hay4 = "blue lighten-1";
     $hay5 = "white-text waves-effect waves-green";
 }
 
-elseif($active == 4){
+else if($active == 4){
     $hay6 = "blue lighten-1";
     $hay7 = "white-text waves-effect waves-green";
 }
@@ -106,15 +106,15 @@ else{
   
 <b>
 
-<li class="<?=$hay?> waves-effect waves-white" style="padding-top:15px;padding-bottom:15px; width:100%;">  <a  class="<?=$hay1?>" style="font-size:80%;" href="index.php"><i class="mdi-communication-business"></i>&nbspCash Reports<?echo"\t";?></a></li>
-<li class="<?=$hay2?> waves-effect waves-white" style="padding-top:15px;padding-bottom:15px; width:100%;"> <a  style="font-size:80%;" href="studentaccounts.php" class="<?=$hay3?>"><i class="mdi-action-account-child"></i>&nbspStudent Accounts<?echo"\t";?></a></li>
+<li <?php if(curPageName()=='index.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px; width:100%;">  <a  <?php if(curPageName()=='index.php') echo "class=\"white-text waves-effect waves-green\"";?> style="font-size:80%;" href="index.php"><i class="mdi-communication-business"></i>&nbspCash Reports<?echo"\t";?></a></li>
+<li <?php if(curPageName()=='studentaccounts.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px; width:100%;"> <a  style="font-size:80%;" href="studentaccounts.php"<?php if(curPageName()=='studentaccounts.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-action-account-child"></i>&nbspStudent Accounts<?echo"\t";?></a></li>
  
 
 
 
-<li class="<?=$hay4?> waves-effect waves-white" style="padding-top:15px;padding-bottom:15px;width:100%;"> <a style="font-size:80%;" href="search.php" class="<?=$hay5?>"><i class="mdi-action-view-list"></i>&nbspStudent List<?echo"\t";?></a></li>
+<li <?php if(curPageName()=='search.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px;width:100%;"> <a style="font-size:80%;" href="search.php"<?php if(curPageName()=='search.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-action-view-list"></i>&nbspStudent List<?echo"\t";?></a></li>
 
-<li class="<?=$hay6?> waves-effect waves-white" style="padding-top:15px;padding-bottom:15px; width:100%;"> <a style="font-size:80%;" href="addstudent.php" class="<?=$hay7?>"><i class="mdi-social-person-add"></i>&nbspAdd Student<?echo"\t";?></a></li>
+<li <?php if(curPageName()=='addstudent.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> waves-effect waves-white" style="padding-top:15px;padding-bottom:15px; width:100%;"> <a style="font-size:80%;" href="addstudent.php"<?php if(curPageName()=='addstudent.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-social-person-add"></i>&nbspAdd Student<?echo"\t";?></a></li>
 
 
   </ul> 
