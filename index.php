@@ -1,6 +1,12 @@
 <?php
-	session_start();
-	include('header.php');
+	session_start();?>
+
+
+
+
+
+<?php
+	
 	include('processes/process.php');
 	$connect = connectDB();
 	$mydate=getdate(date("U"));
@@ -16,23 +22,30 @@
 	$checkUserTable = getFandLnameDB($connect, $_SESSION['user_id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
 	$table = getCashFlowIndex($connect, $_GET['month'], $_GET['year']);
-	
-	
-	
-	
-	
-?>
+	$active = 1;
+
+
+	?>
+
+
+
+    <?php $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;?>
+	<?php $header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
+
+	include('header.php');?>
+
+
+
+
+
+
+
 
 <head>
 
   <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-
-
-
-
 
 
 
@@ -43,87 +56,14 @@
 
 <!--================================crap ^ ================================!-->
 
- <div class="section no-pad-bot blue lighten-1" id="index-banner" style="position: relative;width: 100%;height: 186px; left: 0%;">
-        <div class="container nav-wrapper">
-	
-          <h2 style="padding-left:2%;" class="header center-on-small-only white-text">Welcome <?php echo $getUserRow['first_name'] ." ". $getUserRow['last_name']?></h1>
-          <div class='row '>
-            <h5 style="padding-left:2%;" class ="header light blue-text text-lighten-4">       Cash Report for the month of  <?=$_GET['month']." ".$_GET['year']?>
-
-
-
-
-            	   <div style="float:right;">
-  
- <h4 style="position: relative;width: 100%;top: 0; left: 0%;">
-
- <a class="dropdown-button" href="#!" data-activates="dropdown2" style="position: relative;width: 100%;top: 0; left: 0%;"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
  
-  <a class="dropdown-button" href="#!" data-activates="dropdown1" style="position: relative;width: 100%;top: 0; left: 0%;"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
- <ul id='dropdown1' class='dropdown-content'>
-			<li>  <a href="logout.php">Log Out</a></li>
-			<?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
-  </ul>
-  
-   <ul id='dropdown2' class='dropdown-content'>
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
-  </ul>
-	  
-	 
-	 
-	 
-	</div>
- </h4>
 
-
- </div>
-          </div>
-		  </div>
+	
 
 <!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
 
-<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full" style="position: fixed;"></a></div>
-      <ul id="nav-mobile" class="side-nav fixed">
-
-	   <li class="logo" style="padding-left:25px;padding-top:40px;"><image src="asdg.png" onclick="toast('Huehue', 400)" style="background-size:100%;"></li>
-	   <div class="section"></div>  
-	
-<li class="active blue lighten-1" style="padding-top:15px;padding-bottom:15px;">	<b><a  class="white-text waves-effect waves-green" style="font-size:80%;" href="index.php">Cash Reports<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a  style="font-size:80%;" href="studentaccounts.php" class="waves-effect waves-green">Student Accounts<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:80%;" href="search.php" class="waves-effect waves-green">Student List<?echo"\t";?></a></li>
-
-
-
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:80%;" href="addstudent.php" class="waves-effect waves-green">Add Student<?echo"\t";?></a></li>
-
-
-
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-
-
-
-
-
-
-  </ul>	
-</b>
 
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
-
-	
-
 
 
 	<div class="row">
@@ -143,7 +83,10 @@
 
 
 
- <ul class="section table-of-contents" style="position:relative;top:0%;float:right;left:2%;">
+    <div class="hide-on-small-only"  style="position:relative;top:0%;float:right;left:2%;">
+      
+
+ <ul class="section table-of-contents">
         
 
 
@@ -166,12 +109,11 @@ $_GET['id'] =5;
 
 
  </ul>
+</div>
 
 
 
-
-
-<div id="table-scroll" style="position:relative;height:60%; width: 90%;bottom:30px;overflow:auto;";>
+<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;overflow:auto;";>
 <table style="font-size:75%;" class="hoverable">
 	<thead class="blue-text text lighten-2">
 		<tr>
@@ -179,7 +121,7 @@ $_GET['id'] =5;
 			<th>Student</th>
 			<th>A.R. Number</th>
 			<th>Cash</th>
-<!--			<th>D.R.</th>
+<!--		<th>D.R.</th>
 			<th>C.R.</th>!-->
 			<th>Tuition Fees</th>
 			<th>Remarks</th>
@@ -194,7 +136,7 @@ $_GET['id'] =5;
 			<td><?=$row['first_name']." ".$row['last_name']?></td>
 			<td><?=$row['ar']?></td>
 			<td><?=$row['cash']?></td>
-<!--			<td><?php//$row['dr']?></td>
+<!--		<td><?php//$row['dr']?></td>
 			<td><?php//$row['cr']?></td>!-->
 			<td><?=$row['tuition']?></td>
 			<td><?=$row['remark']?></td>
@@ -219,7 +161,7 @@ $_GET['id'] =5;
 
 
 
-<!--================================eto ung listahan ng other cashflows================================!-->
+<!--===============================eto ung listahan ng other cashflows================================!-->
 <!-- <a class="waves-effect waves-light btn-large  green lighten-2" id='buttone'onclick="myFunction()"> Print this page </a> !-->
 
     </div>

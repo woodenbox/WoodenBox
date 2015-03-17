@@ -188,7 +188,17 @@ $payment_date = date('Y-m-d');
 		}
 	}
 
-?>
+$active = 0;
+	?>
+
+
+
+    <?php $header = "Stundent Info" ;?>
+	<?php $header2 =  "Student General Information";
+
+	include('header.php');?>
+
+
 <!--================================ crap ^ ================================!-->
 
 <!--================================ title lang ng tab ng student na nakaopen ================================!-->
@@ -208,103 +218,54 @@ $payment_date = date('Y-m-d');
 <!--================================ crap ^ ================================!-->
 
 
-<div class="section no-pad-bot blue lighten-1" id="index-banner">
-        <div class="container nav-wrapper">
-	
-          <h1 class="header center-on-small-only white-text">Student Info</h1>
-          <div class='row '>
-            <h4 class ="header light blue-text text-lighten-4">  Student General Information
- </h4>
 
-  
-  
- <h4 class="right-align" style="margin-top:-50px;"><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
- 
- 
-  <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
- <ul id='dropdown1' class='dropdown-content'>
-			<li>  <a href="logout.php">Log Out</a></li>
-			<?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
-  </ul>
-	  
-	 
-	 
-	 
-	 </ul>
- </div>
-          </div>
-		  </div>
-<!--================================ crap ^ ================================!-->
-
-
-
-
-
-
-
-<!--================================ crap ^ ================================!-->
-		   <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"></a></div>
-      <ul id="nav-mobile" class="side-nav fixed">
-
-	   <li class="logo" style="padding-left:45px;padding-top:15px;"><image src="asdg.png" onclick="toast('Huehue', 400)"></li>
-	   <div class="section"></div>
-
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<b><a  class="waves-effect waves-green" style="font-size:14px;" href="index.php">Cash Reports<?echo"\t";?></a></li>
-<li class="" style="padding-top:15px;padding-bottom:15px;">	<a  style="font-size:14px;" href="studentaccounts.php" class=" waves-effect waves-green">Student Accounts<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="search.php" class="waves-effect waves-green">Student List<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="addstudent.php" class="waves-effect waves-green">Add Student<?echo"\t";?></a></li>
-  </ul>	
-</b>
-
-
-
-</br>
-</br>
 <!--================================ crap ^ ================================!-->
 
 
 <!--================================ student info ================================!-->
 
-<div style="margin-left:290px;px;margin-right:50px;margin-top:-180px;">
+<div style="position: relative;width: 80%;bottom: 0%; left: 16%;">
+
 
 <form method="POST">
 <!--================================ some buttons ================================!-->
 
 <?php if($_SESSION['access_control']>1){ ?>
 <form method="POST">
-
+<div style="float:right;">
 <?php if($viewStudent['state']==0){ ?>
-<button class="btn waves-effect waves-light green" type="submit" name="delete" value="Delete Student" style="position: relative;top:150px;left: 700px;" onclick="return confirm('Are you sure?');" >Delete Student</button>
+
+<button class="btn waves-effect waves-light green" type="submit" name="delete" value="Delete Student" style="position: relative;left: 0%;width:100%;" onclick="return confirm('Are you sure?');" >Delete Student</button>
 <?php } else { ?>
-<button class="btn waves-effect waves-light green" type="submit" name="restore" value="Restore Student" style="position: relative;top:150px;left: 700px;" onclick="return confirm('Are you sure?');" >Restore Student</button>
+<button class="btn waves-effect waves-light green" type="submit" name="restore" value="Restore Student" style="position: relative;left: 0%;width:100%;" onclick="return confirm('Are you sure?');" >Restore Student</button>
 
 <?php } ?>
 </br>
-<button class="btn waves-effect waves-light green" type="submit" name="reenrol" value="Re-enroll Student" style="position: relative;top:160px; left: 700px;"  >Re-enroll Student</button></br>
-<button class="btn waves-effect waves-light green" type="submit" name="edit" value="Edit" style="position: relative;top:170px; left: 700px;"  >Edit Student</button></br>
-		</form>
+<button class="btn waves-effect waves-light green" type="submit" name="reenrol" value="Re-enroll Student" style="position: relative;; left: 0\5;width:100%;"  >Re-enroll Student</button></br>
+<button class="btn waves-effect waves-light green" type="submit" name="edit" value="Edit" style="position: relative;; left: 0%;width:100%;"  >Edit Student</button></br>
+	</div>	</form>
 <?php } else echo "</br></br></br></br></br></br></br></br>"?>
 	<img class="backup_picture z-depth-2" src="uploads/<?=$_GET['id']?>" alt="Student Image" height="150" width="150" style="float:left;">
 	
 	<div style="padding-top:18px;">
-	<label style="position: static;float:left;padding-left:20px;">First Name:</label>
-	<label style="position: static;float:left;padding-left:2px;"><?=$viewStudent['first_name']?></label>
-	<label style="position: static;float:left;padding-left:14px;">Last Name:</label>
-	<label style="position: static;float:left;padding-left:2px;"><?=$viewStudent['last_name']?></label>
-	<label style="position: static;float:left;padding-left:14px;">Middle Name:</label>
-	<label style="position: static;float:left;padding-left:2px;"><?=$viewStudent['middle_name']?></label></br>
-	<label style="position: static;float:left;padding-left:20px;">Age:</label>
-	<label style="position: static;float:left;padding-left:2px;"><?=$viewStudent['age']?></label>
-	<label style="position: static;float:left;padding-left:14px;">Grade:</label>
-	<label style="position: static;float:left;padding-left:2px;"><?=$viewStudent['grade']?></label></br>
-	<label style="position: static;float:left;padding-left:20px;">From:</label>
-	<label style="position: static;float:left;padding-left:2px;"><?=$viewStudent['fromTime']?></label>
-	<label style="position: static;float:left;padding-left:14px;">To:</label>
-	<label style="position: static;float:left;padding-left:2px;"><?=$viewStudent['toTime']?></label><br>
-	<label style="position: static;float:left;padding-left:20px;">Academic Status:</label>
-	<label style="position: static;float:left;padding-left:2px;"><?=$viewStudent['academicstatus']?></label></br>
-	<label style="position: static;float:left;padding-left:20px;">Payment Mode:</label>
-	<label style="position: static;float:left;padding-left:2px;"><?=$viewStudent['paymentmode']?></label></br>
+	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">First Name:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['first_name']?></label>
+	<label style="position: static;float:left;padding-left:5%;font-weight:bold;font-size:100%;">Last Name:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['last_name']?></label>
+	<label style="position: static;float:left;padding-left:5%;font-weight:bold;font-size:100%;">Middle Name:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['middle_name']?></label></br>
+	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">Age:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['age']?></label>
+	<label style="position: static;float:left;padding-left:10.9%;font-weight:bold;font-size:100%;">Grade:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['grade']?></label></br>
+	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">From:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['fromTime']?></label>
+	<label style="position: static;float:left;padding-left:5%;font-weight:bold;font-size:100%;">To:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['toTime']?></label><br>
+	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">Academic Status:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['academicstatus']?></label></br>
+	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">Payment Mode:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['paymentmode']?></label></br>
 	
 	</div>
 
@@ -322,7 +283,7 @@ $payment_date = date('Y-m-d');
 	
 	
     <div id="test1" class="col s12">
-<table name="first_name" border="1";>
+<table name="first_name" border="1"; style="font-size:75%;">
 <thead>
 			<tr style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2"><td>Item</td>
 			<td>Balance</td>

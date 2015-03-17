@@ -2175,7 +2175,7 @@ table {
     -ms-transition: background-color 0.25s ease;
     transition: background-color 0.25s ease; }
     table.hoverable tbody tr:hover {
-      background-color: #f2f2f2; }
+      background-color: #aff; }
   table.centered thead tr th, table.centered tbody tr td {
     text-align: center; }
 
@@ -6728,7 +6728,7 @@ ul.side-nav {
     float: none;
     padding: 0 15px; }
     ul.side-nav li:hover, ul.side-nav li.active {
-      background-color: #ddd; }
+      background-color: #dff; }
   ul.side-nav a {
     color: #444; }
 
