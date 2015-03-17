@@ -90,14 +90,14 @@
 <select name="cfsy">
 	 <option value="<?php echo $selectSY['from']." - ".$selectSY['to'];?>">Current School Year</option>
   <?php while($row=mysqli_fetch_array($selectDistinctSY, MYSQLI_ASSOC)){
-  	if($_SESSION==$row['sy']) $selected='selected'; else $selected='';?>
+  	if($_SESSION['cfsy']==$row['sy']) $selected='selected'; else $selected='';?>
   		<option value="<?=$row['sy']?>" <?=$selected?>><?=$row['sy']?></option>
 <?php   } ?>
 </select>
 <select name="cfmonth">
   <option value="">All Months</option>
   <?php while($row=mysqli_fetch_array($selectDistinctMonth, MYSQLI_ASSOC)){
-  	if($_SESSION==$row['month']) $selected='selected'; else $selected='';?>
+  	if($_SESSION['cfmonth']==$row['month']) $selected='selected'; else $selected='';?>
 <option value="<?=$row['month']?>" <?=$selected?>><?=$row['month']?></option>
  <?php  } ?>
 </select>
@@ -106,7 +106,7 @@
 <select name="cfgl">
   <option value="">All Grade Level</option>
   <?php while($row=mysqli_fetch_array($selectDistinctGrade, MYSQLI_ASSOC)){
-  	if($_SESSION==$row['grade']) $selected='selected'; else $selected='';?>
+  	if($_SESSION['cfgl']==$row['grade']) $selected='selected'; else $selected='';?>
 <option value="<?=$row['grade']?>" <?=$selected?>><?=$row['grade']?></option>
   <?php } ?>
 </select>
