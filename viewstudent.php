@@ -54,6 +54,8 @@
 		updatePenalty($connect, $updatePenaltyRow['id'], $y, $penaltybalanceSum, $due_date);
 		}
 	}
+		$sumBalance=mysqli_fetch_assoc(sumBalance($connect, $_GET['id']));
+		updateTotalBalance($connect, $_GET['id'], $sumBalance['balance']);
 
 		$getTotalBalance = getTotalBalancePrint($connect, $_GET['id'], $datengayon);
 		$viewTotalBalance = mysqli_fetch_assoc($getTotalBalance);
@@ -145,42 +147,33 @@ $payment_date = date('Y-m-d');
 		extract($_POST);
 		$total=0;
 		if(!empty($_POST['check_list'])) {
+
     		foreach($_POST['check_list'] as $check) {	
 				$balance = getBalance($connect, $check) -> fetch_assoc();
 				$total = $total+$balance['balance']+$balance['penalty_balance'];
     		}
-    		echo '1' . $total;
-    		echo '1' . $_POST ['amount'];
     		if($total >= $_POST['amount']){
-    			echo '<script>alert("we are in");</script>';
     			$remaining = $_POST['amount'];
-    			echo '2' . $remaining;
     			balancePayment($connect, $viewStudent['last_name'], $viewStudent['first_name'], $payment_date, $_POST['amount'], $_SESSION['studentfee'], $mydate['month'], $mydate['year'], $_POST['arnumber'], $_POST['dr'], $_POST['cr'], $remark, $viewStudent['grade'], $selectSY['from']." - ".$selectSY['to']);
     			foreach($_POST['check_list'] as $check) {
     					$balance = getBalance($connect, $check) -> fetch_assoc();
     					$remaining = ($balance['balance']) - $remaining;
-    					echo '3' . $remaining;
     					if($remaining > 0){
-    						echo '4' . $remaining;
     						balanceClear($connect, $check, $remaining);
     						break;
     					} else if ($remaining <= 0){
-    						echo '4' . $remaining;
     						$remaining = (-1*$remaining);
     						balanceClear($connect, $check, 0);
     						$remaining = ($balance['penalty_balance']) - $remaining;
     						if($remaining > 0 ){
-    							echo "Penalty" . $remaining;
     							penaltyClear($connect, $check, $remaining);
     							break;
     						} else if($remaining <=0){
     							$remaining = (-1*$remaining);
     							penaltyClear($connect, $check, 0);
-    							echo "clear" . $remaining;
     						}
     					}
     			}
-    		echo '<script>alert("Enrollment Successful");</script>';
     		unset($_SESSION['studenttransac']);
     		header('Location: viewstudent.php?id='.$_GET['id']);
     		//header('Location: viewStudent.php?id='.$_SESSION['studentfee']);
@@ -350,10 +343,11 @@ $active = 0;
 
 <?php	
 	$table=getStudentBalancePayment($connect, $_GET['id']);
+	$disablePayment=mysqli_fetch_assoc(disablePayment($connect, $_GET['id']));
 	while($row=mysqli_fetch_assoc($table)){
 ?>
 <tr>
-		<td><input type="checkbox"  name="check_list[]" value="<?=$row['id']?>" id="<?=$row['item']?>"/>
+		<td><input type="checkbox"  name="check_list[]" value="<?=$row['id']?>" id="<?=$row['item']?>" <?php if($disablePayment['downpayment']>0&&$row['item']!='Downpayment') echo " disabled";?>/>
 		  <label for="<?=$row['item']?>"><?=$row['item']?></label></td>
 		  
 			

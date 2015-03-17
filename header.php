@@ -1,45 +1,7 @@
 <?php
-
-if(!isset($_SESSION['username'])){
-	header('Location: login.php');
-}
-
-
-
-
-
-
-if($active == 1){
-    $hay = "blue lighten-1";
-    $hay1 = "white-text waves-effect waves-green";
-}
-
-else if($active == 2){
-    $hay2 = "blue lighten-1";
-    $hay3 = "white-text waves-effect waves-green";
-}
-
-else if($active == 3){
-    $hay4 = "blue lighten-1";
-    $hay5 = "white-text waves-effect waves-green";
-}
-
-else if($active == 4){
-    $hay6 = "blue lighten-1";
-    $hay7 = "white-text waves-effect waves-green";
-}
-
-else{
-  $hay = "bold";
-  $hay1 = "waves-effect waves-green";
-}
-
-
-
-
-
-
-
+  if(!isset($_SESSION['username'])){
+    header('Location: login.php');
+  }
 ?>
 
 <html>

@@ -28,21 +28,24 @@
 	header("Content-Disposition: attachment;Filename=FamilyRecord.doc");
 */
 ?>
-<div style="transform: scale(.89);
-   transform-origin: 0% 0%;">
-<a style="font-family: Vrinda;"><strong>NOAH'S ARK ANGEL LEARNING & TUTORIAL CENTER INC</strong> 
-<a style="margin-left: 40px; font-family: Vrinda;">589-2645/0935-1207644</a></a><br>
+<div style="transform: scale(.89); transform-origin: 0% 0%;">
+<div style="float:left;">
+<img src="logo.png" alt="logo" style="height:60px; width:70px">
+</div>
+<a style="font-family: Vrinda;"><strong>NOAH'S ARK ANGEL LEARNING & TUTORIAL CENTER INC</strong> <br>
+<a style="font-family: Vrinda;">589-2645/0935-1207644</a></a><br>
 <a style="font-family: Vrinda; font-size: 13;">2119-A Moreno Compound, Pedro Gil St., Sta. Ana, Manila 
-<a  style="margin-left: 110px; font-family: Vrinda;"><?php echo $mydate['month']." ".$mydate['year'];?></a></a><br>
+<a  style="margin-left: 100px; font-family: Vrinda;"><?php echo $mydate['month']." ".$mydate['year'];?></a></a><br>
 
 <a style="font-family: Vrinda;"><strong>STATEMENT OF ACCOUNT</strong>
 <a style="margin-left: 105px; font-family: Vrinda;"><?php echo $viewStudent['paymentmode'];?>
-<a style="margin-left: 75px; font-family: Vrinda;">Time:<?php echo  $viewStudent['fromTime']."-".$viewStudent['toTime'];?></a></a></a><br>
+<a style="margin-left: 75px; font-family: Vrinda;">Time:<?php echo  $viewStudent['fromTime']." - ".$viewStudent['toTime'];?></a></a></a><br>
 
 <a style="font-family: Vrinda;"><strong>NAME OF STUDENT: <a style="margin-left: 30px;font-family: Vrinda;"><?php echo $viewStudent['first_name']." ".$viewStudent['middle_name']." ".$viewStudent['last_name'];?>
 <a style="margin-left: 160px; font-family: Vrinda;">LEVEL:  <?=$viewStudent['grade'];?></strong></a></a></a>
 <br>
 <br>
+
 
 <a style="font-family: Vrinda;"><strong>TOTAL FEE:</strong></a><br>
 

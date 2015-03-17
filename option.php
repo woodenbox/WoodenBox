@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	include('header.php');
 	include('processes/process.php');
 	$connect = connectDB();
 
@@ -38,13 +37,7 @@ if(isset($_POST['setpenalty'])){
 	updatePenaltyValue($connect, $penalty);
 }
 
-
-if(isset($_POST['zxcz'])){
-		extract($_POST);
-			insertTuition($connect,$grade, $fee_type, $item, $tuition_fee, $due_date);
-			header('Location: option.php');
-			}
-
+	include('header.php');
 ?>
 
 <head>

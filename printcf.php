@@ -18,9 +18,14 @@
 ?>
 <head>
 </head>
-<a style="font-family: Vrinda;font-weight: bold; font-size:80%;">ACKNOWLEDGEMENT RECEIPT (SY <?=$getSY['from']."-".$getSY['to']?>)</a><br>
-<a style="font-family: Vrinda;font-size:80%;">For the month of <?php echo $_GET['month']." ".$_GET['year'];?></a></br>
+<div style="float:left;">
+<img src="logo.png" alt="logo" style="height:60px; width:70px">
+</div>
+<div style="float:left;">
+<a style="font-family: Vrinda;font-weight: bold; font-size:80%;">ACKNOWLEDGEMENT RECEIPT (SY <?=$getSY['from']."-".$getSY['to']?>) </a><br>
 
+<a style="font-family: Vrinda;font-size:80%;">This is the Cash flow for the month of <?php echo $_GET['month']." ".$_GET['year'];?> duly acknowledged by the undersigned</a>
+</div>
 
 <table style="border: 1px; width: 100%;
 text-align: center; font-family: Vrinda;">
@@ -81,6 +86,10 @@ text-align: center; font-family: Vrinda;">
 			<td></td>
 		</tr>
 </table>
+<div style="float:right;">
+<a style="font-family: Vrinda;">____________________ </a><br>
+<a style="font-family: Vrinda; float:right;">GLORIA S. CAUMERON</a>
+</div>
 
 <script src="jquery-2.1.3.min.js"></script>
 <script>

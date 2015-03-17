@@ -6,11 +6,29 @@
 	}
 	//	$lname=stripslashes($lname);
 	// $lname=htmlspecialchars($lname);
-//=============================================================================================================================================//
+//index.php=============================================================================================================================================//
 	function checkUserDB($connect, $username, $password){
 		$sql = "select * from users where username='$username' AND password= md5('$password')";
 		$result = mysqli_query($connect,$sql);
 		return $result;
+	}
+
+	function selectDistinctSY($connect){
+		$sql="SELECT DISTINCT sy FROM fee_payment";
+		$result=mysqli_query($connect,$sql);
+		return $result;
+	}
+
+	function selectDistinctMonth($connect){
+		$sql="SELECT DISTINCT month FROM fee_payment";
+		$return=mysqli_query($connect,$sql);
+		return $return;
+	}
+
+	function selectDistinctGrade($connect){
+		$sql="SELECT DISTINCT grade FROM fee_payment";
+		$return=mysqli_query($connect,$sql);
+		return $return;
 	}
 
 	function getFandLnameDB($connect, $user_id){
@@ -67,7 +85,13 @@
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}*/
-//=============================================================================================================================================//
+//viewstudent.php=============================================================================================================================================//
+	function disablePayment($connect, $student_id){
+		$sql="SELECT *, balance as downpayment FROM `fee_balance` WHERE student_id=$student_id AND item='Downpayment'";
+		$result=mysqli_query($connect,$sql);
+		return $result;
+	}
+
 	function addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imagelocation, $last_accessed){
 		$sql="insert into students  (first_name, last_name, middle_name, age, grade, fromTime, toTime, academicstatus, paymentmode, uniform, peuniform, imagelocation, last_accessed) values('$first_name', '$last_name', '$middle_name', '$age', '$grade', '$fromTime', '$toTime', '$academicstatus', '$paymentmode', '$uniform', '$peuniform', '$imagelocation', '$last_accessed')";
 		$result=mysqli_query($connect,$sql);
@@ -282,7 +306,14 @@
 	function restoreStudent($connect, $id){
 		$sql="UPDATE `students` SET `state`=0 WHERE `student_id` = $id";
 		$return = mysqli_query($connect, $sql);
-		return $result;	}
+		return $result;
+	}
+
+	function sumBalance($connect, $student_id){
+		$sql="SELECT SUM(balance + penalty_balance) as balance FROM fee_balance WHERE student_id=$student_id AND waive=0";
+		$return=mysqli_query($connect,$sql);
+		return $return;
+	}
 
 	function getPenalty($connect, $id){
 		$sql = "SELECT penalty_balance, penalty_count, due_date, balance, id, waive FROM fee_balance WHERE student_id='$id' AND balance > 0 OR student_id='$id' AND penalty_balance > 0";
@@ -449,6 +480,12 @@ function add($date_str, $months)
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
+
+	function updateTotalBalance($connect, $student_id, $total_balance){
+		$sql="UPDATE students SET total_balance=$total_balance WHERE student_id=$student_id";
+		$return=mysqli_query($connect,$sql);
+		return $return;
+	}
 	
 	function updateStudentBalance($connect, $id, $item, $balance, $due_date, $penalty_balance, $penalty_count){
 		if($due_date==null)
@@ -508,6 +545,12 @@ function viewGrade($connect){
 	$result=mysqli_query($connect, $sql);
 	return $result;
 }
+
+	function searchCashFlow($connect, $sy, $month, $grade){
+		$sql="SELECT * FROM fee_payment WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%'";
+		$result=mysqli_query($connect,$sql);
+		return $result;
+	}
 
 function getGrade($connect, $id){
 $sql="Select * from fee_schedule where grade='$id'";
