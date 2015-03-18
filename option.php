@@ -77,7 +77,7 @@ $getUsers=getUsers($connect);
 	</tr>
 	<?php } ?> 
 	<tr class="clickablerow" href="adduser.php"/>
-		<td> <button class="btn waves-effect waves-light white blue-text text-lighten-2" href="adduser.php">Add User</button></td>
+		<td> <button class="btn waves-effect waves-light blue lighten-2 white-text" href="adduser.php">Add User</button></td>
 		<td></td>
 		<td></td>
 </table>
@@ -89,6 +89,7 @@ $getUsers=getUsers($connect);
       <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-image-filter-drama"></i>
 	Current School Year</div>
       <div class="collapsible-body" style=""><p>Change the current school year by selecting from and to. The click save </p>
+      	<div class="divider"></div>
       	<div class="row">
   <form method="POST" class="col s12">
     <div class="row">
@@ -142,7 +143,7 @@ $getUsers=getUsers($connect);
     			</select>
 
     		<br>	
-<button class="btn waves-effect waves-light white blue-text text-lighten-2"  name="changeyear" value="Save">Save</button>
+<button class="btn waves-effect waves-light blue lighten-2 white-text"  name="changeyear" value="Save">Save</button>
 
       </div>
 
@@ -172,6 +173,7 @@ $getUsers=getUsers($connect);
 
     <li>
       <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-maps-place"></i>Penalty Percentage</div>
+      <div class="divider"></div>
       <div class="collapsible-body"><p>
       	Change the penalty percentage by inputting a value then click the set button</p>
 	<form method="POST">
@@ -179,7 +181,7 @@ $getUsers=getUsers($connect);
 		<?php $selectPenaltyValue=mysqli_fetch_assoc(selectPenaltyValue($connect)); ?>
 	<p>	<input type="number" min="0" pattern="[0-9]+([.][0-9]+)?" step="0.01" name="penalty" value="<?=$selectPenaltyValue['penalty']?>"></p>
 	</div>
-		<p><button class="btn waves-effect waves-light white blue-text text-lighten-2" name="setpenalty" value="Set Penalty">Set</button></p>
+		<p><button class="btn waves-effect waves-light blue lighten-2 white-text" name="setpenalty" value="Set Penalty">Set</button></p>
 	</form></div>
     </li>
 
@@ -188,7 +190,7 @@ $getUsers=getUsers($connect);
 
 
     <li>
-      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-social-whatshot"></i>Class Timings</div>
+      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-device-access-time"></i>Class Timings</div>
       <div class="collapsible-body"><p>Click on a time edit it. Or click the delete button to remove the time schedule.</p>
       	<div class="divider"></div>
 <table style="position:relative;left: 2.5%;">
@@ -205,7 +207,7 @@ $getUsers=getUsers($connect);
 	?>
 	
 	<tr class="clickablerow" href="add/addT.php"> 
-		<td><button class="btn waves-effect waves-light white blue-text text-lighten-2">Add Time</button></td>
+		<td><button class="btn waves-effect waves-light blue lighten-2 white-text">Add Time</button></td>
 		<td></td>
 		<td></td>
 	</tr>
@@ -224,11 +226,54 @@ $getUsers=getUsers($connect);
 
 	
 
-
+<div class="card" style="padding:2.5%">
 		<h5 style="font-weight:bold;">Tuition Fees</h5>
 <h6>Click on a grade level to view, edit, or delete tuition fees. Or Click the button to add new tuition fees</h6></br>
-<button class="btn waves-effect waves-light white blue-text text-lighten-2 clickablerow modal-trigger" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
 
+<button class="btn waves-effect waves-light blue lighten-2 white-text clickablerow modal-trigger" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
+
+
+
+
+
+  <ul class="collapsible" data-collapsible="accordion">
+
+
+  	<?php while($row=mysqli_fetch_assoc($result2)){?>
+    <li>
+      <div class="collapsible-header"><i class="mdi-image-filter-drama"></i> <?=$row['grade_levels']?> Tuition Fees</div>
+      <div class="collapsible-body"><p>		<table>
+			<tr>
+				<th>Payment Mode</th>
+				<th>Item</th>
+				<th>Tution Fee</th>
+				<th>Due Date</th>
+			</tr>
+			<?php 
+			$getTuitionFees=getFeeScheduleOptions($connect, $row['grade_levels']);
+			while($row2=mysqli_fetch_assoc($getTuitionFees)){ ?>
+			<tr class="clickablerow" href="edit/editG.php?id=<?=$row2['fee_id']?>">
+				<td><?=$row2['fee_type']?></td>
+				<td><?=$row2['item']?></td>
+				<td><?=$row2['fee']?></td>
+				<td><?=$row2['due_date']?></td>	
+			</tr>
+			<?php } ?>
+		</table>
+
+		<button class="btn waves-effect waves-light blue lighten-2 white-text clickablerow" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button></p></div>
+    </li>
+
+  <?php 
+} ?>
+  </ul>
+        
+
+
+
+
+
+</div>
 
 
 <div class="modal" id="modal7">
@@ -264,7 +309,7 @@ $getUsers=getUsers($connect);
 <!--<div style="width:20%;">!-->
 <?php while($row=mysqli_fetch_assoc($result2)){?>
 
-<div class="showme" data-panelid="<?php echo str_replace(' ', '', $row['grade_levels']);?>"> <?php echo "<h5 style=\"font-weight:bold;\">".$row['grade_levels']. " Tuition Fees </h5>";?></div>
+<div data-panelid="<?php echo str_replace(' ', '', $row['grade_levels']);?>"> <?php echo "<h5 style=\"font-weight:bold;\">".$row['grade_levels']. " Tuition Fees </h5>";?></div>
 		<div style="width:50%;display:none;" id="<?php echo str_replace(' ', '', $row['grade_levels']);?>">
 		<table>
 			<tr>
@@ -284,8 +329,10 @@ $getUsers=getUsers($connect);
 			</tr>
 			<?php } ?>
 		</table>
-		<button class="btn waves-effect waves-light white blue-text text-lighten-2 clickablerow" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
+		<button class="btn waves-effect waves-light blue lighten-2 white-text clickablerow" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
 	</div>
+
+
 </br>
 <?php }
 
@@ -299,11 +346,11 @@ $getUsers=getUsers($connect);
 		echo "<script>alert('Restore Completed');</script>";
 	}?>
 
-		<h5 style="font-weight:bold;">Backup & Restore</h5>
+		<h5 style="font-weight:bold;"><i class="mdi-action-backup"></i> Backup & Restore</h5>
 <h6>Here you can backup the system data or restore using a backup file from a previous state.</h6>
 <form method="POST">
-	<button class="btn waves-effect waves-light white blue-text text-lighten-2" name="dbackup" value="Backup">Backup System</button>
-	<button class="btn waves-effect waves-light white blue-text text-lighten-2" name="dbrestore" value="Restore">Restore System</button>
+	<button class="btn waves-effect waves-light blue lighten-2 white-text" name="dbackup" value="Backup">Backup System</button>
+	<button class="btn waves-effect waves-light blue lighten-2 white-text" name="dbrestore" value="Restore">Restore System</button>
 </form>
 
 <!--</div>!-->

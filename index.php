@@ -34,6 +34,7 @@
 <head>
 	<title>Cash Flow</title>
 </head>
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 <form method="POST">	
 	<h6 style="font-weight:400;" class="blue-text text-darken-1"> Filter by: </h6>
 	<select name="cfsy" style="position:relative; left:30px;"  >
@@ -70,7 +71,7 @@
 	<input type="text" name="specific" placeholder="Search Student Name">
 	<input type="submit" name="searchcf" value="Search">
 </form>
-<div style="position: relative;width: 80%;bottom: -2%; left: 233%;">
+
 	<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;overflow:auto;";>
 		<table style="font-size:75%;" class="hoverable">
 			<thead class="blue-text text lighten-2">
