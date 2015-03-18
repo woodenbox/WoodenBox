@@ -57,6 +57,7 @@ if(isset($_POST['setpenalty'])){
 	
 	
 </br>
+<div class="card" style="padding: 2.5%;">
 		<h5 style="font-weight:bold;">User Accounts</h5>
 <h6>Click on a user edit it. Or click "Add User" to add new account</h6>
 	<?php
@@ -83,31 +84,58 @@ $getUsers=getUsers($connect);
 		<td></td>
 		<td></td>
 </table>
+</div>
 </br>
 
   <ul class="collapsible" data-collapsible="accordion">
     <li>
       <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-image-filter-drama"></i>
 	Current School Year</div>
-      <div class="collapsible-body" style=""><p style="">		Change the current school year by selecting from and to. The click save </p>
-	<form method="POST" class="row">
-<div class="row">
-		<p class="blue-text lighten-2" style="font-weight:bold;">From:</p>
-		<div style="width:150px;">
+      <div class="collapsible-body" style=""><p>Change the current school year by selecting from and to. The click save </p>
+      	<div class="row">
+  <form method="POST" class="col s12">
+    <div class="row">
 
-	   		<select name="from" value="<?=$getCurrentSY['from']?>">
+
+      <div class="input-field col s6">
+        
+        <label for="first_name"class="blue-text lighten-2" style="float:left;position:relative; padding-top:2.5%; padding-right:4.5%;" >From:</label>
+
+
+
+      </div>
+      <div class="input-field col s1" style="right:45%;">
+        
+        <select name="from" value="<?=$getCurrentSY['from']?>">
 	    		<?php $getSchoolYears = getSchoolYears($connect);
 	    			while($row=mysqli_fetch_array($getSchoolYears, MYSQLI_ASSOC)){
 	    				$status=$row["year"]; ?>
-	    				<option value="<?=$status?>" <?php if($status==$getCurrentSY['from']) echo "selected"?>><?=$status?></option>
+	    				<option  value="<?=$status?>" <?php if($status==$getCurrentSY['from']) echo "selected"?>><?=$status?></option>
 	    		<?php	}
 	    		?>
 	    	</select>
-	    </div>
-	  
-	    	<p class="blue-text lighten-2" style="font-weight:bold;">To:</p>
-			<div style="width:150px;">
-   				<select name="to" value="<?=$getCurrentSY['from']?>">
+      </div>
+
+
+
+
+
+
+    </div>
+
+ <div class="row">
+
+    	
+      <div class="input-field col s6">
+        
+        <label for="first_name"class="blue-text lighten-2" style="float:left;position:relative; padding-top:2.5%; padding-right:4.5%;" >To:</label>
+
+
+
+      </div>
+      <div class="input-field col s1" style="right:45%;">
+        
+     <select name="to" value="<?=$getCurrentSY['from']?>">
     				<?php $getSchoolYears = getSchoolYears($connect);
     					while($row=mysqli_fetch_array($getSchoolYears, MYSQLI_ASSOC)){
     						$status=$row["year"]; ?>
@@ -115,12 +143,34 @@ $getUsers=getUsers($connect);
 	    		<?php	}
     				?>
     			</select>
-    		</div></div>
-	
-		<p><button class="btn waves-effect waves-light white blue-text text-lighten-2"  name="changeyear" value="Save">Save</button></p>
+      </div>
 
-	</form></div>
+
+
+
+
+
+    </div>
+
+
+
+
+  </form>
+</div>
+        
+</div>
     </li>
+
+
+
+
+
+
+
+
+
+
+
     <li>
       <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-maps-place"></i>Penalty Percentage</div>
       <div class="collapsible-body"><p>
@@ -135,7 +185,17 @@ $getUsers=getUsers($connect);
     </li>
     <li>
       <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-social-whatshot"></i>Third</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="collapsible-body"><p>User Accounts</p>
+
+
+
+
+
+
+
+
+
+      </div>
     </li>
   </ul>
 
