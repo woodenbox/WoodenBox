@@ -72,15 +72,15 @@
 </div></div>
 </form>
 
-	<button class="btn waves-effect waves-light white blue-text text-lighten-2" type="submit" name="submit" value="Save">Save</button>
+	<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Save">Save</button>
 	<?php if($getBalance['waive']==0){ ?>
-		<button class="btn waves-effect waves-light white blue-text text-lighten-2" type="submit" name="delete" value="Waive">Waive</button>
+		<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="delete" value="Waive">Waive</button>
 	<?php } else { ?>
 
-		<button class="btn waves-effect waves-light white blue-text text-lighten-2" type="submit" name="undelete" value="Unwaive">Unwaive</button>
+		<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="undelete" value="Unwaive">Unwaive</button>
 	<?php } ?>
 
-	<button class="btn waves-effect waves-light white blue-text text-lighten-2" type="submit" name="return" onclick="location.href='viewstudent.php?id=<?=$_GET['id']?>'" value="Cancel">Cancel</button>
+	<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="return" onclick="location.href='viewstudent.php?id=<?=$_GET['id']?>'" value="Cancel">Cancel</button>
 </form>
 
 <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>

@@ -82,13 +82,13 @@
 	<div class="col s2"></form>
 		<input type="text" name="remarks" value="<?=$getUserRow['remark']?>"  pattern="[A-Za-z ]+" title="Only letters and spaces are accepted" required/></br>
 	</div></div>
-	<button class="btn waves-effect waves-light white blue-text text-lighten-2"  name="123" value="Save">Save</button>
+	<button class="btn waves-effect waves-lightt blue lighten-2 white-text"  name="123" value="Save">Save</button>
 	<?php if($getUserRow['state']==0){ ?>
 		
 		<?php }else{ ?>
-		<button class="btn waves-effect waves-light white blue-text text-lighten-2"  name="restore" value="Restore">Restore</button>
+		<button class="btn waves-effect waves-light blue lighten-2 white-text"  name="restore" value="Restore">Restore</button>
 		<?php } ?>
-	<button class="btn waves-effect waves-light white blue-text text-lighten-2" onclick="location.href='index.php'" name="return" >Cancel</button>
+	<button class="btn waves-effect waves-light blue lighten-2 white-text" onclick="location.href='index.php'" name="return" >Cancel</button>
 </form>
 
 <!--================================ crap V ================================!-->

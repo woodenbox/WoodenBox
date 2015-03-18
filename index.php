@@ -37,8 +37,21 @@
 	<title>Cash Flow</title>
 </head>
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
-<form method="POST">	
+
+
+
+
+
+
 	<h6 style="font-weight:400;" class="blue-text text-darken-1"> Filter by: </h6>
+
+<div class="row">
+  <form class="col s12"  method="POST">
+    <div class="row">
+
+      <div class="input-field col s2  tooltipped" data-position="top" data-delay="50" data-tooltip="Filter transactions by school year">
+
+
 	<select name="cfsy" style="position:relative; left:30px;"  >
  		<option value="<?php echo $selectSY['from']." - ".$selectSY['to'];?>"><p class="blue">Current School Year</p></option>
 <?php	while($row=mysqli_fetch_array($selectDistinctSY, MYSQLI_ASSOC)){
@@ -47,7 +60,16 @@
 		<option value="<?=$row['sy']?>" <?=$selected?>><?=$row['sy']?></option>
 <?php   } 
 ?>
+
 	</select>
+
+
+      </div>
+
+
+
+      <div class="input-field col s6 m2  tooltipped" data-position="top" data-delay="50" data-tooltip="Filter transactions by month">
+
 	<select name="cfmonth">
 		<option value="">All Months</option>
 <?php 	
@@ -59,19 +81,50 @@
 		} 
 ?>
 	</select>
-	<select name="cfgl">
+
+
+      </div>
+
+<div class="input-field col s2 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="Filter transactions by grade level">
+	<select name="cfgl" >
 		<option value="">All Grade Level</option>
 <?php 	
 		while($row=mysqli_fetch_array($selectDistinctGrade, MYSQLI_ASSOC)){
 			if($_SESSION['cfgl']==$row['grade']) $selected='selected'; else $selected='';
 ?>
-		<option value="<?=$row['grade']?>" <?=$selected?>><?=$row['grade']?></option>
+		<option  value="<?=$row['grade']?>" <?=$selected?>><?=$row['grade']?></option>
 <?php 	
 		}
 ?>
 	</select>
-	<input type="text" name="specific" placeholder="Search Student Name">
-	<input type="submit" name="searchcf" value="Search">
+    </div>
+
+
+<div class="input-field col s4 m2"style="position: relative;padding-top: 1.5%;" >
+
+
+
+	<input type="text" name="specific" placeholder="Search Student Name" style="position: relative; top: 50%;" data-position="top" data-delay="50" data-tooltip="Search a student's transactions" class="tooltipped">
+   </div>
+
+
+<div class="input-field col s2 m2	">
+
+	<button data-position="right" data-delay="50" data-tooltip="Search!" 
+class="btn-floating btn-large tooltipped waves-effect waves-light white blue-text text-lighten 2 mdi-action-search" 
+style="font-size:200%;;" type="submit" name="searchcf"/>
+
+	 </div>
+    </div>
+   
+</div>
+        
+
+
+
+
+
+
 </form>
 	<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;overflow:auto;";>
 		<table style="font-size:75%;" class="hoverable">
