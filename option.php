@@ -77,7 +77,7 @@ $getUsers=getUsers($connect);
 	</tr>
 	<?php } ?> 
 	<tr class="clickablerow" href="adduser.php"/>
-		<td> <button class="btn waves-effect waves-light white blue-text text-lighten-2">Add User</button></td>
+		<td> <button class="btn waves-effect waves-light white blue-text text-lighten-2" href="adduser.php">Add User</button></td>
 		<td></td>
 		<td></td>
 </table>
@@ -182,8 +182,13 @@ $getUsers=getUsers($connect);
 		<p><button class="btn waves-effect waves-light white blue-text text-lighten-2" name="setpenalty" value="Set Penalty">Set</button></p>
 	</form></div>
     </li>
+
+
+
+
+    
     <li>
-      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-social-whatshot"></i>Third</div>
+      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-social-whatshot"></i>Class Timings</div>
       <div class="collapsible-body"><p>User Accounts</p>
 
 
