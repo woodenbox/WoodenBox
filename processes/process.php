@@ -84,9 +84,9 @@
 	$result=mysqli_query($connect,$sql);
 	return $result;
 }
-function viewStudentsPage($connect, $page, $rows, $cfmonth, $cfgl, $specific){
+function viewStudentsPage($connect, $page, $rows, $sy, $month, $grade, $specific){
 	$start=($page-1)*$rows;
-	$sql="select * from fee_payment WHERE WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%'  AND CONCAT(first_name, ' ', last_name) LIKE '%$specific%' LIMIT $start,$rows";
+	$sql="select * from fee_payment WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%'  AND CONCAT(first_name, ' ', last_name) LIKE '%$specific%' LIMIT $start,$rows";
 	$result=mysqli_query($connect,$sql);
 	return $result;
 }
