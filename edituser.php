@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	include('processes/process.php');
+	$header="Users";
+	$header2="Edit Users";
 	include('header.php');
 
 	$connect=connectDB();
@@ -27,18 +29,21 @@
 	}
 ?>
 
-<form method="POST">
-	<input type="text" name="first_name" placeholder="First Name"  value="<?=$editUser['first_name']?>" disabled/></br>
-	<input type="text" name="last_name" placeholder="First Name" value="<?=$editUser['last_name']?>" disabled/></br>
-	<input type="text" name="username" placeholder="Username" pattern="[A-Za-z0-9 ]+"  title="Only letters, numbers, and spaces are accepted." value="<?=$editUser['username']?>"/></br>
-	<input type="password" name="password1" placeholder="Password" pattern="[A-Za-z0-9 ]+" title="Only letters, numbers, and spaces are accepted." value="<?=$editUser['password']?>" onfocus="this.value = '';" required/></br>
-	<input type="password" name="password2" placeholder="Password" pattern="[A-Za-z0-9 ]+" title="Only letters, numbers, and spaces are accepted." value="<?=$editUser['password']?>" onfocus="this.value = '';" required/></br>
-	<input type="number" name="access_control" placeholder="Access Control" pattern="[1-2]{1}" value="<?=$editUser['access_control']?>" title="1 - Regular user 2 - Administrator" onfocus="this.value = '';" required/>
-	<input type="submit" name="submit" value="Save"></br>
-	<input type="submit" name="removeme" value="Delete"></br>
-	<input type="submit" name="cancel" value="Cancel" onclick="location.href='option.php';"></br>
-</form>
 
+
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
+<form method="POST">
+	<input style="width:20%;" type="text" name="first_name" placeholder="First Name"  value="<?=$editUser['first_name']?>" disabled/>
+	<input style="width:20%;" type="text" name="last_name" placeholder="First Name" value="<?=$editUser['last_name']?>" disabled/>
+	<input style="width:20%;" type="text" name="username" placeholder="Username" pattern="[A-Za-z0-9 ]+"  title="Only letters, numbers, and spaces are accepted." value="<?=$editUser['username']?>"/></br>
+	<input style="width:20%;" type="password" name="password1" placeholder="Password" pattern="[A-Za-z0-9 ]+" title="Only letters, numbers, and spaces are accepted." value="<?=$editUser['password']?>" onfocus="this.value = '';" required/>
+	<input style="width:20%;" type="password" name="password2" placeholder="Confirm Password" pattern="[A-Za-z0-9 ]+" title="Only letters, numbers, and spaces are accepted." value="<?=$editUser['password']?>" onfocus="this.value = '';" required/></br>
+		<input style="width:20%;" type="number" name="access_control" placeholder="Access Control" pattern="[1-2]{1}" value="<?=$editUser['access_control']?>" title="1 - Regular user 2 - Administrator" onfocus="this.value = '';" required/></br>
+		<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Save">Save</button>
+		<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="removeme" value="Delete">Delete</button>
+		<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="cancel" value="Cancel" onclick="location.href='option.php';">Cancel</button></br>
+</form>
+</div>
 <?php
 	include('footer.php');
 ?>

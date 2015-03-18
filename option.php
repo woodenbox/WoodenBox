@@ -86,7 +86,7 @@ $getUsers=getUsers($connect);
 
   <ul class="collapsible" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-image-filter-drama"></i>
+      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-image-filter-drama tooltipped" data-position="left" data-delay="50" data-tooltip="Click to expand"></i>
 	Current School Year</div>
       <div class="collapsible-body" style=""><p>Change the current school year by selecting from and to. The click save </p>
       	<div class="divider"></div>
@@ -172,7 +172,7 @@ $getUsers=getUsers($connect);
 
 
     <li>
-      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-maps-place"></i>Penalty Percentage</div>
+      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-maps-place tooltipped" data-position="left" data-delay="50" data-tooltip="Click to expand"></i>Penalty Percentage</div>
       <div class="divider"></div>
       <div class="collapsible-body"><p>
       	Change the penalty percentage by inputting a value then click the set button</p>
@@ -190,7 +190,7 @@ $getUsers=getUsers($connect);
 
 
     <li>
-      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-device-access-time"></i>Class Timings</div>
+      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-device-access-time tooltipped" data-position="left" data-delay="50" data-tooltip="Click to expand"></i>Class Timings</div>
       <div class="collapsible-body"><p>Click on a time edit it. Or click the delete button to remove the time schedule.</p>
       	<div class="divider"></div>
 <table style="position:relative;left: 2.5%;">
@@ -198,7 +198,7 @@ $getUsers=getUsers($connect);
 	<?php
 	while($row=mysqli_fetch_assoc($result)){
 		?>
-		<tr class="clickablerow" href="edit/editT.php?id=<?=$row['id']?>"> 
+		<tr class="clickablerow" href="editT.php?id=<?=$row['id']?>"> 
 			<td><?=$row['time']?></td>
 			<td><a  href="option.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure you wnt to delete this?');">Delete</a></td>
 		</tr>
@@ -241,7 +241,7 @@ $getUsers=getUsers($connect);
 
   	<?php while($row=mysqli_fetch_assoc($result2)){?>
     <li>
-      <div class="collapsible-header"><i class="mdi-image-filter-drama"></i> <?=$row['grade_levels']?> Tuition Fees</div>
+      <div class="collapsible-header"><i class="mdi-image-filter-drama tooltipped" data-position="left" data-delay="50" data-tooltip="Click to expand"></i> <?=$row['grade_levels']?> Tuition Fees</div>
       <div class="collapsible-body"><p>		<table>
 			<tr>
 				<th>Payment Mode</th>
@@ -252,8 +252,8 @@ $getUsers=getUsers($connect);
 			<?php 
 			$getTuitionFees=getFeeScheduleOptions($connect, $row['grade_levels']);
 			while($row2=mysqli_fetch_assoc($getTuitionFees)){ ?>
-			<tr class="clickablerow" href="edit/editG.php?id=<?=$row2['fee_id']?>">
-				<td><?=$row2['fee_type']?></td>
+			<tr class="clickablerow" href="editG.php?id=<?=$row2['fee_id']?>" >
+				<td class=" tooltipped" data-position="left" data-delay="50" data-tooltip="Click row to edit" ><?=$row2['fee_type']?></td>
 				<td><?=$row2['item']?></td>
 				<td><?=$row2['fee']?></td>
 				<td><?=$row2['due_date']?></td>	
@@ -278,7 +278,7 @@ $getUsers=getUsers($connect);
 
 <div class="modal" id="modal7">
 	<div class="modal-content">
-
+<?php session_start();?>
 <form method="POST">
 			<input type="text" placeholder="Grade" name="grade" pattern="[A-Za-z0-9 ]+" required/>
 			<br/>
@@ -321,7 +321,7 @@ $getUsers=getUsers($connect);
 			<?php 
 			$getTuitionFees=getFeeScheduleOptions($connect, $row['grade_levels']);
 			while($row2=mysqli_fetch_assoc($getTuitionFees)){ ?>
-			<tr class="clickablerow" href="edit/editG.php?id=<?=$row2['fee_id']?>">
+			<tr class="clickablerow" href="editG.php?id=<?=$row2['fee_id']?>">
 				<td><?=$row2['fee_type']?></td>
 				<td><?=$row2['item']?></td>
 				<td><?=$row2['fee']?></td>

@@ -8,6 +8,7 @@
 		$_GET['by']='student_id';
 	}
 
+
 	if(!isset($_GET['sortby'])){
 		$_GET['sortby'] = 'DESC';
 	}

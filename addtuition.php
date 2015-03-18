@@ -1,4 +1,5 @@
 <?php
+session_start();
 	include('processes/process.php');
 	$connect=connectDB();
 
@@ -7,27 +8,35 @@
 			insertTuition($connect,$grade, $fee_type, $item, $tuition_fee, $due_date);
 			header('Location: option.php');
 			}
+$header="Tuition Fees";
+$header2="Add tuition fees";
+			include('header.php');
 
 	?>
 
+
+
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 <form method="POST">
-			<input type="text" placeholder="Grade" name="grade" pattern="[A-Za-z0-9 ]+" required/>
+			<input style="width:10%;" type="text" placeholder="Grade" name="grade" pattern="[A-Za-z0-9 ]+" required/>
 			<br/>
-			<select name="fee_type">
+			<div class="input_field" style="width:10%;">
+			<select  name="fee_type">
 			<?php $getPaymentModeDB = getPaymentModeDB($connect);
 				while($row=mysqli_fetch_array($getPaymentModeDB, MYSQLI_ASSOC)){
 					$status=$row["mode"]; ?>
-				<option value="<?=$status?>"><?=$status?></option>
+				<option  value="<?=$status?>"><?=$status?></option>
 			<?php } ?>
-			</select>
+			</select></div>
 			<br/>
-			<input type="text" placeholder="Item" name="item" pattern="[A-Za-z0-9]+" required/>
+			<input style="width:10%;" type="text" placeholder="Item" name="item" pattern="[A-Za-z0-9]+" required/>
 			<br/>
-			<input type="number"  placeholder="Tuition Fee" name="tuition_fee"  pattern="[0-9]+([.][0-9]+)?" step="0.01" required/>
+			<input style="width:10%;" type="number"  placeholder="Tuition Fee" name="tuition_fee"  pattern="[0-9]+([.][0-9]+)?" step="0.01" required/>
 			<br/>
-			<input type="date" name="due_date"/>
+			<input style="width:10%;" type="date" name="due_date"/>
 			</br>
-			<input type="submit" name="zxc" value="Save"/>
+				<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="zxc" value="Save"/>Save</button>
 			<br/>
-			<input  type="submit" onclick="location.href='option.php'" value="Back"/>
+				<button class="btn waves-effect waves-light blue lighten-2 white-text"  type="submit" onclick="location.href='option.php'" value="Back"/>Back</button>
 </form>
+</div>
