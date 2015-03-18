@@ -67,6 +67,13 @@
 	<h6 style="font-weight:400;" class="blue-text text-darken-1"> Filter by: </h6>
 
 <div class="row">
+<form method="POST">
+	 <div class="input-field col s3">
+		<input disabled id="age" type="text" name="age" pattern="[20][1-9][0-9 - ][20][1-9][0-9]" style="font-size:90%;" class="validate tooltipped" data-position="bottom" data-delay="50" data-tooltip="Student's Age" value="20" required>
+      			  <label for="age" style="font-size:75%;">School Year</label>
+      	</div>
+
+</form
   <form class="col s12"  method="POST">
     <div class="row">
 

@@ -262,7 +262,10 @@ $active = 4;
       	</div>
     	
 
-
+ <div class="input-field col s3">
+			 	<input id="sy" type="text" name="sy" disabled style="font-size:90%;" class="validate tooltipped" data-position="bottom" data-delay="50" data-tooltip="School Year">
+      			  <label for="sy" style="font-size:75%;">School Year</label>
+      	</div>
 
 
 
