@@ -50,9 +50,6 @@ echo "No file selected <br />";
 
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
 
-<tr><td colspan="2" style="font:bold 21px arial; text-align:center; border-bottom:1px solid #eee; padding:5px 0 10px 0;">
-<a href="http://www.discussdesk.com" target="_blank">DiscussDesk.com</a></td></tr>
-
 <tr><td colspan="2" style="font:bold 15px arial; text-align:center; padding:0 0 5px 0;">Data Uploading System</td></tr>
 
 <tr>
@@ -81,7 +78,7 @@ echo "No file selected <br />";
 
 echo "<table align='center'><tr><td><center>============================= <b>File Uploaded<b/> =============================================</center></td></tr>";
 
-echo "<tr><td ><center>============================= <b>Do you want to upload the data <a href='index.php'>Click Here</a> </b>========================</center></td></tr></table>";
+echo "<tr><td ><center>============================= <b>Do you want to upload the data <a href='addexceldata.php'>Click Here</a> </b>========================</center></td></tr></table>";
 
 }?>
 
