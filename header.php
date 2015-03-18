@@ -1,9 +1,8 @@
 <?php
-<<<<<<< HEAD
+
   if(!isset($_SESSION['username'])){
     header('Location: login.php');
   }
-=======
 
 
 
@@ -21,7 +20,7 @@ if(!isset($header)){
 
 
 
->>>>>>> no message
+
 ?>
 
 <html>
