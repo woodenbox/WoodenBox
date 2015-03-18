@@ -24,6 +24,7 @@ if(!isset($header)){
   <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="asd/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script src="jquery-2.1.3.min.js"></script>
 <link rel="shortcut icon" href="box.ico">
 </head>
 
@@ -102,5 +103,3 @@ if(!isset($header)){
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="asd/js/materialize.js"></script>
   <script src="asd/js/init.js"></script>
-		
-		</body>
