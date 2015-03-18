@@ -238,7 +238,7 @@ $active = 4;
 
 
 	<div class="input-field col s3">
-			 	<input id="middle_name" type="text" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Student's Middle Name" name="middle_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
+			 	<input id="middle_name" type="text" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Student's Middle Name" name="middle_name" pattern="[A-Za-z. ]+" style="font-size:90%;" required>
       			  <label for="middle_name" style="font-size:75%;">Middle Name</label>
       	</div>
 
