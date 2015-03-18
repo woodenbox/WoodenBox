@@ -68,11 +68,11 @@
   <form class="col s12 m7"  method="POST">
     <div class="row">
       <div class="input-field col s6">
-        <input id="search" type="text" class="validate" pattern="[A-Za-z0-9 ]+" name="search">
+        <input id="search" type="text" pattern="[A-Za-z0-9 ]+" name="search" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Search for a Student">
         <label for="search"><i class="mdi-action-search "></i>Search</label>
      
      </div>
-     <button class="btn-floating btn-large waves-effect waves-light white blue-text text-lighten 2 mdi-action-search" style="font-size:200%;;" type="submit" name="submit"/>
+     <button data-position="right" data-delay="50" data-tooltip="Search!" class="btn-floating btn-large tooltipped waves-effect waves-light white blue-text text-lighten 2 mdi-action-search" style="font-size:200%;;" type="submit" name="submit"/>
   </form>
 </div>
         
@@ -106,7 +106,7 @@
 
 
 		<tr class='clickableRow' href="viewstudent.php?id=<?=$row['student_id']?>">
-			<td><?=$row['last_name']?></td>
+			<td class="tooltipped" data-position="top" data-delay="50" data-tooltip="Click row to view student information"><?=$row['last_name']?></td>
 			<td><?=$row['first_name']?></td>
 			<td><?=$row['age']?></td>
 			<td><?=$row['grade']?></td>

@@ -2,7 +2,7 @@
 	include('processes/process.php');
 	$connect=connectDB();
 
-	if(isset($_POST['zxcz'])){
+	if(isset($_POST['zxc'])){
 		extract($_POST);
 			insertTuition($connect,$grade, $fee_type, $item, $tuition_fee, $due_date);
 			header('Location: option.php');

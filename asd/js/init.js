@@ -131,12 +131,21 @@
     $('.tab-demo').show().tabs();
     $('.parallax').parallax();
     $('.modal-trigger').leanModal();
-	
-	
+
+
+    $('.tooltipped').tooltip({delay: 50});
+ 
 	
     $('.scrollspy').scrollSpy();
     $('.button-collapse').sideNav({'edge': 'left'});
-    $('.datepicker').pickadate({selectYears: 20});
+
+    $('.collapsible').collapsible({
+      accordion : false;
+  });
+
+    $('.datepicker').pickadate({selectYears: true});
+
+
     $('select').not('.disabled').material_select();
 
 	
@@ -164,6 +173,13 @@ function enable_cb() {
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
+
+
+
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+
 
 
 

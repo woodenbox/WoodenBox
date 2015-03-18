@@ -1945,10 +1945,12 @@ optgroup {
  */
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0; 
+}
 
 td, th {
-  padding: 0; }
+  padding: 0;
+   }
 
 html {
   box-sizing: border-box; }
@@ -2159,7 +2161,8 @@ footer.page-footer {
     background-color: rgba(51, 51, 51, 0.08); }
 
 table, th, td {
-  border: none; }
+  border: none;
+   }
 
 table {
   width: 100%;
@@ -2180,7 +2183,8 @@ table {
     text-align: center; }
 
 thead {
-  border-bottom: 1px solid #d0d0d0; }
+  border-bottom: 1px solid #d0d0d0;
+   }
 
 td, th {
   padding: 15px 5px;
@@ -5583,7 +5587,7 @@ small {
     position: absolute;
     bottom: 0;
     height: 2px;
-    background-color: #f6b2b5;
+    background-color: #64b5f6;
     will-change: left, right; }
 
 ul.tabs li.tab {
@@ -5593,15 +5597,15 @@ ul.tabs li.tab {
   padding: 10px 8px;
   font-size: 1rem;
   z-index: 1000;
-  background-color: transparent;
+  background-color: #90caf9;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
-  border-radius: 2px;
+  border-radius: 25px;
   background-clip: padding-box;
   color: #fff;
   min-height: 36px;
   line-height: 1rem;
-  opacity: 0;
+  opacity: 10;
   display: none;
   position: absolute;
   text-align: center;
@@ -5620,14 +5624,15 @@ ul.tabs li.tab {
   -moz-border-radius: 0 0 14px 14px;
   border-radius: 0 0 14px 14px;
   background-clip: padding-box;
-  background-color: #323232;
+  background-color: #64b5f6;
   z-index: -1;
   -webkit-transform-origin: 50% 10%;
   -moz-transform-origin: 50% 10%;
   -ms-transform-origin: 50% 10%;
   -o-transform-origin: 50% 10%;
   transform-origin: 50% 10%;
-  will-change: transform, opacity; }
+  will-change: transform, opacity;
+   }
 
 .btn, .btn-large, .btn-flat {
   display: inline-block;
@@ -5870,10 +5875,10 @@ a.waves-effect .waves-ripple {
 
 .modal {
   display: none;
-  position: fixed;
+  position: fixed;  
   left: 0;
   right: 0;
-  background-color: #eee;
+  background-color: #fff;
   padding: 0;
   max-height: 70%;
   width: 55%;

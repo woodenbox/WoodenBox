@@ -37,6 +37,11 @@ if(isset($_POST['setpenalty'])){
 	updatePenaltyValue($connect, $penalty);
 }
 
+
+
+	$header="Options";
+	$header2="Other Stuffs";	
+
 	include('header.php');
 ?>
 
@@ -44,81 +49,18 @@ if(isset($_POST['setpenalty'])){
 	<title>Options</title>
 </head>
 
-<div class="section no-pad-bot blue lighten-1" id="index-banner">
-        <div class="container nav-wrapper">
-	
-          <h1 class="header center-on-small-only white-text">Options</h1>
-          <div class='row '>
-            <h4 class ="header light blue-text text-lighten-4">
- </h4>
 
-  
-  
- <h4 class="right-align" style="margin-top:-50px;"><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
- 
- 
-  <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
- <ul id='dropdown1' class='dropdown-content'>
-			<li>  <a href="logout.php">Log Out</a></li>
-			<li>  <a href="option.php">Options</a></li>
-  </ul>
-	  
-	 
-	 
-	 
-	 </ul>
- </div>
-          </div>
-		  </div>
+  <script src="asd/js/init.js"></script>
 
-      
-<!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
-
-<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"></a></div>
-      <ul id="nav-mobile" class="side-nav fixed">
-
-	   <li class="logo" style="padding-left:45px;padding-top:15px;"><image src="asdg.png"></li>
-	   <div class="section"></div>
-	  <div class="divider"></div><div class="section"></div>
-<li class="active blue lighten-1" style="padding-top:15px;padding-bottom:15px;">	<b><a  class="white-text waves-effect waves-green" style="font-size:14px;" href="index.php">Cash Reports<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a  style="font-size:14px;" href="studentaccounts.php" class="waves-effect waves-green">Student Accounts<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="search.php" class="waves-effect waves-green">Student List<?echo"\t";?></a></li>
-
-
-
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="addstudent.php" class="waves-effect waves-green">Add Student<?echo"\t";?></a></li>
-
-
-
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-
-
-
-
-
-
-  </ul>	
-</b>
-
-
-
-
-<div style="padding-left:290px;padding-right:270px;">
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 
 		<h5 style="font-weight:bold;">Current School Year</h5>
 		<h6>Change the current school year by selecting from and to. The click save</h6>
 	<form method="POST">
+
 		<p class="blue-text lighten-2" style="font-weight:bold;">From:</p>
 		<div style="width:150px;">
+
 	   		<select name="from" value="<?=$getCurrentSY['from']?>">
 	    		<?php $getSchoolYears = getSchoolYears($connect);
 	    			while($row=mysqli_fetch_array($getSchoolYears, MYSQLI_ASSOC)){
@@ -128,7 +70,7 @@ if(isset($_POST['setpenalty'])){
 	    		?>
 	    	</select>
 	    </div>
-	    <div style="position:absolute; right:64%; top:24.5%">
+	  
 	    	<p class="blue-text lighten-2" style="font-weight:bold;">To:</p>
 			<div style="width:150px;">
    				<select name="to" value="<?=$getCurrentSY['from']?>">
@@ -140,8 +82,8 @@ if(isset($_POST['setpenalty'])){
     				?>
     			</select>
     		</div>
-		</div>
-		<button class="btn waves-effect waves-light green"  name="changeyear" value="Save">Save</button>
+	
+		<button class="btn waves-effect waves-light white blue-text text-lighten-2"  name="changeyear" value="Save">Save</button>
 
 	</form>
 </br>
@@ -152,7 +94,7 @@ if(isset($_POST['setpenalty'])){
 		<?php $selectPenaltyValue=mysqli_fetch_assoc(selectPenaltyValue($connect)); ?>
 		<input type="number" min="0" pattern="[0-9]+([.][0-9]+)?" step="0.01" name="penalty" value="<?=$selectPenaltyValue['penalty']?>">
 	</div>
-		<button class="btn waves-effect waves-light green" name="setpenalty" value="Set Penalty">Set</button>
+		<button class="btn waves-effect waves-light white blue-text text-lighten-2" name="setpenalty" value="Set Penalty">Set</button>
 	</form>
 </br>
 		<h5 style="font-weight:bold;">User Accounts</h5>
@@ -182,6 +124,22 @@ $getUsers=getUsers($connect);
 		<td></td>
 </table>
 </br>
+
+  <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>First</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="mdi-maps-place"></i>Second</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Third</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+  </ul>
+
 
 	<h5 class="showmetime" style="font-weight:bold;">Class Timings</h5>
 <h6>Click on a time edit it. Or click the delete button to remove the time schedule.</h6>
@@ -230,7 +188,7 @@ if(isset($_GET['id'])){
 
 		<h5 style="font-weight:bold;">Tuition Fees</h5>
 <h6>Click on a grade level to view, edit, or delete tuition fees. Or Click the button to add new tuition fees</h6></br>
-<button class="btn waves-effect waves-light green clickablerow modal-trigger" href="#modal7" name="addtuition" value="Add New Tuition">Add New Tuition</button>
+<button class="btn waves-effect waves-light white blue-text text-lighten-2 clickablerow modal-trigger" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
 
 
 
@@ -287,7 +245,7 @@ if(isset($_GET['id'])){
 			</tr>
 			<?php } ?>
 		</table>
-		<button class="btn waves-effect waves-light green clickablerow" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
+		<button class="btn waves-effect waves-light white blue-text text-lighten-2 clickablerow" href="addtuition.php" name="addtuition" value="Add New Tuition">Add New Tuition</button>
 	</div>
 </br>
 <?php }
@@ -305,12 +263,12 @@ if(isset($_GET['id'])){
 		<h5 style="font-weight:bold;">Backup & Restore</h5>
 <h6>Here you can backup the system data or restore using a backup file from a previous state.</h6>
 <form method="POST">
-	<button class="btn waves-effect waves-light green" name="dbackup" value="Backup">Backup System</button>
-	<button class="btn waves-effect waves-light green" name="dbrestore" value="Restore">Restore System</button>
+	<button class="btn waves-effect waves-light white blue-text text-lighten-2" name="dbackup" value="Backup">Backup System</button>
+	<button class="btn waves-effect waves-light white blue-text text-lighten-2" name="dbrestore" value="Restore">Restore System</button>
 </form>
 
 <!--</div>!-->
-<script src="jquery-2.1.3.min.js"></script>
+<script src="jquery-2.1.3.min.js"></script>!
 <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
   <script src="asd/js/materialize.js"></script>
   <script src="asd/js/init.js"></script>

@@ -3,6 +3,10 @@
   if(!isset($_SESSION['username'])){
     header('Location: login.php');
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> no message
 
 
 
@@ -18,9 +22,12 @@ if(!isset($header)){
 
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> no message
 ?>
 
 <html>
@@ -82,8 +89,9 @@ if(!isset($header)){
 <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full" style="position: fixed;"></a></div>
       <ul id="nav-mobile" class="side-nav fixed">
 
-     <li class="logo" style="padding-left:25px;padding-top:40px;"><image src="asdg.png" onclick="toast('Huehue', 400)" style="background-size:100%;"></li>
+     <li class="logo" style="padding-left:25px;padding-top:40px;"><image src="asdg.png" style="position:relative;width:85%;" onclick="toast('Huehue', 400)" style="background-size:100%;"></li>
      <div class="section"></div>  
+     <div class="divider valign" style="width: 90%;position:relative;left:5%;"></div>
   
 <b>
 
@@ -95,7 +103,7 @@ if(!isset($header)){
 
 <li <?php if(curPageName()=='search.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px;width:100%;"> <a style="font-size:80%;" href="search.php"<?php if(curPageName()=='search.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-action-view-list"></i>&nbspStudent List<?echo"\t";?></a></li>
 
-<li <?php if(curPageName()=='addstudent.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> waves-effect waves-white" style="padding-top:15px;padding-bottom:15px; width:100%;"> <a style="font-size:80%;" href="addstudent.php"<?php if(curPageName()=='addstudent.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-social-person-add"></i>&nbspAdd Student<?echo"\t";?></a></li>
+<li <?php if(curPageName()=='addstudent.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\";" ?> style="padding-top:15px;padding-bottom:15px; width:100%;"> <a style="font-size:80%;" href="addstudent.php"<?php if(curPageName()=='addstudent.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-social-person-add"></i>&nbspAdd Student<?echo"\t";?></a></li>
 
 
   </ul> 

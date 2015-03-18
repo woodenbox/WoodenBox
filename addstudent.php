@@ -216,7 +216,7 @@ $active = 4;
 <div class="row">
     <form method="POST" enctype="multipart/form-data" class="col s12">
     	<div class="image-upload">
-    		<label for="file-input" style="float:left;padding-right:2%;">
+    		<label for="file-input" style="float:left;padding-right:2%;" class="validate tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click to upload a photo!">
     			<img src="uploads/imagethumbnail.png"  height="150" width="150"/>
     		</label>
     		<input style="display: none;" id="file-input"  name="imgfile" type="file"/>
@@ -224,7 +224,7 @@ $active = 4;
 
 
 	<div class="input-field col s3" >
-			 	<input id="first_name" type="text" class="validate" name="first_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
+			 	<input id="first_name" type="text" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Student's First Name" name="first_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
       			  <label for="first_name" style="font-size:75%;">First Name</label>
       	</div>
 
@@ -238,14 +238,14 @@ $active = 4;
 
 
 	<div class="input-field col s3">
-			 	<input id="middle_name" type="text" class="validate" name="middle_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
+			 	<input id="middle_name" type="text" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Student's Middle Name" name="middle_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
       			  <label for="middle_name" style="font-size:75%;">Middle Name</label>
       	</div>
 
 
 
      <div class="input-field col s3">
-			 	<input id="last_name" type="text" class="validate" name="last_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
+			 	<input id="last_name" type="text" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Student's Last Name" name="last_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
       			  <label for="last_name" style="font-size:75%;">Last Name</label>
       	</div>
     	
@@ -257,7 +257,7 @@ $active = 4;
 
 
  <div class="input-field col s3">
-			 	<input id="age" type="text" class="validate" name="age" pattern="[A-Za-z ]+" style="font-size:90%;" required>
+			 	<input id="age" type="text" name="age" pattern="[A-Za-z ]+" style="font-size:90%;" class="validate tooltipped" data-position="bottom" data-delay="50" data-tooltip="Student's Age" required>
       			  <label for="age" style="font-size:75%;">Age</label>
       	</div>
     	

@@ -5640,3 +5640,9 @@ Picker.extend( 'pickadate', DatePicker )
 }));
 
 
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+       
+
+

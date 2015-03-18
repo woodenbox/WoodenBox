@@ -71,9 +71,7 @@
 		$_SESSION['cfsy']=$cfsy;
 		$_SESSION['cfmonth']=$cfmonth;
 		$_SESSION['cfgl']=$cfgl;
-		echo "<script>alert('".$_SESSION['cfsy']."');</script>";
-		echo "<script>alert('".$_SESSION['cfgl']."');</script>";
-		echo "<script>alert('".$_SESSION['cfmonth']."');</script>";
+		
 		$table=searchCashFlow($connect, $cfsy, $cfmonth, $cfgl);
 	}
 	?>
@@ -130,6 +128,7 @@
 
  
 
+<<<<<<< HEAD
 	
 
 <<<<<<< HEAD
@@ -139,11 +138,27 @@
 <form method="POST">	
 <select name="cfsy">
 	 <option value="<?php echo $selectSY['from']." - ".$selectSY['to'];?>">Current School Year</option>
+=======
+<h6 style="font-weight:400;" class="blue-text text-darken-1"> Filter by: </h6>
+<div class="row">
+<form method="POST">	
+
+  <div class="row">
+      <div class="tooltipped col s3" data-position="top" data-delay="50" data-tooltip="Filter by School Year">
+
+
+<select name="cfsy" style="position:relative; left:30px;"  >
+	 <option value="<?php echo $selectSY['from']." - ".$selectSY['to'];?>"><p class="blue">Current School Year</p></option>
+>>>>>>> no message
   <?php while($row=mysqli_fetch_array($selectDistinctSY, MYSQLI_ASSOC)){
   	if($_SESSION['cfsy']==$row['sy']) $selected='selected'; else $selected='';?>
   		<option value="<?=$row['sy']?>" <?=$selected?>><?=$row['sy']?></option>
 <?php   } ?>
 </select>
+</div>
+
+
+      <div class="tooltipped col s3" data-position="top" data-delay="50" data-tooltip="Filter by Month" >
 <select name="cfmonth">
   <option value="">All Months</option>
   <?php while($row=mysqli_fetch_array($selectDistinctMonth, MYSQLI_ASSOC)){
@@ -151,8 +166,9 @@
 <option value="<?=$row['month']?>" <?=$selected?>><?=$row['month']?></option>
  <?php  } ?>
 </select>
+</div>
 
-
+      <div class="tooltipped col s3" data-position="top" data-delay="50" data-tooltip="Filter by Grade Level" >
 <select name="cfgl">
   <option value="">All Grade Level</option>
   <?php while($row=mysqli_fetch_array($selectDistinctGrade, MYSQLI_ASSOC)){
@@ -160,6 +176,7 @@
 <option value="<?=$row['grade']?>" <?=$selected?>><?=$row['grade']?></option>
   <?php } ?>
 </select>
+<<<<<<< HEAD
 
 <input type="submit" name="searchcf" value="Search">
 </form>
@@ -218,44 +235,21 @@
    
 	<button class="btn-floating btn-large waves-effect waves-light white blue-text text-lighten 2 mdi-action-search" style="font-size:200%;;" type="submit" name="submit"/>
   </form>
-</div>
-        
-
-
-
-
-
-    <div class="hide-on-small-only"  style="position:relative;top:0%;float:right;left:2%;">
-      
-
- <ul class="section table-of-contents">
-        
-
-
-		<li class="blue-text text lighten-2" style="font-size:100%;">	Cash Flow List</li>
-		
-			<div class="divider" style="width:100%;"></div>
-			
-<?php
-	$table2=getPreviousCashFlow($connect);	
-	while($row=mysqli_fetch_assoc($table2)){
-?>
-	
-			<li style="font-size:75%;"><a href="index.php?month=<?=$row['month']?>&year=<?=$row['year']?>" >
-			<?=$row['month']." ".$row['year']?></a></li>
-			
-<?php	
-	}
-$_GET['id'] =5;
-?>
-
-
- </ul>
+=======
+>>>>>>> no message
 </div>
 
 
+<button data-position="right" data-delay="50" data-tooltip="Search!" class="btn-floating btn-large tooltipped waves-effect waves-light white blue-text text-lighten 2 mdi-action-search" style="font-size:200%;;" type="submit" name="searchcf"/>
 
-<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;overflow:auto;";>
+
+
+<input type="submit" name="searchcf" value="Search">
+</form>
+
+</div>
+</div>
+<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;";>
 <table style="font-size:75%;" class="hoverable">
 	<thead class="blue-text text lighten-2">
 	<ul class="pagination">
@@ -308,6 +302,8 @@ $_GET['id'] =5;
 </div>
 
 
+<br>
+
 
 
  
@@ -318,16 +314,27 @@ $_GET['id'] =5;
 </br>
 
 
-
+ 
 
 <!--===============================eto ung listahan ng other cashflows================================!-->
-<!-- <a class="waves-effect waves-light btn-large  green lighten-2" id='buttone'onclick="myFunction()"> Print this page </a> !-->
 
     </div>
+
+
+
 
 <!--================================eto ung listahan ng other cashflows================================!-->
 
 <!--================================eto ung print button================================!-->
+
+
+            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+
+          <a class="btn-floating waves-effect waves-light btn-large  blue lighten-2 white-text tooltipped" id='buttone'onclick="myFunction()" data-position="top" data-delay="50" data-tooltip="Print!">
+            <i class="large mdi-action-print"></i>
+          </a>
+          
+        </div>
 
 
 <!--================================crap V ================================!-->

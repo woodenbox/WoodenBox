@@ -219,7 +219,7 @@ $active = 0;
 
 <div style="position: relative;width: 80%;bottom: 0%; left: 16%;">
 
-
+<div class="card-panel">
 <form method="POST">
 <!--================================ some buttons ================================!-->
 
@@ -234,11 +234,99 @@ $active = 0;
 
 <?php } */?>
 </br>
-<button class="btn waves-effect waves-light green" type="submit" name="reenrol" value="Re-enroll Student" style="position: relative;; left: 0\5;width:100%;"  >Re-enroll Student</button></br>
-<button class="btn waves-effect waves-light green" type="submit" name="edit" value="Edit" style="position: relative;; left: 0%;width:100%;"  >Edit Student</button></br>
+
+
+<button class=
+<?php if($sumBalance['balance']>0){
+	?>
+"btn waves-effect waves-light white grey-text text-lighten-2 tooltipped" 
+
+<?php
+ }
+
+else{
+?>
+"btn waves-effect waves-light white blue-text text-lighten-2 tooltipped";
+<?php
+}
+
+?>
+
+
+
+
+
+
+
+data-position="top" data-delay="50" 
+
+
+data-tooltip=
+<?php if($sumBalance['balance']>0){
+	?>
+
+	"Student has <?=$sumBalance['balance']?> remaining balance, All accounts must be settled for re-enrollment"
+
+	<?php
+}
+
+else{
+?>
+
+	 "Re-enroll student";<?php
+}
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+ name=
+
+ <?php if($sumBalance['balance']>0){
+	?>
+
+	"asd" 
+
+		<?php
+}
+
+else{
+?>
+
+	 "reenrol";<?php
+}
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+ value="Re-enroll Student" style="position: relative;; left: 0\5;width:100%;"  >Re-enroll Student</button></br>
+
+ 
+<button class="btn waves-effect waves-light white blue-text text-lighten-2" type="submit" name="edit" value="Edit" style="position: relative;; left: 0%;width:100%;"  >Edit Student</button></br>
 	</div>	</form>
 <?php } else echo "</br></br></br></br></br></br></br></br>"?>
-	<img class="backup_picture z-depth-2" src="uploads/<?=$_GET['id']?>" alt="Student Image" height="150" width="150" style="float:left;">
+	<img class="backup_picture z-depth-1 " src="uploads/<?=$_GET['id']?>" alt="Student Image" height="150" width="150" style="float:left;">
 	
 	<div style="padding-top:18px;">
 	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">First Name:</label>
@@ -260,10 +348,9 @@ $active = 0;
 	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">Payment Mode:</label>
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['paymentmode']?></label></br>
 	
-	</div>
+	</div><br><br></div>
 
 
-<br><br>
 <div class="row ">
     <div class="col s12">
       <ul class="tabs  blue-text z-depth-1">
@@ -366,8 +453,8 @@ $active = 0;
 	<!--<td><input type="text" placeholder="D.R." name="dr"/></td>!-->
 <!--	<td><input type="text" placeholder="C.R." name="cr"/></td>!-->
 	<td><input type="text" placeholder="Remarks" name="remark" required/></td><br></tr><tr>
-	<td><button class="btn waves-effect waves-light green" type="submit" name="456" value="Make Payment" >Make Payment</button></td>
-<td>	<button class="btn waves-effect waves-light green" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button></td></tr></table>
+	<td><button class="btn waves-effect waves-light white blue-text text-lighten-2" type="submit" name="456" value="Make Payment" >Make Payment</button></td>
+<td>	<button class="btn waves-effect waves-light white blue-text text-lighten-2" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button></td></tr></table>
 </form>
 </div>
     </div>
@@ -393,7 +480,7 @@ $active = 0;
 
 <!--================================ additional info table ================================!-->
 
-<table style="font-size:75%;">
+<table style="font-size:75%;position:relative;bottom:24px;">
 <thead>
 <tr>
 <td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">Grade Level</p></td>
@@ -407,8 +494,8 @@ $active = 0;
 	<label>Quarter</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+" requried/></br>
 	<label>Average</label><input type="text" name="average" pattern="[0-9]+" required/></br>
 
-	<button class="btn waves-effect waves-light green" type="submit" name="dsa" value="Save">Save</button>
-	<button class="btn waves-effect waves-light green" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button>
+	<button class="btn waves-effect waves-light white blue-text text-lighten-2" type="submit" name="dsa" value="Save">Save</button>
+	<button class="btn waves-effect waves-light white blue-text text-lighten-2" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button>
 </form>
     </div>
   </div>
@@ -440,7 +527,7 @@ $active = 0;
 
  
 
-			<div class="divider"></div>
+
 			</div>
 			
 			
@@ -472,7 +559,7 @@ $active = 0;
 <!--================================ more additional info table ================================!-->
 
 <div>
-<table style="font-size:75%;">
+<table style="font-size:75%;position:relative;bottom:24px;">
 <thead>
 	<tr>
 		<td><p style="font-size: 14px;font-weight:bold;" class="blue-text text lighten-2">	Date</p></td>
@@ -486,8 +573,8 @@ $active = 0;
 	<label>Sent To</label><input type="text" name="quarter" pattern="[A-Za-z0-9]+" required/></br>
 	<label>Reason</label><input type="text" name="average" pattern="[A-Za-z0-9]+" required/></br>
 
-	<button class="btn waves-effect waves-light green" type="submit" name="asd" value="Save">Save</button>
-	<button class="btn waves-effect waves-light green" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button>
+	<button class="btn waves-effect waves-light white blue-text text-lighten-2" type="submit" name="asd" value="Save">Save</button>
+	<button class="btn waves-effect waves-light white blue-text text-lighten-2" onclick="location.href='viewstudent.php?id=<?=$_GET['id'];?>'">Cancel</button>
 </form>
 
     </div>
