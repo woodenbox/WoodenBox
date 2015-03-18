@@ -22,7 +22,7 @@ else {
 if (file_exists($_FILES["file"]["name"])) {
 unlink($_FILES["file"]["name"]);
 }
-$storagename = "StudentExcelRecord.xlsx";
+$storagename = "discussdesk.xlsx";
 move_uploaded_file($_FILES["file"]["tmp_name"],  $storagename);
 $uploadedStatus = 1;
 }
@@ -78,7 +78,7 @@ echo "No file selected <br />";
 
 echo "<table align='center'><tr><td><center>============================= <b>File Uploaded<b/> =============================================</center></td></tr>";
 
-echo "<tr><td ><center>============================= <b>Do you want to upload the data <a href='addexceldata.php'>Click Here</a> </b>========================</center></td></tr></table>";
+echo "<tr><td ><center>============================= <b>Do you want to upload the data <a href='index.php'>Click Here</a> </b>========================</center></td></tr></table>";
 
 }?>
 
