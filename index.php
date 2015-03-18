@@ -60,7 +60,7 @@
 		$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific));
 	}
 ?>
-<head
+<head>
 	<title>Cash Flow</title>
 </head>
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
@@ -75,7 +75,7 @@
 
 </form
   <form class="col s12"  method="POST">
-    <div class="row">
+    <div class="row" style="position: relative;bottom:35px;">
 
       <div class="input-field col s2  tooltipped" data-position="top" data-delay="50" data-tooltip="Filter transactions by school year">
 
@@ -143,18 +143,7 @@ class="btn-floating btn-large tooltipped waves-effect waves-light white blue-tex
 style="font-size:200%;;" type="submit" name="searchcf"/>
 
 	 </div>
-
-<div class="row">
-  <ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="active"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
-  </ul>
-</div>
+    <link href="asd/css/pagination.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 
 
@@ -167,27 +156,11 @@ style="font-size:200%;;" type="submit" name="searchcf"/>
 
 
 </form>
-<ul class="pagination">
-<?php
-	if($total>1){
-		for($cnt=1;$cnt<=$pages;$cnt++){
-?>
-			<li
-<?php
-			if($cnt==$_GET['page'])
-				echo "class=active";
-?>
-			><a href="index.php?page=<?=$cnt?>"><?=$cnt?></a></li>
-<?php
-		}
-	}
-?>
-</ul>
 
 
 
 
-	<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;overflow:auto;";>
+	<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:50px;overflow:auto;";>
 		<table style="font-size:75%;" class="hoverable">
 			<thead class="blue-text text lighten-2">
 				<tr>
@@ -220,8 +193,32 @@ style="font-size:200%;;" type="submit" name="searchcf"/>
 ?>
 		</table>
 	</div>
-	Total Cash: <?=$getTotalCashFlow['cash']?>
+	<div  style="position:relative;bottom:40px;">
+	<ul class="pagination">
+	<?php
+if($total>1){
+	for($cnt=1;$cnt<=$pages;$cnt++){
+?>
+	<li
+	<?php
+		if($cnt==$_GET['page'])
+			echo "class=active";
+	?>
+	><a href="index.php?page=<?=$cnt?>"><?=$cnt?></a></li>
+<?php
+	}
+}
+?>
+</ul>
+<p style="position:relative;bottom:20px;">Total Cash: <?=$getTotalCashFlow['cash']?></p>
+
 </div>
+
+
+
+
+
+
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
 	<a class="btn-floating waves-effect waves-light btn-large  blue lighten-2 white-text tooltipped" id='buttone'onclick="myFunction()" data-position="top" data-delay="50" data-tooltip="Print!">
 		<i class="large mdi-action-print"></i>

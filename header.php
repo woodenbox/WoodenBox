@@ -23,6 +23,7 @@ if(!isset($header)){
 
   <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="asd/css/pagination.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="asd/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <script src="jquery-2.1.3.min.js"></script>
 <link rel="shortcut icon" href="box.ico">
