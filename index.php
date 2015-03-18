@@ -39,7 +39,7 @@
 	
 	$table=searchCashFlow($connect, $_SESSION['cfsy'], $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']);
 	$total=mysqli_num_rows($table);
-	$rows=3;
+	$rows=10;
 	$pages=ceil($total/$rows);
 	$table=viewStudentsPage($connect, $_GET['page'],$rows, $_SESSION['cfsy'], $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']);
 
@@ -55,13 +55,12 @@
 		$_SESSION['cfmonth']=$cfmonth;
 		$_SESSION['cfgl']=$cfgl;
 		$_SESSION['specific']=$specific;
-
+		$_GET['page']=1;
 		$table=searchCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific);
-			$total=mysqli_num_rows($table);
-	$rows=3;
-	$pages=ceil($total/$rows);
-	$table=viewStudentsPage($connect, $_GET['page'],$rows, $_SESSION['cfsy'], $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']);
-
+		$total=mysqli_num_rows($table);
+		$rows=10;
+		$pages=ceil($total/$rows);
+		$table=viewStudentsPage($connect, $_GET['page'],$rows, $_SESSION['cfsy'], $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']);
 		$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific));
 	}
 ?>
@@ -69,12 +68,6 @@
 	<title>Cash Flow</title>
 </head>
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
-
-
-
-
-
-
 	<h6 style="font-weight:400;" class="blue-text text-darken-1"> Filter by: </h6>
 
 <div class="row">
@@ -158,24 +151,22 @@ style="font-size:200%;;" type="submit" name="searchcf"/>
 
 
 </form>
-
-		<ul class="pagination">
-			<?php
-			if($total>1){
-				for($cnt=1;$cnt<=$pages;$cnt++){
-			?>
-				<li
-				<?php
-					if($cnt==$_GET['page'])
-						echo "class=active";
-				?>
-				><a href="index.php?page=<?=$cnt?>"><?=$cnt?></a></li>
-			
-			<?php
-				}
-			}
-			?>
-		</ul>
+<ul class="pagination">
+<?php
+	if($total>1){
+		for($cnt=1;$cnt<=$pages;$cnt++){
+?>
+			<li
+<?php
+			if($cnt==$_GET['page'])
+				echo "class=active";
+?>
+			><a href="index.php?page=<?=$cnt?>"><?=$cnt?></a></li>
+<?php
+		}
+	}
+?>
+</ul>
 	<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;overflow:auto;";>
 		<table style="font-size:75%;" class="hoverable">
 			<thead class="blue-text text lighten-2">
