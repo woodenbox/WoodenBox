@@ -1,8 +1,9 @@
 <?php
 	session_start();
-	include('header.php');
+
 	include('processes/process.php');
 	$connect=connectDB();
+	$active = 3;
 
 /*	if(!isset($_GET['page'])){
 		$_GET['page']=1;
@@ -26,77 +27,14 @@
 	}
 
 ?>
+   <?php $header = "Student List";?>
+	<?php $header2 =  "Currently Enrolled Students";
+
+	include('header.php');?>
 
 <head>
 	<title>Search Students</title>
 </head>
-
-<div class="section no-pad-bot blue lighten-1" id="index-banner">
-        <div class="container nav-wrapper">
-	
-          <h1 class=" header center-on-small-only white-text">Student List</h1>
-          <div class='row '>
-            <h4 class ="header light blue-text text-lighten-4">  List of currently enrolled students
-			
-
-			
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-
-			
-			
- </h4>
-
-  
-  
- <h4 class="right-align" style="margin-top:-50px;"><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
- 
- 
-  <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
- <ul id='dropdown1' class='dropdown-content'>
-			<li>  <a href="logout.php">Log Out</a></li>
-			<?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
-  </ul>
-	  
-	 
-	 
-	
-	 
-	 </ul>
- </div>
-          </div>
-		  </div>
-		  <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"></a></div>
-      <ul id="nav-mobile" class="side-nav fixed">
-
-	   <li class="logo" style="padding-left:45px;padding-top:15px;"><image src="asdg.png" onclick="toast('Huehue', 400)"></li>
-	   <div class="section"></div>
-	  <div class="divider"></div><div class="section"></div>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<b><a  class="waves-effect waves-green" style="font-size:14px;" href="index.php">Cash Reports<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a  style="font-size:14px;" href="studentaccounts.php" class="waves-effect waves-green">Student Accounts<?echo"\t";?></a></li>
-<li class="active blue lighten-1" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="search.php" class=" white-text waves-effect waves-green">Student List<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="addstudent.php" class="waves-effect waves-green">Add Student<?echo"\t";?></a></li>
-  </ul>	
-</b>
-
-
-
-
-
-
-
-
-
-
 
 
 </br>
@@ -122,11 +60,25 @@
 	}
 */?>!-->
 
-<div style="padding-left:290px;padding-right:770px;margin-top:-45px;">
-<form method="POST">
+<div style="position: relative;width: 80%;bottom: 4%; left: 16%;">
 	
-	<input class="col s2" type="text" placeholder="Search" pattern="[A-Za-z0-9 ]+" name="search">
-	<button class="waves-effect waves-light btn-large blue lighten-2 mdi-action-search" style="position:relative; bottom:70px;left:860px;font-size:30px;" type="submit" name="submit">
+	
+
+<div class="row">
+  <form class="col s12 m7"  method="POST">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="search" type="text" class="validate" pattern="[A-Za-z0-9 ]+" name="search">
+        <label for="search"><i class="mdi-action-search "></i>Search</label>
+     
+     </div>
+     <button class="btn-floating btn-large waves-effect waves-light white blue-text text-lighten 2 mdi-action-search" style="font-size:200%;;" type="submit" name="submit"/>
+  </form>
+</div>
+        
+
+
+
 </form>
 </div>
 <div style="padding-left:290px;padding-right:100px;margin-top:-80px;">
@@ -135,8 +87,8 @@
 	
 
 
-<div id="table-scroll" style="height:68%;overflow:auto;">
-<table>
+<div id="table-scroll" style="position:relative;height:50%; width: 150%;bottom:40%;overflow:auto;right: 42%;";>
+<table  style="font-size:75%;" class="hoverable">
 	<thead class="blue-text text lighten-2">
 		<tr>
 			<th>Lastname</th>

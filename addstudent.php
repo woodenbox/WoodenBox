@@ -176,7 +176,27 @@ echo $monthName;
            header('Location:viewstudent.php?id='.$idd);
         }
     }
-    ?>
+
+
+
+$active = 4;
+
+?>
+
+
+    <?php $header = "Add Student";?>
+	<?php $header2 =  "Enroll a Student";
+
+	include('header.php');?>
+
+   
+
+
+
+
+
+
+
     <head>
     	<title>Student Enrollment</title>
 		  <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -187,137 +207,94 @@ echo $monthName;
 
 
     </head>
-	 <div class="section no-pad-bot blue lighten-1" id="index-banner">
-        <div class="container nav-wrapper">
-	
-          <h1 class="header center-on-small-only white-text">Enroll a Student</h1>
-          <div class='row '>
-            <h4 class ="header light blue-text text-lighten-4">     Fill up the form
- </h4>
-
-  
-  
- <h4 class="right-align" style="margin-top:-50px;"><a class="dropdown-button" href="#!" data-activates="dropdown2"> <i class="mdi-communication-message white-text waves-effect waves-blue"></i></a>
- 
- 
-  <a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
- <ul id='dropdown1' class='dropdown-content'>
-			<li>  <a href="logout.php">Log Out</a></li>
-			<?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
-  </ul>
-    <ul id='dropdown2' class='dropdown-content'>
-    <li><a  class="" href="" >
-	
-	
-	Messages
-	
-	 </li></a>
-	    <li><a  class="modal-trigger" href="#messages" >
-	
-	
-	Compose
-	
-	 </li></a>
-				
-<div style="padding-right: 15px;padding-left: 15px;padding-top: 15px;padding-bottom: 15px;">
-
-
-	<?php include('/msg/read.inc.php');?>
-	
-	
-	
-	</div>
-	
-	
-	
-	
 	
 
 
-  </ul>
-	  
-	 
-	 
- 
-  <div id="messages" class="modal">
-    <div class="modal-content">
 
-	
-	<?php include('msg/compose.inc.php');?>
-	
-	
-	
-    </div>
-   
-  </div>
-	  
-	 
-	 
-	 
-	 </ul>
- </div>
-          </div>
-		  </div>
-
-      
-<!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
-
-<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"></a></div>
-      <ul id="nav-mobile" class="side-nav fixed">
-
-	   <li class="logo" style="padding-left:45px;padding-top:15px;"><image src="asdg.png" onclick="toast('Huehue', 400)"></li>
-	   <div class="section"></div>
-	  <div class="divider"></div><div class="section"></div>
-<li class="" style="padding-top:15px;padding-bottom:15px;">	<b><a  class=" waves-effect waves-green" style="font-size:14px;" href="index.php">Cash Reports<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a  style="font-size:14px;" href="studentaccounts.php" class="waves-effect waves-green">Student Accounts<?echo"\t";?></a></li>
-<li class="bold" style="padding-top:15px;padding-bottom:15px;">	<a style="font-size:14px;" href="search.php" class="waves-effect waves-green">Student List<?echo"\t";?></a></li>
-
-
-
-<li class="active blue lighten-1" style="padding-top:15px;padding-bottom:15px;">	<a style=" font-size:14px;" href="addstudent.php" class="white-text waves-effect waves-green">Add Student<?echo"\t";?></a></li>
-
-
-
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-
-
-
-
-
-
-  </ul>	
-</b>
-
-<div style="margin-left:290px;margin-right:1300px;margin-top:50px;">
-
-    <form method="POST" enctype="multipart/form-data">
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
+	<br>
+<div class="row">
+    <form method="POST" enctype="multipart/form-data" class="col s12">
     	<div class="image-upload">
-    		<label for="file-input">
+    		<label for="file-input" style="float:left;padding-right:2%;">
     			<img src="uploads/imagethumbnail.png"  height="150" width="150"/>
     		</label>
     		<input style="display: none;" id="file-input"  name="imgfile" type="file"/>
+
+
+
+	<div class="input-field col s3" >
+			 	<input id="first_name" type="text" class="validate" name="first_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
+      			  <label for="first_name" style="font-size:75%;">First Name</label>
+      	</div>
+
+
+
     	</div>
 		
-    	<input style="margin-left:170px;margin-top:-140px;" class="col s12 validate" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z ]+" required/></br>
-    	<input style="margin-left:550px;margin-top:-140px;" class="col s3" type="text" pattern="[A-Za-z ]+" placeholder="Last Name" name="last_name"  pattern="[A-Za-z]+" required/></br>
-    	<input style="margin-left:950px;margin-top:-140px;" class="col s3" type="text" pattern="[A-Za-z. ]+" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z]+"/></br>
-    	<input style="margin-left:170px;margin-top:-60px;" class="col s3" type="text" pattern="[0-9]{1,2}" placeholder="Age" name="age"/></br>
-		
-<br>
-</br>
-<div class="divider" style="position:relative;left: 00px;top:-4px; width:1167px"> </div>
 
-    	<p class="blue-text text lighten-2" style="font-weight:bold;">Grade:</p>
-    	<select class="col s3" name="grades" id="grades">
+
+	
+
+
+	<div class="input-field col s3">
+			 	<input id="middle_name" type="text" class="validate" name="middle_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
+      			  <label for="middle_name" style="font-size:75%;">Middle Name</label>
+      	</div>
+
+
+
+     <div class="input-field col s3">
+			 	<input id="last_name" type="text" class="validate" name="last_name" pattern="[A-Za-z ]+" style="font-size:90%;" required>
+      			  <label for="last_name" style="font-size:75%;">Last Name</label>
+      	</div>
+    	
+
+
+
+    <div class="row">
+
+
+
+ <div class="input-field col s3">
+			 	<input id="age" type="text" class="validate" name="age" pattern="[A-Za-z ]+" style="font-size:90%;" required>
+      			  <label for="age" style="font-size:75%;">Age</label>
+      	</div>
+    	
+
+
+
+
+
+    	</div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+		
+
+
+<div class="divider" style="position:relative;"> </div>
+
+
+
+
+<div class="row">
+
+
+    	<p class="blue-text text lighten-2" style="font-weight:bold;font-size:85%;">Grade:</p>
+ 
+    	<div class="col s2" >
+
+    	<select name="grades" id="grades">
     		<?php
     		$checkGradesTable = viewGrade($connect);
     		while ($arrayGradesTable = mysqli_fetch_array($checkGradesTable, MYSQLI_ASSOC)) {
@@ -326,11 +303,17 @@ echo $monthName;
     		}
     		?>
     	</select></br>
+
+
+
+
+
+
 		
 		
-		<div style="position: relative;left: 350px;top: -143px;">
+		<div style="position: relative;left: 150%;top: -143px;">
 	
-    	<p class="blue-text lighten-2" style="font-weight:bold;">From: </p>
+    	<p class="blue-text lighten-2" style="font-weight:bold;font-size:85%;">From: </p>
     	<select style="margin-left:-370px;margin-top:-143px;" name="fromTime">
     		<?php
     		$checkTimeTable = getTimeDB($connect);
@@ -341,9 +324,9 @@ echo $monthName;
     		?>
     	</select>
 		</div>
-			<div style="position: relative;left: 700px;top: -249px;">
-		
-    	<p class="blue-text lighten-2" style="font-weight:bold;">	To:</p>
+			<div style="position: relative;left: 300%;top: -249px;">
+	
+    	<p class="blue-text lighten-2" style="font-weight:bold;font-size:85%;">	To:</p>
     	<select name="toTime">
     		<?php
     		$checkTimeTable2 = getTimeDB($connect);
@@ -353,11 +336,14 @@ echo $monthName;
     		}
     		?>
 			
-    	</select></div></br>
+    	</select></div></br></div></div>
 
+
+<div class="row">
 				
 				<div style="position: relative;left: 00px;top: -229px;">
-    	<p class="blue-text lighten-2" style="font-weight:bold;">Academic Status:</p>
+    	<p class="blue-text lighten-2" style="font-weight:bold;font-size:85%;">Academic Status:</p>
+    	<div class="col s3">
     	<select name="academicstatus">
     		<?php
     		$checkAcademicStatusTable = getAcademicStatusDB($connect);
@@ -366,10 +352,10 @@ echo $monthName;
     			echo"<option value=\"$status\">$status</option>";
     		}
     		?>
-    	</select></div></br>
-		<div style="position: relative;left: 350px;top: -372px;">
-		<p class="blue-text lighten-2" style="font-weight:bold;">
-    	Payment Mode:</p>
+    	</select>
+		<div style="position: relative;left: 350px;top: -116px;">
+		<p class="blue-text lighten-2" style="font-weight:bold;font-size:85%;">
+    	Payment Mode:</p><div class="col s12">
     	<select name="paymentmode">
     		<?php
     		$checkPaymentModeTable=getPaymentModeDB($connect);
@@ -388,7 +374,8 @@ echo $monthName;
 			
 			
 			
-    	</select></div>
+    	</select></div></div></div></div></div>
+
 	
 </br>
     	
@@ -407,12 +394,23 @@ echo $monthName;
     				<input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
     				<label for="<?=$row['id']?>"style="position:relative;left:00px;bottom:400px;"><?=$row['item']?></label>
     				<p style="position:relative;left:250px;bottom:445px;"><?=$row['price']?></p>
-    				<input style="position:relative;left:300px;bottom:500px;left:350px;"type="text" placeholder="Enter Amount"  pattern="[0-9]" name="howmany[]"/>
+    				
+
+    				 <div class="input-field col s2 m1"  style="position:relative;left:300px;bottom:500px;left:350px;">
+       										 <input id="enter_amount" type="text" class="validate" name="howmany[]" pattern="[0-9]" style="width:12%;"	>
+        											<label for="enter_amount">Enter Amount</label>
+
+
+     				 </div>
+    		<!--   <input style="position:relative;left:300px;bottom:500px;left:350px;"type="text" placeholder="Enter Amount"  pattern="[0-9]" name="howmany[]"/>		!-->
+
     				
     			<?php	
     		}
     		?>
-    
+    <button class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');" style="position:relative;left:0%;bottom: 490px;">Enroll</button>
+
+
 
 
 
@@ -422,8 +420,6 @@ echo $monthName;
 
 
 </script>
-
-<button class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');" style="position:relative;left:100px;">Enroll</button>
 
 
 

@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	include('header.php');
 	include('processes/process.php');
 	$connect=connectDB();
 
@@ -29,7 +28,9 @@
 	if(isset($_POST['return'])){
 		header('Location:viewstudent.php?id='.$_SESSION['studentfee']);
 	}
-
+	$header="Welcome";
+	$header2="Cash Report for the month of ";
+	include('header.php');
 ?>
 <div class="section no-pad-bot blue lighten-1" id="index-banner">
         <div class="container nav-wrapper">

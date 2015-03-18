@@ -31,6 +31,7 @@
 
 	$checkUserTable = getFandLnameDB($connect, $_SESSION['user_id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
+<<<<<<< HEAD
 	/*$table = getCashFlowIndex($connect, $_GET['month'], $_GET['year']);
 	$active = 1;*/
 
@@ -41,15 +42,55 @@
 
     <?php $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;?>
 	<?php $header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
+=======
+	$table=searchCashFlow($connect, "", "", "");
+	//$table = getCashFlowIndex($connect, $_GET['month'], $_GET['year']);
+	$active = 1;
+
+
+	?>
+>>>>>>> origin/master
 
 	include('header.php');?>
 
 
+    <?php $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;?>
+	<?php $header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
+
+	include('header.php');
+
+<<<<<<< HEAD
+
+=======
+	$selectDistinctSY=selectDistinctSY($connect);
+	$selectDistinctMonth=selectDistinctMonth($connect);
+	$selectDistinctGrade=selectDistinctGrade($connect);
+	$selectSY=mysqli_fetch_assoc(selectSY($connect));
+	if(isset($_POST['searchcf'])){
+		extract($_POST);
+		$_SESSION['cfsy']=$cfsy;
+		$_SESSION['cfmonth']=$cfmonth;
+		$_SESSION['cfgl']=$cfgl;
+		echo "<script>alert('".$_SESSION['cfsy']."');</script>";
+		echo "<script>alert('".$_SESSION['cfgl']."');</script>";
+		echo "<script>alert('".$_SESSION['cfmonth']."');</script>";
+		$table=searchCashFlow($connect, $cfsy, $cfmonth, $cfgl);
+	}
+	?>
 
 
 
+>>>>>>> origin/master
 
 
+
+<head>
+
+<<<<<<< HEAD
+  <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+=======
 
 <head>
 
@@ -67,14 +108,105 @@
 <!--================================crap ^ ================================!-->
 
  
+>>>>>>> origin/master
 
 	
 
 <!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
 
+<<<<<<< HEAD
+	<title>Cash Flow</title>
+</head>
+=======
+>>>>>>> origin/master
 
+<body>
+
+<<<<<<< HEAD
+<!--================================crap ^ ================================!-->
+=======
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
+>>>>>>> origin/master
 
+ 
+
+	
+
+<<<<<<< HEAD
+<!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
+
+=======
+<form method="POST">	
+<select name="cfsy">
+	 <option value="<?php echo $selectSY['from']." - ".$selectSY['to'];?>">Current School Year</option>
+  <?php while($row=mysqli_fetch_array($selectDistinctSY, MYSQLI_ASSOC)){
+  	if($_SESSION['cfsy']==$row['sy']) $selected='selected'; else $selected='';?>
+  		<option value="<?=$row['sy']?>" <?=$selected?>><?=$row['sy']?></option>
+<?php   } ?>
+</select>
+<select name="cfmonth">
+  <option value="">All Months</option>
+  <?php while($row=mysqli_fetch_array($selectDistinctMonth, MYSQLI_ASSOC)){
+  	if($_SESSION['cfmonth']==$row['month']) $selected='selected'; else $selected='';?>
+<option value="<?=$row['month']?>" <?=$selected?>><?=$row['month']?></option>
+ <?php  } ?>
+</select>
+
+
+<select name="cfgl">
+  <option value="">All Grade Level</option>
+  <?php while($row=mysqli_fetch_array($selectDistinctGrade, MYSQLI_ASSOC)){
+  	if($_SESSION['cfgl']==$row['grade']) $selected='selected'; else $selected='';?>
+<option value="<?=$row['grade']?>" <?=$selected?>><?=$row['grade']?></option>
+  <?php } ?>
+</select>
+
+<input type="submit" name="searchcf" value="Search">
+</form>
+<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;overflow:auto;";>
+<table style="font-size:75%;" class="hoverable">
+	<thead class="blue-text text lighten-2">
+		<tr>
+			<th>Date</th>
+			<th>Student</th>
+			<th>A.R. Number</th>
+			<th>Cash</th>
+<!--		<th>D.R.</th>
+			<th>C.R.</th>!-->
+			<th>Tuition Fees</th>
+			<th>Remarks</th>
+		</tr>
+	</thead>
+
+<?php
+	while($row=mysqli_fetch_assoc($table)){
+?>
+		<tr class='thin <?php if($row['state']==1){?> grey lighten-3 grey-text text-lighten-1<?php } ?>' href="viewstudent.php?id=<?=$row['student_id']?>">
+			<td><?=$row['month']." ".date('d', strtotime($row['payment_date']))." ".$row['year']?></td>
+			<td><?=$row['first_name']." ".$row['last_name']?></td>
+			<td><?=$row['ar']?></td>
+			<td><?=$row['cash']?></td>
+<!--		<td><?php//$row['dr']?></td>
+			<td><?php//$row['cr']?></td>!-->
+			<td><?=$row['tuition']?></td>
+			<td><?=$row['remark']?></td>
+			<td><?php if ($_SESSION['access_control']==2){ ?> <a href="editcashflow.php?id=<?=$row['id']?>">edit<?php } else { }?></a></td>
+		</tr>
+<?php	
+	}
+?>
+</table>
+</div>
+>>>>>>> origin/master
+
+
+<<<<<<< HEAD
+=======
+<br>
+<div id="txtHint"><b>Person info will be listed here...</b></div>
+
+
+>>>>>>> origin/master
 
 	<div class="row">
   <form class="col s12 m7" method="POST">
