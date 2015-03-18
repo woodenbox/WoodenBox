@@ -567,8 +567,8 @@ function viewGrade($connect){
 	return $result;
 }
 
-	function searchCashFlow($connect, $sy, $month, $grade){
-		$sql="SELECT * FROM fee_payment WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%'";
+	function searchCashFlow($connect, $sy, $month, $grade, $specific){
+		$sql="SELECT * FROM fee_payment WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%' AND first_name LIKE '%$specific%' OR sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%' AND last_name LIKE '%$specific%'";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}

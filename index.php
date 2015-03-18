@@ -16,7 +16,7 @@
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
     $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;
 	$header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
-	$table=searchCashFlow($connect, "", "", "");
+	$table=searchCashFlow($connect, "", "", "", "");
 	include('header.php');
 	$selectDistinctSY=selectDistinctSY($connect);
 	$selectDistinctMonth=selectDistinctMonth($connect);
@@ -27,7 +27,8 @@
 		$_SESSION['cfsy']=$cfsy;
 		$_SESSION['cfmonth']=$cfmonth;
 		$_SESSION['cfgl']=$cfgl;
-		$table=searchCashFlow($connect, $cfsy, $cfmonth, $cfgl);
+		$_SESSION['specific']=$specific;
+		$table=searchCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific);
 	}
 ?>
 <head>
