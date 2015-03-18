@@ -17,6 +17,7 @@
     $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;
 	$header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
 	$table=searchCashFlow($connect, "", "", "", "");
+	$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, "", "", "", ""));
 	include('header.php');
 	$selectDistinctSY=selectDistinctSY($connect);
 	$selectDistinctMonth=selectDistinctMonth($connect);
@@ -29,9 +30,10 @@
 		$_SESSION['cfgl']=$cfgl;
 		$_SESSION['specific']=$specific;
 		$table=searchCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific);
+		$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific));
 	}
 ?>
-<head>
+<head
 	<title>Cash Flow</title>
 </head>
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
@@ -71,7 +73,6 @@
 	<input type="text" name="specific" placeholder="Search Student Name">
 	<input type="submit" name="searchcf" value="Search">
 </form>
-
 	<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;overflow:auto;";>
 		<table style="font-size:75%;" class="hoverable">
 			<thead class="blue-text text lighten-2">
@@ -105,6 +106,7 @@
 ?>
 		</table>
 	</div>
+	Total Cash: <?=$getTotalCashFlow['cash']?>
 </div>
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
 	<a class="btn-floating waves-effect waves-light btn-large  blue lighten-2 white-text tooltipped" id='buttone'onclick="myFunction()" data-position="top" data-delay="50" data-tooltip="Print!">

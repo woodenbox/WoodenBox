@@ -13,7 +13,7 @@
 	$cfgl=$_SESSION['cfgl'];
 	$specific=$_SESSION['specific'];
 	$getSY=mysqli_fetch_assoc(getSY($connect));
-	$getTotalCashFlow=mysqli_fetch_assoc(searchCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific));
+	$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific));
 /*
 	header("Content-type: application/doc");
 	header("Content-Disposition: attachment;Filename=FamilyRecord.doc");
@@ -22,16 +22,13 @@
 <head>
 </head>
 <div style="float:left;">
-<img src="logo.png" alt="logo" style="height:60px; width:70px">
+	<img src="logo.png" alt="logo" style="height:60px; width:70px">
 </div>
 <div style="float:left;">
-<a style="font-family: Vrinda;font-weight: bold; font-size:80%;">ACKNOWLEDGEMENT RECEIPT (SY <?=$getSY['from']."-".$getSY['to']?>) </a><br>
-
-<a style="font-family: Vrinda;font-size:80%;">This is the Cash flow for the month of <?php echo $_GET['month']." ".$_GET['year'];?> duly acknowledged by the undersigned</a>
+	<a style="font-family: Vrinda;font-weight: bold; font-size:80%;">ACKNOWLEDGEMENT RECEIPT (SY <?=$getSY['from']."-".$getSY['to']?>) </a><br>
+	<a style="font-family: Vrinda;font-size:80%;">This is the Cash flow for the month of <?php echo $_GET['month']." ".$_GET['year'];?> duly acknowledged by the undersigned</a>
 </div>
-
-<table style="border: 1px; width: 100%;
-text-align: center; font-family: Vrinda;">
+<table style="border: 1px; width: 100%;text-align: center; font-family: Vrinda;">
 	<thead style="border-spacing: 0px 0px;">
 		<tr>
 			<th>Date</th>
@@ -44,11 +41,9 @@ text-align: center; font-family: Vrinda;">
 			<th>Remarks</th>
 		</tr>
 	</thead>
-
-
 <?php
 	$getCashFlow = searchCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific);
-		$x=1;
+	$x=1;
 	while($row=mysqli_fetch_assoc($getCashFlow)){
 ?>
 		<tr style="font-size: 80%;">
@@ -62,7 +57,7 @@ text-align: center; font-family: Vrinda;">
 			<td><?=$row['remark']?></td>
 		</tr>	
 <?php
-	if($x==21){
+		if($x==21){
 		echo "<tr>
 			<td></br></td>
 			<td> </td>
@@ -74,7 +69,7 @@ text-align: center; font-family: Vrinda;">
 			<td> </td>
 		</tr>";
 		$x=1;	
-	}	
+		}	
 	$x++;
 	}
 ?>
@@ -90,18 +85,14 @@ text-align: center; font-family: Vrinda;">
 		</tr>
 </table>
 <div style="float:right;">
-<a style="font-family: Vrinda;">____________________ </a><br>
-<a style="font-family: Vrinda; float:right;">GLORIA S. CAUMERON</a>
+	<a style="font-family: Vrinda;">____________________ </a><br>
+	<a style="font-family: Vrinda; float:right;">GLORIA S. CAUMERON</a>
 </div>
-
 <script src="jquery-2.1.3.min.js"></script>
 <script>
-
 	$(function(){
-
 		$(document).ready(function () {
-    window.print();
+    		window.print();
+		});
 	});
-	});
-
 </script>
