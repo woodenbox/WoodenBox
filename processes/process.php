@@ -195,7 +195,7 @@ function viewStudentsPage($connect,$page,$rows, $month){
 		return $result;
 	}
 	function getTotalCashFlow($connect, $sy, $month, $grade, $specific){
-		$sql="SELECT SUM(cash) AS cash FROM `fee_payment` WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%' AND CONCAT(first_name, ' ', last_name) LIKE '%$specific%' OR sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%' AND last_name LIKE '%$specific%'";
+		$sql="SELECT SUM(cash) AS cash FROM fee_payment WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%'  AND CONCAT(first_name, ' ', last_name) LIKE '%$specific%'";
 		$result=mysqli_query($connect, $sql);
 		return $result; 
 	}
@@ -573,7 +573,7 @@ function viewGrade($connect){
 }
 
 	function searchCashFlow($connect, $sy, $month, $grade, $specific){
-		$sql="SELECT * FROM fee_payment WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%' AND first_name LIKE '%$specific%' OR sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%' AND last_name LIKE '%$specific%'";
+		$sql="SELECT * FROM fee_payment WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%'  AND CONCAT(first_name, ' ', last_name) LIKE '%$specific%'";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}
