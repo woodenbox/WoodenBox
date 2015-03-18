@@ -186,13 +186,31 @@ $getUsers=getUsers($connect);
 
 
 
-    
+
     <li>
       <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-social-whatshot"></i>Class Timings</div>
-      <div class="collapsible-body"><p>User Accounts</p>
+      <div class="collapsible-body"><p>Click on a time edit it. Or click the delete button to remove the time schedule.</p>
+      	<div class="divider"></div>
+<table style="position:relative;left: 2.5%;">
 
-
-
+	<?php
+	while($row=mysqli_fetch_assoc($result)){
+		?>
+		<tr class="clickablerow" href="edit/editT.php?id=<?=$row['id']?>"> 
+			<td><?=$row['time']?></td>
+			<td><a  href="option.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure you wnt to delete this?');">Delete</a></td>
+		</tr>
+		<?php
+	}
+	?>
+	
+	<tr class="clickablerow" href="add/addT.php"> 
+		<td><button class="btn waves-effect waves-light white blue-text text-lighten-2">Add Time</button></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+</table>
 
 
 
@@ -204,50 +222,8 @@ $getUsers=getUsers($connect);
   </ul>
 
 
-	<h5 class="showmetime" style="font-weight:bold;">Class Timings</h5>
-<h6>Click on a time edit it. Or click the delete button to remove the time schedule.</h6>
-<div style="width:20%;display:none;" id="timess">
-<table >
-
-	<?php
-	while($row=mysqli_fetch_assoc($result)){
-		?>
-		<tr class="clickablerow" href="edit/editT.php?id=<?=$row['id']?>"> 
-			<td><?=$row['time']?></td>
-			<td><a href="option.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure you wnt to delete this?');">Delete</a></td>
-		</tr>
-		<?php
-	}
-	?>
 	
-	<tr class="clickablerow" href="add/addT.php"> 
-		<td>Add Time</td>
-		<td></td>
-		<td></td>
-	</tr>
-	
-</table>
-</div>
 
-
-<?php
-
-if(isset($_GET['id'])){
-	$delGrade=delGrade($connect, $_GET['id']);
-	if($delGrade){
-		echo "Deleted!";
-	}
-	else{
-		echo "Not working!";
-	}
-}
-?>
-<head>  <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-</br>
-<script src="jquery-2.1.3.min.js"></script>
 
 		<h5 style="font-weight:bold;">Tuition Fees</h5>
 <h6>Click on a grade level to view, edit, or delete tuition fees. Or Click the button to add new tuition fees</h6></br>
