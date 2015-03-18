@@ -27,11 +27,7 @@
 	if(!isset($_SESSION['specific'])){
 		$_SESSION['specific']="";
 	}
-	echo "<script>alert('".$_GET['page']."');</script>";
-	echo "<script>alert('".$_SESSION['cfsy']."');</script>";
-	echo "<script>alert('".$_SESSION['cfmonth']."');</script>";
-	echo "<script>alert('".$_SESSION['cfgl']."');</script>";
-	echo "<script>alert('".$_SESSION['specific']."');</script>";
+
 	$checkUserTable = getFandLnameDB($connect, $_SESSION['user_id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
     $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;
@@ -140,12 +136,25 @@ class="btn-floating btn-large tooltipped waves-effect waves-light white blue-tex
 style="font-size:200%;;" type="submit" name="searchcf"/>
 
 	 </div>
+
+<div class="row">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="active"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
+  </ul>
+</div>
+
+
+
     </div>
    
 </div>
         
-
-
 
 
 
@@ -167,6 +176,10 @@ style="font-size:200%;;" type="submit" name="searchcf"/>
 	}
 ?>
 </ul>
+
+
+
+
 	<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;overflow:auto;";>
 		<table style="font-size:75%;" class="hoverable">
 			<thead class="blue-text text lighten-2">
