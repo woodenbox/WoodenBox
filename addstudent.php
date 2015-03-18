@@ -1,11 +1,8 @@
 <?php
-session_start();
-
-include('processes/process.php');
-$connect = connectDB();
-
-$datengayon = date('Y-m-d');
-
+	session_start();
+	include('processes/process.php');
+	$connect = connectDB();
+	$datengayon = date('Y-m-d');
 /*
 	$monthNum  = 4;
 $dateObj   = DateTime::createFromFormat('!m', $monthNum);
@@ -29,25 +26,11 @@ echo $monthName;
 	$time = strtotime("2010.12.11");
 	$final = date("Y-m-d", strtotime("+1 month", $time));
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
 	if(isset($_POST['submit'])){
 		if($_FILES["imgfile"]["size"]>0){
 			$filename=$_FILES["imgfile"]["name"];
 			$filetype=$_FILES["imgfile"]["type"];	
 			$filesize=$_FILES["imgfile"]["size"];
-
 			if ((($filetype=="image/jpeg") || ($filetype=="image/png")  || ($filetype=="image/pjpeg")) && ($filesize<200000)){
 				$checker="uploads/$filename";
 				if(file_exists($checker)){
@@ -58,40 +41,36 @@ echo $monthName;
 					$imageLocation=$filename;
 					addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imageLocation, $datengayon);
 					$idd=mysqli_insert_id($connect);
-
-	if(!empty($_POST['check_list'])) {
-		$xx=0;
-		foreach($_POST['check_list'] as $check) {
-			$balance = addOthers($connect, $check) -> fetch_assoc();
-			$HowsMany = $balance['price'] * $_POST['howmany'][$xx];
-			echo $_POST['howmany'][$xx], '<br>';
-			echo $HowsMany, '<br>';
-
-			addBalanceDB($connect, $idd, $balance['item'], $HowsMany, null);
-			$xx++;
-		}}
-
-						$getFeeSchedule=getFeeSchedule($connect, $grades, $paymentmode);
-
-
-
-						$mydate=getdate(date("U"));
-						$year= $mydate["year"];
-						while ($arrayFeeSchedule = mysqli_fetch_array($getFeeSchedule, MYSQLI_ASSOC)) {
-							if($arrayFeeSchedule['item']=='Monthly Fee'){
-								for($dues=1; $dues<=10; $dues++){
-									$date_str=date('Y-m-d', strtotime("$year-05-30"));
-									$monthlyDue = add($date_str, $dues);
-									$dateObj   = DateTime::createFromFormat('!m', $monthlyDue->format('m'));
-					$monthName = $dateObj->format('F'); // March
-					addBalanceDB($connect, $idd, $monthName." fee", $arrayFeeSchedule['fee'], $monthlyDue->format('Y-m-d')); 
-					echo $monthlyDue->format('Y-m-d'), '<br>';
-					echo $monthlyDue->format('m'), '<br>';
-					echo $monthName;
-				}
-			} else {
-				addBalanceDB($connect, $idd, $arrayFeeSchedule['item'], $arrayFeeSchedule['fee'], $arrayFeeSchedule['due_date']);        
-			}}
+					if(!empty($_POST['check_list'])) {
+						$xx=0;
+						foreach($_POST['check_list'] as $check) {
+							$balance = addOthers($connect, $check) -> fetch_assoc();
+							$HowsMany = $balance['price'] * $_POST['howmany'][$xx];
+							echo $_POST['howmany'][$xx], '<br>';
+							echo $HowsMany, '<br>';
+							addBalanceDB($connect, $idd, $balance['item'], $HowsMany, null);
+							$xx++;
+						}
+					}
+					$getFeeSchedule=getFeeSchedule($connect, $grades, $paymentmode);
+					$mydate=getdate(date("U"));
+					$year= $mydate["year"];
+					while ($arrayFeeSchedule = mysqli_fetch_array($getFeeSchedule, MYSQLI_ASSOC)) {
+						if($arrayFeeSchedule['item']=='Monthly Fee'){
+							for($dues=1; $dues<=10; $dues++){
+								$date_str=date('Y-m-d', strtotime("$year-05-30"));
+								$monthlyDue = add($date_str, $dues);
+								$dateObj   = DateTime::createFromFormat('!m', $monthlyDue->format('m'));
+								$monthName = $dateObj->format('F'); // March
+								addBalanceDB($connect, $idd, $monthName." fee", $arrayFeeSchedule['fee'], $monthlyDue->format('Y-m-d')); 
+								echo $monthlyDue->format('Y-m-d'), '<br>';
+								echo $monthlyDue->format('m'), '<br>';
+								echo $monthName;
+							}
+						} else {
+							addBalanceDB($connect, $idd, $arrayFeeSchedule['item'], $arrayFeeSchedule['fee'], $arrayFeeSchedule['due_date']);        
+						}
+					}
                 	//$temp = explode(".",$_FILES["imgfile"]["name"]);
                 	//$newfilename = rand(1,99999) . '.' .end($temp);
                 	//echo "location";
@@ -100,64 +79,55 @@ echo $monthName;
                 	//echo $idd;
                 	//echo "newfile";
                 	//echo $newfilename;
-			move_uploaded_file($_FILES["imgfile"]["tmp_name"], "uploads/" . $idd);
-			echo '<script>alert("Enrollment Successful");</script>';
-			header('Location:viewstudent.php?id='.$idd);
-		}
-	} else {
-		echo '<script type="text/javascript"> alert("Invalid file. Please select a file that is jpg or png.");</script>';
-	}
-} else {
-	extract($_POST);
-	$imageLocation=null;
-
-	addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, null, null, $imageLocation, $datengayon);
-	$idd=mysqli_insert_id($connect);
-     copy('uploads/imagethumbnail.png', 'uploads/'.$idd);
-	if(!empty($_POST['check_list'])) {
-		$xx=0;
-		foreach($_POST['check_list'] as $check) {
-			$balance = addOthers($connect, $check) -> fetch_assoc();
-			$HowsMany = $balance['price'] * $_POST['howmany'][$xx];
-			echo $_POST['howmany'][$xx], '<br>';
-			echo $HowsMany, '<br>';
-
-			addBalanceDB($connect, $idd, $balance['item'], $HowsMany, null);
-			$xx++;
-		}}
-
-
-
-		$getFeeSchedule=getFeeSchedule($connect, $grades, $paymentmode);
-
-
+				move_uploaded_file($_FILES["imgfile"]["tmp_name"], "uploads/" . $idd);
+				echo '<script>alert("Enrollment Successful");</script>';
+				header('Location:viewstudent.php?id='.$idd);
+				}
+			} else {
+				echo '<script type="text/javascript"> alert("Invalid file. Please select a file that is jpg or png.");</script>';
+			}
+		} else {
+			extract($_POST);
+			$imageLocation=null;
+			addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, null, null, $imageLocation, $datengayon);
+			$idd=mysqli_insert_id($connect);
+     		copy('uploads/imagethumbnail.png', 'uploads/'.$idd);
+			if(!empty($_POST['check_list'])) {
+				$xx=0;
+				foreach($_POST['check_list'] as $check) {
+					$balance = addOthers($connect, $check) -> fetch_assoc();
+					$HowsMany = $balance['price'] * $_POST['howmany'][$xx];
+					echo $_POST['howmany'][$xx], '<br>';
+					echo $HowsMany, '<br>';
+					addBalanceDB($connect, $idd, $balance['item'], $HowsMany, null);
+					$xx++;
+				}
+			}
+			$getFeeSchedule=getFeeSchedule($connect, $grades, $paymentmode);
 			//if($paymentmode=='Monthly'){
 				/*$getMonthlyFeeSchedule = getMonthlyFeeSchedule($connect, $grades);
 				while ($arrayFeeSchedule = mysqli_fetch_array($getMonthlyFeeSchedule, MYSQLI_ASSOC)) {
 	    			addBalanceDB($connect, $idd, $arrayFeeSchedule['item'], $arrayFeeSchedule['fee'], $arrayFeeSchedule['due_date']);        
 	    		}*/
-
-
     		//} else{
-	    		$mydate=getdate(date("U"));
-	    		$year= $mydate["year"];
-	    		while ($arrayFeeSchedule = mysqli_fetch_array($getFeeSchedule, MYSQLI_ASSOC)) {
-	    			if($arrayFeeSchedule['item']=='Monthly Fee'){
-	    				for($dues=1; $dues<=10; $dues++){
-	    					$date_str=date('Y-m-d', strtotime("$year-05-30"));
-	    					$monthlyDue = add($date_str, $dues);
-	    					$dateObj   = DateTime::createFromFormat('!m', $monthlyDue->format('m'));
-					$monthName = $dateObj->format('F'); // March
-					addBalanceDB($connect, $idd, $monthName." fee", $arrayFeeSchedule['fee'], $monthlyDue->format('Y-m-d')); 
-					echo $monthlyDue->format('Y-m-d'), '<br>';
-					echo $monthlyDue->format('m'), '<br>';
-					echo $monthName;
+	   		$mydate=getdate(date("U"));
+	    	$year= $mydate["year"];
+		    while ($arrayFeeSchedule = mysqli_fetch_array($getFeeSchedule, MYSQLI_ASSOC)) {
+	    		if($arrayFeeSchedule['item']=='Monthly Fee'){
+	    			for($dues=1; $dues<=10; $dues++){
+		    			$date_str=date('Y-m-d', strtotime("$year-05-30"));
+		    			$monthlyDue = add($date_str, $dues);
+		    			$dateObj   = DateTime::createFromFormat('!m', $monthlyDue->format('m'));
+						$monthName = $dateObj->format('F'); // March
+						addBalanceDB($connect, $idd, $monthName." fee", $arrayFeeSchedule['fee'], $monthlyDue->format('Y-m-d')); 
+						echo $monthlyDue->format('Y-m-d'), '<br>';
+						echo $monthlyDue->format('m'), '<br>';
+						echo $monthName;
+					}
+				} else {
+					addBalanceDB($connect, $idd, $arrayFeeSchedule['item'], $arrayFeeSchedule['fee'], $arrayFeeSchedule['due_date']);        
 				}
-			} else {
-				addBalanceDB($connect, $idd, $arrayFeeSchedule['item'], $arrayFeeSchedule['fee'], $arrayFeeSchedule['due_date']);        
-			}}
-
-
+			}
 /*       		$remark="Downpayment";
        		$payment_date = '2000-11-11';
        		$dr="";
@@ -172,14 +142,12 @@ echo $monthName;
                 payBalanceDB($connect, $last_name, $first_name, $payment_date, $cash, $dr, $cr, $tuition, $remark, $idd);
             }	
  */          
-            echo '<script> alert("Enrollment Successful");</script>';
+           echo '<script> alert("Enrollment Successful");</script>';
            header('Location:viewstudent.php?id='.$idd);
         }
     }
 
 
-
-$active = 4;
 
 ?>
 
@@ -187,7 +155,7 @@ $active = 4;
     <?php $header = "Add Student";?>
 	<?php $header2 =  "Enroll a Student";
 
-	include('header.php');?>
+//	include('header.php');?>
 
    
 
