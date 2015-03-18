@@ -3,11 +3,6 @@
   if(!isset($_SESSION['username'])){
     header('Location: login.php');
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> no message
-
 
 
 if(!isset($_SESSION['username'])){
@@ -21,13 +16,6 @@ if(!isset($header)){
 }
 
 
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> no message
 ?>
 
 <html>

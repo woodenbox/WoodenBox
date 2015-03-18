@@ -1,10 +1,6 @@
 <?php
 	session_start();?>
 
-
-
-
-
 <?php
 
 
@@ -31,7 +27,7 @@
 
 	$checkUserTable = getFandLnameDB($connect, $_SESSION['user_id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
-<<<<<<< HEAD
+
 	/*$table = getCashFlowIndex($connect, $_GET['month'], $_GET['year']);
 	$active = 1;*/
 
@@ -42,14 +38,13 @@
 
     <?php $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;?>
 	<?php $header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
-=======
+
 	$table=searchCashFlow($connect, "", "", "");
 	//$table = getCashFlowIndex($connect, $_GET['month'], $_GET['year']);
 	$active = 1;
 
 
 	?>
->>>>>>> origin/master
 
 	include('header.php');?>
 
@@ -59,9 +54,6 @@
 
 	include('header.php');
 
-<<<<<<< HEAD
-
-=======
 	$selectDistinctSY=selectDistinctSY($connect);
 	$selectDistinctMonth=selectDistinctMonth($connect);
 	$selectDistinctGrade=selectDistinctGrade($connect);
@@ -77,19 +69,6 @@
 	?>
 
 
-
->>>>>>> origin/master
-
-
-
-<head>
-
-<<<<<<< HEAD
-  <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-=======
-
 <head>
 
   <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -105,40 +84,25 @@
 
 <!--================================crap ^ ================================!-->
 
- 
->>>>>>> origin/master
 
 	
 
 <!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
 
-<<<<<<< HEAD
 	<title>Cash Flow</title>
 </head>
-=======
->>>>>>> origin/master
 
 <body>
 
-<<<<<<< HEAD
 <!--================================crap ^ ================================!-->
-=======
+
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
->>>>>>> origin/master
-
- 
-
-<<<<<<< HEAD
-	
-
-<<<<<<< HEAD
 <!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
 
-=======
+
 <form method="POST">	
 <select name="cfsy">
 	 <option value="<?php echo $selectSY['from']." - ".$selectSY['to'];?>">Current School Year</option>
-=======
 <h6 style="font-weight:400;" class="blue-text text-darken-1"> Filter by: </h6>
 <div class="row">
 <form method="POST">	
@@ -149,7 +113,7 @@
 
 <select name="cfsy" style="position:relative; left:30px;"  >
 	 <option value="<?php echo $selectSY['from']." - ".$selectSY['to'];?>"><p class="blue">Current School Year</p></option>
->>>>>>> no message
+
   <?php while($row=mysqli_fetch_array($selectDistinctSY, MYSQLI_ASSOC)){
   	if($_SESSION['cfsy']==$row['sy']) $selected='selected'; else $selected='';?>
   		<option value="<?=$row['sy']?>" <?=$selected?>><?=$row['sy']?></option>
@@ -176,7 +140,6 @@
 <option value="<?=$row['grade']?>" <?=$selected?>><?=$row['grade']?></option>
   <?php } ?>
 </select>
-<<<<<<< HEAD
 
 <input type="submit" name="searchcf" value="Search">
 </form>
@@ -214,16 +177,10 @@
 ?>
 </table>
 </div>
->>>>>>> origin/master
 
-
-<<<<<<< HEAD
-=======
 <br>
 <div id="txtHint"><b>Person info will be listed here...</b></div>
 
-
->>>>>>> origin/master
 
 	<div class="row">
   <form class="col s12 m7" method="POST">
@@ -235,8 +192,7 @@
    
 	<button class="btn-floating btn-large waves-effect waves-light white blue-text text-lighten 2 mdi-action-search" style="font-size:200%;;" type="submit" name="submit"/>
   </form>
-=======
->>>>>>> no message
+
 </div>
 
 
