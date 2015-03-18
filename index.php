@@ -66,6 +66,7 @@
 		}
 ?>
 	</select>
+	<input type="text" name="specific" placeholder="Search Student Name">
 	<input type="submit" name="searchcf" value="Search">
 </form>
 <div style="position: relative;width: 80%;bottom: -2%; left: 233%;">
