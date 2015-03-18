@@ -38,7 +38,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . 'Classes/');
 include 'PHPExcel/IOFactory.php';
 
 // This is the file path to be uploaded.
-$inputFileName = 'discussdesk.xlsx'; 
+$inputFileName = 'StudentExcelRecord.xlsx'; 
 
 try {
 	$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
