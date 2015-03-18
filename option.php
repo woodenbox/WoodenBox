@@ -50,52 +50,12 @@ if(isset($_POST['setpenalty'])){
 </head>
 
 
-  <script src="asd/js/init.js"></script>
-
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 
-		<h5 style="font-weight:bold;">Current School Year</h5>
-		<h6>Change the current school year by selecting from and to. The click save</h6>
-	<form method="POST">
 
-		<p class="blue-text lighten-2" style="font-weight:bold;">From:</p>
-		<div style="width:150px;">
-
-	   		<select name="from" value="<?=$getCurrentSY['from']?>">
-	    		<?php $getSchoolYears = getSchoolYears($connect);
-	    			while($row=mysqli_fetch_array($getSchoolYears, MYSQLI_ASSOC)){
-	    				$status=$row["year"]; ?>
-	    				<option value="<?=$status?>" <?php if($status==$getCurrentSY['from']) echo "selected"?>><?=$status?></option>
-	    		<?php	}
-	    		?>
-	    	</select>
-	    </div>
-	  
-	    	<p class="blue-text lighten-2" style="font-weight:bold;">To:</p>
-			<div style="width:150px;">
-   				<select name="to" value="<?=$getCurrentSY['from']?>">
-    				<?php $getSchoolYears = getSchoolYears($connect);
-    					while($row=mysqli_fetch_array($getSchoolYears, MYSQLI_ASSOC)){
-    						$status=$row["year"]; ?>
-	    				<option value="<?=$status?>" <?php if($status==$getCurrentSY['to']) echo "selected"?>><?=$status?></option>
-	    		<?php	}
-    				?>
-    			</select>
-    		</div>
-	
-		<button class="btn waves-effect waves-light white blue-text text-lighten-2"  name="changeyear" value="Save">Save</button>
-
-	</form>
 </br>
-	<h5 style="font-weight:bold;">Penalty Percentage</h5>
-	<h6>Change the penalty percentage by inputting a value then click the set button</h6>
-	<form method="POST">
-	<div style="width: 10%;">
-		<?php $selectPenaltyValue=mysqli_fetch_assoc(selectPenaltyValue($connect)); ?>
-		<input type="number" min="0" pattern="[0-9]+([.][0-9]+)?" step="0.01" name="penalty" value="<?=$selectPenaltyValue['penalty']?>">
-	</div>
-		<button class="btn waves-effect waves-light white blue-text text-lighten-2" name="setpenalty" value="Set Penalty">Set</button>
-	</form>
+	
+	
 </br>
 		<h5 style="font-weight:bold;">User Accounts</h5>
 <h6>Click on a user edit it. Or click "Add User" to add new account</h6>
@@ -127,15 +87,54 @@ $getUsers=getUsers($connect);
 
   <ul class="collapsible" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>First</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-image-filter-drama"></i>
+	Current School Year</div>
+      <div class="collapsible-body" style=""><p style="">		Change the current school year by selecting from and to. The click save </p>
+	<form method="POST" class="row">
+<div class="row">
+		<p class="blue-text lighten-2" style="font-weight:bold;">From:</p>
+		<div style="width:150px;">
+
+	   		<select name="from" value="<?=$getCurrentSY['from']?>">
+	    		<?php $getSchoolYears = getSchoolYears($connect);
+	    			while($row=mysqli_fetch_array($getSchoolYears, MYSQLI_ASSOC)){
+	    				$status=$row["year"]; ?>
+	    				<option value="<?=$status?>" <?php if($status==$getCurrentSY['from']) echo "selected"?>><?=$status?></option>
+	    		<?php	}
+	    		?>
+	    	</select>
+	    </div>
+	  
+	    	<p class="blue-text lighten-2" style="font-weight:bold;">To:</p>
+			<div style="width:150px;">
+   				<select name="to" value="<?=$getCurrentSY['from']?>">
+    				<?php $getSchoolYears = getSchoolYears($connect);
+    					while($row=mysqli_fetch_array($getSchoolYears, MYSQLI_ASSOC)){
+    						$status=$row["year"]; ?>
+	    				<option value="<?=$status?>" <?php if($status==$getCurrentSY['to']) echo "selected"?>><?=$status?></option>
+	    		<?php	}
+    				?>
+    			</select>
+    		</div></div>
+	
+		<p><button class="btn waves-effect waves-light white blue-text text-lighten-2"  name="changeyear" value="Save">Save</button></p>
+
+	</form></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="mdi-maps-place"></i>Second</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-maps-place"></i>Penalty Percentage</div>
+      <div class="collapsible-body"><p>
+      	Change the penalty percentage by inputting a value then click the set button</p>
+	<form method="POST">
+	<div style="width: 10%;">
+		<?php $selectPenaltyValue=mysqli_fetch_assoc(selectPenaltyValue($connect)); ?>
+	<p>	<input type="number" min="0" pattern="[0-9]+([.][0-9]+)?" step="0.01" name="penalty" value="<?=$selectPenaltyValue['penalty']?>"></p>
+	</div>
+		<p><button class="btn waves-effect waves-light white blue-text text-lighten-2" name="setpenalty" value="Set Penalty">Set</button></p>
+	</form></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Third</div>
+      <div class="collapsible-header" style="font-weight:bold;"><i class="mdi-social-whatshot"></i>Third</div>
       <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
     </li>
   </ul>
@@ -268,10 +267,10 @@ if(isset($_GET['id'])){
 </form>
 
 <!--</div>!-->
-<script src="jquery-2.1.3.min.js"></script>!
+<!--<script src="jquery-2.1.3.min.js"></script>!
 <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
   <script src="asd/js/materialize.js"></script>
-  <script src="asd/js/init.js"></script>
+  <script src="asd/js/init.js"></script>!-->
 
 <script>
 

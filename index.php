@@ -12,6 +12,8 @@
 		$_GET['month'] = $mydate['month'];
 	}
 
+
+
 	if(!isset($_GET['year'])){
 		$_GET['year'] = $mydate['year'];
 	}
@@ -46,7 +48,6 @@
 
 	?>
 
-	include('header.php');?>
 
 
     <?php $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;?>
@@ -71,9 +72,6 @@
 
 <head>
 
-  <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 
 
@@ -96,7 +94,7 @@
 
 <!--================================crap ^ ================================!-->
 
-<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
+<div style="position: relative;width: 80%;bottom: -2%; left: 233%;">
 <!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
 
 
@@ -205,58 +203,6 @@
 
 </div>
 </div>
-<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:40%;";>
-<table style="font-size:75%;" class="hoverable">
-	<thead class="blue-text text lighten-2">
-	<ul class="pagination">
-			<?php
-			if($total>1){
-				for($cnt=1;$cnt<=$pages;$cnt++){
-			?>
-				<li
-				<?php
-					if($cnt==$_GET['page'])
-						echo "class=active";
-			?>
-			><a href="index.php?page=<?=$cnt?>&month=<?=$_GET['month']?>&year=<?=$_GET['year']?>"><?=$cnt?></a></li>
-			
-			<?php
-				}
-			}
-			?>
-		</ul>
-		<tr>
-			<th>Date</th>
-			<th>Student</th>
-			<th>A.R. Number</th>
-			<th>Cash</th>
-<!--		<th>D.R.</th>
-			<th>C.R.</th>!-->
-			<th>Tuition Fees</th>
-			<th>Remarks</th>
-		</tr>
-	</thead>
-
-<?php
-	while($row=mysqli_fetch_assoc($table)){
-?>
-		<tr class='thin <?php if($row['state']==1){?> grey lighten-3 grey-text text-lighten-1<?php } ?>' href="viewstudent.php?id=<?=$row['student_id']?>">
-			<td><?=$row['month']." ".date('d', strtotime($row['payment_date']))." ".$row['year']?></td>
-			<td><?=$row['first_name']." ".$row['last_name']?></td>
-			<td><?=$row['ar']?></td>
-			<td><?=$row['cash']?></td>
-<!--		<td><?php//$row['dr']?></td>
-			<td><?php//$row['cr']?></td>!-->
-			<td><?=$row['tuition']?></td>
-			<td><?=$row['remark']?></td>
-			<td><?php if ($_SESSION['access_control']==2){ ?> <a href="editcashflow.php?id=<?=$row['id']?>">edit<?php } else { }?></a></td>
-		</tr>
-<?php	
-	}
-?>
-</table>
-</div>
-
 
 <br>
 
@@ -275,7 +221,8 @@
 <!--===============================eto ung listahan ng other cashflows================================!-->
 
     </div>
-
+</div>
+</div>
 
 
 
@@ -325,9 +272,6 @@
 
 
 </div>
-    <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
-  <script src="asd/js/materialize.js"></script>
-  <script src="asd/js/init.js"></script>
-  
+
   
   </body>

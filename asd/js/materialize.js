@@ -351,8 +351,8 @@ jQuery.extend( jQuery.easing,
     var defaults = {
       inDuration: 300,
       outDuration: 225,
-      constrain_width: true, // Constrains width of dropdown to the activator
-      hover: false,
+      constrain_width: false, // Constrains width of dropdown to the activator
+      hover: true,
       alignment: 'left',
       gutter: 0, // Spacing from edge
       belowOrigin: true
@@ -5638,11 +5638,5 @@ Picker.extend( 'pickadate', DatePicker )
 
 
 }));
-
-
-    $(document).ready(function(){
-      $('.parallax').parallax();
-    });
-       
 
 
