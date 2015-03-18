@@ -12,12 +12,30 @@
 	if(!isset($_GET['page'])){
 		$_GET['page']=1;
 	}
+	if(!isset($_SESSION['cfsy'])){
+		$_SESSION['cfsy']="";
+	}
+	if(!isset($_SESSION['cfmonth'])){
+		$_SESSION['cfmonth']="";
+	}
+	if(!isset($_SESSION['cfgl'])){
+		$_SESSION['cfgl']="";
+	}
+	if(!isset($_SESSION['specific'])){
+		$_SESSION['specific']="";
+	}
 	$checkUserTable = getFandLnameDB($connect, $_SESSION['user_id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
     $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;
 	$header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
-	$table=searchCashFlow($connect, "", "", "", "");
-	$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, "", "", "", ""));
+	
+	$table=searchCashFlow($connect, $_SESSION['cfsy'], $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']);
+	$total=mysqli_num_rows($table);
+	$rows=5;
+	$pages=ceil($total/$rows);
+	$table=viewStudentsPage($connect, $_GET['page'],$rows, $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']);
+
+	$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, $_SESSION['cfsy'], $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']));
 	include('header.php');
 	$selectDistinctSY=selectDistinctSY($connect);
 	$selectDistinctMonth=selectDistinctMonth($connect);
