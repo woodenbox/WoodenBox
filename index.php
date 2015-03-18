@@ -1,60 +1,23 @@
 <?php
-	session_start();?>
-
-<?php
-
-
+	session_start();
 	include('processes/process.php');
 	$connect = connectDB();
 	$mydate=getdate(date("U"));
-
 	if(!isset($_GET['month'])){
 		$_GET['month'] = $mydate['month'];
 	}
-
-
-
 	if(!isset($_GET['year'])){
 		$_GET['year'] = $mydate['year'];
 	}
 	if(!isset($_GET['page'])){
 		$_GET['page']=1;
 	}
-	
-	$table=viewStudentsPages($connect, $_GET['month']);
-	$total=mysqli_num_rows($table);
-	$rows=5;
-	$pages=ceil($total/$rows);
-	$table=viewStudentsPage($connect,$_GET['page'],$rows, $_GET['month']);
-
 	$checkUserTable = getFandLnameDB($connect, $_SESSION['user_id']);
 	$getUserRow = mysqli_fetch_assoc($checkUserTable);
-
-	/*$table = getCashFlowIndex($connect, $_GET['month'], $_GET['year']);
-	$active = 1;*/
-
-
-	?>
-
-
-
-    <?php $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;?>
-	<?php $header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
-
+    $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;
+	$header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
 	$table=searchCashFlow($connect, "", "", "");
-	//$table = getCashFlowIndex($connect, $_GET['month'], $_GET['year']);
-	$active = 1;
-
-
-	?>
-
-
-
-    <?php $header = "Welcome " . $getUserRow['first_name'] ." ". $getUserRow['last_name'] ;?>
-	<?php $header2 =  "Cash Report for the month of " . $_GET['month']." ".$_GET['year'];
-
 	include('header.php');
-
 	$selectDistinctSY=selectDistinctSY($connect);
 	$selectDistinctMonth=selectDistinctMonth($connect);
 	$selectDistinctGrade=selectDistinctGrade($connect);
@@ -64,28 +27,9 @@
 		$_SESSION['cfsy']=$cfsy;
 		$_SESSION['cfmonth']=$cfmonth;
 		$_SESSION['cfgl']=$cfgl;
-		
 		$table=searchCashFlow($connect, $cfsy, $cfmonth, $cfgl);
 	}
-	?>
-
-
-<head>
-
-
-
-
-	<title>Cash Flow</title>
-</head>
-
-<body>
-
-<!--================================crap ^ ================================!-->
-
-
-	
-
-<!--================================eto ung cashflow table. merun div para sa scroll bar================================!-->
+?>
 
 	<title>Cash Flow</title>
 </head>
