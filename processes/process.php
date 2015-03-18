@@ -194,13 +194,18 @@ function viewStudentsPage($connect,$page,$rows, $month){
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
-
+	function getTotalCashFlow($connect, $sy, $month, $grade, $specific){
+		$sql="SELECT SUM(cash) AS cash FROM `fee_payment` WHERE sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%' AND CONCAT(first_name, ' ', last_name) LIKE '%$specific%' OR sy LIKE '%$sy%' AND month LIKE '%$month%' AND grade LIKE '$grade%' AND last_name LIKE '%$specific%'";
+		$result=mysqli_query($connect, $sql);
+		return $result; 
+	}
+/*
 	function getTotalCashFlow($connect, $month, $year){
 		$sql="SELECT SUM(cash) AS cash FROM `fee_payment` WHERE `month`='$month' AND `year`=$year AND `state`=0";
 		$result=mysqli_query($connect, $sql);
 		return $result; 
 	}
-
+*/
 	function getStudentBalancePrint($connect, $id){
 		$datengaun = date("Y-m-31")/*date('Y-m-d', strtotime('2015-11-30'))*/;
 		$sql = "SELECT * FROM fee_balance WHERE student_id = $id AND balance > 0 AND due_date <='$datengaun' AND `waive`=0 OR student_id=$id AND penalty_balance > 0 AND due_date <='$datengaun' AND `waive`=0 OR student_id = $id AND balance > 0 AND due_date IS NULL AND `waive`=0 OR student_id =$id AND penalty_balance > 0 AND due_date IS NULL AND `waive`=0 ";

@@ -3,14 +3,17 @@
 	include('processes/process.php');
 	$connect = connectDB();
 	$mydate=getdate(date("U"));
-	
+/*	
 	if(!isset($_GET['page'])){
 		$_GET['page']=1;
 	}
-
+*/
+	$cfsy=$_SESSION['cfsy'];
+	$cfmonth=$_SESSION['cfmonth'];
+	$cfgl=$_SESSION['cfgl'];
+	$specific=$_SESSION['specific'];
 	$getSY=mysqli_fetch_assoc(getSY($connect));
-
-	$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, $_GET['month'], $_GET['year']));
+	$getTotalCashFlow=mysqli_fetch_assoc(searchCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific));
 /*
 	header("Content-type: application/doc");
 	header("Content-Disposition: attachment;Filename=FamilyRecord.doc");
@@ -44,7 +47,7 @@ text-align: center; font-family: Vrinda;">
 
 
 <?php
-	$getCashFlow = getCashFlow($connect, $_GET['month'], $_GET['year']);
+	$getCashFlow = searchCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific);
 		$x=1;
 	while($row=mysqli_fetch_assoc($getCashFlow)){
 ?>
