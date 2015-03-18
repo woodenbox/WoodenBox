@@ -53,10 +53,7 @@ if(isset($_POST['setpenalty'])){
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 
 
-</br>
-	
-	
-</br>
+
 <div class="card" style="padding: 2.5%;">
 		<h5 style="font-weight:bold;">User Accounts</h5>
 <h6>Click on a user edit it. Or click "Add User" to add new account</h6>
@@ -80,12 +77,12 @@ $getUsers=getUsers($connect);
 	</tr>
 	<?php } ?> 
 	<tr class="clickablerow" href="adduser.php"/>
-		<td>Add User</td>
+		<td> <button class="btn waves-effect waves-light white blue-text text-lighten-2">Add User</button></td>
 		<td></td>
 		<td></td>
 </table>
 </div>
-</br>
+
 
   <ul class="collapsible" data-collapsible="accordion">
     <li>
@@ -143,9 +140,11 @@ $getUsers=getUsers($connect);
 	    		<?php	}
     				?>
     			</select>
+
+    		<br>	
+<button class="btn waves-effect waves-light white blue-text text-lighten-2"  name="changeyear" value="Save">Save</button>
+
       </div>
-
-
 
 
 
