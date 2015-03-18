@@ -113,8 +113,8 @@ function viewStudentsPage($connect, $page, $rows, $sy, $month, $grade, $specific
 		return $result;
 	}
 
-	function addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imagelocation, $last_accessed){
-		$sql="insert into students  (first_name, last_name, middle_name, age, grade, fromTime, toTime, academicstatus, paymentmode, uniform, peuniform, imagelocation, last_accessed) values('$first_name', '$last_name', '$middle_name', '$age', '$grade', '$fromTime', '$toTime', '$academicstatus', '$paymentmode', '$uniform', '$peuniform', '$imagelocation', '$last_accessed')";
+	function addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imagelocation, $last_accessed, $sy){
+		$sql="insert into students  (first_name, last_name, middle_name, age, grade, fromTime, toTime, academicstatus, paymentmode, uniform, peuniform, imagelocation, last_accessed, sy) values('$first_name', '$last_name', '$middle_name', '$age', '$grade', '$fromTime', '$toTime', '$academicstatus', '$paymentmode', '$uniform', '$peuniform', '$imagelocation', '$last_accessed', '$sy')";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}

@@ -257,16 +257,9 @@ $active = 4;
 
 
  <div class="input-field col s3">
-			 	<input id="age" type="text" name="age" pattern="[A-Za-z ]+" style="font-size:90%;" class="validate tooltipped" data-position="bottom" data-delay="50" data-tooltip="Student's Age" required>
+			 	<input id="age" type="text" name="age" pattern="[0-9]+" style="font-size:90%;" class="validate tooltipped" data-position="bottom" data-delay="50" data-tooltip="Student's Age" required>
       			  <label for="age" style="font-size:75%;">Age</label>
       	</div>
-    	
-
- <div class="input-field col s3">
-			 	<input id="sy" type="text" name="sy" disabled style="font-size:90%;" class="validate tooltipped" data-position="bottom" data-delay="50" data-tooltip="School Year">
-      			  <label for="sy" style="font-size:75%;">School Year</label>
-      	</div>
-
 
 
     	</div>
