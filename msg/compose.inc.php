@@ -1,6 +1,5 @@
 <?php
 
-
 $subject1 = $_REQUEST['subject'];
 $to_user1 = $_REQUEST['to'];
 $user = $_SESSION['username'];
@@ -35,7 +34,11 @@ if($submit) {
 	
 if($to_user&&$subject&&$message) {
 	
-	$query = mysql_query("INSERT INTO private_messages VALUES('','$user','$to_user','$subject','$message','$date','0');");
+	$query = mysql_query("
+	
+		INSERT INTO private_messages VALUES('','$user','$to_user','$subject','$message','$date','0');
+		
+	");
 	
 	
 	echo "<b>Your message was successfully sent!";
