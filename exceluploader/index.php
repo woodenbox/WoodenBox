@@ -24,7 +24,7 @@ Website URL: http://www.discussdesk.com
 define ("DB_HOST", "localhost"); // set database host
 define ("DB_USER", "gloria"); // set database user
 define ("DB_PASS","1234"); // set database password
-define ("DB_NAME","excel"); // set database name
+define ("DB_NAME","woodenbox_contents"); // set database name
 
 $link = mysql_connect(DB_HOST, DB_USER, DB_PASS) or die("Couldn't make connection.");
 $db = mysql_select_db(DB_NAME, $link) or die("Couldn't select database");
@@ -38,7 +38,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . 'Classes/');
 include 'PHPExcel/IOFactory.php';
 
 // This is the file path to be uploaded.
-$inputFileName = 'StudentExcelRecord.xlsx'; 
+$inputFileName = 'discussdesk.xlsx'; 
 
 try {
 	$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
@@ -69,9 +69,9 @@ $recResult = mysql_fetch_array($sql);
 $existName = $recResult["first_name"];
 if($existName=="") {
 $insertTable= mysql_query("insert into students (student_id, first_name, last_name, middle_name, age, grade, fromTime, toTime, academicstatus,paymentmode) values('$student_id', '$first_name', '$last_name', '$middle_name', '$age', '$grade', '$fromTime', '$toTime', '$academicstatus', '$paymentmode');");
-$msg = 'Record has been added. <div style="Padding:20px 0 0 0;"><a href="">Go Back to tutorial</a></div>';
+$msg = 'Record has been added. <div style="Padding:20px 0 0 0;"><a href="../search.php">Go Back to tutorial</a></div>';
 } else {
-$msg = 'Record already exist. <div style="Padding:20px 0 0 0;"><a href="">Go Back to tutorial</a></div>';
+$msg = 'Record already exist. <div style="Padding:20px 0 0 0;"><a href="upload.php">Go Back to tutorial</a></div>';
 }
 }
 echo "<div style='font: bold 18px arial,verdana;padding: 45px 0 0 500px;'>".$msg."</div>";

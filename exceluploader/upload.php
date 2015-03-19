@@ -12,7 +12,7 @@ Website URL: http://www.discussdesk.com
 
 $uploadedStatus = 0;
 
-if ( isset($_POST["upload"]) ) {
+if ( isset($_POST["submit"]) ) {
 if ( isset($_FILES["file"])) {
 //if there was an error uploading the file
 if ($_FILES["file"]["error"] > 0) {
@@ -50,8 +50,6 @@ echo "No file selected <br />";
 
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
 
-<tr><td colspan="2" style="font:bold 15px arial; text-align:center; padding:0 0 5px 0;">Data Uploading System</td></tr>
-
 <tr>
 
 <td width="50%" style="font:bold 12px tahoma, arial, sans-serif; text-align:right; border-bottom:1px solid #eee; padding:5px 10px 5px 0px; border-right:1px solid #eee;">Select file</td>
@@ -68,7 +66,7 @@ echo "No file selected <br />";
 
 <td style="font:bold 12px tahoma, arial, sans-serif; text-align:right; padding:5px 10px 5px 0px; border-right:1px solid #eee;">Submit</td>
 
-<td width="50%" style=" padding:5px;"><input type="submit" name="upload" /></td>
+<td width="50%" style=" padding:5px;"><input type="submit" name="submit" /></td>
 
 </tr>
 
@@ -76,7 +74,7 @@ echo "No file selected <br />";
 
 <?php if($uploadedStatus==1){
 
-echo "<table align='center'><tr><td><center>============================= <b>File Uploaded<b/> =============================================</center></td></tr>";
+echo "<table align='center'><tr><td  ><center>============================= <b>File Uploaded<b/> =============================================</center></td></tr>";
 
 echo "<tr><td ><center>============================= <b>Do you want to upload the data <a href='index.php'>Click Here</a> </b>========================</center></td></tr></table>";
 

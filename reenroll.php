@@ -94,8 +94,8 @@
             echo '<script> alert("Enrollment Successful");</script>';
         }
     }
-    $header = "Add Student";
-    $header2 =  "Enroll a Student";
+    $header = "Re-enroll";
+    $header2 =  "RE-enroll a Student";
     include('header.php');
     $selectSY=mysqli_fetch_assoc(selectSY($connect));
 ?>
@@ -105,27 +105,51 @@
     <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<form method="POST" enctype="multipart/form-data" class="col s12">
 
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
+
+
+<div class="row">
+<form method="POST" enctype="multipart/form-data" class="col s12">
+<div class="row">
     <!-- VVVVVSENSITIVE TONG PART NA TO WAG MO MASYADO GALAWINVVVVV !-->
+    <div class="col s3 tooltipped" style="float:right;" data-position="bottom" data-delay="50" data-tooltip="Click to upload a picture">
     <div class="image-upload">
         <label for="file-input">
             <img src="uploads/imagethumbnail.png"  height="150" width="150"/>
         </label>
         <input style="display: none;" id="file-input"  name="imgfile" type="file"/>
     </div>
+    </div>
     <!-- ^^^^^ SENSITIVE TONG PART NA TO WAG MO MASYADO GALAWIN ^^^^^!-->
-
-    <input id="first_name" type="text" name="first_name" pattern="[A-Za-z ]+"required>
+    <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's First Name">
+    <input id="first_name" type="text" name="first_name" pattern="[A-Za-z ]+"required >
     <label for="first_name" style="font-size:75%;">First Name</label>
+    </div>
+
+    <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Middle Name">
     <input id="middle_name" type="text" name="middle_name" pattern="[A-Za-z. ]+" required>
     <label for="middle_name" style="font-size:75%;">Middle Name</label>
+    </div>
+
+    <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Last Name">
     <input id="last_name" type="text" name="last_name" pattern="[A-Za-z ]+" required>
     <label for="last_name" style="font-size:75%;">Last Name</label>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Age">
     <input id="age" type="text" name="age" pattern="[0-9]+" required>
     <label for="age" style="font-size:75%;">Age</label>
+        </div>
+
+        <div class="input-field col s3  tooltipped"  data-position="top" data-delay="50" data-tooltip="Enter school year">
     <input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][0-9][ ][-][ ][2][0][0-9][0-9]">
     <label for="sy" style="font-size:75%;">School Year</label>
+    </div></div>
+    <div class="divider"></div>
+<div class="row">
+    <div class="input-field col s2  tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Grade Level">
     <p>Grade:</p>
     <select name="grades" id="grades">
 <?php
@@ -135,7 +159,11 @@
             echo "<option value=\"$grade_level\">$grade_level</option>";        
         }
 ?>
-    </select></br>
+        <!--this!-->
+    </select></div>
+
+
+<div class="input-field col s2  tooltipped"  data-position="top" data-delay="50" data-tooltip="Start of class">
     <p>From:</p>
     <select name="fromTime">
 <?php
@@ -145,7 +173,8 @@
             echo"<option value=\"$time\">$time</option>";
         }
 ?>
-    </select>
+    </select></div>
+    <div class="input-field col s2 tooltipped"  data-position="top" data-delay="50" data-tooltip="Dismissal">
     <p>To:</p>
     <select name="toTime">
 <?php
@@ -156,7 +185,11 @@
         }
 ?>
             
-    </select>
+    </select></div></div>
+    <div class="divider"></div>
+<div class="row">
+<div class="input-field col s3  tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Academic Status">
+
     <p>Academic Status:</p>
     <select name="academicstatus">
 <?php
@@ -166,7 +199,8 @@
             echo"<option value=\"$status\">$status</option>";
         }
 ?>
-    </select>
+    </select></div>
+    <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="How will payment be processed">
     <p>Payment Mode:</p>
     <select name="paymentmode">
 <?php
@@ -176,26 +210,50 @@
             echo"<option value=\"$mode\">$mode</option>";
         }
 ?>
-    </select>
-    <div>Item</div>
-    <div>Price</div>
-    <div>Quantity</div> 
+    </select></div></div><div class="divider"></div>
+    <table>
+<tr>
+<td style="position:relative; left:14%;">
+    Item
+</td>
+<td style="position:relative; left:14%;">
+    Price
+</td>
+<td>
+    Quantity
+</td>
+</tr>
+</table>
+<table>
 <?php   
     $table=getOthers($connect);
     while($row=mysqli_fetch_assoc($table)){
 ?>
-        <input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
+
+        <tr>
+        <td><input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
+
         <label for="<?=$row['id']?>"><?=$row['item']?></label>
-        <p><?=$row['price']?></p>           
-        <div>
+<td>
+    <?=$row['price']?>      
+</td>
+<td>
             <input id="enter_amount" type="text" class="validate" name="howmany[]" pattern="[0-9]" style="width:12%;"   >
             <label for="enter_amount">Enter Amount</label>
-        </div>
+</td>
+        </td></tr>
+    
+
 <?php   
     }
 ?>
-    <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');" style="position:relative;left:0%;bottom: 490px;">Enroll</button>
+
+</table>
+    <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');">Enroll</button>
+</div>
+
 </form>
+</div>
 <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
 <script src="asd/js/materialize.js"></script>
 <script src="asd/js/init.js"></script>
