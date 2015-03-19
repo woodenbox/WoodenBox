@@ -186,7 +186,7 @@ $active = 0;
 
 
 
-    <?php $header = "Stundent Info" ;?>
+    <?php $header = "Student Info" ;?>
 	<?php $header2 =  "Student General Information";
 
 	include('header.php');?>

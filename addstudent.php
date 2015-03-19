@@ -3,8 +3,6 @@
 	include('processes/process.php');
 	$connect = connectDB();
 	$datengayon = date('Y-m-d');
-	$selectSY=mysqli_fetch_assoc(selectSY($connect));
-	$yeye=$selectSY['from']." - ".$selectSY['to'];
 	if(isset($_POST['submit'])){
 		if($_FILES["imgfile"]["size"]>0){
 			$filename=$_FILES["imgfile"]["name"];
@@ -17,7 +15,7 @@
 				} else {
 					extract($_POST);
 					$imageLocation=$filename;
-					addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imageLocation, $datengayon,$yeye);
+					addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imageLocation, $datengayon,$sy);
 					$idd=mysqli_insert_id($connect);
 					if(!empty($_POST['check_list'])) {
 						$xx=0;
@@ -59,7 +57,7 @@
 		} else {
 			extract($_POST);
 			$imageLocation=null;
-			addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, null, null, $imageLocation, $datengayon,$yeye);
+			addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, null, null, $imageLocation, $datengayon,$sy);
 			$idd=mysqli_insert_id($connect);
      		copy('uploads/imagethumbnail.png', 'uploads/'.$idd);
 			if(!empty($_POST['check_list'])) {
@@ -99,6 +97,7 @@
  	$header = "Add Student";
 	$header2 =  "Enroll a Student";
 	include('header.php');
+	$selectSY=mysqli_fetch_assoc(selectSY($connect));
 ?>
 <head>
     <title>Student Enrollment</title>
@@ -145,13 +144,8 @@
 	<label for="age" style="font-size:75%;">Age</label>
 		</div>
 
-<<<<<<< HEAD
-		<div class="input-field col s3  tooltipped"  data-position="top" data-delay="50" data-tooltip="Enter school year">
-	<input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][0-9][ ][-][ ][2][0][0-9][0-9]" disabled>
-=======
 		<div class="input-field col s3">
 	<input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][0-9][ ][-][ ][2][0][0-9][0-9]">
->>>>>>> no message
 	<label for="sy" style="font-size:75%;">School Year</label>
 	</div></div>
 	<div class="divider"></div>
@@ -256,9 +250,7 @@
 ?>
 
 </table>
-    <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');">Enroll</button>
-<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Upload" onclick="location.href='exceluploader/upload.php'">Upload Excel</button>
-
+    <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');" style>Enroll</button>
 </div>
 
 </form>

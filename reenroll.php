@@ -2,12 +2,7 @@
     session_start();
     include('processes/process.php');
     $connect = connectDB();
-    $checkStudent = viewStudentAccount($connect, $_GET['id']);
-    $viewStudent = mysqli_fetch_assoc($checkStudent);
     $datengayon = date('Y-m-d');
-    $selectSY=mysqli_fetch_assoc(selectSY($connect));
-    $yeye=$selectSY['from']." - ".$selectSY['to'];
-
     if(isset($_POST['submit'])){
         if($_FILES["imgfile"]["size"]>0){
             $filename=$_FILES["imgfile"]["name"];
@@ -20,7 +15,7 @@
                 } else {
                     extract($_POST);
                     $imageLocation=$filename;
-                    reEnroll($connect, $_GET['id'], $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $yeye);
+                   reEnrollStudent($connect, $_GET['id'], $first_name, $last_name, $middle_name, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $sy);
                     $idd=$_GET['id'];
                     if(!empty($_POST['check_list'])) {
                         $xx=0;
@@ -62,7 +57,7 @@
         } else {
             extract($_POST);
             $imageLocation=null;
-            reEnroll($connect, $_GET['id'], $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $yeye);
+            reEnrollStudent($connect,  $_GET['id'], $first_name, $last_name, $middle_name, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $sy);
             $idd= $_GET['id'];
             copy('uploads/imagethumbnail.png', 'uploads/'.$idd);
             if(!empty($_POST['check_list'])) {
@@ -100,8 +95,9 @@
         }
     }
     $header = "Re-enroll";
-    $header2 =  "Re-enroll a Student";
+    $header2 =  "RE-Enroll a Student";
     include('header.php');
+    $selectSY=mysqli_fetch_assoc(selectSY($connect));
 ?>
 <head>
     <title>Student Enrollment</title>
@@ -109,9 +105,6 @@
     <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-
-<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
-
 
 <div class="row">
 <form method="POST" enctype="multipart/form-data" class="col s12">
@@ -127,23 +120,23 @@
     </div>
     <!-- ^^^^^ SENSITIVE TONG PART NA TO WAG MO MASYADO GALAWIN ^^^^^!-->
     <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's First Name">
-    <input id="first_name" type="text" name="first_name"  value="<?=$viewStudent['first_name']?>" pattern="[A-Za-z ]+" disabled >
+    <input id="first_name" type="text" name="first_name" pattern="[A-Za-z ]+"required >
     <label for="first_name" style="font-size:75%;">First Name</label>
     </div>
 
     <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Middle Name">
-    <input id="middle_name" type="text" name="middle_name" p value="<?=$viewStudent['middle_name']?>" attern="[A-Za-z. ]+" disabled>
+    <input id="middle_name" type="text" name="middle_name" pattern="[A-Za-z. ]+" required>
     <label for="middle_name" style="font-size:75%;">Middle Name</label>
     </div>
 
     <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Last Name">
-    <input id="last_name" type="text" name="last_name"  value="<?=$viewStudent['last_name']?>" pattern="[A-Za-z ]+" disabled>
+    <input id="last_name" type="text" name="last_name" pattern="[A-Za-z ]+" required>
     <label for="last_name" style="font-size:75%;">Last Name</label>
     </div>
 
     <div class="row">
         <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Age">
-    <input id="age" type="text" name="age" pattern="[0-9]+"  value="<?=$viewStudent['age']?>" required>
+    <input id="age" type="text" name="age" pattern="[0-9]+" required>
     <label for="age" style="font-size:75%;">Age</label>
         </div>
 
