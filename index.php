@@ -16,7 +16,7 @@
 		$_GET['page']=1;
 	}
 	if(!isset($_SESSION['cfsy'])){
-		$_SESSION['cfsy']="";
+		$_SESSION['cfsy']="2014 - 2015";
 	}
 	if(!isset($_SESSION['cfmonth'])){
 		$_SESSION['cfmonth']="";
@@ -125,7 +125,7 @@
 
 
 
-	<input type="text" name="specific" pattern="[A-Za-z ]+" placeholder="Search Student Name" style="position: relative; top: 50%;" data-position="top" data-delay="50" data-tooltip="Search a student's transactions" class="tooltipped">
+	<input type="text" name="specific" pattern="[A-Za-z ]+" title="Please enter letters only" placeholder="Search Student Name" style="position: relative; top: 50%;" data-position="top" data-delay="50" data-tooltip="Search a student's transactions" class="tooltipped">
    </div>
 
 
