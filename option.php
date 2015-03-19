@@ -14,8 +14,11 @@ if($_SESSION['access_control']<2){
 
 if(isset($_POST['changeyear'])){
 		extract($_POST);
-	changeyear($connect, $from, $to);
-
+		if($from==$to){
+			echo "<script>alert('School year cannot be equal');</script>";
+		} else {
+		changeyear($connect, $from, $to);
+	}
 }
 
 if(isset($_GET['id'])){

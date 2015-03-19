@@ -7,7 +7,7 @@
 	if(isset($_POST['submit'])){
 		extract($_POST);
 			updateTuitioFee($connect,$_GET['id'], $tuition_fee, $due_date);
-			header('Location: ../option.php');
+			header('Location: option.php');
 			}
 			$header="Edit";
 			$header2="Edit Grade";
