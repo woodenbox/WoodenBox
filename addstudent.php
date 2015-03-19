@@ -135,6 +135,7 @@
     		echo "<option value=\"$grade_level\">$grade_level</option>";        
     	}
 ?>
+    	<!--this!-->
     </select></br>
     <p>From:</p>
     <select name="fromTime">
