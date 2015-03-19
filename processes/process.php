@@ -120,7 +120,7 @@ function viewStudentsPage($connect, $page, $rows, $sy, $month, $grade, $specific
 	}
 
 	function reEnrollStudent($connect, $id, $first_name, $last_name, $middle_name, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $sy){
-		$sql="UPDATE `students` SET `first_name` = '$first_name', `last_name` = '$last_name', `middle_name` = '$middle_name', `age` = $age, `grade` = '$grade', `fromTime` = '$fromTime', `toTime` = '$toTime', `academicstatus` = '$academicstatus', `paymentmode` = '$paymentmode', `sy`='$sy' WHERE `student_id` = $id";
+		$sql="UPDATE `students` SET `first_name` = '$first_name', `last_name` = '$last_name', `middle_name` = '$middle_name', `age` = $age, `grade` = '$grade', `fromTime` = '$fromTime', `toTime` = '$toTime', `academicstatus` = '$academicstatus', `paymentmode` = '$paymentmode', `sy` = '$sy' WHERE `student_id` = $id";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}
