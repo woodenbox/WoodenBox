@@ -10,23 +10,8 @@ Download Link: http://www.discussdesk.com/import-excel-file-data-in-mysql-databa
 Website URL: http://www.discussdesk.com
 */
 session_start();
-  ob_start();
-  if(!isset($_SESSION['username'])){
-    header('Location: login.php');
-  }
-
-
-if(!isset($_SESSION['username'])){
-	header('Location: login.php');
-
-
-}
-if(!isset($header)){
-  $header="Test";
-  $header2="Test2";
-}
-
-
+include('../processes/process.php');
+$connect=connectDB();
 $uploadedStatus = 0;
 
 if ( isset($_POST["submit"]) ) {
@@ -48,11 +33,13 @@ echo "No file selected <br />";
 }
 }
 
+$header="Add Student";
+$header2="Import an excel file"
 ?>
 
 
 
-
+<html>
 
 <head>
 <title>Demo - Import Excel file data in mysql database using PHP, Upload Excel file data in database</title>
@@ -60,16 +47,13 @@ echo "No file selected <br />";
 <meta name="keywords" content="import excel file data in mysql, upload ecxel file in mysql, upload data, code to import excel data in mysql database, php, Mysql, Ajax, Jquery, Javascript, download, upload, upload excel file,mysql"/>
 
 
-
-  <link href="asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="asd/css/pagination.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="asd/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../asd/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../asd/css/pagination.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../asd/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <script src="jquery-2.1.3.min.js"></script>
 <link rel="shortcut icon" href="box.ico">
 </head>
-
-<body>
 
 
   <div class="section no-pad-bot blue lighten-1 hide-on-small-only" id="index-banner" style="position: relative;width: 100%;height: 186px; left: 0%;">
@@ -93,21 +77,21 @@ echo "No file selected <br />";
  
   <a class="dropdown-button" href="#!" data-activates="dropdown1" style="position: relative;width: 100%;top: 0; left: 0%;"> <i class="mdi-action-account-box white-text waves-effect waves-blue"></i></a></h4>
  <ul id='dropdown1' class='dropdown-content'>
-			<li>  <a href="logout.php">Log Out</a></li>
+			<li>  <a href="../logout.php">Log Out</a></li>
 			<?php if($_SESSION['access_control']>1){ ?><li>  <a href="option.php">Options</a></li><?php } ?>
   </ul>
   
    <ul id='dropdown2' class='dropdown-content'>
 
 <li>
-<a href="compose.inc.php">Compose</a>
+<a href="../compose.inc.php">Compose</a>
 </li>
 
 <div style="padding:5px;font-size:75%;">
-<?php include('read.inc.php'); ?>
+<?php include('../read.inc.php'); ?>
 </div>  
 <li>
-<a href="inbox.inc.php">Read all messages</a>
+<a href="../inbox.inc.php">Read all messages</a>
 </li>
 <div class="divider"></div>
 
@@ -140,15 +124,15 @@ echo "No file selected <br />";
   
 <b>
 
-<li <?php if(curPageName()=='index.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px; width:100%;">  <a  <?php if(curPageName()=='index.php') echo "class=\"white-text waves-effect waves-green\"";?> style="font-size:80%;" href="index.php"><i class="mdi-communication-business"></i>&nbspCash Reports<?echo"\t";?></a></li>
-<li <?php if(curPageName()=='studentaccounts.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px; width:100%;"> <a  style="font-size:80%;" href="studentaccounts.php"<?php if(curPageName()=='studentaccounts.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-action-account-child"></i>&nbspStudent Accounts<?echo"\t";?></a></li>
+<li <?php if(curPageName()=='index.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px; width:100%;">  <a  <?php if(curPageName()=='index.php') echo "class=\"white-text waves-effect waves-green\"";?> style="font-size:80%;" href="../index.php"><i class="mdi-communication-business"></i>&nbspCash Reports<?echo"\t";?></a></li>
+<li <?php if(curPageName()=='studentaccounts.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px; width:100%;"> <a  style="font-size:80%;" href="../studentaccounts.php"<?php if(curPageName()=='studentaccounts.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-action-account-child"></i>&nbspStudent Accounts<?echo"\t";?></a></li>
  
 
 
 
-<li <?php if(curPageName()=='search.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px;width:100%;"> <a style="font-size:80%;" href="search.php"<?php if(curPageName()=='search.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-action-view-list"></i>&nbspStudent List<?echo"\t";?></a></li>
+<li <?php if(curPageName()=='search.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\""; ?> style="padding-top:15px;padding-bottom:15px;width:100%;"> <a style="font-size:80%;" href="../search.php"<?php if(curPageName()=='search.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-action-view-list"></i>&nbspStudent List<?echo"\t";?></a></li>
 
-<li <?php if(curPageName()=='addstudent.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\";" ?> style="padding-top:15px;padding-bottom:15px; width:100%;"> <a style="font-size:80%;" href="addstudent.php"<?php if(curPageName()=='addstudent.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-social-person-add"></i>&nbspAdd Student<?echo"\t";?></a></li>
+<li <?php if(curPageName()=='addstudent.php') echo "class=\"blue lighten-1 waves-effect waves-white\""; else echo "class=\"waves-effect waves-white\";" ?> style="padding-top:15px;padding-bottom:15px; width:100%;"> <a style="font-size:80%;" href="../addstudent.php"<?php if(curPageName()=='addstudent.php') echo "class=\"white-text waves-effect waves-green\"";?> ><i class="mdi-social-person-add"></i>&nbspAdd Student<?echo"\t";?></a></li>
 
 
   </ul> 
@@ -156,15 +140,23 @@ echo "No file selected <br />";
 
 
 
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="asd/js/materialize.js"></script>
-  <script src="asd/js/init.js"></script>
 
 
 
 
 
-<table width="600" style="margin:115px auto; background:#f8f8f8; border:1px solid #eee; padding:10px;">
+
+
+
+
+
+
+
+
+
+<div style="position: relative;width: 80%;bottom: -4%; left: -18%;">
+
+<table width="600">
 
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
 
@@ -192,9 +184,9 @@ echo "No file selected <br />";
 
 <?php if($uploadedStatus==1){
 
-echo "<table align='center'><tr><td  ><center>============================= <b>File Uploaded<b/> =============================================</center></td></tr>";
+echo "<table style='position:relative; left:5%; top:5%;' align='center'><tr><td  ><center><b>File Uploaded<b/> </center></td></tr>";
 
-echo "<tr><td ><center>============================= <b>Do you want to upload the data <button href='index3.php'>Click Here</button> </b>========================</center></td></tr></table>";
+echo "<tr><td ><center> <b>Do you want to upload the data <a href='index.php'>Yes</a> <a href='../addstudents.php'>No</a> </b></center></td></tr></table>";
 
 }?>
 
@@ -217,3 +209,7 @@ echo "<tr><td ><center>============================= <b>Do you want to upload th
 </script>
 
 
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../asd/js/materialize.js"></script>
+  <script src="../asd/js/init.js"></script>

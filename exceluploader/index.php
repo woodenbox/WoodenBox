@@ -62,14 +62,13 @@ $fromTime = trim($allDataInSheet[$i]["G"]);
 $toTime = trim($allDataInSheet[$i]["H"]);
 $academicstatus = trim($allDataInSheet[$i]["I"]);
 $paymentmode = trim($allDataInSheet[$i]["J"]);
-$sy = trim($allDataInSheet[$i]["K"]);
 
 $query = "SELECT first_name,last_name FROM students WHERE first_name = '$first_name' AND last_name = '$last_name'";
 $sql = mysql_query($query);
 $recResult = mysql_fetch_array($sql);
 $existName = $recResult["first_name"];
 if($existName=="") {
-$insertTable= mysql_query("insert into students (student_id, first_name, last_name, middle_name, age, grade, fromTime, toTime, academicstatus,paymentmode, sy) values('$student_id', '$first_name', '$last_name', '$middle_name', '$age', '$grade', '$fromTime', '$toTime', '$academicstatus', '$paymentmode', 'sy');");
+$insertTable= mysql_query("insert into students (student_id, first_name, last_name, middle_name, age, grade, fromTime, toTime, academicstatus,paymentmode) values('$student_id', '$first_name', '$last_name', '$middle_name', '$age', '$grade', '$fromTime', '$toTime', '$academicstatus', '$paymentmode');");
 $msg = 'Record has been added. <div style="Padding:20px 0 0 0;"><a href="../search.php">Go Back to tutorial</a></div>';
 } else {
 $msg = 'Record already exist. <div style="Padding:20px 0 0 0;"><a href="upload.php">Go Back to tutorial</a></div>';
