@@ -35,7 +35,7 @@
 	
 	$table=searchCashFlow($connect, $_SESSION['cfsy'], $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']);
 	$total=mysqli_num_rows($table);
-	$rows=10;
+	$rows=5;
 	$pages=ceil($total/$rows);
 	$table=viewStudentsPage($connect, $_GET['page'],$rows, $_SESSION['cfsy'], $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']);
 
@@ -54,7 +54,7 @@
 		$_GET['page']=1;
 		$table=searchCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific);
 		$total=mysqli_num_rows($table);
-		$rows=10;
+		$rows=5;
 		$pages=ceil($total/$rows);
 		$table=viewStudentsPage($connect, $_GET['page'],$rows, $_SESSION['cfsy'], $_SESSION['cfmonth'], $_SESSION['cfgl'], $_SESSION['specific']);
 		$getTotalCashFlow=mysqli_fetch_assoc(getTotalCashFlow($connect, $cfsy, $cfmonth, $cfgl, $specific));
@@ -153,8 +153,8 @@ style="font-size:200%;;" type="submit" name="searchcf"/>
 
 
 
-	<div id="table-scroll" style="position:relative;height:40%; width: 90%;bottom:50px;overflow:auto;";>
-		<table style="font-size:75%;" class="hoverable">
+	<div style="position:relative;height:40%; width: 90%;bottom:70px;";>
+		<table style="font-size:75%;height:50%;" class="hoverable">
 			<thead class="blue-text text lighten-2">
 				<tr>
 					<th>Date</th>
@@ -186,7 +186,7 @@ style="font-size:200%;;" type="submit" name="searchcf"/>
 ?>
 		</table>
 	</div>
-	<div  style="position:relative;bottom:40px;">
+	<div  style="position:relative;bottom:60px;">
 	<ul class="pagination">
 	<?php
 if($total>1){
