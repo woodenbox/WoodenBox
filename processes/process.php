@@ -119,11 +119,17 @@ function viewStudentsPage($connect, $page, $rows, $sy, $month, $grade, $specific
 		return $result;
 	}
 
-	function reEnrollStudent($connect, $id, $first_name, $last_name, $middle_name, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $sy){
-		$sql="UPDATE `students` SET `first_name` = '$first_name', `last_name` = '$last_name', `middle_name` = '$middle_name', `age` = $age, `grade` = '$grade', `fromTime` = '$fromTime', `toTime` = '$toTime', `academicstatus` = '$academicstatus', `paymentmode` = '$paymentmode', `sy` = '$sy' WHERE `student_id` = $id";
+	function reEnroll($connect, $id, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $sy){
+		$sql="UPDATE students SET age=$age, grade='$grade', fromTime='$fromTime', toTime='$toTime', academicstatus='$academicstatus', paymentmode='$paymentmode', sy='$sy' WHERE student_id='$id'";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}
+
+	/*function reEnrollStudent($connect, $id, $age, $grade, $fromTime, $toTime, $academicstatus, $paymentmode, $sy){
+		$sql="UPDATE students SET age = $age, grade = '$grade', fromTime = '$fromTime', toTime = '$toTime', academicstatus = '$academicstatus', paymentmode = '$paymentmode', sy = '$sy' WHERE student_id = $id";
+		$result=mysqli_query($connect,$sql);
+		return $result;
+	}*/
 	
 	function updateStudent($connect, $id, $first_name, $last_name, $middle_name, $age){
 		$sql = "UPDATE `students` SET `first_name` = '$first_name', `last_name` = '$last_name', `middle_name` = '$middle_name', `age` = $age WHERE `student_id` = $id";

@@ -3,6 +3,8 @@
 	include('processes/process.php');
 	$connect = connectDB();
 	$datengayon = date('Y-m-d');
+	$selectSY=mysqli_fetch_assoc(selectSY($connect));
+	$yeye=$selectSY['from']." - ".$selectSY['to'];
 	if(isset($_POST['submit'])){
 		if($_FILES["imgfile"]["size"]>0){
 			$filename=$_FILES["imgfile"]["name"];
@@ -15,7 +17,7 @@
 				} else {
 					extract($_POST);
 					$imageLocation=$filename;
-					addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imageLocation, $datengayon,$sy);
+					addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, $uniform, $peuniform, $imageLocation, $datengayon,$yeye);
 					$idd=mysqli_insert_id($connect);
 					if(!empty($_POST['check_list'])) {
 						$xx=0;
@@ -57,7 +59,7 @@
 		} else {
 			extract($_POST);
 			$imageLocation=null;
-			addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, null, null, $imageLocation, $datengayon,$sy);
+			addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, null, null, $imageLocation, $datengayon,$yeye);
 			$idd=mysqli_insert_id($connect);
      		copy('uploads/imagethumbnail.png', 'uploads/'.$idd);
 			if(!empty($_POST['check_list'])) {
@@ -97,7 +99,6 @@
  	$header = "Add Student";
 	$header2 =  "Enroll a Student";
 	include('header.php');
-	$selectSY=mysqli_fetch_assoc(selectSY($connect));
 ?>
 <head>
     <title>Student Enrollment</title>
@@ -145,7 +146,7 @@
 		</div>
 
 		<div class="input-field col s3  tooltipped"  data-position="top" data-delay="50" data-tooltip="Enter school year">
-	<input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][0-9][ ][-][ ][2][0][0-9][0-9]">
+	<input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][0-9][ ][-][ ][2][0][0-9][0-9]" disabled>
 	<label for="sy" style="font-size:75%;">School Year</label>
 	</div></div>
 	<div class="divider"></div>
