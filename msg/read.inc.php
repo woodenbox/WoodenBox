@@ -38,7 +38,7 @@ $view_msg=viewmsg($connect);
 
 	
 	
-	
+	<?php include('msg/compose.inc.php');?>
     </div>
    
   </div>

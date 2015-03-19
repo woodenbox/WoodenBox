@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING ^ E_DEPRECATED);
-$connect = mysql_connect("localhost","root","") or die(mysql_error());
-mysql_select_db("woodenbox_contents") or die(mysql_error());
 
 $subject1 = $_REQUEST['subject'];
 $to_user1 = $_REQUEST['to'];
@@ -38,11 +35,7 @@ if($submit) {
 	
 if($to_user&&$subject&&$message) {
 	
-	$query = mysql_query("
-	
-		INSERT INTO private_messages VALUES('','$user','$to_user','$subject','$message','$date','0');
-		
-	");
+	$query = mysql_query("INSERT INTO private_messages VALUES('','$user','$to_user','$subject','$message','$date','0');");
 	
 	
 	echo "<b>Your message was successfully sent!";
