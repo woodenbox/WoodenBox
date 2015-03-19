@@ -31,6 +31,13 @@
 		return $return;
 	}
 
+	function selectDistinctSGrade($connect){
+		$sql="SELECT DISTINCT grade FROM students";
+		$return=mysqli_query($connect,$sql);
+		return $return;
+	}
+
+
 	function getFandLnameDB($connect, $user_id){
 		$sql = "select first_name, last_name from users where user_id = '$user_id'";
 		$result = mysqli_query($connect, $sql);
@@ -318,8 +325,18 @@ function viewStudentsPage($connect, $page, $rows, $sy, $month, $grade, $specific
 		return $result;
 	}
 //viewstudent.php=============================================================================================================================================//
-	function viewStudents($connect, $srt, $sortby){
-		$sql="SELECT * FROM students WHERE total_balance > 0 ORDER BY $srt $sortby ";
+	function sortStudents($connect, $grade){
+		$sql="SELECT * FROM students WHERE grade LIKE '$grade%' AND total_balance > 0";
+		$result=mysqli_query($connect,$sql);
+				if (!$result) {
+    printf("Error: %s\n", mysqli_error($connect));
+    exit();
+}
+		return $result;
+	}
+
+	function viewStudents($connect){
+		$sql="SELECT * FROM students WHERE total_balance > 0";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}

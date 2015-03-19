@@ -2,6 +2,7 @@
 	session_start();
 	include('processes/process.php');
 	$connect=connectDB();
+	$selectDistinctGrade=selectDistinctGrade($connect);
 	if(!isset($_GET['by'])){
 		$_GET['by']='student_id';
 	}
@@ -9,6 +10,9 @@
 		$_GET['sortby'] = 'DESC';
 	}
 	if(isset($_POST['test'])){
+		if(!isset($_POST['check_list'])){
+			echo "<script>alert('Please select a student');</script>";
+		} else {
 		$datengayon = date('Y-m-d');
 		$selectPenaltyValue=mysqli_fetch_assoc(selectPenaltyValue($connect));
 		$percentage = $selectPenaltyValue['penalty']*(0.01);
@@ -40,7 +44,14 @@
 			$sumBalance=mysqli_fetch_assoc(sumBalance($connect, $check));
 			updateTotalBalance($connect, $check, $sumBalance['balance']);
     	}
-    	echo "frames['frame'].print()";
+    	echo "	<script src='jquery-2.1.3.min.js'></script>
+    			<script> $(function(){
+    						$(document).ready(function () {
+    							window.frames['frame'].print()
+							});
+						});
+				</script>";
+			}
 	}
 	$table=viewStudents($connect, $_GET['by'], $_GET['sortby']);
 	$header = "Student Accounts";
@@ -53,6 +64,19 @@
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 	<div style="width: 95%;">
 		<form method="POST">
+			<div class="input-field col s2 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="Filter transactions by grade level">
+	<select name="cfgl" >
+		<option value="">All Grade Level</option>
+<?php 	
+		while($row=mysqli_fetch_array($selectDistinctGrade, MYSQLI_ASSOC)){
+			if($_SESSION['cfgl']==$row['grade']) $selected='selected'; else $selected='';
+?>
+		<option  value="<?=$row['grade']?>" <?=$selected?>><?=$row['grade']?></option>
+<?php 	
+		}
+?>
+	</select>
+    </div>
 		<table style="font-size:75%;" class="hoverable center" >
 			<thead class="blue-text text lighten-2">
 				<tr>
@@ -85,8 +109,7 @@
 			}
 ?>
 		</table>
-		<input type="submit" name="test" value="test">
-		<a onclick="frames['frame'].print()">Print</a>
+		<input type="submit" name="test" value="Print">
 		</form>
 	</div>
 </div>
