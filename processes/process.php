@@ -543,14 +543,14 @@ function add($date_str, $months)
 		return $result;
 	}
 //=============================================================================================================================================//	
-	function searchStudents($connect, $search){
-		$sql="select * from students WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR grade LIKE '%$search%' ORDER BY student_id DESC";
+	function searchStudents($connect, $search, $grade){
+		$sql="SELECT * FROM students WHERE grade LIKE '$grade%' AND CONCAT(first_name, ' ', last_name) LIKE '%$search%'";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}
-	function searchStudentsPage($connect, $page, $rows, $search){
+	function searchStudentsPage($connect, $page, $rows, $search, $grade){
 		$start=($page-1)*$rows;
-		$sql="SELECT * FROM students WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' ORDER BY student_id DESC LIMIT $start,$rows";
+		$sql="SELECT * FROM students WHERE grade LIKE '$grade%' AND CONCAT(first_name, ' ', last_name) LIKE '%$search%' DESC LIMIT $start,$rows";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}

@@ -1,36 +1,41 @@
 <?php
 	session_start();
-
 	include('processes/process.php');
 	$connect=connectDB();
-	$active = 3;
-
-/*	if(!isset($_GET['page'])){
+	if(!isset($_GET['page'])){
 		$_GET['page']=1;
 	}
-*/
-	
-
-	$table=searchStudents($connect, "");
+	if(!isset($_SESSION['sgrade'])){
+		$_SESSION['sgrade']="";
+	}
+	if(!isset($_SESSION['sname'])){
+		$_SESSION['sname']="";
+	}
+	$table=searchStudents($connect, $_SESSION['sname'], $_SESSION['sgrade']);
+	$total=mysqli_num_rows($table);
+	$rows=15;
+	$pages=ceil($total/$rows);
+	$table=searchStudentsPage($connect, $_GET['page'], $rows, $_SESSION['sname'], $_SESSION['sgrade']);
 /*	$total=mysqli_num_rows($table);
 	$rows=15;
 	$pages=ceil($total/$rows);
 	$table=viewStudentsPage($connect, $_GET['page'], $rows);
-*/
+*/	
 	if(isset($_POST['submit'])){
 		extract($_POST);
-		$table=searchStudents($connect, $_POST['search']);
-		/*$total=mysqli_num_rows($table);
+		$_SESSION['sgrade']=$sgrade;
+		$_SESSION['sname']=$sname;
+		$_GET['page']=1;
+		$table=searchStudents($connect, $sname, $sgrade);
+		$total=mysqli_num_rows($table);
 		$rows=15;
 		$pages=ceil($total/$rows);
-		$table=searchStudentsPage($connect, $_GET['page'], $rows, $_POST['search']);*/
+		$table=searchStudentsPage($connect, $_GET['page'], $rows,  $sname, $sgrade);
 	}
-
+ 	$header = "Student List";
+	$header2 =  "Currently Enrolled Students";
+	include('header.php');
 ?>
-   <?php $header = "Student List";?>
-	<?php $header2 =  "Currently Enrolled Students";
-
-	include('header.php');?>
 
 <head>
 	<title>Search Students</title>
@@ -68,7 +73,7 @@
   <form class="col s12 m7"  method="POST">
     <div class="row">
       <div class="input-field col s6">
-        <input id="search" type="text" pattern="[A-Za-z0-9 ]+" name="search" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Search for a Student">
+        <input id="search" type="text" pattern="[A-Za-z0-9 ]+" name="sname" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Search for a Student">
         <label for="search"><i class="mdi-action-search "></i>Search</label>
      
      </div>
