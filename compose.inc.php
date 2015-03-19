@@ -146,7 +146,29 @@ if(!isset($header)){
 
 
 </td>
-<td><input type='text' name='to_user'  value='<?=$to_user1?>' /></td>
+<td>
+
+
+
+
+<select name="grades" >
+		<option value="">All Grade Level</option>
+<?php 	
+		while($row=mysqli_fetch_array($selectDistinctGrade, MYSQLI_ASSOC)){
+?>
+		<option  value="<?=$row['grade']?>"><?=$row['grade']?></option>
+<?php 	
+		}
+?>
+	</select>
+
+
+
+	<input type='text' name='to_user'  value='<?=$to_user1?>' /></td>
+
+
+
+
 </tr>
 
 	

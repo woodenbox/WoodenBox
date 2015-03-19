@@ -108,8 +108,23 @@
 	<title>Student Accounts</title>
 </head>
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
+
+
+	<p class="blue-text text-lighten-2">Click the checkboxes to specify which accounts you would wish to print</p>
 	<div style="width: 95%;">
-		<form method="POST">
+
+
+
+<div class="row">
+
+    
+
+
+
+		<form method="POST" class="col s12">
+<div class="row">
+
+
 			<div class="input-field col s2 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="Filter transactions by grade level">
 	<select name="grades" >
 		<option value="">All Grade Level</option>
@@ -120,27 +135,28 @@
 <?php 	
 		}
 ?>
-	</select>
-	<input type="submit" name="sorti" value="Sort">
-    </div>
+	</select></div>
+	<div class="col s2" >
+	  <button style="position: relative; top:25px;" class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="sorti">Sort</button>
+    </div></div></div></div>
 		<table style="font-size:75%;" class="hoverable center" >
 			<thead class="blue-text text lighten-2">
 				<tr>
 					<th></th>
-					<th class='clickableRow tooltipped'  <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=last_name&sortby=DESC"'; else echo 'href="studentaccounts.php?by=last_name&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from last name">Lastname</th>
-					<th class='clickableRow tooltipped' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=first_name&sortby=DESC"'; else echo 'href="studentaccounts.php?by=first_name&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from first name">Firstname</th>
-					<th class='clickableRow tooltipped' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=age&sortby=DESC"'; else echo 'href="studentaccounts.php?by=age&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from age">Age</th>
-					<th class='clickableRow tooltipped' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=grade&sortby=DESC"'; else echo 'href="studentaccounts.php?by=grade&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from grade">Grade</th>
-					<th class='clickableRow tooltipped' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=academicstatus&sortby=DESC"'; else echo 'href="studentaccounts.php?by=academicstatus&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from academic status">Academic Status</th>
-					<th class='clickableRow tooltipped' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=last_accessed&sortby=DESC"'; else echo 'href="studentaccounts.php?by=last_accessed&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from last updated">Last Updated</th>
+					<th class='clickableRow'  <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=last_name&sortby=DESC"'; else echo 'href="studentaccounts.php?by=last_name&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from last name">Lastname</th>
+					<th class='clickableRow' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=first_name&sortby=DESC"'; else echo 'href="studentaccounts.php?by=first_name&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from first name">Firstname</th>
+					<th class='clickableRow' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=age&sortby=DESC"'; else echo 'href="studentaccounts.php?by=age&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from age">Age</th>
+					<th class='clickableRow' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=grade&sortby=DESC"'; else echo 'href="studentaccounts.php?by=grade&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from grade">Grade</th>
+					<th class='clickableRow' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=academicstatus&sortby=DESC"'; else echo 'href="studentaccounts.php?by=academicstatus&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from academic status">Academic Status</th>
+					<th class='clickableRow' <?php if($_GET['sortby']=='ASC') echo 'href="studentaccounts.php?by=last_accessed&sortby=DESC"'; else echo 'href="studentaccounts.php?by=last_accessed&sortby=ASC"';?>data-position="top" data-delay="50" data-tooltip="Click to sort from last updated">Last Updated</th>
 					<th>Balance Since Last Updated</th>
 				</tr>
 			</thead>
 <?php
 			while($row=mysqli_fetch_assoc($table)){
 ?>
-				<tr data-position="top" data-delay="50" data-tooltip="Click row to view to student information">
-					<td><input type="checkbox"  id="<?=$row['student_id']?>" name="check_list[]" value="<?=$row['student_id']?>">
+				<tr>
+					<td class="tooltipped" data-position="top" data-delay="50" data-tooltip="Check to add this on the list of accounts to be printed"><input  type="checkbox"  id="<?=$row['student_id']?>" name="check_list[]" value="<?=$row['student_id']?>">
  						<label for="<?=$row['student_id']?>"></label>
 					</td>
 					<td class="tooltipped clickableRow" href="viewstudent.php?id=<?=$row['student_id']?>" data-position="top" data-delay="50" data-tooltip="Click row to view to student information"><?=$row['last_name']?></td>
@@ -155,7 +171,16 @@
 			}
 ?>
 		</table>
-		<input type="submit" name="test" value="Print">
+
+
+
+
+
+
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+		<button class="btn-floating waves-effect waves-light btn-large  blue lighten-2 white-text"  type="submit" name="test" value="Print"><i class="large mdi-action-print"></i></button>
+		</div>
 		</form>
 	</div>
 </div>
