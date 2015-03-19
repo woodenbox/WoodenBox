@@ -151,16 +151,6 @@ if(!isset($header)){
 
 
 
-<select name="grades" >
-		<option value="">All Grade Level</option>
-<?php 	
-		while($row=mysqli_fetch_array($selectDistinctGrade, MYSQLI_ASSOC)){
-?>
-		<option  value="<?=$row['grade']?>"><?=$row['grade']?></option>
-<?php 	
-		}
-?>
-	</select>
 
 
 
