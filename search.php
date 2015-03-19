@@ -2,6 +2,7 @@
 	session_start();
 	include('processes/process.php');
 	$connect=connectDB();
+	$selectDistinctGrade=selectDistinctGrade($connect);
 	if(!isset($_GET['page'])){
 		$_GET['page']=1;
 	}
@@ -35,6 +36,7 @@
  	$header = "Student List";
 	$header2 =  "Currently Enrolled Students";
 	include('header.php');
+
 ?>
 
 <head>
@@ -65,12 +67,23 @@
 	}
 */?>!-->
 
-<div style="position: relative;width: 80%;bottom: 4%; left: 16%;">
-	
-	
 
 <div class="row">
   <form class="col s12 m7"  method="POST">
+<div style="position: relative;width: 80%;bottom: 4%; left: 16%;">
+	<div class="input-field col s2 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="Filter transactions by grade level">
+	<select name="sgrade" >
+		<option value="">All Grade Level</option>
+<?php 	
+		while($row=mysqli_fetch_array($selectDistinctGrade, MYSQLI_ASSOC)){
+			if($_SESSION['cfgl']==$row['grade']) $selected='selected'; else $selected='';
+?>
+		<option  value="<?=$row['grade']?>" <?=$selected?>><?=$row['grade']?></option>
+<?php 	
+		}
+?>
+	</select>
+    </div>
     <div class="row">
       <div class="input-field col s6">
         <input id="search" type="text" pattern="[A-Za-z0-9 ]+" name="sname" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Search for a Student">
@@ -121,6 +134,25 @@
 	}
 ?>
 </table>
+	<div  style="position:relative;bottom:60px;">
+	<ul class="pagination">
+	<?php
+if($total>1){
+	for($cnt=1;$cnt<=$pages;$cnt++){
+?>
+	<li
+	<?php
+		if($cnt==$_GET['page'])
+			echo "class=active";
+	?>
+	><a href="search.php?page=<?=$cnt?>"><?=$cnt?></a></li>
+<?php
+	}
+}
+?>
+</ul>
+
+</div>
 
 <script src="jquery-2.1.3.min.js"></script>
 <script>
