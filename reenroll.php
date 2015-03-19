@@ -105,6 +105,7 @@
     <link href="asd/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="asd/css/init.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 
 <div class="row">
 <form method="POST" enctype="multipart/form-data" class="col s12">
@@ -250,6 +251,7 @@
 </div>
 
 </form>
+</div>
 </div>
 <script src="http://www.gstatic.com/external_hosted/picturefill/picturefill.min.js"></script>
 <script src="asd/js/materialize.js"></script>

@@ -14,7 +14,7 @@
 	}
 	$table=searchStudents($connect, $_SESSION['sname'], $_SESSION['sgrade']);
 	$total=mysqli_num_rows($table);
-	$rows=15;
+	$rows=10;
 	$pages=ceil($total/$rows);
 	$table=searchStudentsPage($connect, $_GET['page'], $rows, $_SESSION['sname'], $_SESSION['sgrade']);
 /*	$total=mysqli_num_rows($table);
@@ -67,11 +67,13 @@
 	}
 */?>!-->
 
+<div style="position: relative;width: 80%;bottom: 5%; left: 16%;">
 
 <div class="row">
   <form class="col s12 m7"  method="POST">
-<div style="position: relative;width: 80%;bottom: 4%; left: 16%;">
-	<div class="input-field col s2 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="Filter transactions by grade level">
+<div class="row">
+
+	<div class="col s6 m4 tooltipped" data-position="top" data-delay="50" data-tooltip="Filter transactions by grade level">
 	<select name="sgrade" >
 		<option value="">All Grade Level</option>
 <?php 	
@@ -84,7 +86,8 @@
 ?>
 	</select>
     </div>
-    <div class="row">
+
+
       <div class="input-field col s6">
         <input id="search" type="text" pattern="[A-Za-z0-9 ]+" name="sname" class="validate tooltipped" data-position="top" data-delay="50" data-tooltip="Search for a Student">
         <label for="search"><i class="mdi-action-search "></i>Search</label>
@@ -99,14 +102,14 @@
 
 </form>
 </div>
-<div style="padding-left:290px;padding-right:100px;margin-top:-80px;">
+
 
 						
 	
 
 
-<div id="table-scroll" style="position:relative;height:50%; width: 150%;bottom:40%;overflow:auto;right: 42%;";>
-<table  style="font-size:75%;" class="hoverable">
+<div id="table-scroll" style="position:relative;height:70%; width: 150%;overflow:auto;right: 42%;";>
+<table  style="font-size:75%;position: relative; left:27.5%; width:70%;" class="hoverable">
 	<thead class="blue-text text lighten-2">
 		<tr>
 			<th>Lastname</th>
@@ -134,7 +137,11 @@
 	}
 ?>
 </table>
-	<div  style="position:relative;bottom:60px;">
+
+</div>
+
+
+	<div  style="position:relative;">
 	<ul class="pagination">
 	<?php
 if($total>1){
@@ -153,7 +160,6 @@ if($total>1){
 </ul>
 
 </div>
-
 <script src="jquery-2.1.3.min.js"></script>
 <script>
 

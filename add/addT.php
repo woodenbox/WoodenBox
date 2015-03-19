@@ -1,5 +1,7 @@
 <?php
-	include('../processes/process.php');
+session_start();
+	include('processes/process.php');
+	
 	$connect=connectDB();
 	if(isset($_POST['add'])){
 		$t1=$_POST['time'];
@@ -13,7 +15,9 @@
 			}
 	 
 	}
+	include('header.php');
 ?>
+<div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
 
 
 <form method="POST">
@@ -29,4 +33,4 @@
 	
 	</form>
 			<a href ="../option.php">Back</a>
-
+</div>

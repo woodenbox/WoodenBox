@@ -4,7 +4,6 @@
 
 $user = $_SESSION['username'];
 
-
 $connect = mysql_connect("localhost","root","") or die(mysql_error());
 mysql_select_db("woodenbox_contents") or die(mysql_error());
 
@@ -14,10 +13,10 @@ SELECT * FROM private_messages WHERE from_user='$user'
 
 ");
 
-$row = mysql_num_rows($view_msg);
+$asd = mysql_num_rows($view_msg);
 	
 	
-if($row!=0) {
+if($asd!=0) {
 	echo "<table>";
 	echo "<tr>";
 	echo "<td>";
@@ -27,13 +26,13 @@ if($row!=0) {
 	echo "<td>Date:</td>";
 	echo "</tr>";
 	
-   while($row = mysql_fetch_assoc($view_msg)) {
-	   $id = $row['id'];
+   while($rows = mysql_fetch_assoc($view_msg)) {
+	   $id = $rows['id'];
 	   echo "<tr>";
 	   echo "<td>&nbsp;</td>";
-	   echo "<td>".$from = $row['from_user']."</td>";
+	   echo "<td>".$from = $rows['from_user']."</td>";
 	   echo "<td><a href='messages.php?id=read2&mid=$id'>".$subject = $rows['subject']."</a></td>";
-	   echo "<td>".$date = $row['date']."</td>";
+	   echo "<td>".$date = $rows['date']."</td>";
 	   echo "</tr>";
 	   
    }

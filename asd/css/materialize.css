@@ -5775,7 +5775,7 @@ ul.tabs li.tab {
   position: absolute;
   background-color: #FFFFFF;
   margin: 0px;
-  min-width: 100px;
+  min-width: 300px;
   z-index: 1000;
   max-height: 70%;
   opacity: 0;

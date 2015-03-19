@@ -206,7 +206,7 @@ $getUsers=getUsers($connect);
 	}
 	?>
 	
-	<tr class="clickablerow" href="add/addT.php"> 
+	<tr class="clickablerow" href="addT.php"> 
 		<td><button class="btn waves-effect waves-light blue lighten-2 white-text">Add Time</button></td>
 		<td></td>
 		<td></td>

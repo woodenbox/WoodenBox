@@ -2,54 +2,56 @@
 
 $user = $_SESSION['username'];
 
-$connect = mysql_connect("localhost","root","") or die(mysql_error());
-mysql_select_db("woodenbox_contents") or die(mysql_error());
 
-$view_msg = mysql_query("
+	
+$view_msg=viewmsg($connect);
 
-SELECT * FROM private_messages WHERE to_user='$user'
 
-");
+	function viewmsg($connect){
+		$user = $_SESSION['username'];
+		$sql="SELECT * FROM private_messages WHERE to_user='$user' LIMIT 3";
+		$return=mysqli_query($connect,$sql);
+		return $return;
+	}
 
-$row = mysql_num_rows($view_msg);
 
-if($row!=0) {
-	echo "
-		<table>
-		<tr>
-		";
-			while($rows = mysql_fetch_assoc($view_msg)) {
+
+
+
+
+			while($rows = mysqli_fetch_assoc($view_msg)) {
 				$id = $rows['id'];
 				$to_user = $rows['to_user']; 
-				echo "<td>";
-				echo "From:";
-				echo "</td>:";
-				echo "<td>";
-				echo "".$from = $rows['from_user']."";
-				echo "</td>";
-				echo "</tr>";
-				echo "<tr>";
-				echo "<td>";
-				echo "Subject:";
-				echo "</td>";
-				echo "<td>";
-				echo "".$subject = $rows['subject']."";
-				echo "</td>";
-				echo "</tr>";
-				echo "<tr>";
-				echo "<td>";
-				echo "Message:";
-				echo "</td>";
-				echo "<td>";
-				echo "".$message = $rows['message']."";
-				echo "</td>";
-				echo "</tr>";
+				?>
+<div style="padding-right: 5px;padding-left: 5px;padding-top: 5px;padding-bototm: 5px;">
+
+<?php
+			
 				
+				?><h6 class="black-text"><b><?=$from = $rows['from_user']?></b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <i style="font-size:12px;"><?=$date = $rows['date']?></i></h6>
+				<?php
+				
+				
+
+				
+				echo "".$message = $rows['message']."<br>";
+			?>
+				<a href='msg/compose.inc.php' class="blue-text modal-trigger">Reply Message</a>
+				  <div id="messages" class="modal">
+    <div class="modal-content">
+
+
+
+    </div>
+   
+  </div>
+				<div class="divider"></div>
+				</div>
+				<?php
 }
-	echo "<tr>";
-	echo "<td colspan='2'><a href='messages.php?id=compose&mid=$id&subject=RE:$subject&to=$from'>Reply Message</a></td>";
-	echo "</tr>";
-	echo "</table>";
+	
+
+	
 	
 	
 	if($to_user==$user) {
@@ -64,5 +66,4 @@ if($row!=0) {
 	echo "";
 }
 
-}
 ?>

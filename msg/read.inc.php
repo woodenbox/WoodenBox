@@ -2,15 +2,20 @@
 
 $user = $_SESSION['username'];
 
+
+	
 $view_msg=viewmsg($connect);
 
 
 	function viewmsg($connect){
 		$user = $_SESSION['username'];
-		$sql="SELECT * FROM private_messages WHERE to_user='$user'";
+		$sql="SELECT * FROM private_messages WHERE to_user='$user' LIMIT 3";
 		$return=mysqli_query($connect,$sql);
 		return $return;
 	}
+
+
+
 
 
 
@@ -31,13 +36,12 @@ $view_msg=viewmsg($connect);
 				
 				echo "".$message = $rows['message']."<br>";
 			?>
-				<a href='#messages' class="blue-text modal-trigger">Reply Message</a>
+				<a href='msg/compose.inc.php' class="blue-text modal-trigger">Reply Message</a>
 				  <div id="messages" class="modal">
     <div class="modal-content">
 
 
-	
-	asdasd
+
     </div>
    
   </div>
@@ -61,6 +65,5 @@ $view_msg=viewmsg($connect);
 } else {
 	echo "";
 }
-
 
 ?>

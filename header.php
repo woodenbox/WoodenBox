@@ -58,18 +58,19 @@ if(!isset($header)){
   </ul>
   
    <ul id='dropdown2' class='dropdown-content'>
-    <li>
+  
 <div style="padding:5px;font-size:75%;">
-<?php include('msg/read.inc.php'); ?>
+<?php include('read.inc.php'); ?>
 </div>  
+<div class="divider"></div>
+<li>
+<a href="inbox.inc.php">Read all messages</a>
+</li>
 
 
 
 
 
-
-
-    </li>
 
   </ul>
 	  

@@ -89,105 +89,99 @@
 
 
 
-
-
+value="<?=$viewStudent['first_name']?>
+uploads/<?=$_GET['id']?>
 
     
     
 <div style="position: relative;width: 80%;bottom: -2%; left: 16%;">
-    
-    
+
 <div class="row">
-    <form method="POST" enctype="multipart/form-data" class="col s12">
-        <div class="row">
-        <div class="image-upload">
-            <label for="file-input" style="float:left;">
-                <img src="uploads/<?=$_GET['id']?>"  height="150" width="150"/>
-            </label>
-            <input style="display: none;" id="file-input"  name="imgfile" type="file"/>
+<form method="POST" enctype="multipart/form-data" class="col s12">
+<div class="row">
+    <!-- VVVVVSENSITIVE TONG PART NA TO WAG MO MASYADO GALAWINVVVVV !-->
+    <div class="col s3 tooltipped" style="float:right;" data-position="bottom" data-delay="50" data-tooltip="Click to upload a picture">
+    <div class="image-upload">
+        <label for="file-input">
+            <img class="z-depth-1"  src="uploads/<?=$_GET['id']?>"  height="150" width="150"/>
+        </label>
+        <input style="display: none;" id="file-input"  name="imgfile" type="file"/>
+    </div>
+    </div>
+    <!-- ^^^^^ SENSITIVE TONG PART NA TO WAG MO MASYADO GALAWIN ^^^^^!-->
+    <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's First Name">
+    <input  id="first_name" type="text" name="first_name" pattern="[A-Za-z ]+" value="<?=$viewStudent['first_name']?>" required >
+    <label for="first_name" style="font-size:75%;">First Name</label>
+    </div>
 
-      <div class="input-field col s3" style="">
-        <input id="first_name" type="text" name="first_name" pattern="[A-Za-z ]+" class="validate" value="<?=$viewStudent['first_name']?>"required>
-        <label for="first_name">First Name</label>
-      </div>
+    <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Middle Name">
+    <input id="middle_name" type="text" name="middle_name" pattern="[A-Za-z. ]+" value="<?=$viewStudent['middle_name']?>" required>
+    <label for="middle_name" style="font-size:75%;">Middle Name</label>
+    </div>
 
+    <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Last Name">
+    <input id="last_name" type="text" name="last_name" pattern="[A-Za-z ]+" value="<?=$viewStudent['last_name']?>" required>
+    <label for="last_name" style="font-size:75%;">Last Name</label>
+    </div>
 
-       <div class="input-field col s3" style="">
-        <input id="middle_name" type="text" name="middle_name" pattern="[A-Za-z ]+" class="validate" value="<?=$viewStudent['middle_name']?>"required>
-        <label for="middle_name">Middle Name</label>
-      </div>
- 
-
-               <div class="input-field col s3" style="">
-        <input id="last_name" type="text" name="last_name" pattern="[A-Za-z ]+" class="validate" value="<?=$viewStudent['last_name']?>"required>
-        <label for="last_name">Middle Name</label>
-      </div>
- 
-
-
-  </form>
-</div>
-
-            <div class="input-field col s3" style="">
-        <input id="age" type="text" name="age" pattern="[A-Za-z ]+" class="validate" value="<?=$viewStudent['age']?>"required>
-        <label for="age">Age</label>
-      </div>
- </div>
-
-
-
-    	<div style="position: relative; top: 400px;">
-    	<table name="options_others">
-    			<div style="position:relative;bottom:370px;font-weight:bold;" class="blue-text text lighten-2">Item</div>
-    				<div style="position:relative;bottom:392px;font-weight:bold;left: 300px;" class="blue-text text lighten-2">	Price</div>
-    				<div style="position:relative;bottom:412px;font-weight:bold;left: 600px;" class="blue-text text lighten-2">Quantity  	</div>	
-					<div class="divider" style="position:relative;bottom:402px;"></div><div class="divider" style="position:relative;bottom:403px;left:150px;"></div>.
-					<div class="divider" style="position:relative;bottom:426px;left:450px;"></div>
-    		<?php	
-    		$table=getOthers($connect);
-    		while($row=mysqli_fetch_assoc($table)){
-    			?>
-				
-			
-		
-			</table>
-    				<input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
-    				<label for="<?=$row['id']?>"style="position:relative;left:000px;bottom:401px;"><?=$row['item']?></label>
-    				<p style="position:relative;left:300px;bottom:445px;"><?=$row['price']?></p>
-    			 <div class="input-field col s4 m12"  style="position:relative;bottom:510px;left:570px;">
-                                             <input id="enter_amount" type="text" class="validate" name="howmany[]" pattern="[0-9]" style="width:12%;"  >
-                                                    <label for="enter_amount">Enter Amount</label>
-
-
-                     </div>
-    				
-    			<?php	
-    		}
-    		?>
-
-
-
-
-
-
-
+    <div class="row">
+        <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Age">
+    <input id="age" type="text" name="age" pattern="[0-9]+" value="<?=$viewStudent['age']?>" required>
+    <label for="age" style="font-size:75%;">Age</label>
+        </div>
+ </div></div></div>
 
 
 
     
-    	</table>
-		</div>
-   
+  <div class="divider"> </div>
+  <br>
 
 
+    <table>
+<tr>
+<td style="position:relative; left:7%;">
+    Item
+</td>
+<td style="position:relative; left:14%;">
+    Price
+</td>
+<td>
+    Quantity
+</td>
+</tr>
+</table>
+<table>
+<?php   
+    $table=getOthers($connect);
+    while($row=mysqli_fetch_assoc($table)){
+?>
 
-    	<script src="jquery-2.1.3.min.js"></script>
-    	<script>
-        </script>
-<button class="btn waves-effect waves-light green" type="submit" name="submit" value="Save">Save</button>
-<button class="btn waves-effect waves-light green" type="submit" name="cancel" value="Cancel">Cancel</button>
+        <tr>
+        <td><input type="checkbox" id="<?=$row['id']?>"  name="check_list[]" value="<?=$row['id']?>"  />
+
+        <label for="<?=$row['id']?>"><?=$row['item']?></label>
+<td style="position:relative; right:1.5%;">
+    <?=$row['price']?>      
+</td>
+<td>
+            <input id="enter_amount" type="text" class="validate" name="howmany[]" pattern="[0-9]" style="width:12%;"   >
+            <label for="enter_amount">Enter Amount</label>
+</td>
+        </td></tr>
+    
+
+<?php   
+    }
+?>
+
+</table>
+    <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Submit" onclick="return confirm('Please check details before continuing?');">Save</button>
+    <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="cancel" value="Cancel">Cancel</button>
+
+
 </form>
-
+</div>
 <?php
 include("footer.php");
 ?>
