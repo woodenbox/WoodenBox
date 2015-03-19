@@ -19,7 +19,7 @@
 				$checker="uploads/$filename";
 				extract($_POST);
 				$imageLocation=$filename;
-				reEnrollStudent($connect, $_GET['id'], $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode);
+				reEnrollStudent($connect, $_GET['id'], $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode,$sy);
 				$idd=$_GET['id'];
 
             	if(!empty($_POST['check_list'])) {
@@ -58,7 +58,7 @@
         } else {
 	           extract($_POST);
 	           $imageLocation=null;
-	           reEnrollStudent($connect, $_GET['id'], $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode);
+	           reEnrollStudent($connect, $_GET['id'], $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode,$sy);
 	           $idd=$_GET['id'];
 
 	           if(!empty($_POST['check_list'])) {
@@ -96,6 +96,7 @@
         header('Location: viewstudent.php?id='.$_SESSION['studentfee']);
     }
 $active = 0;
+    $selectSY=mysqli_fetch_assoc(selectSY($connect));
         ?>
 
 
@@ -145,6 +146,8 @@ $active = 0;
                <div class="input-field col s3" style="">
         <input id="last_name" type="text" name="last_name" pattern="[A-Za-z ]+" class="validate" value="<?=$viewStudent['last_name']?>"required>
         <label for="last_name">Middle Name</label>
+            <input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][0-9][ ][-][ ][2][0][0-9][0-9]">
+    <label for="sy" style="font-size:75%;">School Year</label>
       </div>
  
 
