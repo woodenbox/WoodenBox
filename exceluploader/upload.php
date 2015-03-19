@@ -12,7 +12,7 @@ Website URL: http://www.discussdesk.com
 
 $uploadedStatus = 0;
 
-if ( isset($_POST["submit"]) ) {
+if ( isset($_POST["upload"]) ) {
 if ( isset($_FILES["file"])) {
 //if there was an error uploading the file
 if ($_FILES["file"]["error"] > 0) {
@@ -68,7 +68,7 @@ echo "No file selected <br />";
 
 <td style="font:bold 12px tahoma, arial, sans-serif; text-align:right; padding:5px 10px 5px 0px; border-right:1px solid #eee;">Submit</td>
 
-<td width="50%" style=" padding:5px;"><input type="submit" name="submit" /></td>
+<td width="50%" style=" padding:5px;"><input type="submit" name="upload" /></td>
 
 </tr>
 
