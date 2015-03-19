@@ -326,7 +326,7 @@ else{
 <button class="btn waves-effect waves-light white blue-text text-lighten-2" type="submit" name="edit" value="Edit" style="position: relative;; left: 0%;width:100%;"  >Edit Student</button></br>
 	</div>	</form>
 <?php } else echo "</br></br></br></br></br></br></br></br>"?>
-	<img class="backup_picture z-depth-1 " src="uploads/<?=$_GET['id']?>" alt="Student Image" height="150" width="150" style="float:left;">
+	<img class="backup_picture z-depth-1 " src="uploads/<?php if($viewstudent==null) echo "imagethumbnail"; else echo $_GET['id']; ?>" alt="Student Image" height="150" width="150" style="float:left;">
 	
 	<div style="padding-top:18px;">
 	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">First Name:</label>
