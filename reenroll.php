@@ -282,7 +282,7 @@ $active = 0;
                 <?php   
             }
             ?><br><br><br>
-    <button class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');" style="position:relative;left:0%;bottom: 490px;">Enroll</button>
+    <input class="btn waves-effect waves-light green" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');" style="position:relative;left:0%;bottom: 490px;">
 
 
 
