@@ -165,7 +165,7 @@ if(!isset($header)){
 
 <tr>
 <td>Message:</td>
-<td><textarea name='message' cols='50' rows='10'></textarea></td>
+<td><textarea name='message' cols='50' rows='10' pattern="[A-Za-z .0-9]+"></textarea></td>
 </tr>
 <tr>
 <td colspan='2'><button class="btn waves-effect waves-light blue lighten-2 white-text" type='submit' name='submit' value='Send Message' />Send Message</button></td>

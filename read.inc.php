@@ -9,7 +9,7 @@ $view_msg=viewmsg($connect);
 
 	function viewmsg($connect){
 		$user = $_SESSION['username'];
-		$sql="SELECT * FROM private_messages WHERE to_user='$user'";
+		$sql="SELECT * FROM private_messages WHERE to_user='$user' LIMIT 3";
 		$return=mysqli_query($connect,$sql);
 		return $return;
 	}

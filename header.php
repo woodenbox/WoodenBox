@@ -62,9 +62,13 @@ if(!isset($header)){
 <li>
 <a href="compose.inc.php">Compose</a>
 </li>
+
 <div style="padding:5px;font-size:75%;">
 <?php include('read.inc.php'); ?>
 </div>  
+<li>
+<a href="inbox.inc.php">Read all messages</a>
+</li>
 <div class="divider"></div>
 
 

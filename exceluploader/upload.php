@@ -76,7 +76,7 @@ echo "No file selected <br />";
 
 echo "<table align='center'><tr><td  ><center>============================= <b>File Uploaded<b/> =============================================</center></td></tr>";
 
-echo "<tr><td ><center>============================= <b>Do you want to upload the data <a href='index.php'>Click Here</a> </b>========================</center></td></tr></table>";
+echo "<tr><td ><center>============================= <b>Do you want to upload the data <button href='index.php'>Click Here</button> </b>========================</center></td></tr></table>";
 
 }?>
 
