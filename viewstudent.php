@@ -337,6 +337,8 @@ else{
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['middle_name']?></label></br>
 	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">Age:</label>
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['age']?></label>
+	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">School Year:</label>
+	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['sy']?></label>
 	<label style="position: static;float:left;padding-left:10.9%;font-weight:bold;font-size:100%;">Grade:</label>
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['grade']?></label></br>
 	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">From:</label>
@@ -347,6 +349,7 @@ else{
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['academicstatus']?></label></br>
 	<label style="position: static;float:left;padding-left:2%;font-weight:bold;font-size:100%;">Payment Mode:</label>
 	<label style="position: static;float:left;padding-left:1%;font-size:100%;"><?=$viewStudent['paymentmode']?></label></br>
+
 	
 	</div><br><br></div>
 

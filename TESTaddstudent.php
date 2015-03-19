@@ -57,7 +57,7 @@
 		} else {
 			extract($_POST);
 			$imageLocation=null;
-			addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, null, null, $imageLocation, $datengayon,$sy);
+			addStudentDB($connect, $first_name, $last_name, $middle_name, $age, $grades, $fromTime, $toTime, $academicstatus, $paymentmode, null, null, $imageLocation, $datengayon, $sy);
 			$idd=mysqli_insert_id($connect);
      		copy('uploads/imagethumbnail.png', 'uploads/'.$idd);
 			if(!empty($_POST['check_list'])) {
@@ -90,14 +90,13 @@
 					addBalanceDB($connect, $idd, $arrayFeeSchedule['item'], $arrayFeeSchedule['fee'], $arrayFeeSchedule['due_date']);        
 				}
 			}
-			header('Location:viewstudent.php?id='.$idd);
-           	echo '<script> alert("Enrollment Successful");</script>';
+           echo '<script> alert("Enrollment Successful");</script>';
         }
     }
  	$header = "Add Student";
 	$header2 =  "Enroll a Student";
 	include('header.php');
-	$selectSY=mysqli_fetch_assoc(selectSY($connect));
+	$selectSY=selectSY($connect);
 ?>
 <head>
     <title>Student Enrollment</title>
@@ -124,8 +123,8 @@
     <label for="last_name" style="font-size:75%;">Last Name</label>
 	<input id="age" type="text" name="age" pattern="[0-9]+" required>
 	<label for="age" style="font-size:75%;">Age</label>
-	<input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][0-9][ ][-][ ][2][0][0-9][0-9]">
-	<label for="sy" style="font-size:75%;">School Year</label>
+	<input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][ ][-][ ][2][0][0-9][0-9]" required>
+	<label for="sy" style="font-size:75%;">Age</label>
     <p>Grade:</p>
     <select name="grades" id="grades">
 <?php
