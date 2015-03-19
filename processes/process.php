@@ -547,10 +547,11 @@ function add($date_str, $months)
 		$sql="SELECT * FROM students WHERE grade LIKE '$grade%' AND CONCAT(first_name, ' ', last_name) LIKE '%$search%'";
 		$result=mysqli_query($connect,$sql);
 		return $result;
+
 	}
 	function searchStudentsPage($connect, $page, $rows, $search, $grade){
 		$start=($page-1)*$rows;
-		$sql="SELECT * FROM students WHERE grade LIKE '$grade%' AND CONCAT(first_name, ' ', last_name) LIKE '%$search%' DESC LIMIT $start,$rows";
+		$sql="SELECT * FROM students WHERE grade LIKE '$grade%' AND CONCAT(first_name, ' ', last_name) LIKE '%$search%' LIMIT $start,$rows";
 		$result=mysqli_query($connect,$sql);
 		return $result;
 	}
