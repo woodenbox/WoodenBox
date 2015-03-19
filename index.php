@@ -125,7 +125,7 @@
 
 
 
-	<input type="text" name="specific" placeholder="Search Student Name" style="position: relative; top: 50%;" data-position="top" data-delay="50" data-tooltip="Search a student's transactions" class="tooltipped">
+	<input type="text" name="specific" pattern="[A-Za-z ]+" placeholder="Search Student Name" style="position: relative; top: 50%;" data-position="top" data-delay="50" data-tooltip="Search a student's transactions" class="tooltipped">
    </div>
 
 

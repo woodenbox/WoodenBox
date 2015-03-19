@@ -1,8 +1,8 @@
 <?php
 	session_start();
 	include('processes/process.php');
-	$header="Users";
-	$header2="Edit Users";
+	$headerr="Users";
+	$headerr2="Edit Users";
 	include('header.php');
 
 	$connect=connectDB();
