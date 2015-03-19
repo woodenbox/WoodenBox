@@ -249,7 +249,7 @@
 
 </table>
     <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');" style>Enroll</button>
-    <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Upload" onclick="location.href='upload.php'">Upload Excel</button>
+    <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Upload" onclick="location.href='exceluploader/upload.php'">Upload Excel</button>
 
 
 
