@@ -115,7 +115,7 @@
 <form method="POST" enctype="multipart/form-data" class="col s12">
 <div class="row">
 	<!-- VVVVVSENSITIVE TONG PART NA TO WAG MO MASYADO GALAWINVVVVV !-->
-	<div class="col s3 tooltipped" style="float:right;" data-position="bottom" data-delay="50" data-tooltip="Click to upload a picture">
+	<div class="col s3" style="float:right;">
     <div class="image-upload">
     	<label for="file-input">
     		<img src="uploads/imagethumbnail.png"  height="150" width="150"/>
@@ -124,34 +124,39 @@
     </div>
     </div>
 	<!-- ^^^^^ SENSITIVE TONG PART NA TO WAG MO MASYADO GALAWIN ^^^^^!-->
-	<div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's First Name">
-	<input id="first_name" type="text" name="first_name" pattern="[A-Za-z ]+"required >
+	<div class="input-field col s3">
+	<input id="first_name" type="text" name="first_name" pattern="[A-Za-z ]+"required>
 	<label for="first_name" style="font-size:75%;">First Name</label>
 	</div>
 
-	<div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Middle Name">
+	<div class="input-field col s3">
 	<input id="middle_name" type="text" name="middle_name" pattern="[A-Za-z. ]+" required>
 	<label for="middle_name" style="font-size:75%;">Middle Name</label>
 	</div>
 
-	<div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Last Name">
+	<div class="input-field col s3">
 	<input id="last_name" type="text" name="last_name" pattern="[A-Za-z ]+" required>
     <label for="last_name" style="font-size:75%;">Last Name</label>
 	</div>
 
 	<div class="row">
-		<div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Age">
+		<div class="input-field col s3">
 	<input id="age" type="text" name="age" pattern="[0-9]+" required>
 	<label for="age" style="font-size:75%;">Age</label>
 		</div>
 
+<<<<<<< HEAD
 		<div class="input-field col s3  tooltipped"  data-position="top" data-delay="50" data-tooltip="Enter school year">
 	<input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][0-9][ ][-][ ][2][0][0-9][0-9]" disabled>
+=======
+		<div class="input-field col s3">
+	<input id="sy" type="text" name="sy" value="<?=$selectSY['from']?> - <?=$selectSY['to']?>" pattern="[2][0][1-9][0-9][ ][-][ ][2][0][0-9][0-9]">
+>>>>>>> no message
 	<label for="sy" style="font-size:75%;">School Year</label>
 	</div></div>
 	<div class="divider"></div>
 <div class="row">
-	<div class="input-field col s2  tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Grade Level">
+	<div class="input-field col s2">
     <p>Grade:</p>
     <select name="grades" id="grades">
 <?php
@@ -165,7 +170,7 @@
     </select></div>
 
 
-<div class="input-field col s2  tooltipped"  data-position="top" data-delay="50" data-tooltip="Start of class">
+<div class="input-field col s2">
     <p>From:</p>
     <select name="fromTime">
 <?php
@@ -176,7 +181,7 @@
     	}
 ?>
     </select></div>
-    <div class="input-field col s2 tooltipped"  data-position="top" data-delay="50" data-tooltip="Dismissal">
+    <div class="input-field col s2">
    	<p>To:</p>
     <select name="toTime">
 <?php
@@ -190,7 +195,7 @@
     </select></div></div>
 	<div class="divider"></div>
 <div class="row">
-<div class="input-field col s3  tooltipped"  data-position="top" data-delay="50" data-tooltip="Student's Academic Status">
+<div class="input-field col s3">
 
 	<p>Academic Status:</p>
     <select name="academicstatus">
@@ -202,7 +207,7 @@
 		}
 ?>
     </select></div>
-    <div class="input-field col s3 tooltipped"  data-position="top" data-delay="50" data-tooltip="How will payment be processed">
+    <div class="input-field col s3">
 	<p>Payment Mode:</p>
     <select name="paymentmode">
 <?php
@@ -252,7 +257,8 @@
 
 </table>
     <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Enroll" onclick="return confirm('Please check details before continuing?');">Enroll</button>
-    <button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Upload" onclick="location.href='exceluploader/upload.php'">Upload Excel</button>
+<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Upload" onclick="location.href='exceluploader/upload.php'">Upload Excel</button>
+
 </div>
 
 </form>
