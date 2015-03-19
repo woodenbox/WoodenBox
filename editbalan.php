@@ -70,7 +70,10 @@
 	Penalty Count<div class="row">
 <div class="col s2"><input type="number" name="penalty_count" value="<?=$getBalance['penalty_count']?>" pattern="[0-9]+"/>
 </div></div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> no message
 
 	<button class="btn waves-effect waves-light blue lighten-2 white-text" type="submit" name="submit" value="Save">Save</button>
 
