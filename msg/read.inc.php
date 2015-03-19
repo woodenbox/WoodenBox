@@ -1,24 +1,20 @@
 <?php
 
 $user = $_SESSION['username'];
-$connect = mysql_connect("localhost","root","") or die(mysql_error());
-mysql_select_db("woodenbox_contents") or die(mysql_error());
- 
-$view_msg = mysql_query("
 
-SELECT * FROM private_messages WHERE to_user='$user'
+$view_msg=viewmsg($connect);
 
-");
 
-$asd = mysql_num_rows($view_msg);
-
-if($asd!=0) {
+	function viewmsg($connect){
+		$user = $_SESSION['username'];
+		$sql="SELECT * FROM private_messages WHERE to_user='$user'";
+		$return=mysqli_query($connect,$sql);
+		return $return;
+	}
 
 
 
-
-
-			while($rows = mysql_fetch_assoc($view_msg)) {
+			while($rows = mysqli_fetch_assoc($view_msg)) {
 				$id = $rows['id'];
 				$to_user = $rows['to_user']; 
 				?>
@@ -39,8 +35,7 @@ if($asd!=0) {
 				  <div id="messages" class="modal">
     <div class="modal-content">
 
-	
-	<?php include('msg/compose.inc.php');?>
+
 	
 	
 	
@@ -68,5 +63,5 @@ if($asd!=0) {
 	echo "";
 }
 
-}
+
 ?>

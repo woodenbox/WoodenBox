@@ -58,10 +58,19 @@ if(!isset($header)){
   </ul>
   
    <ul id='dropdown2' class='dropdown-content'>
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <li>
+<div style="padding:5px;font-size:75%;">
+<?php include('msg/read.inc.php'); ?>
+</div>  
+
+
+
+
+
+
+
+    </li>
+
   </ul>
 	  
 	 

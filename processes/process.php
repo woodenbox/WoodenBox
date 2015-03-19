@@ -276,6 +276,8 @@ function viewStudentsPage($connect, $page, $rows, $sy, $month, $grade, $specific
 		return $result;
 	}
 
+
+
 	function getPaymentModeDB($connect){
 		$sql="SELECT DISTINCT `fee_type` as mode FROM `fee_schedule`";
 		$result=mysqli_query($connect, $sql);

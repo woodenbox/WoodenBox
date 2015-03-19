@@ -6,14 +6,6 @@ $welcome = "Welcome,<b> ".$_SESSION['username']."!</b><br /><a href='messages.ph
 
 ?>
 
-<html>
-<head>
-<title>
-Private Messages
-</title>
-</head>
-<body>
-
 <?php print $welcome; ?>
 
 
@@ -38,5 +30,3 @@ Private Messages
 	
 	?>
 	
-</body>
-</html>
