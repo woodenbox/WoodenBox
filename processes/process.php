@@ -149,6 +149,12 @@ function viewStudentsPage($connect, $page, $rows, $sy, $month, $grade, $specific
 		return $result;
 	}
 
+	function getFeeScheduleOptions2($connect, $grade){
+		$sql="SELECT * FROM students WHERE `grade`='$grade'";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+
 	function getMonthlyFeeSchedule($connect, $grade){
 		$sql="SELECT * FROM fee_schedule WHERE grade='$grade' AND item!='Monthly Fee' AND fee_type='Monthly'";
 		$result=mysqli_query($connect, $sql);
