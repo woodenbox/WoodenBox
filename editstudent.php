@@ -1,6 +1,6 @@
 <?php
     session_start();
-   
+    include('header.php');
     include('processes/process.php');
     $connect = connectDB();
 
