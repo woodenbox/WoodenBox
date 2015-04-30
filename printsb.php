@@ -37,9 +37,9 @@
 
 <a style="font-family: Vrinda;"><strong>STATEMENT OF ACCOUNT</strong>
 <a style="margin-left: 105px; font-family: Vrinda;"><?php echo $viewStudent['paymentmode'];?>
-<a style="margin-left: 75px; font-family: Vrinda;">Time:<?php echo  $viewStudent['fromTime']."".$viewStudent['toTime'];?></a></a></a><br>
+<a style="margin-left: 75px; font-family: Vrinda;">Time:<?php echo  $viewStudent['fromTime']."-".$viewStudent['toTime'];?></a></a></a><br>
 
-<a style="font-family: Vrinda;"><strong>NAME OF STUDENT: <a style="margin-left: 30px;"><?php echo $viewStudent['first_name']." ".$viewStudent['middle_name']." ".$viewStudent['last_name'];?>
+<a style="font-family: Vrinda;"><strong>NAME OF STUDENT: <a style="margin-left: 30px;font-family: Vrinda;"><?php echo $viewStudent['first_name']." ".$viewStudent['middle_name']." ".$viewStudent['last_name'];?>
 <a style="margin-left: 160px; font-family: Vrinda;">LEVEL:  <?=$viewStudent['grade'];?></strong></a></a></a>
 <br>
 <br>

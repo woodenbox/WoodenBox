@@ -26,7 +26,7 @@
 	}
 
 	function getCashFlow($connect, $month, $year){
-		$sql = "SELECT * FROM fee_payment WHERE month='$month' AND year=$year AND state = 0";
+		$sql = "SELECT * FROM fee_payment WHERE month='$month' AND year=$year AND state = 0 ORDER BY payment_date";
 		$result = mysqli_query($connect, $sql);
 		return $result;
 	}
