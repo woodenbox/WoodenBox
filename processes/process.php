@@ -321,6 +321,8 @@ function add($date_str, $months)
 		return $result;
 	}
 
+	//student_id = '$id' AND balance > 0 AND due_date <='$datengaun' OR student_id='$id' AND penalty_balance > 0  AND due_date <='$datengaun' OR student_id='$id' AND penalty_balance > 0  AND due_date IS NULL OR student_id = '$id' AND balance > 0 AND due_date IS NULL
+
 	function getStudentBalancePayment($connect, $id){
 		$sql = "SELECT * FROM fee_balance WHERE student_id = '$id' AND balance > 0 AND waive = 0 OR student_id='$id' AND penalty_balance > 0 AND waive = 0";
 		$result = mysqli_query($connect, $sql);
