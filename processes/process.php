@@ -114,8 +114,8 @@
 		return $result;
 	}*/
 
-	function getFeeSchedulePrint($connect, $id){
-		$sql="SELECT * FROM fee_balance WHERE student_id = $id";
+	function getFeeSchedulePrint($connect, $paymentmode, $grade){
+		$sql="SELECT * FROM fee_schedule WHERE fee_type='$paymentmode' AND grade='$grade'";
 		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
@@ -300,6 +300,18 @@ function add($date_str, $months)
 	function updatePenalty($connect, $id, $penalty_count, $penalty, $due_date){
 		$sql = "UPDATE fee_balance SET due_date='$due_date', penalty_balance=$penalty, penalty_count=$penalty_count WHERE id='$id'";
 		$result = mysqli_query($connect, $sql);
+		return $result;
+	}
+
+	function getMonthlyFee($connect, $id){
+		$sql="SELECT * FROM `fee_balance` WHERE `student_id`=$id AND `item`='Downpayment' OR `student_id`=$id AND `item` LIKE '%Uniform%' OR `student_id`=$id AND `item`='Miscellaneous'";
+		$result=mysqli_query($connect, $sql);
+		return $result;
+	}
+
+	function getMonths($connect, $id){
+		$sql="SELECT * FROM `fee_balance` WHERE `student_id`=$id AND `item`!='Downpayment' OR `student_id`=$id AND `item`!='Miscellaneous'"; 
+		$result=mysqli_query($connect, $sql);
 		return $result;
 	}
 

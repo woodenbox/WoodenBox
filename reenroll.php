@@ -188,9 +188,9 @@
     		<input style="display: none;" id="file-input"  name="imgfile" type="file"/>
     	</div>
 		
-    	<input style="margin-left:170px;margin-top:-140px;" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z]+" value="<?=$viewStudent['first_name']?>"required/></br>
+    	<input style="margin-left:170px;margin-top:-140px;" type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z ]+" value="<?=$viewStudent['first_name']?>"required/></br>
     	<input style="margin-left:550px;margin-top:-140px;" type="text" placeholder="Last Name" name="last_name"  pattern="[A-Za-z]+" value="<?=$viewStudent['last_name']?>" required/></br>
-    	<input style="margin-left:950px;margin-top:-140px;" type="text" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z]+" value="<?=$viewStudent['middle_name']?>"/></br>
+    	<input style="margin-left:950px;margin-top:-140px;" type="text" placeholder="Middle Name" name="middle_name" pattern="[A-Za-z. ]+" value="<?=$viewStudent['middle_name']?>"/></br>
     	<input style="margin-left:170px;margin-top:-60px;" type="text" placeholder="Age" name="age" value="<?=$viewStudent['age']?>"/></br>
 		<br>
 <div class="divider"> </div><div class="divider" style="position:relative;left: 300px;top:-1px;"> </div><div class="divider" style="position:relative;left: 600px;top:-2px;"> </div>

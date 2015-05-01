@@ -7,12 +7,16 @@
 	$checkStudent = viewStudentAccount($connect, $_GET['id']);
 	$viewStudent = mysqli_fetch_assoc($checkStudent);
 
-	$getFeeSchedule=getFeeSchedulePrint($connect, $_GET['id']);
+	$getFeeSchedule=getFeeSchedulePrint($connect, $viewStudent['paymentmode'], $viewStudent['grade']);
 	$getOrigi=mysqli_fetch_assoc(getTotalOrig($connect, $_GET['id']));
 	$getAR=getARPrint($connect, $_GET['id']);
 	
 	$getSumTui=getSumTuitionPrint($connect, $_GET['id']);
 	$viewSumTui=mysqli_fetch_assoc($getSumTui);
+
+	$getMonthlyFee=mysqli_fetch_assoc(getMonthlyFee($connect, $_GET['id']));
+
+	$getMonths=getMonths($connect, $_GET['id']);
 	
 	$getARTotal = getARTotalPrint($connect, $_GET['id']);
 	$viewARTotal = mysqli_fetch_assoc($getARTotal);
@@ -41,12 +45,24 @@
 <br>
 
 <a style="font-family: Vrinda;"><strong>TOTAL FEE:</strong></a><br>
-<?php while($row = mysqli_fetch_assoc($getFeeSchedule)){
-?>	
 
-<a style="margin-left: 100px; font-family: Vrinda;"><?=$row['item']?>
-<a style="float: right; margin-right: 170px; font-family: Vrinda;"><?=$row['original_price']?></a></a><br>
-<?php	}
+<?php if($viewStudent['paymentmode']=='Monthly') { 
+		while($row = mysqli_fetch_assoc($getFeeSchedule)){
+			if($row['item']!='Monthly Fee'){ 
+?>
+				<a style="margin-left: 100px; font-family: Vrinda;"><?=$row['item']?>
+				<a style="float: right; margin-right: 170px; font-family: Vrinda;"><?=$row['fee']?></a></a><br>
+<?php 		} else { ?>
+				<a style="margin-left: 100px; font-family: Vrinda;"><?=$row['item']?>
+				<a style="float: right; margin-right: 170px; font-family: Vrinda;"><?=$row['fee']*10?></a></a><br>
+<?php }
+		} 
+	} else {
+		while($row = mysqli_fetch_assoc($getFeeSchedule)){ ?>	
+			<a style="margin-left: 100px; font-family: Vrinda;"><?=$row['item']?>
+			<a style="float: right; margin-right: 170px; font-family: Vrinda;"><?=$row['fee']?></a></a><br>
+<?php 	}
+	}
 ?>
 
 
